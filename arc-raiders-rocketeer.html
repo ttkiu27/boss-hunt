@@ -1,0 +1,999 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-HK">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>火箭兵・Rocketeer｜ARC Raiders｜BOSS 獵殺區｜硬核祝福</title>
+<meta name="description" content="BOSS 獵殺區 — ARC Raiders · 火箭兵（Rocketeer）：推進器弱點、彈幕預兆、Hornet Driver、peek-and-shoot。別人改數值，你改規則。" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Orbitron:wght@600;800&display=swap" rel="stylesheet" />
+<style>
+:root {
+  --bg: #0a0b0e;
+  --bg2: #12141a;
+  --bg3: #1a1d26;
+  --border: #2a2f3c;
+  --text: #e8e6e1;
+  --muted: #9a968c;
+  --accent: #c9a227;
+  --accent-dim: #8a7018;
+  --danger: #e04545;
+  --danger-dim: #8b2222;
+  --safe: #3dbf7a;
+  --warn: #e09a32;
+  --info: #4a9eff;
+  --phase-b: #9b6bff;
+  --radius: 12px;
+  --shadow: 0 8px 32px rgba(0,0,0,.45);
+  --font: "Noto Sans TC", "PingFang HK", "Microsoft JhengHei", sans-serif;
+  --display: "Orbitron", "Noto Sans TC", sans-serif;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.55;
+  min-height: 100vh;
+  background-image:
+    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(201,162,39,.12), transparent),
+    radial-gradient(ellipse 40% 30% at 100% 50%, rgba(74,158,255,.06), transparent),
+    linear-gradient(180deg, #0a0b0e 0%, #0d0f14 100%);
+}
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.site-header {
+  position: sticky; top: 0; z-index: 100;
+  backdrop-filter: blur(14px);
+  background: rgba(10,11,14,.85);
+  border-bottom: 1px solid var(--border);
+}
+.header-inner {
+  max-width: 1100px; margin: 0 auto;
+  padding: 12px 20px;
+  display: flex; flex-wrap: wrap; align-items: center; gap: 12px 24px;
+  justify-content: space-between;
+}
+.brand { display: flex; flex-direction: column; gap: 2px; }
+.brand-name {
+  font-family: var(--display);
+  font-weight: 800; font-size: .85rem;
+  letter-spacing: .12em; color: var(--accent);
+  text-transform: uppercase;
+}
+.brand-slogan { font-size: .75rem; color: var(--muted); }
+.back-home {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: .9rem; font-weight: 800;
+  padding: 8px 14px;
+  border: 1px solid var(--accent-dim);
+  border-radius: 999px;
+  color: var(--accent);
+  background: rgba(201,162,39,.08);
+  text-decoration: none;
+  letter-spacing: .04em;
+}
+.back-home:hover { background: rgba(201,162,39,.16); text-decoration: none; border-color: var(--accent); }
+.header-right { display: flex; flex-direction: column; align-items: flex-end; gap: 6px; }
+.page-title { font-size: 1rem; font-weight: 900; letter-spacing: .06em; }
+.page-title span { color: var(--accent); }
+.nav-mini { display: flex; gap: 6px; flex-wrap: wrap; justify-content: flex-end; }
+.nav-mini a {
+  font-size: .72rem; padding: 4px 10px;
+  border: 1px solid var(--border); border-radius: 999px;
+  color: var(--muted); text-decoration: none;
+  transition: .15s;
+}
+.nav-mini a:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
+
+.wrap { max-width: 1100px; margin: 0 auto; padding: 24px 20px 80px; }
+
+.hero {
+  display: grid; gap: 20px;
+  margin-bottom: 28px;
+  padding: 24px;
+  background: linear-gradient(135deg, var(--bg2), var(--bg3));
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  position: relative; overflow: hidden;
+}
+.hero::before {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(90deg, transparent 60%, rgba(74,158,255,.07));
+  pointer-events: none;
+}
+.hero h1 {
+  font-size: clamp(1.5rem, 4vw, 2.2rem);
+  font-weight: 900; letter-spacing: .06em;
+}
+.hero h1 em { font-style: normal; color: var(--accent); }
+.hero-sub { margin-top: 8px; font-size: .95rem; color: var(--muted); }
+.slogan-box {
+  margin-top: 14px;
+  padding: 12px 16px;
+  border-radius: 10px;
+  border: 1px solid rgba(224,69,69,.4);
+  background: rgba(224,69,69,.08);
+  font-size: 1rem; font-weight: 800;
+  color: var(--danger);
+  letter-spacing: .02em;
+}
+.meta-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+.chip {
+  font-size: .72rem; font-weight: 700;
+  padding: 4px 10px; border-radius: 6px;
+  background: var(--bg); border: 1px solid var(--border);
+  color: var(--muted); letter-spacing: .04em;
+}
+.chip.gold { color: var(--accent); border-color: var(--accent-dim); }
+.chip.red { color: var(--danger); border-color: var(--danger-dim); }
+.chip.warn { color: var(--warn); border-color: #8a5a18; }
+.chip.info { color: var(--info); border-color: #1a4a7a; }
+.chip.safe { color: var(--safe); border-color: #1a6a45; }
+
+.basics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px; margin-top: 16px;
+}
+.basic-card {
+  background: var(--bg); border: 1px solid var(--border);
+  border-radius: 10px; padding: 14px 16px;
+}
+.basic-card h3 {
+  font-size: .72rem; color: var(--accent);
+  letter-spacing: .1em; margin-bottom: 6px; font-weight: 700;
+}
+.basic-card p, .basic-card ul { font-size: .88rem; color: var(--text); }
+.basic-card ul { padding-left: 1.1em; }
+.basic-card li { margin: 4px 0; color: var(--muted); }
+.basic-card li strong { color: var(--text); }
+
+.section {
+  margin: 28px 0;
+  padding: 22px;
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  scroll-margin-top: 72px;
+}
+.section-kicker {
+  font-size: .7rem; font-weight: 800;
+  letter-spacing: .14em; color: var(--accent);
+  text-transform: uppercase; margin-bottom: 6px;
+}
+.section h2 {
+  font-size: 1.25rem; font-weight: 900;
+  letter-spacing: .04em; margin-bottom: 8px;
+}
+.section h2 em { font-style: normal; color: var(--accent); }
+.section-lead { font-size: .9rem; color: var(--muted); margin-bottom: 16px; }
+
+.route-strip {
+  display: flex; flex-wrap: wrap; gap: 8px; align-items: center;
+  margin: 0 0 18px; padding: 12px 14px;
+  background: var(--bg); border: 1px dashed var(--border);
+  border-radius: 10px; font-size: .82rem; color: var(--muted);
+}
+.route-strip .rs-step {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-weight: 700; color: var(--text);
+}
+.route-strip .rs-num {
+  font-family: var(--display); font-size: .65rem;
+  letter-spacing: .08em; color: var(--accent);
+  border: 1px solid var(--accent-dim); border-radius: 999px;
+  padding: 2px 8px;
+}
+.route-strip .rs-arrow { color: var(--accent-dim); font-weight: 900; }
+
+.path-steps { display: flex; flex-direction: column; gap: 14px; }
+.path-step {
+  display: grid; gap: 12px;
+  padding: 14px; border-radius: 10px;
+  background: var(--bg); border: 1px solid var(--border);
+  scroll-margin-top: 88px;
+}
+@media (min-width: 700px) {
+  .path-step.has-clip { grid-template-columns: 1fr 1.15fr; align-items: start; }
+}
+.path-step:target { border-color: var(--accent); box-shadow: 0 0 0 1px rgba(201,162,39,.35); }
+.path-step-num {
+  font-family: var(--display); font-size: .65rem;
+  letter-spacing: .1em; color: var(--muted); margin-bottom: 4px;
+}
+.path-step-text { font-size: .9rem; line-height: 1.5; }
+.path-step-text strong { color: var(--accent); }
+.path-step-note {
+  margin-top: 8px; font-size: .78rem;
+  padding: 8px 10px; border-radius: 6px;
+  background: rgba(61,191,122,.08); border: 1px solid rgba(61,191,122,.25);
+  color: var(--safe); font-weight: 700;
+}
+.path-step-note::before { content: "要點："; color: var(--muted); font-weight: 800; margin-right: 4px; }
+.path-step-link { margin-top: 8px; font-size: .72rem; color: var(--muted); }
+.path-step-link a { color: var(--accent); font-weight: 700; }
+
+.tips-list { padding-left: 1.2em; }
+.tips-list li { margin: 8px 0; font-size: .9rem; color: var(--muted); }
+.tips-list li strong { color: var(--text); }
+
+.move-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 14px;
+  margin: 16px 0 12px;
+}
+.move-card {
+  display: flex; flex-direction: column; gap: 8px;
+  padding: 14px; background: var(--bg);
+  border: 1px solid var(--border); border-radius: 12px;
+  scroll-margin-top: 88px;
+}
+.move-card:target {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 1px rgba(201,162,39,.35);
+}
+.move-card .mc-head {
+  display: flex; flex-wrap: wrap; gap: 8px;
+  align-items: baseline; justify-content: space-between;
+}
+.move-card .mc-name {
+  font-weight: 900; font-size: .95rem;
+  letter-spacing: .02em; color: var(--text);
+}
+.move-card .mc-phase {
+  font-size: .66rem; font-weight: 800;
+  letter-spacing: .06em; text-transform: uppercase;
+  color: var(--muted); border: 1px solid var(--border);
+  border-radius: 999px; padding: 2px 8px;
+}
+.move-card .mc-tell { font-size: .8rem; color: var(--muted); line-height: 1.45; }
+.move-card .mc-tell strong { color: var(--accent); font-weight: 800; margin-right: 4px; }
+.move-card .mc-counter {
+  font-size: .86rem; font-weight: 700; color: var(--safe);
+  line-height: 1.45; padding: 8px 10px;
+  background: rgba(61,191,122,.08);
+  border-left: 3px solid var(--safe);
+  border-radius: 0 8px 8px 0;
+}
+.move-card .mc-counter::before {
+  content: "用法："; color: var(--muted); font-weight: 800;
+  font-size: .72rem; letter-spacing: .06em; margin-right: 4px;
+}
+.move-clip {
+  position: relative; width: 100%; aspect-ratio: 16 / 9;
+  border-radius: 10px; overflow: hidden;
+  border: 1px dashed #3a4050; background: #0d0f14;
+  display: flex; align-items: center; justify-content: center;
+}
+.move-clip.is-filled {
+  border-style: solid; border-color: var(--border); background: #000;
+}
+.move-clip .clip-placeholder {
+  font-size: .78rem; font-weight: 700; color: var(--muted);
+  letter-spacing: .04em; text-align: center; padding: 12px;
+}
+.move-clip iframe, .move-clip video {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  border: 0; object-fit: contain; background: #000;
+}
+.move-card .mc-chapter { font-size: .72rem; color: var(--muted); line-height: 1.4; }
+.move-card .mc-chapter a { color: var(--accent); font-weight: 700; }
+
+.video-list { display: grid; gap: 16px; }
+.video-card {
+  background: var(--bg); border: 1px solid var(--border);
+  border-radius: 12px; padding: 14px; overflow: hidden;
+}
+.video-card h3 { font-size: .95rem; font-weight: 900; margin-bottom: 6px; }
+.video-card p { font-size: .82rem; color: var(--muted); margin-bottom: 10px; }
+.video-frame {
+  position: relative; width: 100%; aspect-ratio: 16 / 9;
+  border-radius: 10px; overflow: hidden; background: #000;
+  border: 1px solid var(--border);
+}
+.video-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.video-card .ext-links { margin-top: 8px; font-size: .78rem; }
+.video-card .ext-links a { margin-right: 12px; }
+
+.table-wrap { overflow-x: auto; margin-top: 8px; border: 1px solid var(--border); border-radius: 10px; }
+table { width: 100%; border-collapse: collapse; font-size: .88rem; }
+th, td {
+  text-align: left; padding: 10px 12px;
+  border-bottom: 1px solid var(--border); vertical-align: top;
+}
+th {
+  font-size: .72rem; letter-spacing: .08em;
+  color: var(--accent); font-weight: 800;
+  text-transform: uppercase; background: var(--bg3);
+}
+td { color: var(--muted); }
+td strong { color: var(--text); font-weight: 700; }
+td.dont { color: var(--danger); }
+tr:last-child td { border-bottom: none; }
+tr:hover td { background: rgba(255,255,255,.02); }
+
+.mistake-list { padding-left: 1.2em; }
+.mistake-list li {
+  margin: 8px 0; font-size: .9rem; color: var(--danger);
+  font-weight: 600;
+}
+.mistake-list li span { color: var(--muted); font-weight: 500; }
+
+.site-footer {
+  text-align: center; padding: 24px 20px 40px;
+  font-size: .72rem; color: var(--muted);
+}
+</style>
+<link rel="stylesheet" href="assets/vote-widget.css" />
+<link rel="stylesheet" href="assets/feedback-form.css" />
+<link rel="stylesheet" href="assets/age-gate.css" />
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <div class="brand">
+      <a class="back-home" href="index.html#arc-raiders">← 返回獵殺區</a>
+      <div class="brand-name" style="margin-top:8px">硬核祝福</div>
+      <div class="brand-slogan">別人改數值，你改規則。</div>
+    </div>
+    <div class="header-right">
+      <div class="page-title">ARC Raiders · <span>火箭兵</span></div>
+      <nav class="nav-mini" aria-label="本頁錨點">
+        <a href="#flow">流程</a>
+        <a href="#gear">裝備</a>
+        <a href="#shortcuts">捷徑</a>
+        <a href="#locations">刷新</a>
+        <a href="#moves">短卡</a>
+        <a href="#videos">片源</a>
+        <a href="#mistakes">常見錯</a>
+        <a href="#disputed">爭議</a>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  
+  <div data-boss-vote data-vote-slug="arc-raiders-rocketeer"></div>
+<section class="hero" aria-labelledby="hero-title">
+    <div>
+      <h1 id="hero-title">火箭兵 · <em>Rocketeer</em></h1>
+      <p class="hero-sub">飛行重甲 ARC · 推進器弱點 · 黃→紅激光彈幕 · Heavy／Hornet Driver</p>
+      <div class="slogan-box">先掩體，再打推進器——開闊地硬剛＝送命</div>
+      <div class="meta-row">
+        <span class="chip gold">ARC Raiders</span>
+        <span class="chip red">飛行砲兵</span>
+        <span class="chip warn">弱點：推進器</span>
+        <span class="chip info">Heavy 彈藥</span>
+      </div>
+      <div class="basics-grid">
+        <div class="basic-card">
+          <h3>弱點</h3>
+          <ul>
+            <li>四個<strong>推進器（Thrusters）</strong></li>
+            <li>毀<strong>其中兩個</strong>即墜機</li>
+            <li>優先集火<strong>同側／正面一對</strong>（見 <a href="#disputed">#disputed</a>）</li>
+          </ul>
+        </div>
+        <div class="basic-card">
+          <h3>彈幕預兆</h3>
+          <ul>
+            <li>四道<strong>黃激光</strong>對齊</li>
+            <li>變<strong>紅</strong>＝即將發射 1–4 枚導彈</li>
+            <li>立刻斷視線／翻滾入屋（濺射可穿門口）</li>
+          </ul>
+        </div>
+        <div class="basic-card">
+          <h3>彈藥</h3>
+          <ul>
+            <li>優先 <strong>Heavy</strong>（Anvil／Ferro／Bettina）</li>
+            <li>或發射器（<strong>Hullcracker</strong>）</li>
+            <li>輕／中彈穿甲差</li>
+          </ul>
+        </div>
+        <div class="basic-card">
+          <h3>掉落</h3>
+          <p>固有掉落 <strong>火箭兵驅動器（Rocketeer Driver）</strong>；常 farm Dam Testing Annex／Ruby Residences。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== #flow ========== -->
+  <section class="section" id="flow" aria-labelledby="flow-title">
+    <div class="section-kicker">KILL FLOW</div>
+    <h2 id="flow-title">標準<em>擊殺流程</em></h2>
+    <p class="section-lead">入掩體 → 集火推進器 → 見黃紅激光即斷視線 → 墜地後補槍至燒毀。短片已鎖秒；完整片喺 <a href="#videos">#videos</a>。</p>
+
+    <div class="route-strip" aria-label="擊殺四步">
+      <span class="rs-step"><span class="rs-num">01</span>入掩體</span>
+      <span class="rs-arrow">→</span>
+      <span class="rs-step"><span class="rs-num">02</span>打推進器</span>
+      <span class="rs-arrow">→</span>
+      <span class="rs-step"><span class="rs-num">03</span>躲彈幕</span>
+      <span class="rs-arrow">→</span>
+      <span class="rs-step"><span class="rs-num">04</span>墜地補槍</span>
+    </div>
+
+    <div class="path-steps">
+
+      <article class="path-step has-clip" id="step-cover">
+        <div>
+          <div class="path-step-num">STEP 01 · COVER</div>
+          <p class="path-step-text">入<strong>多門窗建築</strong>或堅固掩體。<strong>唔好喺開闊地硬剛</strong>。留意 aggro／視線距離同盲區，再開始 peek。</p>
+          <p class="path-step-note">先入屋／掩體，再開槍</p>
+          <p class="path-step-link">走位片 67–182s：<a href="https://www.youtube.com/watch?v=GeS5mNekPgw&amp;t=67s" target="_blank" rel="noopener noreferrer">GeS5mNekPgw @ 67s →</a></p>
+        </div>
+        <div class="move-clip"
+             data-yt-id="GeS5mNekPgw"
+             data-yt-start="67"
+             data-yt-end="182"
+             data-clip-src="">
+          <span class="clip-placeholder">短片待嵌</span>
+        </div>
+      </article>
+
+      <article class="path-step has-clip" id="step-thrusters">
+        <div>
+          <div class="path-step-num">STEP 02 · THRUSTERS</div>
+          <p class="path-step-text">主打四個<strong>推進器</strong>；毀兩個即墜。優先集火<strong>同側／正面一對</strong>（較穩）。機體装甲傷極低——唔好狂打機身。</p>
+          <p class="path-step-note">眼部／紅核唔當唯一弱點；以推進器為準</p>
+          <p class="path-step-link">神話澄清 335–450s：<a href="https://www.youtube.com/watch?v=0YJZ9HsUeE4&amp;t=335s" target="_blank" rel="noopener noreferrer">0YJZ9HsUeE4 @ 335s →</a></p>
+        </div>
+        <div class="move-clip"
+             data-yt-id="0YJZ9HsUeE4"
+             data-yt-start="335"
+             data-yt-end="450"
+             data-clip-src="">
+          <span class="clip-placeholder">短片待嵌</span>
+        </div>
+      </article>
+
+      <article class="path-step has-clip" id="step-barrage">
+        <div>
+          <div class="path-step-num">STEP 03 · BARRAGE</div>
+          <p class="path-step-text">見<strong>黃激光</strong>對齊變<strong>紅</strong>＝導彈即將發射。即<strong>斷視線／翻滾入屋</strong>；濺射可穿過門口，要退入屋內。</p>
+          <p class="path-step-note">黃→紅即縮；關門防濺射</p>
+          <p class="path-step-link">dodge 183–324s：<a href="https://www.youtube.com/watch?v=GeS5mNekPgw&amp;t=183s" target="_blank" rel="noopener noreferrer">GeS5mNekPgw @ 183s →</a></p>
+        </div>
+        <div class="move-clip"
+             data-yt-id="GeS5mNekPgw"
+             data-yt-start="183"
+             data-yt-end="324"
+             data-clip-src="">
+          <span class="clip-placeholder">短片待嵌</span>
+        </div>
+      </article>
+
+      <article class="path-step has-clip" id="step-finish">
+        <div>
+          <div class="path-step-num">STEP 04 · FINISH</div>
+          <p class="path-step-text">墜地後<strong>繼續補槍</strong>至燒毀。補丁後落地<strong>唔一定秒殺</strong>——打殘餘推進器／機體。可 peek-and-shoot：每次 1–2 發即縮。</p>
+          <p class="path-step-note">墜地≠即死；補到燒毀先算完</p>
+          <p class="path-step-link">反打 341–494s：<a href="https://www.youtube.com/watch?v=GeS5mNekPgw&amp;t=341s" target="_blank" rel="noopener noreferrer">GeS5mNekPgw @ 341s →</a></p>
+        </div>
+        <div class="move-clip"
+             data-yt-id="GeS5mNekPgw"
+             data-yt-start="341"
+             data-yt-end="494"
+             data-clip-src="">
+          <span class="clip-placeholder">短片待嵌</span>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ========== #gear ========== -->
+  <section class="section" id="gear" aria-labelledby="gear-title">
+    <div class="section-kicker">GEAR</div>
+    <h2 id="gear-title">裝備<em>速查</em></h2>
+    <p class="section-lead">優先高 ARC Armor Penetration 嘅重彈槍；輕彈穿甲差。武器對照片見右側卡。</p>
+
+    <div class="path-steps" style="margin-bottom:16px">
+      <article class="path-step has-clip" id="gear-weapons-clip">
+        <div>
+          <div class="path-step-num">WEAPONS · ANVIL VS RENEGADE</div>
+          <p class="path-step-text">FireSpark81 拆神話：<strong>Anvil</strong> 穿甲優於 Renegade；發數唔等於效率。預算用 <strong>Ferro＋重彈</strong>；高效用 Anvil／Bettina／Hullcracker。</p>
+          <p class="path-step-note">優先高穿甲重彈，唔好跟榜亂換輕穿甲槍</p>
+          <p class="path-step-link">武器段 182–334s：<a href="https://www.youtube.com/watch?v=0YJZ9HsUeE4&amp;t=182s" target="_blank" rel="noopener noreferrer">0YJZ9HsUeE4 @ 182s →</a></p>
+        </div>
+        <div class="move-clip"
+             data-yt-id="0YJZ9HsUeE4"
+             data-yt-start="182"
+             data-yt-end="334"
+             data-clip-src="">
+          <span class="clip-placeholder">短片待嵌</span>
+        </div>
+      </article>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>用途</th>
+            <th>常見推薦</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>預算主槍</strong></td>
+            <td>Ferro I＋重彈（約 40–50 發）</td>
+          </tr>
+          <tr>
+            <td><strong>高效主槍</strong></td>
+            <td>Anvil、Bettina、Hullcracker</td>
+          </tr>
+          <tr>
+            <td><strong>控場／墜地</strong></td>
+            <td>Hornet Driver、Showstopper</td>
+          </tr>
+          <tr>
+            <td><strong>爆發</strong></td>
+            <td>Wolfpack（清附近黃蜂／虎頭蜂先，免鎖錯）</td>
+          </tr>
+          <tr>
+            <td><strong>騎乘／貼雷</strong></td>
+            <td>Snap Hook＋Snap Blast；Showstopper 落地後爬上</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ========== #shortcuts ========== -->
+  <section class="section" id="shortcuts" aria-labelledby="shortcuts-title">
+    <div class="section-kicker">SHORTCUTS</div>
+    <h2 id="shortcuts-title">捷徑<em>道具</em></h2>
+    <p class="section-lead">現 meta 主推 <strong>Hornet Driver</strong>（成本低）；Showstopper 短暫落地；Wolfpack 幾乎秒殺但貴。道具對照片 451–708s。</p>
+
+    <div class="path-steps" style="margin-bottom:16px">
+      <article class="path-step has-clip" id="step-items-meta">
+        <div>
+          <div class="path-step-num">ITEMS · HORNET / SHOWSTOPPER / WOLFPACK</div>
+          <p class="path-step-text">Showstopper vs Hornet Driver 實測對照；更新後 Wolfpack 製作成本升高（要 Rocketeer Driver）。日常 farm 用 Hornet／Ferro 較划算。</p>
+          <p class="path-step-note">有錢趕時間用 Wolfpack；日常用 Hornet</p>
+          <p class="path-step-link">道具段 451–708s：<a href="https://www.youtube.com/watch?v=0YJZ9HsUeE4&amp;t=451s" target="_blank" rel="noopener noreferrer">0YJZ9HsUeE4 @ 451s →</a></p>
+        </div>
+        <div class="move-clip"
+             data-yt-id="0YJZ9HsUeE4"
+             data-yt-start="451"
+             data-yt-end="708"
+             data-clip-src="">
+          <span class="clip-placeholder">短片待嵌</span>
+        </div>
+      </article>
+    </div>
+
+    <div class="basics-grid">
+      <div class="basic-card">
+        <h3>Hornet Driver（主推）</h3>
+        <ul>
+          <li>約 20–30 m，由前方拋到機體上方</li>
+          <li>電暈兩推進器令其墜地</li>
+          <li>成本較低、近期影片主推</li>
+        </ul>
+      </div>
+      <div class="basic-card">
+        <h3>Showstopper</h3>
+        <ul>
+          <li>打中推進器可短暫落地</li>
+          <li>方便貼雷／騎乘</li>
+        </ul>
+      </div>
+      <div class="basic-card">
+        <h3>Wolfpack（成本高）</h3>
+        <ul>
+          <li>幾乎秒殺</li>
+          <li>更新後製作要 Rocketeer Driver</li>
+          <li>性價比有爭議（見 <a href="#disputed">#disputed</a>）</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== #locations ========== -->
+  <section class="section" id="locations" aria-labelledby="locations-title">
+    <div class="section-kicker">LOCATIONS · FARM</div>
+    <h2 id="locations-title">常見<em>刷新</em></h2>
+    <p class="section-lead">以 Dam／Spaceport／Blue Gate／Buried City 為準。唔寫未核實嘅 Stella Montis 肯定句。</p>
+
+    <div class="path-steps" style="margin-bottom:16px">
+      <article class="path-step has-clip" id="step-farm">
+        <div>
+          <div class="path-step-num">FARM · DRIVER</div>
+          <p class="path-step-text">安全位／Farm 驅動器段。固有掉落 <strong>Rocketeer Driver</strong>；可唔打淨 farm（視任務）。</p>
+          <p class="path-step-note">Dam Testing Annex／Ruby Residences 較常提到</p>
+          <p class="path-step-link">Farm 709s→：<a href="https://www.youtube.com/watch?v=0YJZ9HsUeE4&amp;t=709s" target="_blank" rel="noopener noreferrer">0YJZ9HsUeE4 @ 709s →</a></p>
+        </div>
+        <div class="move-clip"
+             data-yt-id="0YJZ9HsUeE4"
+             data-yt-start="709"
+             data-yt-end=""
+             data-clip-src="">
+          <span class="clip-placeholder">短片待嵌</span>
+        </div>
+      </article>
+    </div>
+
+    <div class="basics-grid">
+      <div class="basic-card">
+        <h3>Dam Battlegrounds</h3>
+        <p><strong>Testing Annex</strong>／<strong>Ruby Residences</strong> 一帶較常提到。</p>
+      </div>
+      <div class="basic-card">
+        <h3>其他開闊圖</h3>
+        <ul>
+          <li>Spaceport（太空港）</li>
+          <li>Blue Gate（藍色大門）</li>
+          <li>Buried City（埋藏都市）</li>
+        </ul>
+      </div>
+      <div class="basic-card">
+        <h3>圖鑑／追蹤</h3>
+        <ul>
+          <li><a href="https://arcraiders.wiki/wiki/Rocketeer" target="_blank" rel="noopener noreferrer">Wiki Rocketeer →</a></li>
+          <li><a href="https://arctracker.io/zh-TW/arc/rocketeer" target="_blank" rel="noopener noreferrer">ARC Tracker →</a></li>
+          <li><a href="https://gamer-guides.com/arc-raiders/how-to-kill-rocketeer/" target="_blank" rel="noopener noreferrer">How To Kill →</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== #moves ========== -->
+  <section class="section" id="moves" aria-labelledby="moves-title">
+    <div class="section-kicker">MOVES · CLIP CARDS</div>
+    <h2 id="moves-title">短卡 · <em>Hornet／短示範</em></h2>
+    <p class="section-lead">捷徑同短示範鎖秒卡。完整長片見 <a href="#videos">#videos</a>。</p>
+
+    <div class="move-cards">
+
+      <article class="move-card" id="move-hornet-iko">
+        <div class="mc-head">
+          <h3 class="mc-name">Hornet Driver 最快墜地</h3>
+          <span class="mc-phase">捷徑</span>
+        </div>
+        <p class="mc-tell"><strong>Tell</strong>IKONation · 更新後推 Hornet 電兩推進器</p>
+        <p class="mc-counter">整段示範 0–78s；前方拋上機體</p>
+        <div class="move-clip"
+             data-yt-id="FdF2AOH5Kqg"
+             data-yt-start="0"
+             data-yt-end="78"
+             data-clip-src="">
+          <span class="clip-placeholder">短片待嵌</span>
+        </div>
+        <p class="mc-chapter">YouTube 0–78s：<a href="https://www.youtube.com/watch?v=FdF2AOH5Kqg" target="_blank" rel="noopener noreferrer">FdF2AOH5Kqg →</a></p>
+      </article>
+
+      <article class="move-card" id="move-hornet-eg">
+        <div class="mc-head">
+          <h3 class="mc-name">Hornet 拋投距離</h3>
+          <span class="mc-phase">捷徑</span>
+        </div>
+        <p class="mc-tell"><strong>Tell</strong>Evil Geniuses · 約 20–30 m 前方拋上</p>
+        <p class="mc-counter">瞄推進器上方；短示範 0–99s</p>
+        <div class="move-clip"
+             data-yt-id="nFkI-0ymUD4"
+             data-yt-start="0"
+             data-yt-end="99"
+             data-clip-src="">
+          <span class="clip-placeholder">短片待嵌</span>
+        </div>
+        <p class="mc-chapter">YouTube 0–99s：<a href="https://www.youtube.com/watch?v=nFkI-0ymUD4" target="_blank" rel="noopener noreferrer">nFkI-0ymUD4 →</a></p>
+      </article>
+
+      <article class="move-card" id="move-solo-segment">
+        <div class="mc-head">
+          <h3 class="mc-name">Solo 全 ARC · Rocketeer 段</h3>
+          <span class="mc-phase">常規</span>
+        </div>
+        <p class="mc-tell"><strong>Tell</strong>MrAtomicDuck · 章節 Rocketeer</p>
+        <p class="mc-counter">peek-and-shoot 常規槍戰參考</p>
+        <div class="move-clip"
+             data-yt-id="uKFYdqalHXg"
+             data-yt-start="206"
+             data-yt-end="328"
+             data-clip-src="">
+          <span class="clip-placeholder">短片待嵌</span>
+        </div>
+        <p class="mc-chapter">YouTube 206–328s：<a href="https://www.youtube.com/watch?v=uKFYdqalHXg&amp;t=206s" target="_blank" rel="noopener noreferrer">206s →</a></p>
+      </article>
+
+      <article class="move-card" id="move-markpoint">
+        <div class="mc-head">
+          <h3 class="mc-name">打爆兩推進器 · 短示範</h3>
+          <span class="mc-phase">短片</span>
+        </div>
+        <p class="mc-tell"><strong>Tell</strong>MarkPoint · 提 Wolfpack／Hullcracker</p>
+        <p class="mc-counter">整段 0–28s</p>
+        <div class="move-clip"
+             data-yt-id="jesOSWWnTMc"
+             data-yt-start="0"
+             data-yt-end="28"
+             data-clip-src="">
+          <span class="clip-placeholder">短片待嵌</span>
+        </div>
+        <p class="mc-chapter">YouTube 0–28s：<a href="https://www.youtube.com/watch?v=jesOSWWnTMc" target="_blank" rel="noopener noreferrer">jesOSWWnTMc →</a></p>
+      </article>
+
+      <article class="move-card" id="move-paid2">
+        <div class="mc-head">
+          <h3 class="mc-name">快速擊殺短片</h3>
+          <span class="mc-phase">短片</span>
+        </div>
+        <p class="mc-tell"><strong>Tell</strong>PAID2BFAMOUS · 快速擊殺向</p>
+        <p class="mc-counter">整段 0–32s</p>
+        <div class="move-clip"
+             data-yt-id="8zJtCHqDuPc"
+             data-yt-start="0"
+             data-yt-end="32"
+             data-clip-src="">
+          <span class="clip-placeholder">短片待嵌</span>
+        </div>
+        <p class="mc-chapter">YouTube 0–32s：<a href="https://www.youtube.com/watch?v=8zJtCHqDuPc" target="_blank" rel="noopener noreferrer">8zJtCHqDuPc →</a></p>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ========== #videos ========== -->
+  <section class="section" id="videos" aria-labelledby="videos-title">
+    <div class="section-kicker">VIDEOS</div>
+    <h2 id="videos-title">主片<em>列表</em></h2>
+    <p class="section-lead">YouTube nocookie 全嵌；B 站只外連（無公開精確 Rocketeer 專章秒數）。短卡時間窗喺 <a href="#flow">#flow</a>／<a href="#moves">#moves</a>。</p>
+
+    <div class="video-list">
+      <article class="video-card">
+        <h3>Busting Rocketeer Myths · FireSpark81</h3>
+        <p>0YJZ9HsUeE4 · 弱點／武器／道具／Farm（鎖秒卡已拆）</p>
+        <div class="video-frame">
+          <iframe
+            src="https://www.youtube-nocookie.com/embed/0YJZ9HsUeE4?rel=0"
+            title="FireSpark81 Rocketeer Myths"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+            loading="lazy"></iframe>
+        </div>
+        <p class="ext-links"><a href="https://www.youtube.com/watch?v=0YJZ9HsUeE4" target="_blank" rel="noopener noreferrer">YouTube 外連 →</a></p>
+      </article>
+
+      <article class="video-card">
+        <h3>Hornet Driver 最快墜地 · IKONation</h3>
+        <p>FdF2AOH5Kqg · 全長約 78s</p>
+        <div class="video-frame">
+          <iframe
+            src="https://www.youtube-nocookie.com/embed/FdF2AOH5Kqg?rel=0"
+            title="IKONation Hornet Driver"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+            loading="lazy"></iframe>
+        </div>
+        <p class="ext-links"><a href="https://www.youtube.com/watch?v=FdF2AOH5Kqg" target="_blank" rel="noopener noreferrer">YouTube 外連 →</a></p>
+      </article>
+
+      <article class="video-card">
+        <h3>Hornet Driver 短示範 · Evil Geniuses</h3>
+        <p>nFkI-0ymUD4 · 約 20–30 m 拋投 · 全長約 99s</p>
+        <div class="video-frame">
+          <iframe
+            src="https://www.youtube-nocookie.com/embed/nFkI-0ymUD4?rel=0"
+            title="Evil Geniuses Hornet Driver"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+            loading="lazy"></iframe>
+        </div>
+        <p class="ext-links"><a href="https://www.youtube.com/watch?v=nFkI-0ymUD4" target="_blank" rel="noopener noreferrer">YouTube 外連 →</a></p>
+      </article>
+
+      <article class="video-card">
+        <h3>Rocketeer Guide · BluePawClaw</h3>
+        <p>GeS5mNekPgw · aggro／dodge／反打（鎖秒卡已拆）</p>
+        <div class="video-frame">
+          <iframe
+            src="https://www.youtube-nocookie.com/embed/GeS5mNekPgw?rel=0"
+            title="BluePawClaw Rocketeer Guide"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+            loading="lazy"></iframe>
+        </div>
+        <p class="ext-links"><a href="https://www.youtube.com/watch?v=GeS5mNekPgw" target="_blank" rel="noopener noreferrer">YouTube 外連 →</a></p>
+      </article>
+
+      <article class="video-card">
+        <h3>How To EASILY Defeat a Rocketeer · MarkPoint</h3>
+        <p>jesOSWWnTMc · 短片打爆兩推進器</p>
+        <div class="video-frame">
+          <iframe
+            src="https://www.youtube-nocookie.com/embed/jesOSWWnTMc?rel=0"
+            title="MarkPoint Easy Defeat"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+            loading="lazy"></iframe>
+        </div>
+        <p class="ext-links"><a href="https://www.youtube.com/watch?v=jesOSWWnTMc" target="_blank" rel="noopener noreferrer">YouTube 外連 →</a></p>
+      </article>
+    </div>
+
+    <div class="basics-grid" style="margin-top:16px">
+      <div class="basic-card">
+        <h3>Bilibili 外連（唔嵌）</h3>
+        <ul>
+          <li><a href="https://www.bilibili.com/video/BV14iQDBHEf4/" target="_blank" rel="noopener noreferrer">BV14iQDBHEf4 · 全敵人弱點總覽（中配）→</a></li>
+          <li><a href="https://www.bilibili.com/video/BV18KBJBeE2A/" target="_blank" rel="noopener noreferrer">BV18KBJBeE2A · 精英 ARC 簡化 →</a></li>
+        </ul>
+        <p style="margin-top:8px;font-size:.82rem;color:var(--muted)">無人手公開 Rocketeer 專章秒數；請片內自跳。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== #mistakes ========== -->
+  <section class="section" id="mistakes" aria-labelledby="mistakes-title">
+    <div class="section-kicker">MISTAKES</div>
+    <h2 id="mistakes-title">常見<em>錯</em></h2>
+    <ul class="mistake-list">
+      <li>開闊地硬剛火箭兵 → <span>先入建築／堅固掩體</span></li>
+      <li>狂打機身装甲 → <span>傷極低；主打推進器</span></li>
+      <li>見黃紅激光仲企門口 peek → <span>濺射可穿門口，要退入屋</span></li>
+      <li>墜地以為即死就收槍 → <span>補丁後常要補槍至燒毀</span></li>
+      <li>單靠「紅色核心／眼部」當唯一弱點 → <span>以推進器為準</span></li>
+      <li>日常 farm 狂燒 Wolfpack → <span>成本高；平常用 Hornet／Ferro</span></li>
+      <li>用低穿甲槍（如 Renegade）硬磨 → <span>優先高 ARC Armor Penetration 重彈</span></li>
+    </ul>
+  </section>
+
+  <!-- ========== #disputed ========== -->
+  <section class="section" id="disputed" aria-labelledby="disputed-title">
+    <div class="section-kicker">DISPUTED</div>
+    <h2 id="disputed-title">衝突／未定<em>資訊</em></h2>
+    <p class="section-lead">多源有出入；頁內「建議」欄跟核實稿。版本會改數值，以遊戲內補丁同主 wiki 為準。</p>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>議題</th>
+            <th>說法 A</th>
+            <th>說法 B</th>
+            <th>建議</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>兩個推進器要唔要同側</strong></td>
+            <td>必須同側兩推進器先墜</td>
+            <td>摧毀任意兩個即墜</td>
+            <td>實戰優先集火<strong>同一側／正面一對</strong>，較穩</td>
+          </tr>
+          <tr>
+            <td><strong>發光紅色核心</strong></td>
+            <td>胸口／下方核心係弱點</td>
+            <td>主 wiki 無列；部分標未核實</td>
+            <td>以推進器為主；核心當加分，唔好單靠</td>
+          </tr>
+          <tr>
+            <td><strong>墜地是否即死</strong></td>
+            <td>早期高空墜落可秒殺</td>
+            <td>補丁後碰撞傷降低，常要補槍</td>
+            <td>墜地後繼續打至燒毀</td>
+          </tr>
+          <tr>
+            <td><strong>Wolfpack 是否最佳</strong></td>
+            <td>舊 meta 一雷近秒殺</td>
+            <td>更新後成本高；影片改推 Hornet</td>
+            <td>趕時間用 Wolfpack；日常用 Hornet／Ferro</td>
+          </tr>
+          <tr>
+            <td><strong>最佳武器</strong></td>
+            <td>Anvil／Ferro／Hullcracker／Bettina</td>
+            <td>部分榜列 Renegade／Osprey</td>
+            <td>優先<strong>高穿甲重彈</strong>；Renegade 穿甲較弱</td>
+          </tr>
+          <tr>
+            <td><strong>Stella Montis 有無刷新</strong></td>
+            <td>多數圖有，除 Stella Montis</td>
+            <td>其他追蹤器未統一</td>
+            <td>以 Dam／Spaceport／Blue Gate／Buried City 為準</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+
+  <section class="feedback" id="feedback" data-netlify-feedback aria-labelledby="feedback-title">
+    <div class="feedback-head">
+      <h2 id="feedback-title">留下<em>意見</em>俾網主</h2>
+      <span class="feedback-badge">真係會送到</span>
+    </div>
+    <p class="feedback-lead">招式唔清楚、想加邊個 Boss、有錯漏——丢句說話。留言經 Netlify Forms 直達網主信箱／後台，唔再只係本機保存。</p>
+
+    <div class="feedback-thanks" data-feedback-thanks role="status" aria-live="polite" hidden>
+      <h3>收到，多謝硬核祝福！</h3>
+      <p>你嘅意見已送出俾網主。想再講可以繼續填。</p>
+      <button type="button" class="feedback-secondary" data-feedback-again>再留一句</button>
+    </div>
+
+    <form class="feedback-form" name="boss-hunt-feedback" method="POST" action="/" data-netlify="true" netlify netlify-honeypot="bot-field" data-boss-feedback>
+      <input type="hidden" name="form-name" value="boss-hunt-feedback" />
+      <input type="hidden" name="page" value="arc-raiders-rocketeer.html · ARC Raiders｜火箭兵" />
+      <p class="feedback-honeypot" aria-hidden="true">
+        <label>唔好填呢格 <input type="text" name="bot-field" tabindex="-1" autocomplete="off" /></label>
+      </p>
+      <div class="feedback-field">
+        <label for="fb-name-arc-raiders-rocketeer">暱稱 <span class="opt">（可選）</span></label>
+        <input type="text" id="fb-name-arc-raiders-rocketeer" name="name" maxlength="80" placeholder="例如：狼忍新手" autocomplete="nickname" />
+      </div>
+      <div class="feedback-field">
+        <label for="fb-contact-arc-raiders-rocketeer">聯絡 <span class="opt">（可選）</span></label>
+        <input type="text" id="fb-contact-arc-raiders-rocketeer" name="contact" maxlength="120" placeholder="電郵／Discord（方便回覆）" autocomplete="email" />
+      </div>
+      <div class="feedback-field">
+        <label for="fb-msg-arc-raiders-rocketeer">意見 <span class="opt">（必填）</span></label>
+        <textarea id="fb-msg-arc-raiders-rocketeer" name="message" maxlength="4000" required rows="4" placeholder="想講咩就寫低…"></textarea>
+      </div>
+      <div class="feedback-actions">
+        <button type="submit" class="feedback-submit">送出意見</button>
+      </div>
+      <p class="feedback-note">送出後網主喺 Netlify → Forms 收到。唔填一樣睇晒全頁。</p>
+      <div class="feedback-status" data-feedback-status role="status" aria-live="polite"></div>
+    </form>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  硬核祝福 · BOSS 獵殺區 · ARC Raiders · 火箭兵 · 唔教修改器／外掛
+</footer>
+
+<script>
+(function () {
+  function hydrateMoveClips() {
+    document.querySelectorAll('.move-clip').forEach(function (slot) {
+      var clipSrc = (slot.getAttribute('data-clip-src') || '').trim();
+      var ytId = (slot.getAttribute('data-yt-id') || '').trim();
+      var ytStart = (slot.getAttribute('data-yt-start') || '').trim();
+      var ytEnd = (slot.getAttribute('data-yt-end') || '').trim();
+      /* start="0" is valid; only skip when start attribute is empty AND no clip */
+      if (!clipSrc && ytStart === '') return;
+      slot.classList.add('is-filled');
+      slot.innerHTML = '';
+      if (clipSrc) {
+        var v = document.createElement('video');
+        v.src = clipSrc;
+        v.controls = true;
+        v.playsInline = true;
+        v.preload = 'metadata';
+        slot.appendChild(v);
+        return;
+      }
+      if (!ytId) return;
+      var params = ['start=' + encodeURIComponent(ytStart)];
+      if (ytEnd) params.push('end=' + encodeURIComponent(ytEnd));
+      params.push('rel=0');
+      var ifr = document.createElement('iframe');
+      ifr.src = 'https://www.youtube-nocookie.com/embed/' + encodeURIComponent(ytId) + '?' + params.join('&');
+      ifr.title = '招式／步驟短片';
+      ifr.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+      ifr.allowFullscreen = true;
+      ifr.loading = 'lazy';
+      slot.appendChild(ifr);
+    });
+  }
+  hydrateMoveClips();
+})();
+</script>
+
+<script src="assets/vote-widget.js" defer></script>
+<script src="assets/feedback-form.js" defer></script>
+<script src="assets/age-gate.js" defer></script>
+</body>
+</html>

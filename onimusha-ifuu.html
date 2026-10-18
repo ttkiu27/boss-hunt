@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-HK">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>畏風｜鬼武者 劍之道｜BOSS 獵殺區｜硬核祝福</title>
+<meta name="description" content="BOSS 獵殺區 — 鬼武者：劍之道 · 畏風（Ifuu）。近彈遠返、藍抓閃、P2 射背囊。" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Orbitron:wght@600;800&display=swap" rel="stylesheet" />
+<style>
+:root {
+  --bg: #0a0b0e;
+  --bg2: #12141a;
+  --bg3: #1a1d26;
+  --border: #2a2f3c;
+  --text: #e8e6e1;
+  --muted: #9a968c;
+  --accent: #c9a227;
+  --accent-dim: #8a7018;
+  --danger: #e04545;
+  --danger-dim: #8b2222;
+  --safe: #3dbf7a;
+  --warn: #e09a32;
+  --info: #4a9eff;
+  --phase-b: #9b6bff;
+  --radius: 12px;
+  --shadow: 0 8px 32px rgba(0,0,0,.45);
+  --font: "Noto Sans TC", "PingFang HK", "Microsoft JhengHei", sans-serif;
+  --display: "Orbitron", "Noto Sans TC", sans-serif;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.55;
+  min-height: 100vh;
+  background-image:
+    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(201,162,39,.12), transparent),
+    radial-gradient(ellipse 40% 30% at 100% 50%, rgba(224,69,69,.06), transparent),
+    linear-gradient(180deg, #0a0b0e 0%, #0d0f14 100%);
+}
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.site-header {
+  position: sticky; top: 0; z-index: 100;
+  backdrop-filter: blur(14px);
+  background: rgba(10,11,14,.85);
+  border-bottom: 1px solid var(--border);
+}
+.header-inner {
+  max-width: 1100px; margin: 0 auto;
+  padding: 12px 20px;
+  display: flex; flex-wrap: wrap; align-items: center; gap: 12px 24px;
+  justify-content: space-between;
+}
+.brand { display: flex; flex-direction: column; gap: 2px; }
+.brand-name {
+  font-family: var(--display);
+  font-weight: 800; font-size: .85rem;
+  letter-spacing: .12em; color: var(--accent);
+  text-transform: uppercase;
+}
+.brand-slogan { font-size: .75rem; color: var(--muted); }
+.back-home {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: .9rem; font-weight: 800;
+  padding: 8px 14px;
+  border: 1px solid var(--accent-dim);
+  border-radius: 999px;
+  color: var(--accent);
+  background: rgba(201,162,39,.08);
+  text-decoration: none;
+  letter-spacing: .04em;
+}
+.back-home:hover { background: rgba(201,162,39,.16); text-decoration: none; border-color: var(--accent); }
+.header-right { display: flex; flex-direction: column; align-items: flex-end; gap: 6px; }
+.page-title { font-size: 1rem; font-weight: 900; letter-spacing: .06em; }
+.page-title span { color: var(--accent); }
+.nav-mini { display: flex; gap: 6px; flex-wrap: wrap; justify-content: flex-end; }
+.nav-mini a {
+  font-size: .72rem; padding: 4px 10px;
+  border: 1px solid var(--border); border-radius: 999px;
+  color: var(--muted); text-decoration: none;
+  transition: .15s;
+}
+.nav-mini a:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
+
+.wrap { max-width: 1100px; margin: 0 auto; padding: 24px 20px 80px; }
+
+.hero {
+  display: grid; gap: 20px;
+  margin-bottom: 28px;
+  padding: 24px;
+  background: linear-gradient(135deg, var(--bg2), var(--bg3));
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  position: relative; overflow: hidden;
+}
+.hero::before {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(90deg, transparent 60%, rgba(224,69,69,.07));
+  pointer-events: none;
+}
+.hero h1 {
+  font-size: clamp(1.5rem, 4vw, 2.2rem);
+  font-weight: 900; letter-spacing: .06em;
+}
+.hero h1 em { font-style: normal; color: var(--accent); }
+.hero-sub { margin-top: 8px; font-size: .95rem; color: var(--muted); }
+.slogan-box {
+  margin-top: 14px;
+  padding: 12px 16px;
+  border-radius: 10px;
+  border: 1px solid rgba(224,69,69,.4);
+  background: rgba(224,69,69,.08);
+  font-size: 1rem; font-weight: 800;
+  color: var(--danger);
+  letter-spacing: .02em;
+}
+.meta-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+.chip {
+  font-size: .72rem; font-weight: 700;
+  padding: 4px 10px; border-radius: 6px;
+  background: var(--bg); border: 1px solid var(--border);
+  color: var(--muted); letter-spacing: .04em;
+}
+.chip.gold { color: var(--accent); border-color: var(--accent-dim); }
+.chip.red { color: var(--danger); border-color: var(--danger-dim); }
+.chip.warn { color: var(--warn); border-color: #8a5a18; }
+.chip.info { color: var(--info); border-color: #1a4a7a; }
+.chip.safe { color: var(--safe); border-color: #1a6a45; }
+
+.basics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px; margin-top: 16px;
+}
+.basic-card {
+  background: var(--bg); border: 1px solid var(--border);
+  border-radius: 10px; padding: 14px 16px;
+}
+.basic-card h3 {
+  font-size: .72rem; color: var(--accent);
+  letter-spacing: .1em; margin-bottom: 6px; font-weight: 700;
+}
+.basic-card p, .basic-card ul { font-size: .88rem; color: var(--text); }
+.basic-card ul { padding-left: 1.1em; }
+.basic-card li { margin: 4px 0; color: var(--muted); }
+.basic-card li strong { color: var(--text); }
+
+.section {
+  margin: 28px 0;
+  padding: 22px;
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  scroll-margin-top: 72px;
+}
+.section-kicker {
+  font-size: .7rem; font-weight: 800;
+  letter-spacing: .14em; color: var(--accent);
+  text-transform: uppercase; margin-bottom: 6px;
+}
+.section h2 {
+  font-size: 1.25rem; font-weight: 900;
+  letter-spacing: .04em; margin-bottom: 8px;
+}
+.section h2 em { font-style: normal; color: var(--accent); }
+.section-lead { font-size: .9rem; color: var(--muted); margin-bottom: 16px; }
+
+.phase-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 14px;
+}
+.phase-card {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px;
+}
+.phase-card.p1 { border-color: rgba(201,162,39,.35); }
+.phase-card.p2 { border-color: rgba(155,107,255,.4); }
+.phase-card.p3 { border-color: rgba(224,69,69,.45); }
+.phase-card h3 {
+  font-size: 1rem; font-weight: 900; margin-bottom: 10px;
+  letter-spacing: .03em;
+}
+.phase-card.p1 h3 { color: var(--accent); }
+.phase-card.p2 h3 { color: #b794f6; }
+.phase-card.p3 h3 { color: var(--danger); }
+.phase-card ul { padding-left: 1.15em; }
+.phase-card li { margin: 6px 0; font-size: .88rem; color: var(--muted); }
+.phase-card li strong { color: var(--text); }
+
+.loadout-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px;
+}
+.loadout-card {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 14px 16px;
+}
+.loadout-card h3 {
+  font-size: .72rem; color: var(--accent);
+  letter-spacing: .1em; margin-bottom: 8px; font-weight: 700;
+}
+.loadout-card p, .loadout-card ul { font-size: .88rem; color: var(--muted); }
+.loadout-card ul { padding-left: 1.1em; }
+.loadout-card li { margin: 4px 0; }
+.loadout-card li strong { color: var(--text); }
+
+.cycle-box {
+  margin-top: 8px;
+  padding: 14px 16px;
+  border-radius: 10px;
+  background: var(--bg);
+  border: 1px solid rgba(224,69,69,.35);
+}
+.cycle-box h3 {
+  font-size: .8rem; color: var(--danger);
+  letter-spacing: .08em; margin-bottom: 10px; font-weight: 800;
+}
+.cycle-box ol { padding-left: 1.2em; }
+.cycle-box li { margin: 8px 0; font-size: .9rem; color: var(--muted); }
+.cycle-box li strong { color: var(--text); }
+
+.route-strip {
+  display: flex; flex-wrap: wrap; gap: 8px; align-items: center;
+  margin: 0 0 18px; padding: 12px 14px;
+  background: var(--bg); border: 1px dashed var(--border);
+  border-radius: 10px; font-size: .82rem; color: var(--muted);
+}
+.route-strip .rs-step {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-weight: 700; color: var(--text);
+}
+.route-strip .rs-num {
+  font-family: var(--display); font-size: .65rem;
+  letter-spacing: .08em; color: var(--accent);
+  border: 1px solid var(--accent-dim); border-radius: 999px;
+  padding: 2px 8px;
+}
+.route-strip .rs-arrow { color: var(--accent-dim); font-weight: 900; }
+
+.move-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 14px;
+  margin: 16px 0 12px;
+}
+.move-card {
+  display: flex; flex-direction: column; gap: 8px;
+  padding: 14px; background: var(--bg);
+  border: 1px solid var(--border); border-radius: 12px;
+  scroll-margin-top: 88px;
+}
+.move-card:target {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 1px rgba(201,162,39,.35);
+}
+.move-card .mc-head {
+  display: flex; flex-wrap: wrap; gap: 8px;
+  align-items: baseline; justify-content: space-between;
+}
+.move-card .mc-name {
+  font-weight: 900; font-size: .95rem;
+  letter-spacing: .02em; color: var(--text);
+}
+.move-card .mc-phase {
+  font-size: .66rem; font-weight: 800;
+  letter-spacing: .06em; text-transform: uppercase;
+  color: var(--muted); border: 1px solid var(--border);
+  border-radius: 999px; padding: 2px 8px;
+}
+.move-card .mc-tell { font-size: .8rem; color: var(--muted); line-height: 1.45; }
+.move-card .mc-tell strong { color: var(--accent); font-weight: 800; margin-right: 4px; }
+.move-card .mc-counter {
+  font-size: .86rem; font-weight: 700; color: var(--safe);
+  line-height: 1.45; padding: 8px 10px;
+  background: rgba(61,191,122,.08);
+  border-left: 3px solid var(--safe);
+  border-radius: 0 8px 8px 0;
+}
+.move-card .mc-counter::before {
+  content: "破招："; color: var(--muted); font-weight: 800;
+  font-size: .72rem; letter-spacing: .06em; margin-right: 4px;
+}
+.move-clip {
+  position: relative; width: 100%; aspect-ratio: 16 / 9;
+  border-radius: 10px; overflow: hidden;
+  border: 1px dashed #3a4050; background: #0d0f14;
+  display: flex; align-items: center; justify-content: center;
+}
+.move-clip.is-filled {
+  border-style: solid; border-color: var(--border); background: #000;
+}
+.move-clip .clip-placeholder {
+  font-size: .78rem; font-weight: 700; color: var(--muted);
+  letter-spacing: .04em; text-align: center; padding: 12px;
+}
+.move-clip iframe, .move-clip video {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  border: 0; object-fit: contain; background: #000;
+}
+.move-card .mc-chapter { font-size: .72rem; color: var(--muted); line-height: 1.4; }
+.move-card .mc-chapter a { color: var(--accent); font-weight: 700; }
+
+.video-list { display: grid; gap: 16px; }
+.video-card {
+  background: var(--bg); border: 1px solid var(--border);
+  border-radius: 12px; padding: 14px; overflow: hidden;
+}
+.video-card h3 { font-size: .95rem; font-weight: 900; margin-bottom: 6px; }
+.video-card p { font-size: .82rem; color: var(--muted); margin-bottom: 10px; }
+.video-frame {
+  position: relative; width: 100%; aspect-ratio: 16 / 9;
+  border-radius: 10px; overflow: hidden; background: #000;
+  border: 1px solid var(--border);
+}
+.video-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.video-card .ext-links { margin-top: 8px; font-size: .78rem; }
+.video-card .ext-links a { margin-right: 12px; }
+
+.table-wrap { overflow-x: auto; margin-top: 8px; border: 1px solid var(--border); border-radius: 10px; }
+table { width: 100%; border-collapse: collapse; font-size: .88rem; }
+th, td {
+  text-align: left; padding: 10px 12px;
+  border-bottom: 1px solid var(--border); vertical-align: top;
+}
+th {
+  font-size: .72rem; letter-spacing: .08em;
+  color: var(--accent); font-weight: 800;
+  text-transform: uppercase; background: var(--bg3);
+}
+td { color: var(--muted); }
+td strong { color: var(--text); font-weight: 700; }
+td.dont { color: var(--danger); }
+tr:last-child td { border-bottom: none; }
+tr:hover td { background: rgba(255,255,255,.02); }
+
+.mistake-list { padding-left: 1.2em; }
+.mistake-list li {
+  margin: 8px 0; font-size: .9rem; color: var(--danger);
+  font-weight: 600;
+}
+.mistake-list li span { color: var(--muted); font-weight: 500; }
+
+.tip-line {
+  margin-top: 12px;
+  font-size: .85rem; color: var(--warn);
+  padding: 10px 12px;
+  border-left: 3px solid var(--warn);
+  background: rgba(224,154,50,.08);
+  border-radius: 0 8px 8px 0;
+}
+
+details.sources {
+  margin-top: 28px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg2);
+  overflow: hidden;
+}
+details.sources > summary {
+  padding: 14px 18px; cursor: pointer;
+  font-weight: 700; list-style: none;
+  display: flex; align-items: center; justify-content: space-between;
+  color: var(--muted); font-size: .9rem;
+}
+details.sources > summary::-webkit-details-marker { display: none; }
+details.sources > summary::after { content: "＋展開"; font-size: .75rem; color: var(--accent); }
+details.sources[open] > summary::after { content: "－收起"; }
+.sources-body {
+  padding: 0 18px 16px;
+  font-size: .78rem; color: var(--muted);
+}
+.sources-body ol { padding-left: 1.3em; }
+.sources-body li { margin: 6px 0; }
+.sources-body a { word-break: break-all; }
+
+.site-footer {
+  text-align: center; padding: 24px 20px 40px;
+  font-size: .72rem; color: var(--muted);
+  border-top: 1px solid var(--border);
+}
+</style>
+<link rel="stylesheet" href="assets/vote-widget.css" />
+<link rel="stylesheet" href="assets/feedback-form.css" />
+<link rel="stylesheet" href="assets/age-gate.css" />
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <div class="brand">
+      <a class="back-home" href="index.html#onimusha">← 返回獵殺區</a>
+      <div class="brand-name" style="margin-top:8px">硬核祝福</div>
+      <div class="brand-slogan">別人改數值，你改規則。</div>
+    </div>
+    <div class="header-right">
+      <div class="page-title">鬼武者 劍之道 · <span>畏風</span></div>
+      <nav class="nav-mini" aria-label="本頁錨點">
+        <a href="#boss">Boss</a>
+        <a href="#prep">戰前</a>
+        <a href="#phases">階段</a>
+        <a href="#moves">招式</a>
+        <a href="#strategy">打法</a>
+        <a href="#videos">片源</a>
+        <a href="#mistakes">常見錯</a>
+        <a href="#related">相關</a>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <div data-boss-vote data-vote-slug="onimusha-ifuu"></div>
+<!-- ========== #boss ========== -->
+  <section class="hero" id="boss" aria-labelledby="boss-title">
+    <div>
+      <h1 id="boss-title">畏風 · <em>Ifuu</em></h1>
+      <p class="hero-sub">建仁寺疾風／Windswept Kennin-ji · Rematch #13 · PowerPyx Carnage 4/10 · 2；P2 背囊膨脹＝弓射</p>
+      <div class="slogan-box">近彈遠返、藍抓閃、P2 射背囊。</div>
+      <div class="meta-row">
+        <span class="chip red">劍之道</span>
+        <span class="chip gold">BOSS</span>
+        <span class="chip warn">Carnage 4/10</span>
+        <span class="chip info">Rematch #13</span>
+        <span class="chip">Fearsome Gale／怖風</span>
+      </div>
+      <div class="basics-grid">
+        <div class="basic-card">
+          <h3>要點 1</h3>
+          <p>雙刃巨斧＋背囊鼓風。近砍可彈；遠距風刃可彈返（Ludens：風彈必須彈返否則回耐力）。</p>
+        </div>
+        <div class="basic-card">
+          <h3>要點 2</h3>
+          <p>藍抓跳砸：接觸前閃。</p>
+        </div>
+        <div class="basic-card">
+          <h3>要點 3</h3>
+          <p>插地突刺：棍方向對齊左搖桿彈。</p>
+        </div>
+        <div class="basic-card">
+          <h3>要點 4</h3>
+          <p>空中吹風臉＝難反，硬吃減傷。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== #prep ========== -->
+  <section class="section" id="prep" aria-labelledby="prep-title">
+    <div class="section-kicker">PREP · LOADOUT</div>
+    <h2 id="prep-title">戰前<em>裝備</em></h2>
+    <p class="section-lead">故事關可帶消耗品；Boss Rematch／鍛錬の間<strong>無道具輪</strong>。優先練彈反、一閃、藍抓反抓。</p>
+    <div class="loadout-grid">
+      <div class="loadout-card">
+        <h3>建議重點</h3>
+        <ul>
+          <li>風彈必彈返；P2 弓射背囊係核心。</li>
+          <li>唔好硬擋耗耐力。</li>
+        </ul>
+      </div>
+      <div class="loadout-card">
+        <h3>通用 Tip</h3>
+        <ul>
+          <li>白光／粉光＝<strong>只擋唔閃</strong></li>
+          <li>藍光抓＝接觸前 <strong>○</strong></li>
+          <li>飛彈／風刃／電球學<strong>彈返</strong></li>
+          <li>崩之一閃選<strong>紅目標</strong>傷更高</li>
+        </ul>
+      </div>
+      <div class="loadout-card">
+        <h3>練習</h3>
+        <ul>
+          <li>鍛錬の間 Boss Rematch</li>
+          <li>先 Action 再開 Carnage／鬼殺</li>
+          <li>對照 PowerPyx 章節窗</li>
+        </ul>
+      </div>
+      <div class="loadout-card">
+        <h3>粵語 Tip</h3>
+        <ul>
+          <li>唔好貪刀——彈完最多 2–3 下</li>
+          <li>耐力回滿先再壓</li>
+          <li>單招嵌 MOTION 官方章節窗（同窗覆用至人手 scrub）；以手感微調</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== #phases ========== -->
+  <section class="section" id="phases" aria-labelledby="phases-title">
+    <div class="section-kicker">PHASES</div>
+    <h2 id="phases-title">階段<em>短結</em></h2>
+    <div class="phase-grid">
+      <article class="phase-card p1">
+        <h3>結構／前半</h3>
+        <ul>
+          <li>雙刃巨斧＋背囊鼓風。近砍可彈；遠距風刃可彈返（Ludens：風彈必須彈返否則回耐力）。</li>
+          <li>藍抓跳砸：接觸前閃。</li>
+        </ul>
+      </article>
+      <article class="phase-card p2">
+        <h3>後半／強化</h3>
+        <ul>
+          <li>插地突刺：棍方向對齊左搖桿彈。</li>
+          <li>空中吹風臉＝難反，硬吃減傷。</li>
+          <li>P2：旋轉斬、肩衝；背囊膨脹吸人／起飛＝弓射囊袋打斷／打落。</li>
+        </ul>
+      </article>
+      <article class="phase-card p3">
+        <h3>核心理念</h3>
+        <ul>
+          <li><strong>近彈遠返、藍抓閃、P2 射背囊。</strong></li>
+          <li>PowerPyx Carnage 難度：4/10</li>
+          <li>Rematch #13</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <!-- ========== #moves ========== -->
+  <section class="section" id="moves" aria-labelledby="moves-title">
+    <div class="section-kicker">MOVES · LOCKED CLIPS</div>
+    <h2 id="moves-title">招式<em>卡</em></h2>
+    <p class="section-lead">招式節奏主片 MOTION <code>S7OGHVIDFho</code>（章節 VERIFIED）；整場 Carnage 用 PP-ALL <code>FbamuwMOhME</code>。大鵺／酒呑階段另嵌 WAITO。開頁自動嵌播 youtube-nocookie。完整長片見 <a href="#videos">#videos</a>。</p>
+    <div class="move-cards">
+      <article class="move-card" id="move-overview">
+        <div class="mc-head">
+          <span class="mc-name">整場實戰總覽</span>
+          <span class="mc-phase">VERIFIED · PowerPyx</span>
+        </div>
+        <p class="mc-tell"><strong>用途：</strong>官方章節窗——先睇全場節奏，再對下面單招卡。</p>
+        <p class="mc-counter">Carnage 完整戰（PP-ALL 章節窗 VERIFIED）。單招改嵌 MOTION／WAITO 官方章節。</p>
+        <div class="move-clip" data-yt-id="FbamuwMOhME" data-yt-start="2504" data-yt-end="2786" data-clip-src="">
+          <span class="clip-placeholder">短片待嵌</span>
+        </div>
+        <p class="mc-chapter">41:44–46:26 · <a href="https://www.youtube.com/watch?v=FbamuwMOhME&amp;t=2504s" target="_blank" rel="noopener noreferrer">FbamuwMOhME @ 41:44 →</a></p>
+      </article>
+
+      <article class="move-card" id="move-1">
+        <div class="mc-head">
+          <span class="mc-name">近距斧揮</span>
+          <span class="mc-phase">VERIFIED · MOTION</span>
+        </div>
+        <p class="mc-tell"><strong>預兆：</strong>橫薙大振</p>
+        <p class="mc-counter">彈反（留意追擊）</p>
+        <div class="move-clip" data-yt-id="S7OGHVIDFho" data-yt-start="946" data-yt-end="1076" data-clip-src="">
+          <span class="clip-placeholder">短片待嵌</span>
+        </div>
+        <p class="mc-chapter">15:46–17:56 · <a href="https://www.youtube.com/watch?v=S7OGHVIDFho&amp;t=946s" target="_blank" rel="noopener noreferrer">MOTION @ 15:46 →</a> · EN: Close axe swing</p>
+      </article>
+
+      <article class="move-card" id="move-2">
+        <div class="mc-head">
+          <span class="mc-name">風刃投射</span>
+          <span class="mc-phase">VERIFIED · MOTION</span>
+        </div>
+        <p class="mc-tell"><strong>預兆：</strong>遠距甩風</p>
+        <p class="mc-counter">彈返（重要）</p>
+        <div class="move-clip" data-yt-id="S7OGHVIDFho" data-yt-start="946" data-yt-end="1076" data-clip-src="">
+          <span class="clip-placeholder">短片待嵌</span>
+        </div>
+        <p class="mc-chapter">15:46–17:56 · <a href="https://www.youtube.com/watch?v=S7OGHVIDFho&amp;t=946s" target="_blank" rel="noopener noreferrer">MOTION @ 15:46 →</a> · EN: Wind blade</p>
+      </article>
+
+      <article class="move-card" id="move-3">
+        <div class="mc-head">
+          <span class="mc-name">藍抓跳砸</span>
+          <span class="mc-phase">VERIFIED · MOTION</span>
+        </div>
+        <p class="mc-tell"><strong>預兆：</strong>跳起藍光抓</p>
+        <p class="mc-counter">接觸前閃</p>
+        <div class="move-clip" data-yt-id="S7OGHVIDFho" data-yt-start="946" data-yt-end="1076" data-clip-src="">
+          <span class="clip-placeholder">短片待嵌</span>
+        </div>
+        <p class="mc-chapter">15:46–17:56 · <a href="https://www.youtube.com/watch?v=S7OGHVIDFho&amp;t=946s" target="_blank" rel="noopener noreferrer">MOTION @ 15:46 →</a> · EN: Blue leap grab</p>
+      </article>
+
+      <article class="move-card" id="move-4">
+        <div class="mc-head">
+          <span class="mc-name">插地突刺</span>
+          <span class="mc-phase">VERIFIED · MOTION</span>
+        </div>
+        <p class="mc-tell"><strong>預兆：</strong>斧插地再推向你</p>
+        <p class="mc-counter">對齊方向彈反</p>
+        <div class="move-clip" data-yt-id="S7OGHVIDFho" data-yt-start="946" data-yt-end="1076" data-clip-src="">
+          <span class="clip-placeholder">短片待嵌</span>
+        </div>
+        <p class="mc-chapter">15:46–17:56 · <a href="https://www.youtube.com/watch?v=S7OGHVIDFho&amp;t=946s" target="_blank" rel="noopener noreferrer">MOTION @ 15:46 →</a> · EN: Planted thrust</p>
+      </article>
+
+      <article class="move-card" id="move-5">
+        <div class="mc-head">
+          <span class="mc-name">背囊膨脹／起飛（P2）</span>
+          <span class="mc-phase">VERIFIED · MOTION</span>
+        </div>
+        <p class="mc-tell"><strong>預兆：</strong>背囊鼓起吸人／起飛</p>
+        <p class="mc-counter">鬼弓射囊袋</p>
+        <div class="move-clip" data-yt-id="S7OGHVIDFho" data-yt-start="946" data-yt-end="1076" data-clip-src="">
+          <span class="clip-placeholder">短片待嵌</span>
+        </div>
+        <p class="mc-chapter">15:46–17:56 · <a href="https://www.youtube.com/watch?v=S7OGHVIDFho&amp;t=946s" target="_blank" rel="noopener noreferrer">MOTION @ 15:46 →</a> · EN: Back bladder inflate</p>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ========== #strategy ========== -->
+  <section class="section" id="strategy" aria-labelledby="strategy-title">
+    <div class="section-kicker">STRATEGY</div>
+    <h2 id="strategy-title">打法<em>步驟</em></h2>
+    <p class="section-lead">近彈遠返、藍抓閃、P2 射背囊。</p>
+    <div class="cycle-box">
+      <h3>打法循環</h3>
+      <ol>
+        <li><strong>步驟 1：</strong>雙刃巨斧＋背囊鼓風。近砍可彈；遠距風刃可彈返（Ludens：風彈必須彈返否則回耐力）。</li>
+        <li><strong>步驟 2：</strong>藍抓跳砸：接觸前閃。</li>
+        <li><strong>步驟 3：</strong>插地突刺：棍方向對齊左搖桿彈。</li>
+        <li><strong>步驟 4：</strong>空中吹風臉＝難反，硬吃減傷。</li>
+        <li><strong>步驟 5：</strong>P2：旋轉斬、肩衝；背囊膨脹吸人／起飛＝弓射囊袋打斷／打落。</li>
+        <li><strong>步驟 6：</strong>近彈遠返、藍抓閃、P2 射背囊。</li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ========== #videos ========== -->
+  <section class="section" id="videos" aria-labelledby="videos-title">
+    <div class="section-kicker">VIDEOS</div>
+    <h2 id="videos-title">片源<em>總覽</em></h2>
+    <div class="video-list">
+      <article class="video-card">
+        <h3>PowerPyx · All Boss Fights Carnage</h3>
+        <p>本章節 41:44–46:26（VERIFIED）· 嵌播由章節起跳</p>
+        <div class="video-frame">
+          <iframe src="https://www.youtube-nocookie.com/embed/FbamuwMOhME?start=2504&amp;end=2786&amp;rel=0" title="PowerPyx 畏風" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <p class="ext-links"><a href="https://www.youtube.com/watch?v=FbamuwMOhME&amp;t=2504s" target="_blank" rel="noopener noreferrer">YouTube 外連 →</a></p>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ========== #mistakes ========== -->
+  <section class="section" id="mistakes" aria-labelledby="mistakes-title">
+    <div class="section-kicker">MISTAKES</div>
+    <h2 id="mistakes-title">常見<em>錯</em></h2>
+    <ul class="mistake-list">
+      <li>硬閃白光招 → <span>白光／粉光只可彈反或格擋</span></li>
+      <li>遠距風箏被飛彈磨死 → <span>學彈返；貼身壓制</span></li>
+      <li>忽略藍光抓技 → <span>接觸前 ○ 反抓</span></li>
+      <li>Boss Rematch 帶道具 → <span>再戰無道具輪；故事關先帶消耗品</span></li>
+    </ul>
+  </section>
+
+  <!-- ========== #related ========== -->
+  <section class="section" id="related" aria-labelledby="related-title">
+    <div class="section-kicker">RELATED</div>
+    <h2 id="related-title">相關<em>Boss</em></h2>
+    <p class="section-lead">鬼武者劍之道 · 獨特主 BOSS 專區</p>
+    <div class="meta-row" style="margin-top:8px">
+      <a class="chip gold" href="onimusha-sasaki-ganryu.html#boss" style="text-decoration:none">岩流本體</a>
+      <a class="chip gold" href="onimusha-daidara.html#boss" style="text-decoration:none">大唾拉</a>
+      <a class="chip gold" href="onimusha-rasho-gan.html#boss" style="text-decoration:none">羅掌願</a>
+      <a class="chip gold" href="onimusha-byakue.html#boss" style="text-decoration:none">百穢</a>
+      <a class="chip gold" href="onimusha-nue-blue-red.html#boss" style="text-decoration:none">鵺青赤</a>
+      <a class="chip gold" href="onimusha-greater-nue.html#boss" style="text-decoration:none">大鵺</a>
+      <a class="chip gold" href="onimusha-dohatsu-ten.html#boss" style="text-decoration:none">怒伐天</a>
+      <a class="chip gold" href="onimusha-benkei.html#boss" style="text-decoration:none">弁慶</a>
+      <a class="chip gold" href="onimusha-burai.html#boss" style="text-decoration:none">撫雷</a>
+      <a class="chip gold" href="onimusha-ifuu-burai.html#boss" style="text-decoration:none">畏風＋撫雷</a>
+      <a class="chip gold" href="onimusha-sasaki-ganryu-altered.html#boss" style="text-decoration:none">岩流異形</a>
+      <a class="chip gold" href="onimusha-shuten-doji.html#boss" style="text-decoration:none">酒吞</a>
+      <a class="chip gold" href="onimusha-dokyo.html#boss" style="text-decoration:none">道狂</a>
+      <a class="chip gold" href="onimusha-yoshitsune.html#boss" style="text-decoration:none">源義經</a>
+    </div>
+  </section>
+
+  <details class="sources">
+    <summary>圖文交叉源（公開攻略）</summary>
+    <div class="sources-body">
+      <ol>
+        <li>PowerPyx #13</li>
+        <li>Gamerch 畏風</li>
+        <li>Ludens 前半</li>
+        <li><a href="https://www.youtube.com/watch?v=FbamuwMOhME&amp;t=2504s" target="_blank" rel="noopener noreferrer">PowerPyx All Boss Fights Carnage · 41:44–46:27</a></li>
+        <li><a href="https://www.powerpyx.com/onimusha-way-of-the-sword-boss-guide-carnage-difficulty/" target="_blank" rel="noopener noreferrer">PowerPyx · Carnage Boss Guide</a></li>
+      </ol>
+      <p style="margin-top:10px">單招嵌 MOTION <code>S7OGHVIDFho</code> 官方章節（VERIFIED）；整場 PP-ALL 章節窗 VERIFIED。更細單招需人手 scrub。</p>
+    </div>
+  </details>
+
+  <section class="feedback" id="feedback" data-netlify-feedback aria-labelledby="feedback-title">
+    <div class="feedback-head">
+      <h2 id="feedback-title">留下<em>意見</em>俾網主</h2>
+      <span class="feedback-badge">真係會送到</span>
+    </div>
+    <p class="feedback-lead">招式唔清楚、想加邊個 Boss、有錯漏——丢句說話。留言經 Netlify Forms 直達網主信箱／後台，唔再只係本機保存。</p>
+
+    <div class="feedback-thanks" data-feedback-thanks role="status" aria-live="polite" hidden>
+      <h3>收到，多謝硬核祝福！</h3>
+      <p>你嘅意見已送出俾網主。想再講可以繼續填。</p>
+      <button type="button" class="feedback-secondary" data-feedback-again>再留一句</button>
+    </div>
+
+    <form class="feedback-form" name="boss-hunt-feedback" method="POST" action="/" data-netlify="true" netlify netlify-honeypot="bot-field" data-boss-feedback>
+      <input type="hidden" name="form-name" value="boss-hunt-feedback" />
+      <input type="hidden" name="page" value="onimusha-ifuu.html · 鬼武者｜畏風" />
+      <p class="feedback-honeypot" aria-hidden="true">
+        <label>唔好填呢格 <input type="text" name="bot-field" tabindex="-1" autocomplete="off" /></label>
+      </p>
+      <div class="feedback-field">
+        <label for="fb-name-onimusha-ifuu">暱稱 <span class="opt">（可選）</span></label>
+        <input type="text" id="fb-name-onimusha-ifuu" name="name" maxlength="80" placeholder="例如：硬核新手" autocomplete="nickname" />
+      </div>
+      <div class="feedback-field">
+        <label for="fb-contact-onimusha-ifuu">聯絡 <span class="opt">（可選）</span></label>
+        <input type="text" id="fb-contact-onimusha-ifuu" name="contact" maxlength="120" placeholder="電郵／Discord（方便回覆）" autocomplete="email" />
+      </div>
+      <div class="feedback-field">
+        <label for="fb-msg-onimusha-ifuu">意見 <span class="opt">（必填）</span></label>
+        <textarea id="fb-msg-onimusha-ifuu" name="message" maxlength="4000" required rows="4" placeholder="想講咩就寫低…"></textarea>
+      </div>
+      <div class="feedback-actions">
+        <button type="submit" class="feedback-submit">送出意見</button>
+      </div>
+      <p class="feedback-note">送出後網主喺 Netlify → Forms 收到。唔填一樣睇晒全頁。</p>
+      <div class="feedback-status" data-feedback-status role="status" aria-live="polite"></div>
+    </form>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  硬核祝福 · BOSS 獵殺區 · 鬼武者 · 畏風 · 唔教修改器／外掛
+</footer>
+
+<script>
+(function () {
+  function hydrateMoveClips() {
+    document.querySelectorAll('.move-clip').forEach(function (slot) {
+      var clipSrc = (slot.getAttribute('data-clip-src') || '').trim();
+      var ytId = (slot.getAttribute('data-yt-id') || '').trim();
+      var ytStart = (slot.getAttribute('data-yt-start') || '').trim();
+      var ytEnd = (slot.getAttribute('data-yt-end') || '').trim();
+      /* start="0" is valid; only skip when start attribute is empty AND no clip */
+      if (!clipSrc && ytStart === '') return;
+      slot.classList.add('is-filled');
+      slot.innerHTML = '';
+      if (clipSrc) {
+        var v = document.createElement('video');
+        v.src = clipSrc;
+        v.controls = true;
+        v.playsInline = true;
+        v.preload = 'metadata';
+        slot.appendChild(v);
+        return;
+      }
+      if (!ytId) return;
+      var params = ['start=' + encodeURIComponent(ytStart)];
+      if (ytEnd) params.push('end=' + encodeURIComponent(ytEnd));
+      params.push('rel=0');
+      var ifr = document.createElement('iframe');
+      ifr.src = 'https://www.youtube-nocookie.com/embed/' + encodeURIComponent(ytId) + '?' + params.join('&');
+      ifr.title = '招式／步驟短片';
+      ifr.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+      ifr.allowFullscreen = true;
+      ifr.loading = 'lazy';
+      slot.appendChild(ifr);
+    });
+  }
+  hydrateMoveClips();
+})();
+</script>
+
+<script src="assets/vote-widget.js" defer></script>
+<script src="assets/feedback-form.js" defer></script>
+<script src="assets/age-gate.js" defer></script>
+</body>
+</html>

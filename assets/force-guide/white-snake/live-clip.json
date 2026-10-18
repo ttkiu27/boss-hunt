@@ -1,0 +1,39 @@
+{
+  "id": "live-puppeteer-pass",
+  "zoneId": "force-guide-serpent",
+  "slug": "white-snake",
+  "labelZh": "真人示範 · 傀儡術過白蛇攞干柿",
+  "summaryZh": "見洞內大白蛇擋路 → 左跳發抖猴台 → 背刺＋傀儡術 → 猴引蛇 → 鈎索衝入神廟攞干柿（Dried Serpent Viscera）。",
+  "sourceUrl": "https://www.youtube.com/watch?v=RmfoxIzbLoM",
+  "sourceTitle": "SEKIRO: How to Get Past the Cave Snake (Make the Monkey Dance, Dried Serpent Viscera Location)",
+  "sourceId": "RmfoxIzbLoM",
+  "sourceChannel": "Fuzzy Bearbarian",
+  "credit": "Gameplay clip cut from YouTube RmfoxIzbLoM — SEKIRO: How to Get Past the Cave Snake (Make the Monkey Dance, Dried Serpent Viscera Location). Fair-use educational excerpt for Boss Hunt Force-Guide zone.",
+  "cutStartSec": 106.0,
+  "cutEndSec": 149.0,
+  "durationSec": 43.0,
+  "resolution": "1280x720",
+  "fps": 30,
+  "audio": "game-sfx-kept-aac/opus",
+  "suggestedHtml": {
+    "mp4": "assets/force-guide/white-snake/live-puppeteer-pass.mp4",
+    "webm": "assets/force-guide/white-snake/live-puppeteer-pass.webm",
+    "poster": "assets/force-guide/white-snake/live-puppeteer-pass-poster.webp",
+    "posterJpg": "assets/force-guide/white-snake/live-puppeteer-pass-poster.jpg"
+  },
+  "files": {
+    "mp4": "live-puppeteer-pass.mp4",
+    "webm": "live-puppeteer-pass.webm",
+    "posterWebp": "live-puppeteer-pass-poster.webp",
+    "posterJpg": "live-puppeteer-pass-poster.jpg"
+  },
+  "sizesBytes": {
+    "mp4": 5712925,
+    "webm": 3407227,
+    "posterWebp": 30068,
+    "posterJpg": 63914
+  },
+  "posterFrameSourceSec": 114.5,
+  "cutNotes": "Dropped travel menu, text-overlay intro, Puppeteer equip menu, valley travel, and early perilous-bite miss. Kept continuous snake-approach → left monkey ledge → Puppeteer → distraction → grapple into shrine → Dried Serpent Viscera pickup.",
+  "pageWiring": "Do not edit sekiro-guardian-ape.html here — 網頁大臣 owns page wiring. Live path /workspace/boss-hunt/assets/force-guide/white-snake/ already symlinks to this pack."
+}

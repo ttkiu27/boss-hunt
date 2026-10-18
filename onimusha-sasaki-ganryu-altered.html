@@ -1,0 +1,1573 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-HK">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>佐佐木岩流（異形）｜鬼武者：劍之道｜BOSS 獵殺區｜硬核祝福</title>
+<meta name="description" content="BOSS 獵殺區 — 鬼武者：劍之道 · 佐佐木岩流（異形）攻略。嵐山・渡月橋破魔鏡側場 · 祇王雙目標。別人改數值，你改規則。" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Orbitron:wght@600;800&display=swap" rel="stylesheet" />
+<style>
+:root {
+  --bg: #0a0b0e;
+  --bg2: #12141a;
+  --bg3: #1a1d26;
+  --border: #2a2f3c;
+  --text: #e8e6e1;
+  --muted: #9a968c;
+  --accent: #c9a227;
+  --accent-dim: #8a7018;
+  --danger: #e04545;
+  --danger-dim: #8b2222;
+  --safe: #3dbf7a;
+  --warn: #e09a32;
+  --info: #4a9eff;
+  --radius: 12px;
+  --shadow: 0 8px 32px rgba(0,0,0,.45);
+  --font: "Noto Sans TC", "PingFang HK", "Microsoft JhengHei", sans-serif;
+  --display: "Orbitron", "Noto Sans TC", sans-serif;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.55;
+  min-height: 100vh;
+  background-image:
+    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(201,162,39,.12), transparent),
+    radial-gradient(ellipse 40% 30% at 100% 50%, rgba(224,69,69,.05), transparent),
+    linear-gradient(180deg, #0a0b0e 0%, #0d0f14 100%);
+}
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.site-header {
+  position: sticky; top: 0; z-index: 100;
+  backdrop-filter: blur(14px);
+  background: rgba(10,11,14,.85);
+  border-bottom: 1px solid var(--border);
+}
+.header-inner {
+  max-width: 1100px; margin: 0 auto;
+  padding: 12px 20px;
+  display: flex; flex-wrap: wrap; align-items: center; gap: 12px 24px;
+  justify-content: space-between;
+}
+.brand { display: flex; flex-direction: column; gap: 2px; }
+.brand-name {
+  font-family: var(--display);
+  font-weight: 800; font-size: .85rem;
+  letter-spacing: .12em; color: var(--accent);
+  text-transform: uppercase;
+}
+.brand-slogan { font-size: .75rem; color: var(--muted); }
+.back-home {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: .9rem; font-weight: 800;
+  padding: 8px 14px;
+  border: 1px solid var(--accent-dim);
+  border-radius: 999px;
+  color: var(--accent);
+  background: rgba(201,162,39,.08);
+  text-decoration: none;
+  letter-spacing: .04em;
+}
+.back-home:hover { background: rgba(201,162,39,.16); text-decoration: none; border-color: var(--accent); }
+.header-right { display: flex; flex-direction: column; align-items: flex-end; gap: 6px; }
+.page-title { font-size: 1rem; font-weight: 900; letter-spacing: .06em; }
+.page-title span { color: var(--accent); }
+.nav-mini { display: flex; gap: 6px; flex-wrap: wrap; justify-content: flex-end; }
+.nav-mini a {
+  font-size: .72rem; padding: 4px 10px;
+  border: 1px solid var(--border); border-radius: 999px;
+  color: var(--muted); text-decoration: none;
+  transition: .15s;
+}
+.nav-mini a:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
+
+.wrap { max-width: 1100px; margin: 0 auto; padding: 24px 20px 80px; }
+
+.hero {
+  display: grid; gap: 20px;
+  margin-bottom: 28px;
+  padding: 24px;
+  background: linear-gradient(135deg, var(--bg2), var(--bg3));
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  position: relative; overflow: hidden;
+}
+.hero::before {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(90deg, transparent 60%, rgba(201,162,39,.06));
+  pointer-events: none;
+}
+.hero h1 {
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  font-weight: 900; letter-spacing: .06em;
+}
+.hero h1 em { font-style: normal; color: var(--accent); }
+.hero-sub {
+  margin-top: 8px;
+  font-size: .95rem;
+  color: var(--muted);
+}
+.meta-row {
+  display: flex; flex-wrap: wrap; gap: 8px;
+  margin-top: 12px;
+}
+.chip {
+  font-size: .72rem; font-weight: 700;
+  padding: 4px 10px; border-radius: 6px;
+  background: var(--bg); border: 1px solid var(--border);
+  color: var(--muted); letter-spacing: .04em;
+}
+.chip.gold { color: var(--accent); border-color: var(--accent-dim); }
+.chip.red { color: var(--danger); border-color: var(--danger-dim); }
+.chip.warn { color: var(--warn); border-color: #8a5a18; }
+.chip.info { color: var(--info); border-color: #1a4a7a; }
+.chip.safe { color: var(--safe); border-color: #1a6a45; }
+
+.basics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px; margin-top: 16px;
+}
+.basic-card {
+  background: var(--bg); border: 1px solid var(--border);
+  border-radius: 10px; padding: 14px 16px;
+}
+.basic-card h3 {
+  font-size: .72rem; color: var(--accent);
+  letter-spacing: .1em; margin-bottom: 6px; font-weight: 700;
+}
+.basic-card p, .basic-card ul { font-size: .88rem; color: var(--text); }
+.basic-card ul { padding-left: 1.1em; }
+.basic-card li { margin: 4px 0; color: var(--muted); }
+.basic-card li strong { color: var(--text); }
+
+.section {
+  margin: 28px 0;
+  padding: 22px;
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+.section-kicker {
+  font-size: .7rem; font-weight: 800;
+  letter-spacing: .14em; color: var(--accent);
+  text-transform: uppercase; margin-bottom: 6px;
+}
+.section h2 {
+  font-size: 1.25rem; font-weight: 900;
+  letter-spacing: .04em; margin-bottom: 8px;
+}
+.section h2 em { font-style: normal; color: var(--accent); }
+.section-lead {
+  font-size: .9rem; color: var(--muted); margin-bottom: 16px;
+}
+
+.table-wrap { overflow-x: auto; margin-top: 8px; border: 1px solid var(--border); border-radius: 10px; }
+table {
+  width: 100%; border-collapse: collapse;
+  font-size: .88rem;
+}
+th, td {
+  text-align: left; padding: 10px 12px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+th {
+  font-size: .72rem; letter-spacing: .08em;
+  color: var(--accent); font-weight: 800;
+  text-transform: uppercase;
+  background: var(--bg3);
+}
+td { color: var(--muted); }
+td strong { color: var(--text); font-weight: 700; }
+td.dont { color: var(--danger); }
+tr:last-child td { border-bottom: none; }
+tr:hover td { background: rgba(255,255,255,.02); }
+
+.phase-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 14px;
+}
+.phase-card {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px;
+}
+.phase-card.p1 { border-color: rgba(201,162,39,.35); }
+.phase-card.p2 { border-color: rgba(155,107,255,.4); }
+.phase-card h3 {
+  font-size: 1rem; font-weight: 900; margin-bottom: 10px;
+  letter-spacing: .03em;
+}
+.phase-card.p1 h3 { color: var(--accent); }
+.phase-card.p2 h3 { color: #b794f6; }
+.phase-card ul { padding-left: 1.15em; }
+.phase-card li { margin: 6px 0; font-size: .88rem; color: var(--muted); }
+.phase-card li strong { color: var(--text); }
+
+.loadout-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px;
+}
+.loadout-card {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 14px 16px;
+}
+.loadout-card h3 {
+  font-size: .72rem; color: var(--accent);
+  letter-spacing: .1em; margin-bottom: 8px; font-weight: 700;
+}
+.loadout-card p, .loadout-card ul { font-size: .88rem; color: var(--muted); }
+.loadout-card ul { padding-left: 1.1em; }
+.loadout-card li { margin: 4px 0; }
+.loadout-card li strong { color: var(--text); }
+
+.cycle-box, .cheese-box {
+  margin-top: 16px;
+  padding: 14px 16px;
+  border-radius: 10px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+}
+.cycle-box h3, .cheese-box h3 {
+  font-size: .8rem; color: var(--accent);
+  letter-spacing: .08em; margin-bottom: 10px; font-weight: 800;
+}
+.cheese-box { border-color: rgba(224,154,50,.4); background: rgba(224,154,50,.06); }
+.cheese-box h3 { color: var(--warn); }
+.cycle-box ol, .cheese-box ul { padding-left: 1.2em; }
+.cycle-box li, .cheese-box li { margin: 6px 0; font-size: .88rem; color: var(--muted); }
+.cycle-box li strong, .cheese-box li strong { color: var(--text); }
+
+.step-list { display: flex; flex-direction: column; gap: 10px; }
+.step-item {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 12px;
+  padding: 12px 14px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  align-items: start;
+}
+.step-num {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-width: 2rem; height: 1.7rem; padding: 0 8px;
+  border-radius: 6px;
+  font-family: var(--display); font-size: .72rem; font-weight: 900;
+  letter-spacing: .06em;
+  background: rgba(201,162,39,.15); color: var(--accent);
+  border: 1px solid rgba(201,162,39,.4);
+}
+.step-item.phase2 .step-num {
+  background: rgba(155,107,255,.15); color: #b794f6;
+  border-color: rgba(155,107,255,.4);
+}
+.step-body { font-size: .9rem; color: var(--muted); }
+.step-body strong { color: var(--text); }
+.step-group-label {
+  font-size: .72rem; font-weight: 800;
+  letter-spacing: .12em; color: var(--accent);
+  text-transform: uppercase;
+  margin: 16px 0 8px;
+}
+.step-group-label:first-child { margin-top: 0; }
+.step-group-label.p2 { color: #b794f6; }
+
+.death-table td:first-child { color: var(--danger); font-weight: 700; width: 36%; }
+
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 12px;
+}
+.video-card {
+  display: block;
+  padding: 14px 16px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  text-decoration: none;
+  color: inherit;
+  transition: border-color .15s, transform .15s;
+}
+.video-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+  text-decoration: none;
+}
+.video-card .platform {
+  font-size: .68rem; font-weight: 800;
+  letter-spacing: .1em; color: var(--accent);
+  margin-bottom: 6px;
+}
+.video-card .platform.bili { color: #00a1d6; }
+.video-card .platform.yt { color: #ff5555; }
+.video-card .platform.web { color: var(--info); }
+.video-card h3 {
+  font-size: .95rem; font-weight: 800; margin-bottom: 6px; color: var(--text);
+}
+.video-card p { font-size: .8rem; color: var(--muted); line-height: 1.45; }
+.video-card .conf {
+  margin-top: 8px;
+  font-size: .68rem; font-weight: 700;
+  color: var(--safe);
+}
+.video-card .go {
+  margin-top: 8px;
+  font-size: .78rem; font-weight: 700; color: var(--accent);
+}
+
+.video-embed-block {
+  margin-bottom: 22px;
+}
+.video-embed-block h3 {
+  font-size: 1rem;
+  font-weight: 800;
+  margin: 0 0 8px;
+  color: var(--text);
+}
+.video-embed-block .embed-meta {
+  font-size: .8rem;
+  color: var(--muted);
+  margin-bottom: 10px;
+  line-height: 1.45;
+}
+.embed-frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: #000;
+}
+.embed-frame iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+.chapter-btns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 12px 0 4px;
+}
+.chapter-btn {
+  appearance: none;
+  cursor: pointer;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text);
+  font: inherit;
+  font-size: .78rem;
+  font-weight: 700;
+  padding: 8px 12px;
+  border-radius: 999px;
+  transition: border-color .15s, background .15s, color .15s;
+}
+.chapter-btn:hover { border-color: var(--accent); color: var(--accent); }
+.chapter-btn.is-active {
+  border-color: var(--accent);
+  background: rgba(201,162,39,.12);
+  color: var(--accent);
+}
+.embed-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+  align-items: center;
+}
+.embed-actions a {
+  font-size: .8rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+.move-video-list {
+  display: grid;
+  gap: 10px;
+  margin: 14px 0 8px;
+}
+.move-video-item {
+  display: block;
+  padding: 12px 14px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  text-decoration: none;
+  color: inherit;
+  transition: border-color .15s;
+}
+.move-video-item:hover {
+  border-color: var(--accent);
+  text-decoration: none;
+}
+.move-video-item .mv-top {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: baseline;
+  margin-bottom: 4px;
+}
+.move-video-item .mv-name {
+  font-weight: 800;
+  font-size: .92rem;
+  color: var(--text);
+}
+.move-video-item .mv-badge {
+  font-size: .68rem;
+  font-weight: 800;
+  letter-spacing: .04em;
+  color: var(--warn);
+  border: 1px solid #8a5a18;
+  border-radius: 999px;
+  padding: 2px 8px;
+}
+.move-video-item .mv-counter {
+  font-size: .8rem;
+  color: var(--muted);
+  line-height: 1.45;
+}
+.move-video-item .mv-link {
+  margin-top: 6px;
+  font-size: .76rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+.video-subhead {
+  font-size: .72rem;
+  font-weight: 800;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 22px 0 10px;
+}
+
+.note-box {
+  margin-top: 20px;
+  padding: 12px 14px;
+  border-left: 3px solid var(--accent-dim);
+  background: rgba(201,162,39,.06);
+  border-radius: 0 8px 8px 0;
+  font-size: .82rem;
+  color: var(--muted);
+}
+
+
+/* Move cards (#moves) */
+.move-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 14px;
+  margin: 16px 0 12px;
+}
+.move-card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 14px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  scroll-margin-top: 88px;
+}
+.move-card:target {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 1px rgba(201,162,39,.35);
+}
+.move-card .mc-head {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: baseline;
+  justify-content: space-between;
+}
+.move-card .mc-name {
+  font-weight: 900;
+  font-size: .95rem;
+  letter-spacing: .02em;
+  color: var(--text);
+}
+.move-card .mc-phase {
+  font-size: .66rem;
+  font-weight: 800;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--muted);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 2px 8px;
+}
+.move-card .mc-tell {
+  font-size: .8rem;
+  color: var(--muted);
+  line-height: 1.45;
+}
+.move-card .mc-tell strong {
+  color: var(--accent);
+  font-weight: 800;
+  margin-right: 4px;
+}
+.move-card .mc-counter {
+  font-size: .86rem;
+  font-weight: 700;
+  color: var(--safe);
+  line-height: 1.45;
+  padding: 8px 10px;
+  background: rgba(61,191,122,.08);
+  border-left: 3px solid var(--safe);
+  border-radius: 0 8px 8px 0;
+}
+.move-card .mc-counter::before {
+  content: "破招：";
+  color: var(--muted);
+  font-weight: 800;
+  font-size: .72rem;
+  letter-spacing: .06em;
+  margin-right: 4px;
+}
+.move-clip {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px dashed #3a4050;
+  background: #0d0f14;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.move-clip.is-filled {
+  border-style: solid;
+  border-color: var(--border);
+  background: #000;
+}
+.move-clip .clip-placeholder {
+  font-size: .78rem;
+  font-weight: 700;
+  color: var(--muted);
+  letter-spacing: .04em;
+  text-align: center;
+  padding: 12px;
+}
+.move-clip iframe,
+.move-clip video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  object-fit: contain;
+  background: #000;
+}
+.move-card .mc-chapter {
+  font-size: .72rem;
+  color: var(--muted);
+  line-height: 1.4;
+}
+.move-card .mc-chapter a {
+  color: var(--accent);
+  font-weight: 700;
+}
+.move-table-fold {
+  margin-top: 16px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg2);
+  overflow: hidden;
+}
+.move-table-fold > summary {
+  padding: 12px 16px;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: .85rem;
+  color: var(--muted);
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.move-table-fold > summary::-webkit-details-marker { display: none; }
+.move-table-fold > summary::after {
+  content: "＋展開精簡表";
+  font-size: .72rem;
+  color: var(--accent);
+}
+.move-table-fold[open] > summary::after { content: "－收起"; }
+.move-table-fold .table-wrap { margin: 0 12px 14px; }
+
+.tip-line {
+  margin-top: 12px;
+  font-size: .85rem; color: var(--warn);
+  padding: 10px 12px;
+  border-left: 3px solid var(--warn);
+  background: rgba(224,154,50,.08);
+  border-radius: 0 8px 8px 0;
+}
+
+details.sources {
+  margin-top: 28px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg2);
+  overflow: hidden;
+}
+details.sources > summary {
+  padding: 14px 18px; cursor: pointer;
+  font-weight: 700; list-style: none;
+  display: flex; align-items: center; justify-content: space-between;
+  color: var(--muted); font-size: .9rem;
+}
+details.sources > summary::-webkit-details-marker { display: none; }
+details.sources > summary::after { content: "＋展開"; font-size: .75rem; color: var(--accent); }
+details.sources[open] > summary::after { content: "－收起"; }
+.sources-body {
+  padding: 0 18px 16px;
+  font-size: .78rem; color: var(--muted);
+}
+.sources-body ol { padding-left: 1.3em; }
+.sources-body li { margin: 6px 0; }
+.sources-body a { word-break: break-all; }
+
+.sr-only {
+  position: absolute; width: 1px; height: 1px;
+  padding: 0; margin: -1px; overflow: hidden;
+  clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+}
+.anchor-jump { position: relative; top: -72px; height: 0; visibility: hidden; display: block; }
+
+.site-footer {
+  text-align: center;
+  padding: 20px 24px 36px;
+  font-size: .72rem; color: var(--muted);
+  border-top: 1px solid var(--border);
+}
+.site-footer .brand-line {
+  font-family: var(--display);
+  letter-spacing: .1em;
+  color: var(--accent);
+  margin-bottom: 6px;
+}
+</style>
+<link rel="stylesheet" href="assets/vote-widget.css" />
+<link rel="stylesheet" href="assets/feedback-form.css" />
+<link rel="stylesheet" href="assets/age-gate.css" />
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap;">
+      <a class="back-home" href="index.html#onimusha">← 返回主頁（揀遊戲）</a>
+      <div class="brand">
+        <div class="brand-name">硬核祝福</div>
+        <div class="brand-slogan">別人改數值，你改規則。</div>
+      </div>
+    </div>
+    <div class="header-right">
+      <div class="page-title">BOSS 獵殺區 · <span>鬼武者：劍之道</span></div>
+      <nav class="nav-mini" aria-label="本頁區塊">
+        <a href="#boss">Boss</a>
+        <a href="#渡月橋">渡月橋</a>
+        <a href="#phases">階段</a>
+        <a href="#moves">招式</a>
+        <a href="#loadout">配置</a>
+        <a href="#steps">通關</a>
+        <a href="#mistakes">常見錯</a>
+        <a href="#video">影片</a>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  
+  <div data-boss-vote data-vote-slug="onimusha-sasaki-ganryu-altered"></div>
+<!-- Hero / Boss card -->
+  <span class="anchor-jump" id="sasaki-ganryu-altered" aria-hidden="true"></span>
+  <span class="anchor-jump" id="岩流異形" aria-hidden="true"></span>
+  <section class="hero" id="boss" aria-labelledby="boss-title">
+    <div>
+      <h1 id="boss-title">佐佐木岩流<em>（異形）</em></h1>
+      <p class="hero-sub">副標：佐佐木小次郎 · EN：Sasaki Ganryu (Altered) · JP：佐々木巌流・変異</p>
+      <div class="meta-row">
+        <span class="chip gold">鬼武者：劍之道</span>
+        <span class="chip">Onimusha: Way of the Sword</span>
+        <span class="chip red">BOSS 太難打</span>
+        <span class="chip safe">攻略已上</span>
+        <span class="chip warn">難度約 7/10</span>
+        <span class="chip info">兩條獨立血條</span>
+        <span class="chip">成就：因果的盡頭</span>
+      </div>
+    </div>
+    <div class="basics-grid">
+      <div class="basic-card">
+        <h3>正名</h3>
+        <p><strong>佐佐木岩流（異形）</strong><br />EN：Sasaki Ganryu (Altered)<br />JP：佐々木巌流・変異</p>
+      </div>
+      <div class="basic-card">
+        <h3>同行鬼</h3>
+        <p><strong>祇王／Gioh</strong><br />日文：祇王 · 攻略常寫附身鬼／同行鬼</p>
+      </div>
+      <div class="basic-card">
+        <h3>場次</h3>
+        <p><strong>嵐山・渡月橋</strong>破魔鏡（靈鏡）側場<br />Arashiyama · Togetsu-kyo Spirit Mirror</p>
+      </div>
+      <div class="basic-card">
+        <h3>結構／成就</h3>
+        <ul>
+          <li><strong>兩條獨立血條</strong>（P1／P2）</li>
+          <li>Wiki 難度約 <strong>7/10</strong></li>
+          <li>成就：<strong>因果的盡頭</strong>／We Done Here?（Bronze）</li>
+        </ul>
+      </div>
+    </div>
+    <p class="note-box" style="margin-top:4px;position:relative;z-index:1">
+      此戰屬 Capcom 新作《鬼武者：劍之道》（Onimusha: Way of the Sword），唔係舊手機作。玩家口中「佐佐木小次郎異型」＝本戰；遊戲內多用「岩流／巌流」。
+    </p>
+  </section>
+
+  <!-- 渡月橋 / location -->
+  <section class="section" id="渡月橋" aria-labelledby="location-title">
+    <div class="section-kicker">Location</div>
+    <h2 id="location-title">嵐山・<em>渡月橋</em></h2>
+    <p class="section-lead">主線後期再戰：清水寺初戰／八坂塔中期之後；鍛錬「強敵再戰」列表亦有。</p>
+    <div class="basics-grid">
+      <div class="basic-card">
+        <h3>入場</h3>
+        <p>傳<strong>嵐山・渡月橋</strong>破魔鏡，入側場開戰。確認弓、鬼武具、回復已備；鏡頭盡量同框岩流＋祇王。</p>
+      </div>
+      <div class="basic-card">
+        <h3>戰次定位</h3>
+        <p>岩流後期再戰（嵐山）。路線：嵐山 → 渡月橋破魔鏡附近側場。</p>
+      </div>
+      <div class="basic-card">
+        <h3>獎勵</h3>
+        <ul>
+          <li>主線推進（嵐山 → 法輪寺道狂等）</li>
+          <li>成就／獎盃：<strong>因果的盡頭</strong>／We Done Here?</li>
+          <li>物質掉落以實機為準</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Phases -->
+  <section class="section" id="phases" aria-labelledby="phases-title">
+    <div class="section-kicker">Phase flow</div>
+    <h2 id="phases-title">階段流程</h2>
+    <p class="section-lead">兩條獨立血條。P1 加速刀技＋祇王干擾；P2 禍氣／Malice，白光斬同紅劍波要命。</p>
+    <div class="phase-grid">
+      <div class="phase-card p1">
+        <h3>第 1 階段 · 第一血條</h3>
+        <ul>
+          <li><strong>刀技：</strong>清水寺節奏加速版（突刺更快）</li>
+          <li><strong>祇王獨立攻：</strong>觸手刀擊、藍口投技、頭槌／掃擊</li>
+          <li><strong>紅花吸力動：</strong>祇王伸頸吸花 → 回覆岩流力動（耐力）→ 必須<strong>鬼之剛弓射頸</strong>中斷</li>
+          <li><strong>目標：</strong>彈／化勁削力動 → 崩之一閃／短連段；同時防祇王重置進度</li>
+        </ul>
+      </div>
+      <div class="phase-card p2">
+        <h3>第 2 階段 · 第二血條・禍氣</h3>
+        <ul>
+          <li><strong>祇王氣焰／披甲：</strong>減傷＋更凶；岩流把刀「餵」給祇王 → 刀附魔</li>
+          <li><strong>新招：</strong>紫觸手橫掃＋下砸（「砸扁他，祇王！」類喊聲為提示）</li>
+          <li><strong>極速白光斬：</strong>約進後段出現（近即死）→ 只能<strong>彈／化勁</strong>，勿普閃、勿賭一閃</li>
+          <li><strong>終盤紅劍波：</strong>地面連續波 → 彈或閃離整段，勿打第一波就貪刀</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Moves -->
+  <section class="section" id="moves" aria-labelledby="moves-title">
+    <div class="section-kicker">Moves</div>
+    <h2 id="moves-title">招式・Tell・應對</h2>
+    <p class="section-lead">一閃通則：大動作（跳斬）優先；突刺／踢／短連中段一閃窗極窄 → 改彈或閃。幀數鎖 60 較穩。每招下方有短片（本地優先）＋一句破招；無核實秒數嘅招只顯示解說。</p>
+
+    <div class="move-cards" id="move-cards">
+
+      <article class="move-card" id="move-delayed-wave-slash">
+        <div class="mc-head">
+          <h3 class="mc-name">遲延大砍／波浪斬</h3>
+          <span class="mc-phase">P1</span>
+        </div>
+        <p class="mc-tell"><strong>Tell</strong>先轉身／挽花再出刀</p>
+        <p class="mc-counter">等刀真正到身先彈，唔好跟前搖太早按</p>
+        <div class="move-clip"
+             data-yt-id="QEiA0snj5nI"
+             data-yt-start="515"
+             data-yt-end="533"
+             data-clip-src="">
+          <span class="clip-placeholder">短片待嵌</span>
+        </div>
+        <p class="mc-chapter">YouTube 515–533s（一文字）：<a href="https://www.youtube.com/watch?v=QEiA0snj5nI&amp;t=515s" target="_blank" rel="noopener noreferrer">515s →</a></p>
+      </article>
+
+      <article class="move-card" id="move-thrust">
+        <div class="mc-head">
+          <h3 class="mc-name">突刺</h3>
+          <span class="mc-phase">P1</span>
+        </div>
+        <p class="mc-tell"><strong>Tell</strong>前搖短、極快</p>
+        <p class="mc-counter">前搖極短，預備防；無把握橫閃，唔好傻格</p>
+        <div class="move-clip"
+             data-yt-id="QEiA0snj5nI"
+             data-yt-start="92"
+             data-yt-end="110"
+             data-clip-src="">
+          <span class="clip-placeholder">短片待嵌</span>
+        </div>
+        <p class="mc-chapter">跑步突刺 92–110s：<a href="https://www.youtube.com/watch?v=QEiA0snj5nI&amp;t=92s" target="_blank" rel="noopener noreferrer">92s →</a> · <a href="https://www.youtube.com/watch?v=QEiA0snj5nI&amp;t=155s" target="_blank" rel="noopener noreferrer">牙突‧零式 155s →</a></p>
+      </article>
+
+      <article class="move-card" id="move-aerial-jump-slash">
+        <div class="mc-head">
+          <h3 class="mc-name">空中跳斬／飛斬</h3>
+          <span class="mc-phase">P1</span>
+        </div>
+        <p class="mc-tell"><strong>Tell</strong>後退後大跳下劈</p>
+        <p class="mc-counter">最佳一閃位；或彈後短追</p>
+        <div class="move-clip"
+             data-yt-id="9EwDk_8BB2s"
+             data-yt-start="104"
+             data-yt-end="120"
+             data-clip-src="assets/onimusha/clips/move-jump_slash_issen.mp4">
+          <span class="clip-placeholder">短片待嵌</span>
+        </div>
+        <p class="mc-chapter">YouTube 104–120s：<a href="https://www.youtube.com/watch?v=9EwDk_8BB2s&amp;t=104s" target="_blank" rel="noopener noreferrer">104s →</a></p>
+        </article>
+
+      <article class="move-card" id="move-multi-slash">
+        <div class="mc-head">
+          <h3 class="mc-name">連斬（約 3～5 下）</h3>
+          <span class="mc-phase">P1</span>
+        </div>
+        <p class="mc-tell"><strong>Tell</strong>連續揮刀</p>
+        <p class="mc-counter">彈到連段完再反，唔好彈一刀就安心</p>
+        <div class="move-clip"
+             data-yt-id="9EwDk_8BB2s"
+             data-yt-start="53"
+             data-yt-end="70"
+             data-clip-src="assets/onimusha/clips/move-combo_chain.mp4">
+          <span class="clip-placeholder">短片待嵌</span>
+        </div>
+        <p class="mc-chapter">YouTube 53–70s：<a href="https://www.youtube.com/watch?v=9EwDk_8BB2s&amp;t=53s" target="_blank" rel="noopener noreferrer">53s →</a></p>
+        </article>
+
+      <article class="move-card" id="move-blue-left-hand-grab">
+        <div class="mc-head">
+          <h3 class="mc-name">藍色左手投技</h3>
+          <span class="mc-phase">P1</span>
+        </div>
+        <p class="mc-tell"><strong>Tell</strong>左手藍光伸手</p>
+        <p class="mc-counter">接觸瞬間○反制，唔好提前閃（左手藍抓同藍口）</p>
+        <div class="move-clip"
+             data-yt-id="9EwDk_8BB2s"
+             data-yt-start="137"
+             data-yt-end="152"
+             data-clip-src="assets/onimusha/clips/move-blue_mouth_grab.mp4">
+          <span class="clip-placeholder">短片待嵌</span>
+        </div>
+        <p class="mc-chapter">共用藍口片 137–152s：<a href="https://www.youtube.com/watch?v=9EwDk_8BB2s&amp;t=137s" target="_blank" rel="noopener noreferrer">137s →</a></p>
+</article>
+
+      <article class="move-card" id="move-gioh-tentacle-slash">
+        <div class="mc-head">
+          <h3 class="mc-name">祇王觸手刀</h3>
+          <span class="mc-phase">P1</span>
+        </div>
+        <p class="mc-tell"><strong>Tell</strong>觸手揮斬</p>
+        <p class="mc-counter">彈／化勁；嵌地可斬斷觸手</p>
+        <div class="move-clip"
+             data-yt-id="9EwDk_8BB2s"
+             data-yt-start="79"
+             data-yt-end="98"
+             data-clip-src="assets/onimusha/clips/move-gioh_tentacle_slash.mp4">
+          <span class="clip-placeholder">短片待嵌</span>
+        </div>
+        <p class="mc-chapter">YouTube 79–98s：<a href="https://www.youtube.com/watch?v=9EwDk_8BB2s&amp;t=79s" target="_blank" rel="noopener noreferrer">79s →</a></p>
+      </article>
+
+      <article class="move-card" id="move-blue_mouth_grab">
+        <div class="mc-head">
+          <h3 class="mc-name">祇王藍口抓</h3>
+          <span class="mc-phase">P1–2</span>
+        </div>
+        <p class="mc-tell"><strong>Tell</strong>嘴藍閃後伸頭</p>
+        <p class="mc-counter">接觸瞬間○反制，唔好提前閃</p>
+        <div class="move-clip"
+             data-yt-id="9EwDk_8BB2s"
+             data-yt-start="137"
+             data-yt-end="152"
+             data-clip-src="assets/onimusha/clips/move-blue_mouth_grab.mp4">
+          <span class="clip-placeholder">短片待嵌</span>
+        </div>
+        <p class="mc-chapter">YouTube 137–152s：<a href="https://www.youtube.com/watch?v=9EwDk_8BB2s&amp;t=137s" target="_blank" rel="noopener noreferrer">137s →</a></p>
+      </article>
+
+      <article class="move-card" id="move-flower_siphon_neck">
+        <div class="mc-head">
+          <h3 class="mc-name">祇王吸紅花</h3>
+          <span class="mc-phase">P1</span>
+        </div>
+        <p class="mc-tell"><strong>Tell</strong>伸長頸對紅花</p>
+        <p class="mc-counter">伸頸即鬼弓射頸，優先過砍岩流</p>
+        <div class="move-clip"
+             data-yt-id="9EwDk_8BB2s"
+             data-yt-start="168"
+             data-yt-end="185"
+             data-clip-src="assets/onimusha/clips/move-flower_siphon_neck.mp4">
+          <span class="clip-placeholder">短片待嵌</span>
+        </div>
+        <p class="mc-chapter">YouTube 168–185s：<a href="https://www.youtube.com/watch?v=9EwDk_8BB2s&amp;t=168s" target="_blank" rel="noopener noreferrer">168s →</a></p>
+      </article>
+
+      <article class="move-card" id="move-blue_counter_stance">
+        <div class="mc-head">
+          <h3 class="mc-name">青光「反撃の構え」</h3>
+          <span class="mc-phase">P1–2</span>
+        </div>
+        <p class="mc-tell"><strong>Tell</strong>刀身青、擺架</p>
+        <p class="mc-counter">△＋○崩架，普攻硬撞會食反擊</p>
+        <div class="move-clip"
+             data-yt-id="9EwDk_8BB2s"
+             data-yt-start="149"
+             data-yt-end="167"
+             data-clip-src="assets/onimusha/clips/move-blue_counter_stance.mp4">
+          <span class="clip-placeholder">短片待嵌</span>
+        </div>
+        <p class="mc-chapter">YouTube 149–167s：<a href="https://www.youtube.com/watch?v=9EwDk_8BB2s&amp;t=149s" target="_blank" rel="noopener noreferrer">149s →</a></p>
+      </article>
+
+      <article class="move-card" id="move-purple_tentacle_twohit">
+        <div class="mc-head">
+          <h3 class="mc-name">紫觸手下砸／橫掃</h3>
+          <span class="mc-phase">P2</span>
+        </div>
+        <p class="mc-tell"><strong>Tell</strong>喊話後紫觸手</p>
+        <p class="mc-counter">先閃橫掃再閃下砸，中途唔好貪刀</p>
+        <div class="move-clip"
+             data-yt-id="9EwDk_8BB2s"
+             data-yt-start="278"
+             data-yt-end="296"
+             data-clip-src="assets/onimusha/clips/move-purple_tentacle_twohit.mp4">
+          <span class="clip-placeholder">短片待嵌</span>
+        </div>
+        <p class="mc-chapter">YouTube 278–296s：<a href="https://www.youtube.com/watch?v=9EwDk_8BB2s&amp;t=278s" target="_blank" rel="noopener noreferrer">278s →</a></p>
+      </article>
+
+      <article class="move-card" id="move-white_malice_slash">
+        <div class="mc-head">
+          <h3 class="mc-name">白光禍氣斬</h3>
+          <span class="mc-phase">P2</span>
+        </div>
+        <p class="mc-tell"><strong>Tell</strong>刀附魔後粉／白閃</p>
+        <p class="mc-counter">只可彈／化勁，禁普閃同賭一閃</p>
+        <div class="move-clip"
+             data-yt-id="9EwDk_8BB2s"
+             data-yt-start="332"
+             data-yt-end="353"
+             data-clip-src="assets/onimusha/clips/move-white_malice_slash.mp4">
+          <span class="clip-placeholder">短片待嵌</span>
+        </div>
+        <p class="mc-chapter">YouTube 332–353s：<a href="https://www.youtube.com/watch?v=9EwDk_8BB2s&amp;t=332s" target="_blank" rel="noopener noreferrer">332s →</a></p>
+      </article>
+
+      <article class="move-card" id="move-red_sword_waves">
+        <div class="mc-head">
+          <h3 class="mc-name">紅劍地面波</h3>
+          <span class="mc-phase">P2</span>
+        </div>
+        <p class="mc-tell"><strong>Tell</strong>刀插地放波</p>
+        <p class="mc-counter">彈或閃過整串，第一波唔好貼身</p>
+        <div class="move-clip"
+             data-yt-id="9EwDk_8BB2s"
+             data-yt-start="312"
+             data-yt-end="326"
+             data-clip-src="assets/onimusha/clips/move-red_sword_waves.mp4">
+          <span class="clip-placeholder">短片待嵌</span>
+        </div>
+        <p class="mc-chapter">YouTube 312–326s：<a href="https://www.youtube.com/watch?v=9EwDk_8BB2s&amp;t=312s" target="_blank" rel="noopener noreferrer">312s →</a></p>
+      </article>
+
+    </div>
+
+    <p class="tip-line">記住：雙目標。力動快空先射弓；白光斬唔好普閃；紅波等整段完先反壓。</p>
+
+    <details class="move-table-fold">
+      <summary>精簡總表（對照用）</summary>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>招式</th>
+              <th>提示</th>
+              <th>建議應對</th>
+              <th>勿做</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>遲延大砍／波浪斬</strong></td>
+              <td>先轉身／挽花再出刀</td>
+              <td>等刀真正到身再彈／化勁</td>
+              <td class="dont">跟著前搖太早按</td>
+            </tr>
+            <tr>
+              <td><strong>突刺</strong></td>
+              <td>前搖短、極快</td>
+              <td>預備防禦・彈／化勁；無把握則橫閃</td>
+              <td class="dont">傻格擋整段（力動被削＋觸手追擊）</td>
+            </tr>
+            <tr>
+              <td><strong>空中跳斬／飛斬</strong></td>
+              <td>後退後大跳下劈</td>
+              <td><strong>最佳一閃位</strong>；或彈後短追</td>
+              <td class="dont">跳起來就砍</td>
+            </tr>
+            <tr>
+              <td><strong>連斬（約 3～5 下）</strong></td>
+              <td>連續揮刀</td>
+              <td>彈到連段結束</td>
+              <td class="dont">彈一刀就安心反攻</td>
+            </tr>
+            <tr>
+              <td><strong>藍色左手投技</strong></td>
+              <td>左手藍光伸手</td>
+              <td>接觸瞬間 <strong>○／抓取反制</strong></td>
+              <td class="dont">只看刀、提前閃</td>
+            </tr>
+            <tr>
+              <td><strong>祇王觸手刀</strong></td>
+              <td>觸手揮斬</td>
+              <td>彈／化勁；嵌地可斬斷觸手</td>
+              <td class="dont">只鎖岩流漏招</td>
+            </tr>
+            <tr>
+              <td><strong>祇王藍口抓</strong></td>
+              <td>嘴藍閃後伸頭</td>
+              <td>最後一刻閃／抓反</td>
+              <td class="dont">提前閃、硬格</td>
+            </tr>
+            <tr>
+              <td><strong>祇王吸紅花</strong></td>
+              <td>伸長頸對紅花</td>
+              <td><strong>鬼弓射頸</strong>立刻中斷</td>
+              <td class="dont">繼續砍岩流讓力動回滿</td>
+            </tr>
+            <tr>
+              <td><strong>青光「反撃の構え」</strong></td>
+              <td>刀身青、擺架</td>
+              <td><strong>△＋○（腕覺醒・打壊／擊潰）</strong>崩架</td>
+              <td class="dont">普攻硬撞 → 吃反擊</td>
+            </tr>
+            <tr>
+              <td><strong>紫觸手下砸／橫掃</strong></td>
+              <td>喊話後紫觸手</td>
+              <td>先閃橫掃再閃下砸；可選一閃</td>
+              <td class="dont">連段中途貪刀</td>
+            </tr>
+            <tr>
+              <td><strong>白光禍氣斬</strong></td>
+              <td>刀附魔後粉／白閃</td>
+              <td><strong>彈或化勁</strong></td>
+              <td class="dont">普閃、硬換血</td>
+            </tr>
+            <tr>
+              <td><strong>紅劍地面波</strong></td>
+              <td>刀插地放波</td>
+              <td>彈或閃過整串</td>
+              <td class="dont">打完第一波就貼身</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </details>
+  </section>
+
+  <!-- Loadout -->
+  <section class="section" id="loadout" aria-labelledby="loadout-title">
+    <div class="section-kicker">Loadout</div>
+    <h2 id="loadout-title">推薦裝備・魂・道具</h2>
+    <p class="section-lead">出發前備齊；核心循環以彈／化勁為主，少硬換血。</p>
+    <div class="loadout-grid">
+      <div class="loadout-card">
+        <h3>必備</h3>
+        <ul>
+          <li><strong>鬼之剛弓</strong>（吸花中斷）</li>
+          <li>鬼燈袋／回復藥補滿</li>
+          <li>可帶<strong>飯糰等瞬回力動</strong>道具</li>
+        </ul>
+      </div>
+      <div class="loadout-card">
+        <h3>鬼ノ武具</h3>
+        <ul>
+          <li>優先削力動：<strong>大錘【地鳴】</strong>（鬼殺向常用）</li>
+          <li>或熟悉的<strong>二天</strong>（打斷＋出魂）</li>
+        </ul>
+      </div>
+      <div class="loadout-card">
+        <h3>御守／補助</h3>
+        <ul>
+          <li>一閃／化勁容錯、防禦相關</li>
+          <li>覺醒／鬼力補助道具可帶</li>
+          <li>鏡頭靈敏度調高，同框兩人</li>
+        </ul>
+      </div>
+      <div class="loadout-card">
+        <h3>崩破後選魂</h3>
+        <ul>
+          <li>缺覺醒／鬼力 → 選<strong>紫魂</strong></li>
+          <li>血穩 → 選直傷</li>
+          <li>盡早攒魂<strong>鬼化覺醒</strong></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="cycle-box">
+      <h3>核心循環（最穩）</h3>
+      <ol>
+        <li>以<strong>彈／化勁</strong>為主削力動，少硬換血。</li>
+        <li>力動見底前盯祇王 → 要吸花就<strong>先射頸</strong>。</li>
+        <li>崩破後：缺覺醒／鬼力選紫魂；血穩則選直傷。</li>
+        <li>追擊只打 <strong>2～3 刀</strong>就收，防觸手插隊。</li>
+        <li>盡早攒魂鬼化覺醒，覺醒期狂抓跳斬一閃。</li>
+      </ol>
+    </div>
+
+    <div class="cheese-box">
+      <h3>省事／Cheese 共識</h3>
+      <ul>
+        <li><strong>貼身壓制：</strong>貼著打可減少祇王遠距觸手與吸花機會</li>
+        <li><strong>彈 &gt; 格：</strong>彈可打斷連段；傻格易被抽乾力動</li>
+        <li><strong>嵌地觸手斬斷：</strong>彈中觸手嵌地 → 砍斷，減後期雜攻</li>
+        <li><strong>跳斬一閃刷力動：</strong>最寬一閃窗</li>
+        <li><strong>地鳴／鬼武具硬削：</strong>專打硬血條</li>
+        <li><strong>距離保命：</strong>投技練不好就拉開（遠距抓較難打中）</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Steps -->
+  <section class="section" id="steps" aria-labelledby="steps-title">
+    <div class="section-kicker">Walkthrough</div>
+    <h2 id="steps-title">逐步通關</h2>
+    <p class="section-lead">跟住做就得。P1 清第一血條；P2 更勤彈、更貼身，白光／紅波唔好貪。</p>
+
+    <div class="step-group-label">入場</div>
+    <div class="step-list">
+      <div class="step-item">
+        <span class="step-num">1</span>
+        <div class="step-body">傳<strong>嵐山・渡月橋</strong>破魔鏡，進側場開戰。</div>
+      </div>
+      <div class="step-item">
+        <span class="step-num">2</span>
+        <div class="step-body">確認弓、鬼武具、回復已備；鏡頭能同時看兩人。</div>
+      </div>
+    </div>
+
+    <div class="step-group-label">Phase 1</div>
+    <div class="step-list">
+      <div class="step-item">
+        <span class="step-num">3</span>
+        <div class="step-body">刀技：遲斬等刀到再彈；突刺提前備防。</div>
+      </div>
+      <div class="step-item">
+        <span class="step-num">4</span>
+        <div class="step-body">跳斬優先一閃或彈後短追。</div>
+      </div>
+      <div class="step-item">
+        <span class="step-num">5</span>
+        <div class="step-body">左手藍抓 → 接觸反制。</div>
+      </div>
+      <div class="step-item">
+        <span class="step-num">6</span>
+        <div class="step-body">祇王刀／觸手要彈；頭類攻擊多閃。</div>
+      </div>
+      <div class="step-item">
+        <span class="step-num">7</span>
+        <div class="step-body"><strong>伸頸吸花 → 立刻鬼弓射頸</strong>。</div>
+      </div>
+      <div class="step-item">
+        <span class="step-num">8</span>
+        <div class="step-body">力動空 → 崩之一閃；優先補紫魂／覺醒。</div>
+      </div>
+      <div class="step-item">
+        <span class="step-num">9</span>
+        <div class="step-body">清第一血條 → 過場進入 Phase 2。</div>
+      </div>
+    </div>
+
+    <div class="step-group-label p2">Phase 2</div>
+    <div class="step-list">
+      <div class="step-item phase2">
+        <span class="step-num">10</span>
+        <div class="step-body">祇王披甲／氣焰：觸手難再永久砍斷 → 更勤彈、更貼身。</div>
+      </div>
+      <div class="step-item phase2">
+        <span class="step-num">11</span>
+        <div class="step-body">紫觸手：閃橫掃 → 閃下砸 → 短懲罰。</div>
+      </div>
+      <div class="step-item phase2">
+        <span class="step-num">12</span>
+        <div class="step-body">白光斬：見附魔／閃光就彈（勿普閃）。</div>
+      </div>
+      <div class="step-item phase2">
+        <span class="step-num">13</span>
+        <div class="step-body">紅劍波：彈或整段閃離，波完再壓。</div>
+      </div>
+      <div class="step-item phase2">
+        <span class="step-num">14</span>
+        <div class="step-body">資源夠就鬼化，收尾用一閃／武具。</div>
+      </div>
+      <div class="step-item phase2">
+        <span class="step-num">15</span>
+        <div class="step-body">第二血條清空 → 成就「因果的盡頭」。</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mistakes -->
+  <section class="section" id="mistakes" aria-labelledby="mistakes-title">
+    <div class="section-kicker">Common deaths</div>
+    <h2 id="mistakes-title">常見錯／死因對策</h2>
+    <p class="section-lead">多數死係「當清水寺初戰打」同「忘記雙目標」。</p>
+    <div class="table-wrap">
+      <table class="death-table">
+        <thead>
+          <tr>
+            <th>常見錯</th>
+            <th>點解會死／卡住</th>
+            <th>對策</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>當清水寺初戰打</td>
+            <td>忘記雙目標，漏祇王觸手／吸花</td>
+            <td>鏡頭同框；力動見底前先睇祇王</td>
+          </tr>
+          <tr>
+            <td>力動快空仍不射弓</td>
+            <td>進度被吸花清零</td>
+            <td>伸頸吸花 → 立刻鬼弓射頸</td>
+          </tr>
+          <tr>
+            <td>白光斬用普閃／賭一閃</td>
+            <td>鬼殺秒殺</td>
+            <td>只彈／化勁</td>
+          </tr>
+          <tr>
+            <td>紅波第一下就貼身反擊</td>
+            <td>吃後續波</td>
+            <td>彈或閃過整串，波完再壓</td>
+          </tr>
+          <tr>
+            <td>青架硬砍</td>
+            <td>吃反撃</td>
+            <td>△＋○ 腕覺醒崩架</td>
+          </tr>
+          <tr>
+            <td>投技太早閃／只看長刀</td>
+            <td>左手藍抓／藍口抓中</td>
+            <td>接觸瞬間反制；分神睇手／嘴</td>
+          </tr>
+          <tr>
+            <td>崩破後大連段</td>
+            <td>觸手／岩流插刀</td>
+            <td>只打 2～3 刀就收</td>
+          </tr>
+          <tr>
+            <td>同舊作路線混淆</td>
+            <td>「鮮柿／風箏」等唔適用</td>
+            <td>本作無此機制；跟本頁打法</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Video -->
+  <span class="anchor-jump" id="sasaki-video" aria-hidden="true"></span>
+  <span class="anchor-jump" id="岩流異形-影片" aria-hidden="true"></span>
+  <section class="section" id="video" aria-labelledby="video-title">
+    <div class="section-kicker">Video &amp; reading</div>
+    <h2 id="video-title">片源・拆招嵌播</h2>
+    <p class="section-lead">主片用 YouTube 章節跳轉；B 站作完整實戰備援。單招精確秒數未核實，一律標 tbd，唔編造時間戳。</p>
+
+    <div class="video-embed-block" id="yt-main">
+      <h3>主片 · YouTube（Tenkiei）</h3>
+      <p class="embed-meta">How to Beat Sasaki Ganryu (Altered) · 約 11:30 · 章節：P1 解說 → Phase 2／氣焰 → 完整實戰</p>
+      <div class="chapter-btns" role="group" aria-label="YouTube 章節">
+        <button type="button" class="chapter-btn is-active" data-yt-start="0">Phase 1 解說</button>
+        <button type="button" class="chapter-btn" data-yt-start="242">Phase 2／氣焰</button>
+        <button type="button" class="chapter-btn" data-yt-start="454">完整實戰</button>
+      </div>
+      <div class="embed-frame">
+        <iframe
+          id="yt-sasaki-iframe"
+          src="https://www.youtube-nocookie.com/embed/9EwDk_8BB2s?start=0"
+          title="How to Beat Sasaki Ganryu (Altered)"
+          allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen
+          loading="lazy"></iframe>
+      </div>
+      <div class="embed-actions">
+        <a href="https://www.youtube.com/watch?v=9EwDk_8BB2s" target="_blank" rel="noopener noreferrer">在 YouTube 打開 →</a>
+      </div>
+    </div>
+
+    <div class="video-embed-block" id="bili-main">
+      <h3>備援 · Bilibili（第46期／page 47）</h3>
+      <p class="embed-meta">渡月橋 · 佐佐木岩流 · 異形 4K 流程。若地區限制嵌唔到，請撳外連。</p>
+      <div class="embed-frame">
+        <iframe
+          src="//player.bilibili.com/player.html?bvid=BV1ohtf6PEPH&amp;page=47&amp;high_quality=1&amp;danmaku=0"
+          title="第46期：渡月桥（佐佐木岩流 · 异形）"
+          scrolling="no"
+          allowfullscreen="true"
+          sandbox="allow-scripts allow-same-origin allow-popups"
+          loading="lazy"></iframe>
+      </div>
+      <div class="embed-actions">
+        <a href="https://www.bilibili.com/video/BV1ohtf6PEPH/?p=47" target="_blank" rel="noopener noreferrer">在 B 站打開 →</a>
+      </div>
+    </div>
+
+    <div class="video-subhead">じゃがいも（輔）</div>
+    <div class="video-grid" style="margin-bottom:8px">
+      <a class="video-card" href="https://www.jagaimogameblog.com/entry/Onimusha_WayOfTheSword_SasakiGanryuAltered" target="_blank" rel="noopener noreferrer">
+        <div class="platform web">日文圖文 · 外連</div>
+        <h3>じゃがいも：佐々木巌流攻略</h3>
+        <p>正文偏 <strong>2回目（單血條）</strong>；異形兩血條請以主片／B 站 P47 為準。</p>
+        <div class="conf">輔讀 · 唔整站 iframe</div>
+        <div class="go">開啟頁面 →</div>
+      </a>
+    </div>
+
+    <div class="video-subhead">優先六招 · 跳去招式卡</div>
+    <p class="section-lead" style="margin-top:0">短片位喺 <a href="#moves">#moves</a> 每招卡；而家可暫跳總片章節窗（單招秒數 tbd）。</p>
+    <div class="move-video-list" id="priority-moves">
+      <a class="move-video-item" href="#move-flower_siphon_neck">
+        <div class="mv-top">
+          <span class="mv-name">1. 吸紅花射頸</span>
+          <span class="mv-badge">短片待嵌</span>
+        </div>
+        <div class="mv-counter">祇王伸頸對紅花 → 鬼弓射頸中斷。</div>
+        <div class="mv-link">去招式卡 #move-flower_siphon_neck →</div>
+      </a>
+      <a class="move-video-item" href="#move-blue_mouth_grab">
+        <div class="mv-top">
+          <span class="mv-name">2. 藍口抓</span>
+          <span class="mv-badge">短片待嵌</span>
+        </div>
+        <div class="mv-counter">嘴藍閃後伸頭 → 接觸瞬間 ○／抓取反制。</div>
+        <div class="mv-link">去招式卡 #move-blue_mouth_grab →</div>
+      </a>
+      <a class="move-video-item" href="#move-blue_counter_stance">
+        <div class="mv-top">
+          <span class="mv-name">3. 青架崩</span>
+          <span class="mv-badge">短片待嵌</span>
+        </div>
+        <div class="mv-counter">刀身青光擺架 → △＋○ 腕覺醒打壊。</div>
+        <div class="mv-link">去招式卡 #move-blue_counter_stance →</div>
+      </a>
+      <a class="move-video-item" href="#move-purple_tentacle_twohit">
+        <div class="mv-top">
+          <span class="mv-name">4. 紫觸手兩段</span>
+          <span class="mv-badge">短片待嵌</span>
+        </div>
+        <div class="mv-counter">先閃橫掃再閃下砸。</div>
+        <div class="mv-link">去招式卡 #move-purple_tentacle_twohit →</div>
+      </a>
+      <a class="move-video-item" href="#move-white_malice_slash">
+        <div class="mv-top">
+          <span class="mv-name">5. 白光斬彈</span>
+          <span class="mv-badge">短片待嵌</span>
+        </div>
+        <div class="mv-counter">粉／白閃 → 只能彈／化勁。</div>
+        <div class="mv-link">去招式卡 #move-white_malice_slash →</div>
+      </a>
+      <a class="move-video-item" href="#move-red_sword_waves">
+        <div class="mv-top">
+          <span class="mv-name">6. 紅劍波</span>
+          <span class="mv-badge">短片待嵌</span>
+        </div>
+        <div class="mv-counter">刀插地連續紅波 → 彈或閃離整串。</div>
+        <div class="mv-link">去招式卡 #move-red_sword_waves →</div>
+      </a>
+    </div>
+
+    <div class="video-subhead">延伸閱讀</div>
+    <div class="video-grid">
+      <a class="video-card" href="https://mukulog.com/onimusya-ws-oni-ikei-ganryu/" target="_blank" rel="noopener noreferrer">
+        <div class="platform web">鬼殺筆記</div>
+        <h3>無垢ログ：鬼殺異形巌流</h3>
+        <p>地鳴、跳斬一閃等鬼殺向筆記</p>
+        <div class="go">開啟頁面 →</div>
+      </a>
+      <a class="video-card" href="https://gamers.wiki/en/games/onimusha-way-of-the-sword/guides/onimusha-altered-ganryu-boss-guide" target="_blank" rel="noopener noreferrer">
+        <div class="platform web">英文深拆</div>
+        <h3>Gamers.Wiki · Altered Ganryu</h3>
+        <p>英文 Boss guide 深拆</p>
+        <div class="go">開啟頁面 →</div>
+      </a>
+      <a class="video-card" href="https://gamerch.com/onimusha-ws/1006360" target="_blank" rel="noopener noreferrer">
+        <div class="platform web">日 Wiki</div>
+        <h3>Gamerch ボス一覧・変異節</h3>
+        <p>日文 Wiki Boss 一覽</p>
+        <div class="go">開啟頁面 →</div>
+      </a>
+      <a class="video-card" href="https://www.ludens.com.tw/onimusha-way-of-the-sword-walkthrough-route/" target="_blank" rel="noopener noreferrer">
+        <div class="platform web">路線定位</div>
+        <h3>Ludens：嵐山→渡月橋</h3>
+        <p>岩流再戰路線定位</p>
+        <div class="go">開啟頁面 →</div>
+      </a>
+    </div>
+    <p class="note-box">
+      機器可讀招式時間戳：<code>assets/onimusha/onimusha-sasaki-altered-moves-video.json</code>。單招 <code>youtube_start_s</code> 為 null／tbd 前唔填臆測秒。公開內容唔提任何校名。
+    </p>
+  </section>
+
+  <details class="sources">
+    <summary>來源清單（研究用）</summary>
+    <div class="sources-body">
+      <ol>
+        <li>Gamerch ボス攻略一覧 — <a href="https://gamerch.com/onimusha-ws/1006360" target="_blank" rel="noopener noreferrer">gamerch.com/onimusha-ws/1006360</a></li>
+        <li>Gamers.Wiki Altered Ganryu — <a href="https://gamers.wiki/en/games/onimusha-way-of-the-sword/guides/onimusha-altered-ganryu-boss-guide" target="_blank" rel="noopener noreferrer">gamers.wiki … altered-ganryu-boss-guide</a></li>
+        <li>ConsolePulse Ganryu guide — <a href="https://consolepulse.com/multiplatform/onimusha/guides/how-to-beat-sasaki-ganryu-onimusha-way-of-the-sword" target="_blank" rel="noopener noreferrer">consolepulse.com … how-to-beat-sasaki-ganryu</a></li>
+        <li>じゃがいも 2回目 — <a href="https://www.jagaimogameblog.com/entry/Onimusha_WayOfTheSword_SasakiGanryuAltered" target="_blank" rel="noopener noreferrer">jagaimogameblog.com … SasakiGanryuAltered</a></li>
+        <li>無垢ログ 鬼殺 — <a href="https://mukulog.com/onimusya-ws-oni-ikei-ganryu/" target="_blank" rel="noopener noreferrer">mukulog.com/onimusya-ws-oni-ikei-ganryu</a></li>
+        <li>Ludens 路線 — <a href="https://www.ludens.com.tw/onimusha-way-of-the-sword-walkthrough-route/" target="_blank" rel="noopener noreferrer">ludens.com.tw … walkthrough-route</a></li>
+        <li>游俠成就 — <a href="https://gl.ali213.net/html/2026-9/1806349.html" target="_blank" rel="noopener noreferrer">gl.ali213.net/html/2026-9/1806349.html</a></li>
+        <li>YouTube 9EwDk_8BB2s；Bilibili BV1ohtf6PEPH</li>
+      </ol>
+      <p style="margin-top:10px">整理：2026-10-17（Asia/Hong_Kong）· 公開內容唔提任何校名。</p>
+    </div>
+  </details>
+
+
+  <section class="feedback" id="feedback" data-netlify-feedback aria-labelledby="feedback-title">
+    <div class="feedback-head">
+      <h2 id="feedback-title">留下<em>意見</em>俾網主</h2>
+      <span class="feedback-badge">真係會送到</span>
+    </div>
+    <p class="feedback-lead">招式唔清楚、想加邊個 Boss、有錯漏——丢句說話。留言經 Netlify Forms 直達網主信箱／後台，唔再只係本機保存。</p>
+
+    <div class="feedback-thanks" data-feedback-thanks role="status" aria-live="polite" hidden>
+      <h3>收到，多謝硬核祝福！</h3>
+      <p>你嘅意見已送出俾網主。想再講可以繼續填。</p>
+      <button type="button" class="feedback-secondary" data-feedback-again>再留一句</button>
+    </div>
+
+    <form class="feedback-form" name="boss-hunt-feedback" method="POST" action="/" data-netlify="true" netlify netlify-honeypot="bot-field" data-boss-feedback>
+      <input type="hidden" name="form-name" value="boss-hunt-feedback" />
+      <input type="hidden" name="page" value="onimusha-sasaki-ganryu-altered.html · 鬼武者｜岩流異形" />
+      <p class="feedback-honeypot" aria-hidden="true">
+        <label>唔好填呢格 <input type="text" name="bot-field" tabindex="-1" autocomplete="off" /></label>
+      </p>
+      <div class="feedback-field">
+        <label for="fb-name-onimusha-sasaki-ganryu-altered">暱稱 <span class="opt">（可選）</span></label>
+        <input type="text" id="fb-name-onimusha-sasaki-ganryu-altered" name="name" maxlength="80" placeholder="例如：狼忍新手" autocomplete="nickname" />
+      </div>
+      <div class="feedback-field">
+        <label for="fb-contact-onimusha-sasaki-ganryu-altered">聯絡 <span class="opt">（可選）</span></label>
+        <input type="text" id="fb-contact-onimusha-sasaki-ganryu-altered" name="contact" maxlength="120" placeholder="電郵／Discord（方便回覆）" autocomplete="email" />
+      </div>
+      <div class="feedback-field">
+        <label for="fb-msg-onimusha-sasaki-ganryu-altered">意見 <span class="opt">（必填）</span></label>
+        <textarea id="fb-msg-onimusha-sasaki-ganryu-altered" name="message" maxlength="4000" required rows="4" placeholder="想講咩就寫低…"></textarea>
+      </div>
+      <div class="feedback-actions">
+        <button type="submit" class="feedback-submit">送出意見</button>
+      </div>
+      <p class="feedback-note">送出後網主喺 Netlify → Forms 收到。唔填一樣睇晒全頁。</p>
+      <div class="feedback-status" data-feedback-status role="status" aria-live="polite"></div>
+    </form>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="brand-line">HARDCORE BLESSING · BOSS HUNT</div>
+  硬核祝福 · BOSS 獵殺區 · 鬼武者：劍之道 · 佐佐木岩流（異形）· 捐款自願、唔鎖內容
+</footer>
+
+
+<script>
+(function () {
+  var iframe = document.getElementById('yt-sasaki-iframe');
+  if (iframe) {
+    var base = 'https://www.youtube-nocookie.com/embed/9EwDk_8BB2s?start=';
+    var btns = document.querySelectorAll('.chapter-btn[data-yt-start]');
+    btns.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var start = btn.getAttribute('data-yt-start') || '0';
+        iframe.src = base + start;
+        btns.forEach(function (b) { b.classList.toggle('is-active', b === btn); });
+      });
+    });
+  }
+
+  /* Fill .move-clip when data-clip-src or data-yt-start is set (no invented seconds). */
+  function hydrateMoveClips() {
+    document.querySelectorAll('.move-clip').forEach(function (slot) {
+      var clipSrc = (slot.getAttribute('data-clip-src') || '').trim();
+      var ytId = (slot.getAttribute('data-yt-id') || '9EwDk_8BB2s').trim();
+      var ytStart = (slot.getAttribute('data-yt-start') || '').trim();
+      var ytEnd = (slot.getAttribute('data-yt-end') || '').trim();
+      if (!clipSrc && !ytStart) return;
+      slot.classList.add('is-filled');
+      slot.innerHTML = '';
+      if (clipSrc) {
+        var v = document.createElement('video');
+        v.src = clipSrc;
+        v.controls = true;
+        v.playsInline = true;
+        v.preload = 'metadata';
+        slot.appendChild(v);
+        return;
+      }
+      var params = ['start=' + encodeURIComponent(ytStart)];
+      if (ytEnd) params.push('end=' + encodeURIComponent(ytEnd));
+      params.push('rel=0');
+      var ifr = document.createElement('iframe');
+      ifr.src = 'https://www.youtube-nocookie.com/embed/' + encodeURIComponent(ytId) + '?' + params.join('&');
+      ifr.title = '招式短片';
+      ifr.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+      ifr.allowFullscreen = true;
+      ifr.loading = 'lazy';
+      slot.appendChild(ifr);
+    });
+  }
+  hydrateMoveClips();
+})();
+</script>
+
+<script src="assets/vote-widget.js" defer></script>
+<script src="assets/feedback-form.js" defer></script>
+<script src="assets/age-gate.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+{
+  "note": "Phase1 pack at assets/guardian-ape/phase1/ (symlink → /workspace/boss-hunt-zone/assets/guardian-ape). Page fetches moves.json at runtime.",
+  "packRoot": "assets/guardian-ape/phase1/",
+  "pageMoveToPackId": {
+    "A1": "ape-p1-01-walk-left",
+    "A2": "ape-p1-02-five-hit",
+    "A3": "ape-p1-03-ground-slam-jump",
+    "A4": "ape-p1-04-perilous-grab",
+    "A5": "ape-p1-05-fart-and-dung",
+    "A6": "ape-p1-05-fart-and-dung",
+    "A7": "ape-p1-06-tantrum-punches",
+    "A8": "ape-p1-07-baby-pose",
+    "A9": null,
+    "B1": null,
+    "B2": null,
+    "B3": "ape-p1-09-deflect-spear-pull",
+    "B4": "ape-p1-08-terror-roar-telegraph"
+  }
+}

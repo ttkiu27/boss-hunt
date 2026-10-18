@@ -1,0 +1,1065 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-HK">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>沙2獨狼套路｜CS2 Dust2｜BOSS 獵殺區｜硬核祝福</title>
+<meta name="description" content="BOSS 獵殺區 — CS2 Dust2 獨狼套路：自己丟煙閃、自己報點；T／CT Default、Eco、煙閃鎖秒。" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Orbitron:wght@600;800&display=swap" rel="stylesheet" />
+<style>
+:root {
+  --bg: #0a0b0e;
+  --bg2: #12141a;
+  --bg3: #1a1d26;
+  --border: #2a2f3c;
+  --text: #e8e6e1;
+  --muted: #9a968c;
+  --accent: #c9a227;
+  --accent-dim: #8a7018;
+  --danger: #e04545;
+  --danger-dim: #8b2222;
+  --safe: #3dbf7a;
+  --warn: #e09a32;
+  --info: #4a9eff;
+  --phase-b: #9b6bff;
+  --radius: 12px;
+  --shadow: 0 8px 32px rgba(0,0,0,.45);
+  --font: "Noto Sans TC", "PingFang HK", "Microsoft JhengHei", sans-serif;
+  --display: "Orbitron", "Noto Sans TC", sans-serif;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.55;
+  min-height: 100vh;
+  background-image:
+    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(201,162,39,.12), transparent),
+    radial-gradient(ellipse 40% 30% at 100% 50%, rgba(74,158,255,.06), transparent),
+    linear-gradient(180deg, #0a0b0e 0%, #0d0f14 100%);
+}
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.site-header {
+  position: sticky; top: 0; z-index: 100;
+  backdrop-filter: blur(14px);
+  background: rgba(10,11,14,.85);
+  border-bottom: 1px solid var(--border);
+}
+.header-inner {
+  max-width: 1100px; margin: 0 auto;
+  padding: 12px 20px;
+  display: flex; flex-wrap: wrap; align-items: center; gap: 12px 24px;
+  justify-content: space-between;
+}
+.brand { display: flex; flex-direction: column; gap: 2px; }
+.brand-name {
+  font-family: var(--display);
+  font-weight: 800; font-size: .85rem;
+  letter-spacing: .12em; color: var(--accent);
+  text-transform: uppercase;
+}
+.brand-slogan { font-size: .75rem; color: var(--muted); }
+.back-home {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: .9rem; font-weight: 800;
+  padding: 8px 14px;
+  border: 1px solid var(--accent-dim);
+  border-radius: 999px;
+  color: var(--accent);
+  background: rgba(201,162,39,.08);
+  text-decoration: none;
+  letter-spacing: .04em;
+}
+.back-home:hover { background: rgba(201,162,39,.16); text-decoration: none; border-color: var(--accent); }
+.header-right { display: flex; flex-direction: column; align-items: flex-end; gap: 6px; }
+.page-title { font-size: 1rem; font-weight: 900; letter-spacing: .06em; }
+.page-title span { color: var(--accent); }
+.nav-mini { display: flex; gap: 6px; flex-wrap: wrap; justify-content: flex-end; }
+.nav-mini a {
+  font-size: .72rem; padding: 4px 10px;
+  border: 1px solid var(--border); border-radius: 999px;
+  color: var(--muted); text-decoration: none;
+  transition: .15s;
+}
+.nav-mini a:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
+
+.wrap { max-width: 1100px; margin: 0 auto; padding: 24px 20px 80px; }
+
+.hero {
+  display: grid; gap: 20px;
+  margin-bottom: 28px;
+  padding: 24px;
+  background: linear-gradient(135deg, var(--bg2), var(--bg3));
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  position: relative; overflow: hidden;
+}
+.hero::before {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(90deg, transparent 60%, rgba(74,158,255,.07));
+  pointer-events: none;
+}
+.hero h1 {
+  font-size: clamp(1.5rem, 4vw, 2.2rem);
+  font-weight: 900; letter-spacing: .06em;
+}
+.hero h1 em { font-style: normal; color: var(--accent); }
+.hero-sub { margin-top: 8px; font-size: .95rem; color: var(--muted); }
+.slogan-box {
+  margin-top: 14px;
+  padding: 12px 16px;
+  border-radius: 10px;
+  border: 1px solid rgba(224,69,69,.4);
+  background: rgba(224,69,69,.08);
+  font-size: 1rem; font-weight: 800;
+  color: var(--danger);
+  letter-spacing: .02em;
+}
+.meta-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+.chip {
+  font-size: .72rem; font-weight: 700;
+  padding: 4px 10px; border-radius: 6px;
+  background: var(--bg); border: 1px solid var(--border);
+  color: var(--muted); letter-spacing: .04em;
+}
+.chip.gold { color: var(--accent); border-color: var(--accent-dim); }
+.chip.red { color: var(--danger); border-color: var(--danger-dim); }
+.chip.warn { color: var(--warn); border-color: #8a5a18; }
+.chip.info { color: var(--info); border-color: #1a4a7a; }
+.chip.safe { color: var(--safe); border-color: #1a6a45; }
+
+.basics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px; margin-top: 16px;
+}
+.basic-card {
+  background: var(--bg); border: 1px solid var(--border);
+  border-radius: 10px; padding: 14px 16px;
+}
+.basic-card h3 {
+  font-size: .72rem; color: var(--accent);
+  letter-spacing: .1em; margin-bottom: 6px; font-weight: 700;
+}
+.basic-card p, .basic-card ul { font-size: .88rem; color: var(--text); }
+.basic-card ul { padding-left: 1.1em; }
+.basic-card li { margin: 4px 0; color: var(--muted); }
+.basic-card li strong { color: var(--text); }
+
+.section {
+  margin: 28px 0;
+  padding: 22px;
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  scroll-margin-top: 72px;
+}
+.section-kicker {
+  font-size: .7rem; font-weight: 800;
+  letter-spacing: .14em; color: var(--accent);
+  text-transform: uppercase; margin-bottom: 6px;
+}
+.section h2 {
+  font-size: 1.25rem; font-weight: 900;
+  letter-spacing: .04em; margin-bottom: 8px;
+}
+.section h2 em { font-style: normal; color: var(--accent); }
+.section-lead { font-size: .9rem; color: var(--muted); margin-bottom: 16px; }
+
+.route-strip {
+  display: flex; flex-wrap: wrap; gap: 8px; align-items: center;
+  margin: 0 0 18px; padding: 12px 14px;
+  background: var(--bg); border: 1px dashed var(--border);
+  border-radius: 10px; font-size: .82rem; color: var(--muted);
+}
+.route-strip .rs-step {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-weight: 700; color: var(--text);
+}
+.route-strip .rs-num {
+  font-family: var(--display); font-size: .65rem;
+  letter-spacing: .08em; color: var(--accent);
+  border: 1px solid var(--accent-dim); border-radius: 999px;
+  padding: 2px 8px;
+}
+.route-strip .rs-arrow { color: var(--accent-dim); font-weight: 900; }
+
+.path-steps { display: flex; flex-direction: column; gap: 14px; }
+.path-step {
+  display: grid; gap: 12px;
+  padding: 14px; border-radius: 10px;
+  background: var(--bg); border: 1px solid var(--border);
+  scroll-margin-top: 88px;
+}
+@media (min-width: 700px) {
+  .path-step.has-clip { grid-template-columns: 1fr 1.15fr; align-items: start; }
+}
+.path-step:target { border-color: var(--accent); box-shadow: 0 0 0 1px rgba(201,162,39,.35); }
+.path-step-num {
+  font-family: var(--display); font-size: .65rem;
+  letter-spacing: .1em; color: var(--muted); margin-bottom: 4px;
+}
+.path-step-text { font-size: .9rem; line-height: 1.5; }
+.path-step-text strong { color: var(--accent); }
+.path-step-note {
+  margin-top: 8px; font-size: .78rem;
+  padding: 8px 10px; border-radius: 6px;
+  background: rgba(61,191,122,.08); border: 1px solid rgba(61,191,122,.25);
+  color: var(--safe); font-weight: 700;
+}
+.path-step-note::before { content: "要點："; color: var(--muted); font-weight: 800; margin-right: 4px; }
+.path-step-link { margin-top: 8px; font-size: .72rem; color: var(--muted); }
+.path-step-link a { color: var(--accent); font-weight: 700; }
+
+.tips-list { padding-left: 1.2em; }
+.tips-list li { margin: 8px 0; font-size: .9rem; color: var(--muted); }
+.tips-list li strong { color: var(--text); }
+
+.move-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 14px;
+  margin: 16px 0 12px;
+}
+.move-card {
+  display: flex; flex-direction: column; gap: 8px;
+  padding: 14px; background: var(--bg);
+  border: 1px solid var(--border); border-radius: 12px;
+  scroll-margin-top: 88px;
+}
+.move-card:target {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 1px rgba(201,162,39,.35);
+}
+.move-card .mc-head {
+  display: flex; flex-wrap: wrap; gap: 8px;
+  align-items: baseline; justify-content: space-between;
+}
+.move-card .mc-name {
+  font-weight: 900; font-size: .95rem;
+  letter-spacing: .02em; color: var(--text);
+}
+.move-card .mc-phase {
+  font-size: .66rem; font-weight: 800;
+  letter-spacing: .06em; text-transform: uppercase;
+  color: var(--muted); border: 1px solid var(--border);
+  border-radius: 999px; padding: 2px 8px;
+}
+.move-card .mc-tell { font-size: .8rem; color: var(--muted); line-height: 1.45; }
+.move-card .mc-tell strong { color: var(--accent); font-weight: 800; margin-right: 4px; }
+.move-card .mc-counter {
+  font-size: .86rem; font-weight: 700; color: var(--safe);
+  line-height: 1.45; padding: 8px 10px;
+  background: rgba(61,191,122,.08);
+  border-left: 3px solid var(--safe);
+  border-radius: 0 8px 8px 0;
+}
+.move-card .mc-counter::before {
+  content: "用法："; color: var(--muted); font-weight: 800;
+  font-size: .72rem; letter-spacing: .06em; margin-right: 4px;
+}
+.move-clip {
+  position: relative; width: 100%; aspect-ratio: 16 / 9;
+  border-radius: 10px; overflow: hidden;
+  border: 1px dashed #3a4050; background: #0d0f14;
+  display: flex; align-items: center; justify-content: center;
+}
+.move-clip.is-filled {
+  border-style: solid; border-color: var(--border); background: #000;
+}
+.move-clip .clip-placeholder {
+  font-size: .78rem; font-weight: 700; color: var(--muted);
+  letter-spacing: .04em; text-align: center; padding: 12px;
+}
+.move-clip iframe, .move-clip video {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  border: 0; object-fit: contain; background: #000;
+}
+.move-card .mc-chapter { font-size: .72rem; color: var(--muted); line-height: 1.4; }
+.move-card .mc-chapter a { color: var(--accent); font-weight: 700; }
+
+.video-list { display: grid; gap: 16px; }
+.video-card {
+  background: var(--bg); border: 1px solid var(--border);
+  border-radius: 12px; padding: 14px; overflow: hidden;
+}
+.video-card h3 { font-size: .95rem; font-weight: 900; margin-bottom: 6px; }
+.video-card p { font-size: .82rem; color: var(--muted); margin-bottom: 10px; }
+.video-frame {
+  position: relative; width: 100%; aspect-ratio: 16 / 9;
+  border-radius: 10px; overflow: hidden; background: #000;
+  border: 1px solid var(--border);
+}
+.video-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.video-card .ext-links { margin-top: 8px; font-size: .78rem; }
+.video-card .ext-links a { margin-right: 12px; }
+
+.table-wrap { overflow-x: auto; margin-top: 8px; border: 1px solid var(--border); border-radius: 10px; }
+table { width: 100%; border-collapse: collapse; font-size: .88rem; }
+th, td {
+  text-align: left; padding: 10px 12px;
+  border-bottom: 1px solid var(--border); vertical-align: top;
+}
+th {
+  font-size: .72rem; letter-spacing: .08em;
+  color: var(--accent); font-weight: 800;
+  text-transform: uppercase; background: var(--bg3);
+}
+td { color: var(--muted); }
+td strong { color: var(--text); font-weight: 700; }
+td.dont { color: var(--danger); }
+tr:last-child td { border-bottom: none; }
+tr:hover td { background: rgba(255,255,255,.02); }
+
+.mistake-list { padding-left: 1.2em; }
+.mistake-list li {
+  margin: 8px 0; font-size: .9rem; color: var(--danger);
+  font-weight: 600;
+}
+.mistake-list li span { color: var(--muted); font-weight: 500; }
+
+.site-footer {
+  text-align: center; padding: 24px 20px 40px;
+  font-size: .72rem; color: var(--muted);
+}
+</style>
+<link rel="stylesheet" href="assets/vote-widget.css" />
+<link rel="stylesheet" href="assets/feedback-form.css" />
+<link rel="stylesheet" href="assets/age-gate.css" />
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <div class="brand">
+      <a class="back-home" href="index.html#cs2">← 返回獵殺區</a>
+      <div class="brand-name" style="margin-top:8px">硬核祝福</div>
+      <div class="brand-slogan">別人改數值，你改規則。</div>
+    </div>
+    <div class="header-right">
+      <div class="page-title">CS2 · <span>沙2獨狼</span></div>
+      <nav class="nav-mini" aria-label="本頁錨點">
+        <a href="#overview">概覽</a>
+        <a href="#mindset">心態</a>
+        <a href="#smokes">煙閃</a>
+        <a href="#t-side">T</a>
+        <a href="#ct-side">CT</a>
+        <a href="#eco">Eco</a>
+        <a href="#solo">Solo</a>
+        <a href="#videos">片源</a>
+        <a href="#mistakes">常見錯</a>
+        <a href="#links">連結</a>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  
+  <div data-boss-vote data-vote-slug="cs2-dust2-solo"></div>
+<!-- ========== #overview / #boss ========== -->
+  <section class="hero" id="overview" aria-labelledby="hero-title">
+    <div id="boss">
+      <h1 id="hero-title">沙2獨狼套路 · <em>Dust2</em></h1>
+      <p class="hero-sub">CS2 · de_dust2 · solo queue 可自主執行 · 三線 Long／Mid-Cat／B · 早控→Default→Execute</p>
+      <div class="slogan-box">自己丟煙閃、自己報點——唔靠全隊語音默契</div>
+      <div class="meta-row">
+        <span class="chip gold">CS2</span>
+        <span class="chip red">獨狼／SoloQ</span>
+        <span class="chip warn">Dust2／沙塵2</span>
+        <span class="chip info">煙閃鎖秒</span>
+        <span class="chip safe">Eco 要快擠</span>
+      </div>
+      <div class="basics-grid">
+        <div class="basic-card">
+          <h3>三線</h3>
+          <ul>
+            <li><strong>Long A</strong>：Doors／Pit／Car／Goose</li>
+            <li><strong>Mid／Cat（Short）</strong>：Xbox／Doors／Cat</li>
+            <li><strong>B Tunnels</strong>：Upper／Lower／Window／Plat</li>
+          </ul>
+        </div>
+        <div class="basic-card">
+          <h3>回合節奏</h3>
+          <ul>
+            <li><strong>早控</strong>空間（Xbox／Doors 煙）</li>
+            <li><strong>Default</strong>蒐資訊</li>
+            <li><strong>Execute</strong>一條線進點</li>
+            <li>Eco／Force：<strong>跳過慢 Default</strong>，快打近戰</li>
+          </ul>
+        </div>
+        <div class="basic-card">
+          <h3>每回合最低貢獻</h3>
+          <ul>
+            <li>自己扔 <strong>Xbox／Mid Doors</strong> 煙</li>
+            <li>一句準 call（人數／轉點）</li>
+            <li>跟隊方向，唔丟完煙就無人跟</li>
+          </ul>
+        </div>
+        <div class="basic-card">
+          <h3>本頁範圍</h3>
+          <p>只講 <strong>CS2 Dust2</strong> 獨狼／Eco／Default。唔混其他圖；道具以 2026 煙片為準。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== #mindset ========== -->
+  <section class="section" id="mindset" aria-labelledby="mindset-title">
+    <div class="section-kicker">MINDSET</div>
+    <h2 id="mindset-title">獨狼<em>心態</em></h2>
+    <p class="section-lead">Solo queue＝你要自己創造空間同資訊，唔好等隊友「開站」先郁。</p>
+    <ul class="tips-list">
+      <li><strong>先控再打</strong>：Mid 控制＝旋轉速度；幾乎每 round 先有 Xbox／Mid Doors 煙。</li>
+      <li><strong>經濟決定節奏</strong>：Full buy 可慢 default；Eco／Force 快、擠、近。</li>
+      <li><strong>Lurk 要有壓力</strong>：隊友拉注意力先潛伏；無人壓力＝送人頭。</li>
+      <li><strong>一次只搶一個 contested zone</strong>（Short／Xbox／Long Doors），唔散開遠槍。</li>
+      <li><strong>報點要準</strong>：人數、武器、轉點方向——比華麗槍法更值錢。</li>
+    </ul>
+    <div class="route-strip" aria-label="節奏三步" style="margin-top:16px">
+      <span class="rs-step"><span class="rs-num">01</span>早控（煙）</span>
+      <span class="rs-arrow">→</span>
+      <span class="rs-step"><span class="rs-num">02</span>Default 蒐資訊</span>
+      <span class="rs-arrow">→</span>
+      <span class="rs-step"><span class="rs-num">03</span>Execute</span>
+      <span class="rs-arrow">→</span>
+      <span class="rs-step"><span class="rs-num">ECO</span>快擠近戰</span>
+    </div>
+  </section>
+
+  <!-- ========== #smokes ========== -->
+  <section class="section" id="smokes" aria-labelledby="smokes-title">
+    <div class="section-kicker">UTILITY</div>
+    <h2 id="smokes-title">必學<em>煙閃</em></h2>
+    <p class="section-lead">優先官方章節片 <strong>HY85NcZMrAg</strong>（Xbox 用採集鎖秒 <strong>t=67</strong>）。進練習圖核對落點——小更新可能微變。</p>
+
+    <div class="move-cards">
+
+      <article class="move-card" id="smoke-mid-door">
+        <div class="mc-head">
+          <span class="mc-name">Mid Door 煙</span>
+          <span class="mc-phase">★1 · T Spawn</span>
+        </div>
+        <p class="mc-tell"><strong>用途</strong>過 mid／上 Cat／default 必備之一</p>
+        <p class="mc-counter">Round 開始即丟；約 3s 成形</p>
+        <div class="move-clip" data-yt-id="HY85NcZMrAg" data-yt-start="0" data-yt-end="66" data-clip-src="">
+          <span class="clip-placeholder">短片待嵌</span>
+        </div>
+        <p class="mc-chapter">NartOutHere · Mid Door @ 0s · <a href="https://www.youtube.com/watch?v=HY85NcZMrAg&amp;t=0s" target="_blank" rel="noopener noreferrer">開 YouTube →</a></p>
+      </article>
+
+      <article class="move-card" id="smoke-xbox">
+        <div class="mc-head">
+          <span class="mc-name">Xbox 煙</span>
+          <span class="mc-phase">★1 · 最高價值</span>
+        </div>
+        <p class="mc-tell"><strong>用途</strong>廢 CT Mid AWP、過 mid、上 Cat</p>
+        <p class="mc-counter">Solo 每回合最低貢獻；鎖秒採集官方章節 t=67</p>
+        <div class="move-clip" data-yt-id="HY85NcZMrAg" data-yt-start="67" data-yt-end="81" data-clip-src="">
+          <span class="clip-placeholder">短片待嵌</span>
+        </div>
+        <p class="mc-chapter">Xbox @ 67s（01:07）· <a href="https://www.youtube.com/watch?v=HY85NcZMrAg&amp;t=67s" target="_blank" rel="noopener noreferrer">開 YouTube →</a></p>
+      </article>
+
+      <article class="move-card" id="smoke-mid-b">
+        <div class="mc-head">
+          <span class="mc-name">Mid-to-B 煙</span>
+          <span class="mc-phase">★4 · 切 B</span>
+        </div>
+        <p class="mc-tell"><strong>用途</strong>mid 夾 B／封 CT mid 支援</p>
+        <p class="mc-counter">執行前先煙，再閃 Doors 清 Car／Window</p>
+        <div class="move-clip" data-yt-id="HY85NcZMrAg" data-yt-start="82" data-yt-end="143" data-clip-src="">
+          <span class="clip-placeholder">短片待嵌</span>
+        </div>
+        <p class="mc-chapter">Mid-to-B @ 82s · <a href="https://www.youtube.com/watch?v=HY85NcZMrAg&amp;t=82s" target="_blank" rel="noopener noreferrer">開 YouTube →</a></p>
+      </article>
+
+      <article class="move-card" id="smoke-b-door">
+        <div class="mc-head">
+          <span class="mc-name">B Door 煙</span>
+          <span class="mc-phase">★5 · B execute</span>
+        </div>
+        <p class="mc-tell"><strong>用途</strong>B rush／lurk 封門；配 Window 煙＋tunnels 閃</p>
+        <p class="mc-counter">Solo entry：先煙再開 tunnels</p>
+        <div class="move-clip" data-yt-id="HY85NcZMrAg" data-yt-start="144" data-yt-end="205" data-clip-src="">
+          <span class="clip-placeholder">短片待嵌</span>
+        </div>
+        <p class="mc-chapter">B Door @ 144s · <a href="https://www.youtube.com/watch?v=HY85NcZMrAg&amp;t=144s" target="_blank" rel="noopener noreferrer">開 YouTube →</a></p>
+      </article>
+
+      <article class="move-card" id="smoke-long-corner">
+        <div class="mc-head">
+          <span class="mc-name">Long Corner 煙</span>
+          <span class="mc-phase">★2 · 開 Long</span>
+        </div>
+        <p class="mc-tell"><strong>用途</strong>開 Long；配 Long 閃過門</p>
+        <p class="mc-counter">唔好單人乾 peek Long Doors（CT AWP 守門）</p>
+        <div class="move-clip" data-yt-id="HY85NcZMrAg" data-yt-start="218" data-yt-end="245" data-clip-src="">
+          <span class="clip-placeholder">短片待嵌</span>
+        </div>
+        <p class="mc-chapter">Long Corner @ 218s · <a href="https://www.youtube.com/watch?v=HY85NcZMrAg&amp;t=218s" target="_blank" rel="noopener noreferrer">開 YouTube →</a></p>
+      </article>
+
+      <article class="move-card" id="smoke-a-cross">
+        <div class="mc-head">
+          <span class="mc-name">A Cross 煙</span>
+          <span class="mc-phase">★3 · 過站</span>
+        </div>
+        <p class="mc-tell"><strong>用途</strong>Long 過站／斷 CT Cross</p>
+        <p class="mc-counter">進站後配 molly Car／Short</p>
+        <div class="move-clip" data-yt-id="HY85NcZMrAg" data-yt-start="246" data-yt-end="316" data-clip-src="">
+          <span class="clip-placeholder">短片待嵌</span>
+        </div>
+        <p class="mc-chapter">A Cross @ 246s · <a href="https://www.youtube.com/watch?v=HY85NcZMrAg&amp;t=246s" target="_blank" rel="noopener noreferrer">開 YouTube →</a></p>
+      </article>
+
+      <article class="move-card" id="smoke-ct">
+        <div class="mc-head">
+          <span class="mc-name">CT 側煙段</span>
+          <span class="mc-phase">★6 · 守／回防</span>
+        </div>
+        <p class="mc-tell"><strong>用途</strong>Long Door／B Tunnel retake／A Retake</p>
+        <p class="mc-counter">Retake 一次清一角；煙斷支援線</p>
+        <div class="move-clip" data-yt-id="HY85NcZMrAg" data-yt-start="317" data-clip-src="">
+          <span class="clip-placeholder">短片待嵌</span>
+        </div>
+        <p class="mc-chapter">CT 段 @ 317s（05:17）· <a href="https://www.youtube.com/watch?v=HY85NcZMrAg&amp;t=317s" target="_blank" rel="noopener noreferrer">開 YouTube →</a></p>
+      </article>
+
+      <article class="move-card" id="smoke-5must">
+        <div class="mc-head">
+          <span class="mc-name">5 個必學煙（精簡）</span>
+          <span class="mc-phase">備援 · 官方章節</span>
+        </div>
+        <p class="mc-tell"><strong>用途</strong>Mid Doors／Mid-to-B／A Cross／B Door 快切</p>
+        <p class="mc-counter">Tigerr 官方章節；同主片交叉學</p>
+        <div class="move-clip" data-yt-id="PxtgDXlmXpc" data-yt-start="0" data-clip-src="">
+          <span class="clip-placeholder">短片待嵌</span>
+        </div>
+        <p class="mc-chapter">PxtgDXlmXpc @ 0s · <a href="https://www.youtube.com/watch?v=PxtgDXlmXpc" target="_blank" rel="noopener noreferrer">開 YouTube →</a></p>
+      </article>
+
+      <article class="move-card" id="smoke-d2-block">
+        <div class="mc-head">
+          <span class="mc-name">Dust2 煙總段（2026）</span>
+          <span class="mc-phase">選修</span>
+        </div>
+        <p class="mc-tell"><strong>用途</strong>5 MUST KNOW Smokes 片內 Dust2 段</p>
+        <p class="mc-counter">補充落點；主學仍以 HY85 為準</p>
+        <div class="move-clip" data-yt-id="9Xbkm14yqyU" data-yt-start="300" data-yt-end="436" data-clip-src="">
+          <span class="clip-placeholder">短片待嵌</span>
+        </div>
+        <p class="mc-chapter">9Xbkm14yqyU @ 300s · <a href="https://www.youtube.com/watch?v=9Xbkm14yqyU&amp;t=300s" target="_blank" rel="noopener noreferrer">開 YouTube →</a></p>
+      </article>
+
+      <article class="move-card" id="smoke-cat-lurk">
+        <div class="mc-head">
+          <span class="mc-name">Cat Lurk 煙</span>
+          <span class="mc-phase">選修 · Cat 潛伏</span>
+        </div>
+        <p class="mc-tell"><strong>用途</strong>Cat 潛伏掩護；隊友打 A／B 時用</p>
+        <p class="mc-counter">接火後 2–3 秒再動；太早送 trade</p>
+        <div class="move-clip" data-yt-id="9Xbkm14yqyU" data-yt-start="437" data-clip-src="">
+          <span class="clip-placeholder">短片待嵌</span>
+        </div>
+        <p class="mc-chapter">Cat Lurk @ 437s · <a href="https://www.youtube.com/watch?v=9Xbkm14yqyU&amp;t=437s" target="_blank" rel="noopener noreferrer">開 YouTube →</a></p>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ========== #t-side ========== -->
+  <section class="section" id="t-side" aria-labelledby="t-title">
+    <div class="section-kicker">T SIDE</div>
+    <h2 id="t-title">T 獨狼 · <em>Default／Long／Mid／Lurk</em></h2>
+    <p class="section-lead">Wilson 主課（描述戳）＋ STYKO Pro 拆解（官方章節）。自己先丟「一人有用」道具，再跟隊方向。</p>
+
+    <div class="move-cards">
+
+      <article class="move-card" id="t-default">
+        <div class="mc-head">
+          <span class="mc-name">T Default 概覽</span>
+          <span class="mc-phase">02:05</span>
+        </div>
+        <p class="mc-tell"><strong>骨架</strong>2 Long｜1 Mid／Xbox 煙｜1–2 B tunnels → 看資訊執行</p>
+        <p class="mc-counter">Solo：自己先 Xbox／Doors，再跟隊</p>
+        <div class="move-clip" data-yt-id="BL8HLNGTbBE" data-yt-start="125" data-yt-end="188" data-clip-src="">
+          <span class="clip-placeholder">短片待嵌</span>
+        </div>
+        <p class="mc-chapter">BL8HLNGTbBE @ 125s · <a href="https://www.youtube.com/watch?v=BL8HLNGTbBE&amp;t=125s" target="_blank" rel="noopener noreferrer">開 YouTube →</a></p>
+      </article>
+
+      <article class="move-card" id="t-long">
+        <div class="mc-head">
+          <span class="mc-name">T 開 Long</span>
+          <span class="mc-phase">55:39</span>
+        </div>
+        <p class="mc-tell"><strong>重點</strong>煙 Long Corner → 閃過門 → 交易進站；唔乾 peek Doors</p>
+        <p class="mc-counter">單人乾 peek＝CT AWP 禮物</p>
+        <div class="move-clip" data-yt-id="BL8HLNGTbBE" data-yt-start="3339" data-yt-end="4099" data-clip-src="">
+          <span class="clip-placeholder">短片待嵌</span>
+        </div>
+        <p class="mc-chapter">@ 3339s · <a href="https://www.youtube.com/watch?v=BL8HLNGTbBE&amp;t=3339s" target="_blank" rel="noopener noreferrer">開 YouTube →</a></p>
+      </article>
+
+      <article class="move-card" id="t-mid">
+        <div class="mc-head">
+          <span class="mc-name">T 控 Mid</span>
+          <span class="mc-phase">1:08:20</span>
+        </div>
+        <p class="mc-tell"><strong>重點</strong>先 Xbox 煙再開 mid 或上 Cat；solo 可蒐資訊後轉 Short／mid-to-B</p>
+        <p class="mc-counter">Mid 控＝旋轉速度</p>
+        <div class="move-clip" data-yt-id="BL8HLNGTbBE" data-yt-start="4100" data-yt-end="4287" data-clip-src="">
+          <span class="clip-placeholder">短片待嵌</span>
+        </div>
+        <p class="mc-chapter">@ 4100s · <a href="https://www.youtube.com/watch?v=BL8HLNGTbBE&amp;t=4100s" target="_blank" rel="noopener noreferrer">開 YouTube →</a></p>
+      </article>
+
+      <article class="move-card" id="t-lower-lurk">
+        <div class="mc-head">
+          <span class="mc-name">T Lower Lurk</span>
+          <span class="mc-phase">1:11:28</span>
+        </div>
+        <p class="mc-tell"><strong>重點</strong>隊友 Long／B 壓力時，lower 摸 Short／mid 後背</p>
+        <p class="mc-counter">無人壓力時勿長時間空 lurk</p>
+        <div class="move-clip" data-yt-id="BL8HLNGTbBE" data-yt-start="4288" data-yt-end="4606" data-clip-src="">
+          <span class="clip-placeholder">短片待嵌</span>
+        </div>
+        <p class="mc-chapter">@ 4288s · <a href="https://www.youtube.com/watch?v=BL8HLNGTbBE&amp;t=4288s" target="_blank" rel="noopener noreferrer">開 YouTube →</a></p>
+      </article>
+
+      <article class="move-card" id="t-utility">
+        <div class="mc-head">
+          <span class="mc-name">T 必備道具</span>
+          <span class="mc-phase">1:28:41</span>
+        </div>
+        <p class="mc-tell"><strong>重點</strong>Essential Utility：優先學一人扔得着嘅煙閃</p>
+        <p class="mc-counter">丟完「開站煙」要有人跟——否則浪費</p>
+        <div class="move-clip" data-yt-id="BL8HLNGTbBE" data-yt-start="5321" data-yt-end="5881" data-clip-src="">
+          <span class="clip-placeholder">短片待嵌</span>
+        </div>
+        <p class="mc-chapter">@ 5321s · <a href="https://www.youtube.com/watch?v=BL8HLNGTbBE&amp;t=5321s" target="_blank" rel="noopener noreferrer">開 YouTube →</a></p>
+      </article>
+
+      <article class="move-card" id="t-pro">
+        <div class="mc-head">
+          <span class="mc-name">Pro T 拆解（STYKO）</span>
+          <span class="mc-phase">官方章節 01:10</span>
+        </div>
+        <p class="mc-tell"><strong>重點</strong>Long／Mid utility／Short／A smokes／Fakes</p>
+        <p class="mc-counter">官方章節已核實；同 Wilson 交叉睇</p>
+        <div class="move-clip" data-yt-id="Bn5RPHcIelw" data-yt-start="70" data-yt-end="1321" data-clip-src="">
+          <span class="clip-placeholder">短片待嵌</span>
+        </div>
+        <p class="mc-chapter">Bn5RPHcIelw @ 70s · <a href="https://www.youtube.com/watch?v=Bn5RPHcIelw&amp;t=70s" target="_blank" rel="noopener noreferrer">開 YouTube →</a></p>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ========== #ct-side ========== -->
+  <section class="section" id="ct-side" aria-labelledby="ct-title">
+    <div class="section-kicker">CT SIDE</div>
+    <h2 id="ct-title">CT 獨狼 · <em>Default／Hold／侵略</em></h2>
+    <p class="section-lead">標準 2-1-2：Long 1–2｜Mid／Short 1｜B 1–2。Solo 守點靠煙／反閃／換位，唔乾 peek。</p>
+
+    <div class="move-cards">
+
+      <article class="move-card" id="ct-default">
+        <div class="mc-head">
+          <span class="mc-name">CT Default 概覽</span>
+          <span class="mc-phase">03:09</span>
+        </div>
+        <p class="mc-tell"><strong>重點</strong>站位語彙＋旋轉原則；防 B fake→A split</p>
+        <p class="mc-counter">過早旋轉＝被 fake</p>
+        <div class="move-clip" data-yt-id="BL8HLNGTbBE" data-yt-start="189" data-yt-end="244" data-clip-src="">
+          <span class="clip-placeholder">短片待嵌</span>
+        </div>
+        <p class="mc-chapter">@ 189s · <a href="https://www.youtube.com/watch?v=BL8HLNGTbBE&amp;t=189s" target="_blank" rel="noopener noreferrer">開 YouTube →</a></p>
+      </article>
+
+      <article class="move-card" id="ct-hold-long">
+        <div class="mc-head">
+          <span class="mc-name">CT Hold Long</span>
+          <span class="mc-phase">短片 · 00:44</span>
+        </div>
+        <p class="mc-tell"><strong>重點</strong>Doors molly、Long 閃、Blue／Pit 換位</p>
+        <p class="mc-counter">Anchor：煙／molly Doors＋閃反推</p>
+        <div class="move-clip" data-yt-id="RkeKrtHTXzE" data-yt-start="44" data-clip-src="">
+          <span class="clip-placeholder">短片待嵌</span>
+        </div>
+        <p class="mc-chapter">RkeKrtHTXzE @ 44s · <a href="https://www.youtube.com/watch?v=RkeKrtHTXzE&amp;t=44s" target="_blank" rel="noopener noreferrer">開 YouTube →</a></p>
+      </article>
+
+      <article class="move-card" id="ct-pro">
+        <div class="mc-head">
+          <span class="mc-name">Pro CT 拆解（STYKO）</span>
+          <span class="mc-phase">官方章節 22:02</span>
+        </div>
+        <p class="mc-tell"><strong>重點</strong>Long／Counter Long／Solo Short／Lower push／Defend A</p>
+        <p class="mc-counter">官方章節 @ 1322s</p>
+        <div class="move-clip" data-yt-id="Bn5RPHcIelw" data-yt-start="1322" data-clip-src="">
+          <span class="clip-placeholder">短片待嵌</span>
+        </div>
+        <p class="mc-chapter">@ 1322s · <a href="https://www.youtube.com/watch?v=Bn5RPHcIelw&amp;t=1322s" target="_blank" rel="noopener noreferrer">開 YouTube →</a></p>
+      </article>
+
+      <article class="move-card" id="ct-lower">
+        <div class="mc-head">
+          <span class="mc-name">CT Lower 前壓</span>
+          <span class="mc-phase">選修 · 00:35</span>
+        </div>
+        <p class="mc-tell"><strong>重點</strong>Lower tunnels 侵略 timing</p>
+        <p class="mc-counter">有資訊先壓；盲壓＝送槍</p>
+        <div class="move-clip" data-yt-id="26QhWvqk7xQ" data-yt-start="35" data-yt-end="215" data-clip-src="">
+          <span class="clip-placeholder">短片待嵌</span>
+        </div>
+        <p class="mc-chapter">26QhWvqk7xQ @ 35s · <a href="https://www.youtube.com/watch?v=26QhWvqk7xQ&amp;t=35s" target="_blank" rel="noopener noreferrer">開 YouTube →</a></p>
+      </article>
+
+      <article class="move-card" id="ct-short-mid">
+        <div class="mc-head">
+          <span class="mc-name">CT Short／Mid 侵略</span>
+          <span class="mc-phase">選修 · 03:36</span>
+        </div>
+        <p class="mc-tell"><strong>重點</strong>Short／mid 搶控或反搶</p>
+        <p class="mc-counter">早搶或被搶後 hold 要分清</p>
+        <div class="move-clip" data-yt-id="26QhWvqk7xQ" data-yt-start="216" data-yt-end="303" data-clip-src="">
+          <span class="clip-placeholder">短片待嵌</span>
+        </div>
+        <p class="mc-chapter">@ 216s · <a href="https://www.youtube.com/watch?v=26QhWvqk7xQ&amp;t=216s" target="_blank" rel="noopener noreferrer">開 YouTube →</a></p>
+      </article>
+
+      <article class="move-card" id="ct-mid-awp">
+        <div class="mc-head">
+          <span class="mc-name">CT Mid AWP</span>
+          <span class="mc-phase">選修 · 05:04</span>
+        </div>
+        <p class="mc-tell"><strong>重點</strong>Doors 視距；Xbox 煙會廢你——改深位或 rifling</p>
+        <p class="mc-counter">勿無煙乾 peek Mid Doors</p>
+        <div class="move-clip" data-yt-id="26QhWvqk7xQ" data-yt-start="304" data-clip-src="">
+          <span class="clip-placeholder">短片待嵌</span>
+        </div>
+        <p class="mc-chapter">@ 304s · <a href="https://www.youtube.com/watch?v=26QhWvqk7xQ&amp;t=304s" target="_blank" rel="noopener noreferrer">開 YouTube →</a></p>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ========== #eco ========== -->
+  <section class="section" id="eco" aria-labelledby="eco-title">
+    <div class="section-kicker">ECO / FORCE</div>
+    <h2 id="eco-title">Eco／Force · <em>快擠近戰</em></h2>
+    <p class="section-lead">無章節片＝整段嵌。目標：下包／換槍／耗 CT 道具——唔當 Full buy 散開遠槍。</p>
+
+    <div class="move-cards">
+      <article class="move-card" id="eco-t">
+        <div class="mc-head">
+          <span class="mc-name">T Eco 策略</span>
+          <span class="mc-phase">整段</span>
+        </div>
+        <p class="mc-tell"><strong>重點</strong>選一條線團體擠——快 Long 或 Mid-to-B／短道近戰</p>
+        <p class="mc-counter">禁乾衝 Long／Mid 散開</p>
+        <div class="move-clip" data-yt-id="jcMkvYWug1A" data-yt-start="0" data-clip-src="">
+          <span class="clip-placeholder">短片待嵌</span>
+        </div>
+        <p class="mc-chapter">jcMkvYWug1A · <a href="https://www.youtube.com/watch?v=jcMkvYWug1A" target="_blank" rel="noopener noreferrer">開 YouTube →</a></p>
+      </article>
+
+      <article class="move-card" id="eco-ct">
+        <div class="mc-head">
+          <span class="mc-name">CT Eco 策略</span>
+          <span class="mc-phase">整段</span>
+        </div>
+        <p class="mc-tell"><strong>重點</strong>疊點／近角／誘餌；可 Deagle 吃長線</p>
+        <p class="mc-counter">避免 default 散開遠槍</p>
+        <div class="move-clip" data-yt-id="_DiNOVBGlq0" data-yt-start="0" data-clip-src="">
+          <span class="clip-placeholder">短片待嵌</span>
+        </div>
+        <p class="mc-chapter">_DiNOVBGlq0 · <a href="https://www.youtube.com/watch?v=_DiNOVBGlq0" target="_blank" rel="noopener noreferrer">開 YouTube →</a></p>
+      </article>
+
+      <article class="move-card" id="eco-rush-b">
+        <div class="mc-head">
+          <span class="mc-name">T Eco／Force Rush B</span>
+          <span class="mc-phase">選修 · 整段</span>
+        </div>
+        <p class="mc-tell"><strong>重點</strong>B rush：煙出口＋閃；優先 2–3 人擠</p>
+        <p class="mc-counter">可配快 B Door 煙短片（見 #videos）</p>
+        <div class="move-clip" data-yt-id="AfIrZ0xDuXk" data-yt-start="0" data-clip-src="">
+          <span class="clip-placeholder">短片待嵌</span>
+        </div>
+        <p class="mc-chapter">AfIrZ0xDuXk · <a href="https://www.youtube.com/watch?v=AfIrZ0xDuXk" target="_blank" rel="noopener noreferrer">開 YouTube →</a></p>
+      </article>
+
+      <article class="move-card" id="eco-rush-a">
+        <div class="mc-head">
+          <span class="mc-name">T Eco／Force Rush A Short</span>
+          <span class="mc-phase">選修 · 整段</span>
+        </div>
+        <p class="mc-tell"><strong>重點</strong>Cat／Short：一粒 Xbox＋閃</p>
+        <p class="mc-counter">Force 可帶 1–2 煙閃；仍避免散開</p>
+        <div class="move-clip" data-yt-id="VW-yc9psX_8" data-yt-start="0" data-clip-src="">
+          <span class="clip-placeholder">短片待嵌</span>
+        </div>
+        <p class="mc-chapter">VW-yc9psX_8 · <a href="https://www.youtube.com/watch?v=VW-yc9psX_8" target="_blank" rel="noopener noreferrer">開 YouTube →</a></p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ========== #solo ========== -->
+  <section class="section" id="solo" aria-labelledby="solo-title">
+    <div class="section-kicker">SOLO PLAYS</div>
+    <h2 id="solo-title">Solo 心態 · <em>有效獨狼</em></h2>
+    <p class="section-lead">短課整段嵌；Lurk 概念片無章節亦整段。</p>
+
+    <div class="move-cards">
+      <article class="move-card" id="solo-t-plays">
+        <div class="mc-head">
+          <span class="mc-name">T 側有效 Solo Plays</span>
+          <span class="mc-phase">整段 · ~6.5 分</span>
+        </div>
+        <p class="mc-tell"><strong>重點</strong>timing＋報點；自己創造空間</p>
+        <p class="mc-counter">無章節＝勿當精確戳</p>
+        <div class="move-clip" data-yt-id="NdQoQB-DxjM" data-yt-start="0" data-clip-src="">
+          <span class="clip-placeholder">短片待嵌</span>
+        </div>
+        <p class="mc-chapter">NdQoQB-DxjM · <a href="https://www.youtube.com/watch?v=NdQoQB-DxjM" target="_blank" rel="noopener noreferrer">開 YouTube →</a></p>
+      </article>
+
+      <article class="move-card" id="solo-lurk-lesson">
+        <div class="mc-head">
+          <span class="mc-name">點樣 Lurk（T）</span>
+          <span class="mc-phase">選修 · 整段</span>
+        </div>
+        <p class="mc-tell"><strong>重點</strong>耐心、道具壓力、通訊；接火後再動</p>
+        <p class="mc-counter">stYleEeZ／CS2Pulse 課</p>
+        <div class="move-clip" data-yt-id="rAy1GEyfdLw" data-yt-start="0" data-clip-src="">
+          <span class="clip-placeholder">短片待嵌</span>
+        </div>
+        <p class="mc-chapter">rAy1GEyfdLw · <a href="https://www.youtube.com/watch?v=rAy1GEyfdLw" target="_blank" rel="noopener noreferrer">開 YouTube →</a></p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ========== #videos ========== -->
+  <section class="section" id="videos" aria-labelledby="videos-title">
+    <div class="section-kicker">FULL EMBEDS</div>
+    <h2 id="videos-title">主片<em>整段</em></h2>
+    <p class="section-lead">無章節／長課主片；短卡鎖秒見上。B站只外連。</p>
+
+    <div class="video-list">
+      <article class="video-card">
+        <h3>2026 全煙（官方章節｜煙卡首選）</h3>
+        <p>NartOutHere · HY85NcZMrAg · Mid／Xbox@67／CT@317</p>
+        <div class="video-frame">
+          <iframe src="https://www.youtube-nocookie.com/embed/HY85NcZMrAg?rel=0" title="Dust2 Smokes 2026" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <div class="ext-links"><a href="https://www.youtube.com/watch?v=HY85NcZMrAg" target="_blank" rel="noopener noreferrer">YouTube →</a></div>
+      </article>
+
+      <article class="video-card">
+        <h3>How To Play Dust 2 Like a Level 10</h3>
+        <p>WilsonCS2 · BL8HLNGTbBE · T／CT 獨狼主課（描述戳）</p>
+        <div class="video-frame">
+          <iframe src="https://www.youtube-nocookie.com/embed/BL8HLNGTbBE?start=125&amp;rel=0" title="Wilson Dust2" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <div class="ext-links"><a href="https://www.youtube.com/watch?v=BL8HLNGTbBE&amp;t=125s" target="_blank" rel="noopener noreferrer">YouTube @ 125s →</a></div>
+      </article>
+
+      <article class="video-card">
+        <h3>You’re Playing Dust 2 Wrong（STYKO）</h3>
+        <p>Bn5RPHcIelw · Pro T＠70／CT＠1322 · 官方章節</p>
+        <div class="video-frame">
+          <iframe src="https://www.youtube-nocookie.com/embed/Bn5RPHcIelw?start=70&amp;rel=0" title="STYKO Dust2" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <div class="ext-links"><a href="https://www.youtube.com/watch?v=Bn5RPHcIelw&amp;t=70s" target="_blank" rel="noopener noreferrer">YouTube @ 70s →</a></div>
+      </article>
+
+      <article class="video-card">
+        <h3>T Eco Round Strategies</h3>
+        <p>CS2 Pulse · jcMkvYWug1A · 無章節整段</p>
+        <div class="video-frame">
+          <iframe src="https://www.youtube-nocookie.com/embed/jcMkvYWug1A?rel=0" title="T Eco" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <div class="ext-links"><a href="https://www.youtube.com/watch?v=jcMkvYWug1A" target="_blank" rel="noopener noreferrer">YouTube →</a></div>
+      </article>
+
+      <article class="video-card">
+        <h3>CT Eco Strategies</h3>
+        <p>CS2 Pulse · _DiNOVBGlq0 · 無章節整段</p>
+        <div class="video-frame">
+          <iframe src="https://www.youtube-nocookie.com/embed/_DiNOVBGlq0?rel=0" title="CT Eco" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <div class="ext-links"><a href="https://www.youtube.com/watch?v=_DiNOVBGlq0" target="_blank" rel="noopener noreferrer">YouTube →</a></div>
+      </article>
+
+      <article class="video-card">
+        <h3>Effective Solo Plays as T</h3>
+        <p>NdQoQB-DxjM · Solo 心態短課</p>
+        <div class="video-frame">
+          <iframe src="https://www.youtube-nocookie.com/embed/NdQoQB-DxjM?rel=0" title="Solo T" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <div class="ext-links"><a href="https://www.youtube.com/watch?v=NdQoQB-DxjM" target="_blank" rel="noopener noreferrer">YouTube →</a></div>
+      </article>
+
+      <article class="video-card">
+        <h3>How to Lurk on Dust 2 as T</h3>
+        <p>rAy1GEyfdLw · Lurk 概念 · 無章節整段</p>
+        <div class="video-frame">
+          <iframe src="https://www.youtube-nocookie.com/embed/rAy1GEyfdLw?rel=0" title="Lurk Dust2" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <div class="ext-links"><a href="https://www.youtube.com/watch?v=rAy1GEyfdLw" target="_blank" rel="noopener noreferrer">YouTube →</a></div>
+      </article>
+
+      <article class="video-card">
+        <h3>Fast B Doors Smoke（Rush B）</h3>
+        <p>bdnaEvPY5is · ~90s · Eco B 快煙</p>
+        <div class="video-frame">
+          <iframe src="https://www.youtube-nocookie.com/embed/bdnaEvPY5is?rel=0" title="Fast B Door Smoke" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <div class="ext-links"><a href="https://www.youtube.com/watch?v=bdnaEvPY5is" target="_blank" rel="noopener noreferrer">YouTube →</a></div>
+      </article>
+
+      <article class="video-card">
+        <h3>B站備援（外連）</h3>
+        <p>沙二新手一站式道具課 · 秒數未標 · 只外開</p>
+        <div class="ext-links" style="margin-top:12px">
+          <a href="https://www.bilibili.com/video/BV1jkLwz4ESC/" target="_blank" rel="noopener noreferrer">BV1jkLwz4ESC →</a>
+          <a href="https://www.bilibili.com/video/BV1NXBTYNEjK/" target="_blank" rel="noopener noreferrer">BV1NXBTYNEjK（B區煙）→</a>
+          <a href="https://www.bilibili.com/video/BV1Gw411H7CF/" target="_blank" rel="noopener noreferrer">BV1Gw411H7CF（B門煙）→</a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ========== #mistakes ========== -->
+  <section class="section" id="mistakes" aria-labelledby="mistakes-title">
+    <div class="section-kicker">MISTAKES</div>
+    <h2 id="mistakes-title">常見<em>失誤</em></h2>
+    <ul class="mistake-list">
+      <li>單人乾 peek Long Doors／Mid Doors <span>—— CT AWP／步槍守門禮物</span></li>
+      <li>Eco 散開遠槍／solo tunnels <span>—— 被逐個點；要一條線擠</span></li>
+      <li>Default 丟完道具卻無人進點 <span>—— 開站煙要有人跟</span></li>
+      <li>CT 過早旋轉被 fake <span>—— B fake→A split 約十數秒；確認先轉</span></li>
+      <li>Solo lurk 無隊友壓力 <span>—— 等於送人頭</span></li>
+      <li>Retake B 一次睇太多角 <span>—— 煙 tunnels，一次清一角</span></li>
+      <li>把 CS:GO 舊線當唯一正解 <span>—— 道具以 CS2 2026 煙片為準</span></li>
+      <li>太早 lurk／唔 call／忘記 Xbox 煙 <span>—— SoloQ 最低貢獻都欠奉</span></li>
+    </ul>
+  </section>
+
+  <!-- ========== #links ========== -->
+  <section class="section" id="links" aria-labelledby="links-title">
+    <div class="section-kicker">LINKS</div>
+    <h2 id="links-title">圖文／Lineups<em>外連</em></h2>
+    <p class="section-lead">Callouts 同落地點以外部站為準；進練習圖核對。</p>
+    <ul class="tips-list">
+      <li><a href="https://lineups.gg/maps/dust2/" target="_blank" rel="noopener noreferrer">lineups.gg／Dust2</a> — 互動 lineups（含 Xbox）</li>
+      <li><a href="https://csdb.gg/lineups/dust2/" target="_blank" rel="noopener noreferrer">csdb.gg／Dust2</a> — Essential／Solo-friendly 篩選</li>
+      <li><a href="https://nadesdb.com/dust2/smokes/" target="_blank" rel="noopener noreferrer">nadesdb.com／Dust2 smokes</a> — 煙落點圖</li>
+      <li><a href="https://cs2.eu/news/cs2-dust2-complete-map-guide-callouts-strategies-and-tips" target="_blank" rel="noopener noreferrer">CS2.eu Dust2 map guide</a> — callouts＋default／execute</li>
+      <li><a href="https://cs2pulse.com/best-eco-round-strategies-on-dust-2-as-t/" target="_blank" rel="noopener noreferrer">CS2Pulse T Eco</a> · <a href="https://cs2pulse.com/best-eco-round-strategies-on-dust-2-as-ct/" target="_blank" rel="noopener noreferrer">CT Eco</a> · <a href="https://cs2pulse.com/how-to-make-effective-solo-plays-on-dust-2-as-t/" target="_blank" rel="noopener noreferrer">Solo T</a></li>
+      <li><a href="https://www.ggrecon.com/guides/cs2-dust2-best-smokes-flashes-molotovs-grenades/" target="_blank" rel="noopener noreferrer">GGRecon 煙閃 molly</a></li>
+      <li><a href="https://metabot.gg/en/cs2/guides/cs2-map-control-round-phases-default" target="_blank" rel="noopener noreferrer">MetaBot Default 三階段</a></li>
+      <li>Callouts 速查：Long Doors／Blue／Pit／Car／Goose／Cat／Xbox／Upper／Lower／B Window／Plat／Back Plat</li>
+    </ul>
+  </section>
+
+
+  <section class="feedback" id="feedback" data-netlify-feedback aria-labelledby="feedback-title">
+    <div class="feedback-head">
+      <h2 id="feedback-title">留下<em>意見</em>俾網主</h2>
+      <span class="feedback-badge">真係會送到</span>
+    </div>
+    <p class="feedback-lead">招式唔清楚、想加邊個 Boss、有錯漏——丢句說話。留言經 Netlify Forms 直達網主信箱／後台，唔再只係本機保存。</p>
+
+    <div class="feedback-thanks" data-feedback-thanks role="status" aria-live="polite" hidden>
+      <h3>收到，多謝硬核祝福！</h3>
+      <p>你嘅意見已送出俾網主。想再講可以繼續填。</p>
+      <button type="button" class="feedback-secondary" data-feedback-again>再留一句</button>
+    </div>
+
+    <form class="feedback-form" name="boss-hunt-feedback" method="POST" action="/" data-netlify="true" netlify netlify-honeypot="bot-field" data-boss-feedback>
+      <input type="hidden" name="form-name" value="boss-hunt-feedback" />
+      <input type="hidden" name="page" value="cs2-dust2-solo.html · CS2｜沙2獨狼" />
+      <p class="feedback-honeypot" aria-hidden="true">
+        <label>唔好填呢格 <input type="text" name="bot-field" tabindex="-1" autocomplete="off" /></label>
+      </p>
+      <div class="feedback-field">
+        <label for="fb-name-cs2-dust2-solo">暱稱 <span class="opt">（可選）</span></label>
+        <input type="text" id="fb-name-cs2-dust2-solo" name="name" maxlength="80" placeholder="例如：狼忍新手" autocomplete="nickname" />
+      </div>
+      <div class="feedback-field">
+        <label for="fb-contact-cs2-dust2-solo">聯絡 <span class="opt">（可選）</span></label>
+        <input type="text" id="fb-contact-cs2-dust2-solo" name="contact" maxlength="120" placeholder="電郵／Discord（方便回覆）" autocomplete="email" />
+      </div>
+      <div class="feedback-field">
+        <label for="fb-msg-cs2-dust2-solo">意見 <span class="opt">（必填）</span></label>
+        <textarea id="fb-msg-cs2-dust2-solo" name="message" maxlength="4000" required rows="4" placeholder="想講咩就寫低…"></textarea>
+      </div>
+      <div class="feedback-actions">
+        <button type="submit" class="feedback-submit">送出意見</button>
+      </div>
+      <p class="feedback-note">送出後網主喺 Netlify → Forms 收到。唔填一樣睇晒全頁。</p>
+      <div class="feedback-status" data-feedback-status role="status" aria-live="polite"></div>
+    </form>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  硬核祝福 · BOSS 獵殺區 · CS2 Dust2 獨狼套路 · 唔教修改器／外掛／作弊
+</footer>
+
+<script>
+(function () {
+  function hydrateMoveClips() {
+    document.querySelectorAll('.move-clip').forEach(function (slot) {
+      var clipSrc = (slot.getAttribute('data-clip-src') || '').trim();
+      var ytId = (slot.getAttribute('data-yt-id') || '').trim();
+      var ytStart = (slot.getAttribute('data-yt-start') || '').trim();
+      var ytEnd = (slot.getAttribute('data-yt-end') || '').trim();
+      if (!clipSrc && ytStart === '') return;
+      slot.classList.add('is-filled');
+      slot.innerHTML = '';
+      if (clipSrc) {
+        var v = document.createElement('video');
+        v.src = clipSrc;
+        v.controls = true;
+        v.playsInline = true;
+        v.preload = 'metadata';
+        slot.appendChild(v);
+        return;
+      }
+      if (!ytId) return;
+      var params = ['start=' + encodeURIComponent(ytStart)];
+      if (ytEnd) params.push('end=' + encodeURIComponent(ytEnd));
+      params.push('rel=0');
+      var ifr = document.createElement('iframe');
+      ifr.src = 'https://www.youtube-nocookie.com/embed/' + encodeURIComponent(ytId) + '?' + params.join('&');
+      ifr.title = '招式／步驟短片';
+      ifr.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+      ifr.allowFullscreen = true;
+      ifr.loading = 'lazy';
+      slot.appendChild(ifr);
+    });
+  }
+  hydrateMoveClips();
+})();
+</script>
+
+<script src="assets/vote-widget.js" defer></script>
+<script src="assets/feedback-form.js" defer></script>
+<script src="assets/age-gate.js" defer></script>
+</body>
+</html>

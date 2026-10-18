@@ -1,0 +1,454 @@
+{
+  "meta": {
+    "title_zh": "佐佐木岩流（異形）招式短片＋解說嵌播包",
+    "game": "Onimusha: Way of the Sword",
+    "boss_en": "Sasaki Ganryu (Altered)",
+    "boss_zh": "佐佐木岩流（異形）",
+    "source_guide": "onimusha-sasaki-ganryu-altered-zh-Hant.md",
+    "updated": "2026-10-17",
+    "tz": "Asia/Hong_Kong",
+    "privacy": {
+      "no_school_names": true,
+      "user_face": "avatar_only_green_mouse_if_any",
+      "user_footage": "none_yet_use_third_party_embeds"
+    },
+    "honesty_note": "youtube_start_s/end_s only when Whisper/auto-captions OR clear visual tell→resolve matched, OR Collect Minister chapter/oEmbed verified windows. gioh_tentacle_slash: 79–98 on 9EwDk_8BB2s (ASR). delayed_slash & thrust: filled 2026-10-17 from Collect Minister — primary QEiA0snj5nI chapter windows (一文字 open 515–533; 跑步突刺 92–110); Tenkiei 9EwDk_8BB2s still has no dedicated VO for these two.",
+    "asr_method": "faster-whisper base + yt-dlp auto-captions en; full-fight 1fps/2fps visual scrub 2026-10-17",
+    "clip_dir_store": "boss-hunt/clips/",
+    "clip_dir_workspace": "/workspace/onimusha-clips/out/",
+    "scrub_2026_10_17": {
+      "full_fight_range_s": [
+        454,
+        690
+      ],
+      "methods": [
+        "1fps frames entire full fight",
+        "2fps first 90s of full fight",
+        "4fps candidates 458–478",
+        "3fps candidates 505–527",
+        "Phase1 B-roll 26–100 at 1–3fps",
+        "auto-captions keyword search: no thrust/delayed/flourish hits"
+      ],
+      "filled": [
+        "gioh_tentacle_slash"
+      ],
+      "still_null": [],
+      "note_zh": "Tenkiei scrub 當時 delayed/thrust 仍 null；已由採集大臣另片 QEiA0snj5nI 補齊。"
+    },
+    "collect_minister_2026_10_17": {
+      "source": "採集大臣 oEmbed/chapters/captions",
+      "primary_video_id": "QEiA0snj5nI",
+      "filled": [
+        "delayed_slash",
+        "thrust"
+      ],
+      "alias_zh": {
+        "delayed_slash": [
+          "遲延大砍",
+          "delayed flourish",
+          "一文字"
+        ],
+        "thrust": [
+          "突刺",
+          "fast thrust",
+          "跑步突刺",
+          "牙突‧零式",
+          "縮地突刺"
+        ]
+      },
+      "note_zh": "Tenkiei 主片／B站全戰可作流程；兩招無專章勿當唯一秒數源。"
+    }
+  },
+  "youtube": {
+    "id": "9EwDk_8BB2s",
+    "url": "https://www.youtube.com/watch?v=9EwDk_8BB2s",
+    "embed": "https://www.youtube.com/embed/9EwDk_8BB2s",
+    "embed_nocookie": "https://www.youtube-nocookie.com/embed/9EwDk_8BB2s",
+    "title": "How to Beat Sasaki Ganryu (Altered) | Onimusha Way of the Sword Boss Guide",
+    "author": "Tenkiei",
+    "duration_s": 690,
+    "chapters": [
+      {
+        "label": "Sasaki Ganryu (Altered)",
+        "start_s": 0,
+        "phase": 1
+      },
+      {
+        "label": "Phase 2 and Blazing State",
+        "start_s": 242,
+        "phase": 2
+      },
+      {
+        "label": "Full Sasaki Ganryu (Altered) Boss Fight",
+        "start_s": 454,
+        "phase": "full_fight"
+      }
+    ]
+  },
+  "bilibili": {
+    "bvid": "BV1ohtf6PEPH",
+    "url": "https://www.bilibili.com/video/BV1ohtf6PEPH/?p=47",
+    "embed": "//player.bilibili.com/player.html?bvid=BV1ohtf6PEPH&page=47&high_quality=1&danmaku=0",
+    "page": 47,
+    "part_title": "第46期：渡月桥（佐佐木岩流 · 异形）",
+    "cid": 41692891697,
+    "duration_s": 1944,
+    "note_zh": "期内單招秒數未核實；優先用 YouTube 主片 start/end。"
+  },
+  "jp_article": {
+    "url": "https://www.jagaimogameblog.com/entry/Onimusha_WayOfTheSword_SasakiGanryuAltered",
+    "role": "supplementary",
+    "caution_zh": "正文偏巌流2回目；異形兩血條以主片為準。優先外連。"
+  },
+  "embed_order": [
+    {
+      "rank": 1,
+      "platform": "youtube",
+      "ref": "9EwDk_8BB2s"
+    },
+    {
+      "rank": 2,
+      "platform": "bilibili",
+      "ref": "BV1ohtf6PEPH",
+      "page": 47
+    },
+    {
+      "rank": 3,
+      "platform": "jp_article",
+      "ref": "jagaimo"
+    }
+  ],
+  "phase_shortcuts": [
+    {
+      "id": "phase1_explain",
+      "name_zh": "第1階段解說",
+      "youtube_start_s": 0
+    },
+    {
+      "id": "phase2_explain",
+      "name_zh": "第2階段／氣焰解說",
+      "youtube_start_s": 242
+    },
+    {
+      "id": "full_fight",
+      "name_zh": "完整實戰",
+      "youtube_start_s": 454
+    }
+  ],
+  "moves": [
+    {
+      "id": "delayed_slash",
+      "name_zh": "遲延大砍",
+      "name_en": "Delayed / flourish slash (一文字)",
+      "tell": "先轉身／挽花再出刀，刀真正到身先有判定",
+      "counter": "等刀真正到身再彈／化勁",
+      "dont": "跟著前搖太早按",
+      "break_one_liner_zh": "等刀真正到身先彈，唔好跟前搖太早按",
+      "commentary_zh": "岩流會先挽花／轉身再出刀。等刀真正到身先彈或化勁；跟前搖太早按會空彈食連段。",
+      "phase": [
+        1,
+        2
+      ],
+      "youtube_id": "QEiA0snj5nI",
+      "youtube_start_s": 515,
+      "youtube_end_s": 533,
+      "duration_s": 18,
+      "embed_url": "https://www.youtube-nocookie.com/embed/QEiA0snj5nI?start=515&end=533",
+      "watch_url": "https://www.youtube.com/watch?v=QEiA0snj5nI&t=515s",
+      "confidence": "medium",
+      "youtube_status": "verified_collect_minister",
+      "clip_file": null,
+      "transcript_evidence": "Collect Minister: QEiA0snj5nI chapter 一文字 08:35–10:48; card window = section open 515–533. Backup GGBOY 34OsBZO9Rpo≈20s 假動作下劈; catalog FR5twlhYLLY (no seconds).",
+      "embed_priority": 10,
+      "source_note_zh": "採集大臣核實：一文字章節 08:35–10:48（515–648）；卡窗取章節開頭 515–533（18s）。別名 delayed flourish／一文字。confidence medium（章節已核；窗＝章節開端，非幀級 tell→hit）。",
+      "html_anchor_hint": "move-delayed-wave-slash",
+      "backups": [
+        {
+          "youtube_id": "34OsBZO9Rpo",
+          "youtube_start_s": 20,
+          "watch_url": "https://www.youtube.com/watch?v=34OsBZO9Rpo&t=20s",
+          "note_zh": "GGBOY 假動作下劈 ~00:20"
+        },
+        {
+          "youtube_id": "FR5twlhYLLY",
+          "youtube_start_s": null,
+          "watch_url": "https://www.youtube.com/watch?v=FR5twlhYLLY",
+          "note_zh": "全モーション圖鑑（無秒數）"
+        }
+      ],
+      "chapter_full": {
+        "label_zh": "一文字",
+        "start_s": 515,
+        "end_s": 648,
+        "note_zh": "完整章節 08:35–10:48；卡面用開頭 18s"
+      }
+    },
+    {
+      "id": "thrust",
+      "name_zh": "突刺",
+      "name_en": "Fast thrust / 跑步突刺",
+      "tell": "前搖極短、極快突刺",
+      "counter": "預備防禦・彈／化勁；無把握則橫閃",
+      "dont": "傻格擋整段（力動被削＋觸手追擊）",
+      "break_one_liner_zh": "前搖極短，預備防；無把握橫閃，唔好傻格",
+      "commentary_zh": "突刺前搖極短。預先備防彈或化勁；無把握就橫閃。唔好傻格，力動會被削仲容易俾觸手追擊。",
+      "phase": [
+        1,
+        2
+      ],
+      "youtube_id": "QEiA0snj5nI",
+      "youtube_start_s": 92,
+      "youtube_end_s": 110,
+      "duration_s": 18,
+      "embed_url": "https://www.youtube-nocookie.com/embed/QEiA0snj5nI?start=92&end=110",
+      "watch_url": "https://www.youtube.com/watch?v=QEiA0snj5nI&t=92s",
+      "confidence": "medium",
+      "youtube_status": "verified_collect_minister",
+      "clip_file": null,
+      "transcript_evidence": "Collect Minister: QEiA0snj5nI 跑步突刺 01:32–02:34 start=92; card 92–110. 牙突‧零式 02:35–03:48 start=155. Backup GGBOY 34OsBZO9Rpo t=57／~99; icewindful czsVdZkGLcU t=570.",
+      "embed_priority": 11,
+      "source_note_zh": "採集大臣核實：跑步突刺章節 01:32–02:34（92–154）；卡窗 92–110（18s）。變體牙突‧零式見 thrust_variant 155–173。別名 fast thrust／縮地突刺等。",
+      "html_anchor_hint": "move-thrust",
+      "thrust_variant": {
+        "id": "thrust_gatsuki_zero",
+        "name_zh": "牙突‧零式",
+        "youtube_id": "QEiA0snj5nI",
+        "youtube_start_s": 155,
+        "youtube_end_s": 173,
+        "duration_s": 18,
+        "embed_url": "https://www.youtube-nocookie.com/embed/QEiA0snj5nI?start=155&end=173",
+        "watch_url": "https://www.youtube.com/watch?v=QEiA0snj5nI&t=155s",
+        "note_zh": "同片突刺變體；可選第二嵌"
+      },
+      "backups": [
+        {
+          "youtube_id": "34OsBZO9Rpo",
+          "youtube_start_s": 57,
+          "watch_url": "https://www.youtube.com/watch?v=34OsBZO9Rpo&t=57s",
+          "note_zh": "GGBOY 蓄力戳 ~00:57；縮地突刺約 ~01:39"
+        },
+        {
+          "youtube_id": "czsVdZkGLcU",
+          "youtube_start_s": 570,
+          "watch_url": "https://www.youtube.com/watch?v=czsVdZkGLcU&t=570s",
+          "note_zh": "icewindful 招式表 ~09:30／~09:44"
+        }
+      ],
+      "chapter_full": {
+        "label_zh": "跑步突刺",
+        "start_s": 92,
+        "end_s": 154,
+        "note_zh": "完整章節 01:32–02:34；卡面用開頭 18s"
+      }
+    },
+    {
+      "id": "jump_slash_issen",
+      "name_zh": "跳斬一閃",
+      "name_en": "Jump slash / Issen",
+      "tell": "後退後大跳下劈（jump charge）",
+      "counter": "最佳一閃位；或彈後短追",
+      "dont": "跳起來就砍",
+      "break_one_liner_zh": "最佳一閃位；或彈後短追",
+      "commentary_zh": "後退大跳下劈，前搖長、最寬一閃窗。優先一閃；趕唔切就彈完短追兩刀就收。",
+      "phase": 1,
+      "youtube_id": "9EwDk_8BB2s",
+      "youtube_start_s": 104,
+      "youtube_end_s": 120,
+      "duration_s": 16,
+      "embed_url": "https://www.youtube-nocookie.com/embed/9EwDk_8BB2s?start=104&end=120",
+      "watch_url": "https://www.youtube.com/watch?v=9EwDk_8BB2s&t=104s",
+      "confidence": "high",
+      "youtube_status": "verified_asr",
+      "clip_file": "clips/move-jump_slash_issen.mp4",
+      "transcript_evidence": "Whisper ~104–115s: jump charge / best opportunity to Issen",
+      "embed_priority": 3
+    },
+    {
+      "id": "combo_chain",
+      "name_zh": "連斬",
+      "name_en": "Multi-hit sword chain",
+      "tell": "連續揮刀約 3～5 下；傻格會削大量力動",
+      "counter": "彈到連段完再反",
+      "dont": "彈一刀就安心反攻",
+      "break_one_liner_zh": "彈到連段完再反，唔好彈一刀就安心",
+      "commentary_zh": "岩流鍾意鏈式連斬。用彈打斷連段，彈到連段完先反；彈一刀就安心會食後續刀。",
+      "phase": 1,
+      "youtube_id": "9EwDk_8BB2s",
+      "youtube_start_s": 53,
+      "youtube_end_s": 70,
+      "duration_s": 17,
+      "embed_url": "https://www.youtube-nocookie.com/embed/9EwDk_8BB2s?start=53&end=70",
+      "watch_url": "https://www.youtube.com/watch?v=9EwDk_8BB2s&t=53s",
+      "confidence": "high",
+      "youtube_status": "verified_asr",
+      "clip_file": "clips/move-combo_chain.mp4",
+      "transcript_evidence": "Whisper 26–62s chain/block stamina; counter window 53–70 parry interrupt sequence",
+      "embed_priority": 4
+    },
+    {
+      "id": "blue_mouth_grab",
+      "name_zh": "藍口／左手抓",
+      "name_en": "Blue mouth / left-hand grab",
+      "tell": "祇王嘴藍閃後伸頭（或岩流左手藍光伸手）",
+      "counter": "接觸瞬間 ○／抓取反制",
+      "dont": "提前閃、硬格、只看長刀",
+      "break_one_liner_zh": "接觸瞬間○反制，唔好提前閃",
+      "commentary_zh": "藍閃後伸頭／伸手先係抓。接觸瞬間撳○反制；提前閃會落空。片中主講嘴藍閃，左手抓同理。",
+      "phase": [
+        1,
+        2
+      ],
+      "youtube_id": "9EwDk_8BB2s",
+      "youtube_start_s": 137,
+      "youtube_end_s": 152,
+      "duration_s": 15,
+      "embed_url": "https://www.youtube-nocookie.com/embed/9EwDk_8BB2s?start=137&end=152",
+      "watch_url": "https://www.youtube.com/watch?v=9EwDk_8BB2s&t=137s",
+      "confidence": "high",
+      "youtube_status": "verified_asr",
+      "clip_file": "clips/move-blue_mouth_grab.mp4",
+      "transcript_evidence": "Whisper 137–148s: blue flash from mouth → grab reversal",
+      "embed_priority": 2
+    },
+    {
+      "id": "gioh_tentacle_slash",
+      "name_zh": "祇王觸手刀",
+      "name_en": "Gioh tentacle / arm slash (embed)",
+      "tell": "祇王背／肩伸出觸手／額外手臂揮斬（刀尖向下）",
+      "counter": "彈／化勁；嵌地後可斬斷觸手",
+      "dont": "只鎖岩流長刀而漏觸手",
+      "break_one_liner_zh": "觸手揮斬要彈／化勁；嵌地可斬斷觸手",
+      "commentary_zh": "見到祇王手臂／觸手揮過來就彈或化勁。成功彈中後刀尖會嵌地，趁機斬斷觸手，減少後續雜攻。",
+      "phase": [
+        1,
+        2
+      ],
+      "youtube_id": "9EwDk_8BB2s",
+      "youtube_start_s": 79,
+      "youtube_end_s": 98,
+      "duration_s": 19,
+      "embed_url": "https://www.youtube-nocookie.com/embed/9EwDk_8BB2s?start=79&end=98",
+      "watch_url": "https://www.youtube.com/watch?v=9EwDk_8BB2s&t=79s",
+      "confidence": "high",
+      "youtube_status": "verified_asr",
+      "clip_file": "clips/move-gioh_tentacle_slash.mp4",
+      "transcript_evidence": "Whisper+auto-captions ~79–98s: arms attacking → parry/deflect → arm embeds sword-first in ground → opportunity to cut off. Visual B-roll matches tentacle/arm slash during VO.",
+      "embed_priority": 9,
+      "html_anchor_hint": "move-gioh-tentacle-slash"
+    },
+    {
+      "id": "flower_siphon_neck",
+      "name_zh": "吸紅花射頸",
+      "name_en": "Gioh flower siphon / shoot neck",
+      "tell": "祇王伸長頸對場地紅花吸魂，回覆岩流力動",
+      "counter": "伸頸即鬼弓射頸；亦可貼身壓制減少吸花機會",
+      "dont": "繼續砍岩流讓力動回滿",
+      "break_one_liner_zh": "伸頸即鬼弓射頸，優先過砍岩流",
+      "commentary_zh": "祇王伸頸吸紅花會回力動。見到伸頸即刻鬼弓射頸中斷。主片旁白主推貼身壓制防吸花；弓射以攻略文為準。",
+      "phase": 1,
+      "youtube_id": "9EwDk_8BB2s",
+      "youtube_start_s": 168,
+      "youtube_end_s": 185,
+      "duration_s": 17,
+      "embed_url": "https://www.youtube-nocookie.com/embed/9EwDk_8BB2s?start=168&end=185",
+      "watch_url": "https://www.youtube.com/watch?v=9EwDk_8BB2s&t=168s",
+      "confidence": "medium",
+      "youtube_status": "verified_asr_pressure_not_bow",
+      "clip_file": "clips/move-flower_siphon_neck.mp4",
+      "transcript_evidence": "Whisper 168–174s absorbing souls from flowers; 209–218 pressure prevent. No VO of Oni Bow shot.",
+      "embed_priority": 1
+    },
+    {
+      "id": "blue_counter_stance",
+      "name_zh": "青架崩",
+      "name_en": "Blue countering stance / break",
+      "tell": "刀身青光、擺反撃の構え",
+      "counter": "△＋○（腕覺醒・打壊）崩架",
+      "dont": "普攻硬撞 → 食反擊",
+      "break_one_liner_zh": "△＋○崩架，普攻硬撞會食反擊",
+      "commentary_zh": "刀身發青、擺架就停手。用△＋○腕覺醒打壊崩架；普攻硬撞會食反擊。",
+      "phase": [
+        1,
+        2
+      ],
+      "youtube_id": "9EwDk_8BB2s",
+      "youtube_start_s": 149,
+      "youtube_end_s": 167,
+      "duration_s": 18,
+      "embed_url": "https://www.youtube-nocookie.com/embed/9EwDk_8BB2s?start=149&end=167",
+      "watch_url": "https://www.youtube.com/watch?v=9EwDk_8BB2s&t=149s",
+      "confidence": "high",
+      "youtube_status": "verified_asr",
+      "clip_file": "clips/move-blue_counter_stance.mp4",
+      "transcript_evidence": "Whisper 149–167s: countering stance / sword glows blue / Oni strength punch through",
+      "embed_priority": 5
+    },
+    {
+      "id": "purple_tentacle_twohit",
+      "name_zh": "紫觸手兩段",
+      "name_en": "Purple tentacle sweep then smash",
+      "tell": "氣焰後觸手聚成巨團；橫掃＋下砸",
+      "counter": "先閃橫掃再閃下砸；可選一閃",
+      "dont": "連段中途貪刀",
+      "break_one_liner_zh": "先閃橫掃再閃下砸，中途唔好貪刀",
+      "commentary_zh": "紫觸手兩段：先閃橫掃，再閃下砸。兩下完先短懲罰；中途唔好貪刀。",
+      "phase": 2,
+      "youtube_id": "9EwDk_8BB2s",
+      "youtube_start_s": 278,
+      "youtube_end_s": 296,
+      "duration_s": 18,
+      "embed_url": "https://www.youtube-nocookie.com/embed/9EwDk_8BB2s?start=278&end=296",
+      "watch_url": "https://www.youtube.com/watch?v=9EwDk_8BB2s&t=278s",
+      "confidence": "high",
+      "youtube_status": "verified_asr",
+      "clip_file": "clips/move-purple_tentacle_twohit.mp4",
+      "transcript_evidence": "Whisper 278–294s: giant mass / dodge sweep / then strike down",
+      "embed_priority": 6
+    },
+    {
+      "id": "white_malice_slash",
+      "name_zh": "白光斬彈",
+      "name_en": "White/pink Malice undodgeable slash",
+      "tell": "刀附魔後粉／白閃 → 極速突進斬",
+      "counter": "見閃光立刻彈或化勁",
+      "dont": "普閃、賭一閃、硬換血",
+      "break_one_liner_zh": "只可彈／化勁，禁普閃同賭一閃",
+      "commentary_zh": "粉白閃光後幾乎即斬，遊戲內當不可閃招。用閃光對彈或化勁；禁普閃同賭一閃。",
+      "phase": 2,
+      "youtube_id": "9EwDk_8BB2s",
+      "youtube_start_s": 332,
+      "youtube_end_s": 353,
+      "duration_s": 21,
+      "embed_url": "https://www.youtube-nocookie.com/embed/9EwDk_8BB2s?start=332&end=353",
+      "watch_url": "https://www.youtube.com/watch?v=9EwDk_8BB2s&t=332s",
+      "confidence": "high",
+      "youtube_status": "verified_asr",
+      "clip_file": "clips/move-white_malice_slash.mp4",
+      "transcript_evidence": "Whisper 326–353s: undodgeable / flash / time parry or deflect",
+      "note_duration": "21s slightly over 20s target to keep flash→parry teaching intact",
+      "embed_priority": 7
+    },
+    {
+      "id": "red_sword_waves",
+      "name_zh": "紅劍波",
+      "name_en": "Red ground sword waves",
+      "tell": "刀插地放出連續紅劍波（約五波）",
+      "counter": "彈或閃離整串，波完再壓",
+      "dont": "打完第一波就貼身",
+      "break_one_liner_zh": "彈或閃過整串，第一波唔好貼身",
+      "commentary_zh": "插地放連續紅波（約五波）。彈或閃過整串，第一波唔好貼身反擊。",
+      "phase": 2,
+      "youtube_id": "9EwDk_8BB2s",
+      "youtube_start_s": 312,
+      "youtube_end_s": 326,
+      "duration_s": 14,
+      "embed_url": "https://www.youtube-nocookie.com/embed/9EwDk_8BB2s?start=312&end=326",
+      "watch_url": "https://www.youtube.com/watch?v=9EwDk_8BB2s&t=312s",
+      "confidence": "high",
+      "youtube_status": "verified_asr",
+      "clip_file": "clips/move-red_sword_waves.mp4",
+      "transcript_evidence": "Whisper 312–326s: wave attack / five waves / plant the sword",
+      "embed_priority": 8
+    }
+  ]
+}

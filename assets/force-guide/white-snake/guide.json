@@ -1,0 +1,104 @@
+{
+  "zoneId": "force-guide-serpent",
+  "slug": "white-snake",
+  "titleZh": "智能解謎 · 白蛇擋路",
+  "subtitleZh": "大白蛇擋路——睇片、跟步驟、用傀儡術過關。唔使答題，內容完全開放。",
+  "locale": "zh-Hant-HK",
+  "bossHuntPathStep": "STEP 04",
+  "assetRoot": "assets/force-guide/white-snake",
+  "metaJoke": "呢條蛇唔係 Boss，係路線謎題。設計意圖就係：唔睇攻略／唔識傀儡術＝企喺度冇得郁。硬斬鱗片？恭喜你，你而家係攻略片嘅反面教材。",
+  "media": {
+    "introMp4": "intro.mp4",
+    "loopMp4": "guide-loop.mp4",
+    "loopWebm": "guide-loop.webm",
+    "loopDurationSec": 26,
+    "poster": "frames/f02.webp"
+  },
+  "frames": [
+    {
+      "file": "frames/f01.webp",
+      "label": "暗洞入口",
+      "pathImg": "imgs/04_serpent_cave_entrance.png"
+    },
+    {
+      "file": "frames/f02.webp",
+      "label": "大白蛇擋路",
+      "pathImg": "imgs/05_great_serpent_blocks.png"
+    },
+    {
+      "file": "frames/f03.webp",
+      "label": "鉤入小屋",
+      "pathImg": "imgs/06_serpent_temple.png"
+    },
+    {
+      "file": "frames/f04.webp",
+      "label": "出洞毒池",
+      "pathImg": "imgs/07_exit_ashina_depths.png"
+    }
+  ],
+  "steps": [
+    {
+      "id": "ws-01-cave",
+      "title": "① 毒紀念商人隔鄰入暗洞",
+      "body": "沉下谷過完毒紀念商人（Toxic Memorial Mob）隔鄰，入個黑漆漆暗洞。恭喜你，白蛇巢穴到。",
+      "image": "imgs/03_toxic_memorial_mob.png",
+      "imageAlt": "毒紀念商人附近",
+      "tips": [
+        "呢度唔係主線必殺 Boss 房，係「路線謎題」",
+        "入洞前最好已經識傀儡術；唔識就睇下一步備註"
+      ],
+      "stepNum": 1
+    },
+    {
+      "id": "ws-02-blocks",
+      "title": "② 大白蛇擋路",
+      "body": "洞入面一條大白蛇用身體堵死正面去路。硬砍鱗片＝浪費刀同命。呢關本質係逼人睇攻略／識特殊忍術。",
+      "image": "imgs/05_great_serpent_blocks.png",
+      "imageAlt": "大白蛇擋路",
+      "tips": [
+        "正面硬闖無解，唔好當普通野怪",
+        "From 經典：資訊＝進度"
+      ],
+      "stepNum": 2
+    },
+    {
+      "id": "ws-03-monkey",
+      "title": "③ 左矮台驚恐猴 → 傀儡術",
+      "body": "行去左邊較矮嘅石台／崖邊，搵隻嚇到震嘅猴子。對住佢用「傀儡術」（Puppeteer Ninjutsu），猴子會出去引開大白蛇。",
+      "image": "imgs/04_serpent_cave_entrance.png",
+      "imageAlt": "蛇巢暗洞入口／左側空間",
+      "tips": [
+        "傀儡術要先打仙峰寺・幻廊「屏風猿」先解鎖",
+        "未有傀儡術：先傳仙峰寺打屏風猿；或者改由葦名城「投身之所」跳入葦名之底（繞過呢段）"
+      ],
+      "stepNum": 3
+    },
+    {
+      "id": "ws-04-hut",
+      "title": "④ 蛇一開路 → 鉤爪衝入小屋",
+      "body": "蛇被引開之後，用鉤爪 grappling hook 衝入側邊細神社／小屋。唔好企喺度影相，窗口好短。",
+      "image": "imgs/06_serpent_temple.png",
+      "imageAlt": "蛇旁小屋",
+      "tips": [
+        "見到勾點即勾，唔好回頭同蛇講拜拜",
+        "入屋＝呢段「擋路謎題」過關"
+      ],
+      "stepNum": 4
+    },
+    {
+      "id": "ws-05-exit",
+      "title": "⑤ 出口鎖住 → 連續向上鉤 → 毒池鬼佛",
+      "body": "屋內原本出口係鎖住嘅。改為連續用鉤爪向上爬，出洞之後就係葦名之底・毒池鬼佛。之後可以安心傳送到處跑。",
+      "image": "imgs/07_exit_ashina_depths.png",
+      "imageAlt": "葦名之底毒池鬼佛",
+      "tips": [
+        "唔好喺屋入面搵暗門硬撞，向上勾先啱",
+        "到毒池鬼佛之後先算真正「離開白蛇關」"
+      ],
+      "stepNum": 5
+    }
+  ],
+  "quizFile": "quiz.json",
+  "sourceNote": "路線對齊本站 STEP 04 path-imgs；玩法參考沉下谷通道（Sunken Valley Passage）常見攻略，唔係發明新機制。",
+  "walkthroughTitleZh": "白蛇擋路 · 一步一圖"
+}

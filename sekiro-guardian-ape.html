@@ -1,0 +1,2513 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-HK">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>獅猿｜BOSS 獵殺區｜硬核祝福</title>
+<meta name="description" content="BOSS 獵殺區 — 隻狼 · 獅猿招式查詢。別人改數值，你改規則。" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Orbitron:wght@600;800&display=swap" rel="stylesheet" />
+<style>
+:root {
+  --bg: #0a0b0e;
+  --bg2: #12141a;
+  --bg3: #1a1d26;
+  --border: #2a2f3c;
+  --text: #e8e6e1;
+  --muted: #9a968c;
+  --accent: #c9a227;
+  --accent-dim: #8a7018;
+  --danger: #e04545;
+  --danger-dim: #8b2222;
+  --safe: #3dbf7a;
+  --warn: #e09a32;
+  --info: #4a9eff;
+  --phase-a: #c9a227;
+  --phase-b: #9b6bff;
+  --radius: 12px;
+  --shadow: 0 8px 32px rgba(0,0,0,.45);
+  --font: "Noto Sans TC", "PingFang HK", "Microsoft JhengHei", sans-serif;
+  --display: "Orbitron", "Noto Sans TC", sans-serif;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.55;
+  min-height: 100vh;
+  background-image:
+    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(201,162,39,.12), transparent),
+    radial-gradient(ellipse 40% 30% at 100% 50%, rgba(155,107,255,.06), transparent),
+    linear-gradient(180deg, #0a0b0e 0%, #0d0f14 100%);
+}
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+img, video { max-width: 100%; display: block; }
+
+/* —— Header —— */
+.site-header {
+  position: sticky; top: 0; z-index: 100;
+  backdrop-filter: blur(14px);
+  background: rgba(10,11,14,.85);
+  border-bottom: 1px solid var(--border);
+}
+.header-inner {
+  max-width: 1100px; margin: 0 auto;
+  padding: 12px 20px;
+  display: flex; flex-wrap: wrap; align-items: center; gap: 12px 24px;
+  justify-content: space-between;
+}
+.brand { display: flex; flex-direction: column; gap: 2px; }
+.brand-name {
+  font-family: var(--display);
+  font-weight: 800; font-size: .85rem;
+  letter-spacing: .12em; color: var(--accent);
+  text-transform: uppercase;
+}
+.brand-slogan { font-size: .75rem; color: var(--muted); }
+.page-title {
+  font-size: 1.35rem; font-weight: 900;
+  letter-spacing: .08em;
+}
+.page-title span { color: var(--accent); }
+.header-bar {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px;
+  justify-content: space-between; width: 100%;
+}
+.back-home {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: .9rem; font-weight: 800;
+  padding: 8px 14px;
+  border: 1px solid var(--accent-dim);
+  border-radius: 999px;
+  color: var(--accent);
+  background: rgba(201,162,39,.08);
+  text-decoration: none;
+  letter-spacing: .04em;
+}
+.back-home:hover { background: rgba(201,162,39,.16); text-decoration: none; border-color: var(--accent); }
+.header-right { display: flex; flex-direction: column; align-items: flex-end; gap: 6px; }
+.page-title { font-size: 1rem; font-weight: 900; letter-spacing: .06em; }
+.page-title span { color: var(--accent); }
+.nav-mini { display: flex; gap: 6px; flex-wrap: wrap; justify-content: flex-end; }
+.nav-mini a {
+  font-size: .72rem; padding: 4px 10px;
+  border: 1px solid var(--border); border-radius: 999px;
+  color: var(--muted); text-decoration: none;
+  transition: .15s;
+}
+.nav-mini a:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
+.nav-mini a.active { border-color: var(--accent); color: var(--accent); background: rgba(201,162,39,.1); }
+
+/* Focus mode: only show the zone matching the hub entry */
+body.focus-mode .zone { display: none !important; }
+body.focus-mode[data-focus="boss"] .zone-boss,
+body.focus-mode[data-focus="boss"] .zone-hero,
+body.focus-mode[data-focus="force"] .zone-force,
+body.focus-mode[data-focus="lost"] .zone-lost {
+  display: block !important;
+}
+body.focus-mode[data-focus="boss"] .zone-boss { display: block !important; }
+body.focus-mode .zone-extra { display: none !important; }
+body.focus-mode .nav-mini { display: none !important; }
+.focus-hint {
+  display: none;
+  margin: 0 0 18px;
+  padding: 10px 14px;
+  font-size: .82rem;
+  color: var(--muted);
+  border: 1px dashed var(--border);
+  border-radius: 10px;
+  background: rgba(255,255,255,.02);
+}
+body.focus-mode .focus-hint { display: block; }
+.focus-hint a { color: var(--accent); font-weight: 700; }
+
+/* —— Hero / Basics —— */
+.wrap { max-width: 1100px; margin: 0 auto; padding: 24px 20px 80px; }
+.hero {
+  display: grid; gap: 20px;
+  margin-bottom: 28px;
+  padding: 24px;
+  background: linear-gradient(135deg, var(--bg2), var(--bg3));
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  position: relative; overflow: hidden;
+}
+.hero::before {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(90deg, transparent 60%, rgba(201,162,39,.06));
+  pointer-events: none;
+}
+.hero h1 {
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  font-weight: 900; letter-spacing: .06em;
+}
+.hero h1 em { font-style: normal; color: var(--accent); }
+.meta-row {
+  display: flex; flex-wrap: wrap; gap: 8px;
+  margin-top: 10px;
+}
+.chip {
+  font-size: .72rem; font-weight: 700;
+  padding: 4px 10px; border-radius: 6px;
+  background: var(--bg); border: 1px solid var(--border);
+  color: var(--muted); letter-spacing: .04em;
+}
+.chip.gold { color: var(--accent); border-color: var(--accent-dim); }
+.chip.purple { color: var(--phase-b); border-color: #5a3a99; }
+.chip.red { color: var(--danger); border-color: var(--danger-dim); }
+.basics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px; margin-top: 16px;
+}
+.basic-card {
+  background: var(--bg); border: 1px solid var(--border);
+  border-radius: 10px; padding: 14px 16px;
+}
+.basic-card h3 {
+  font-size: .72rem; color: var(--accent);
+  letter-spacing: .1em; margin-bottom: 6px; font-weight: 700;
+}
+.basic-card p, .basic-card ul { font-size: .88rem; color: var(--text); }
+.basic-card ul { padding-left: 1.1em; }
+.basic-card li { margin: 2px 0; }
+
+/* —— Toolbar —— */
+.toolbar {
+  position: sticky; top: 56px; z-index: 90;
+  background: rgba(10,11,14,.92);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 12px 14px;
+  margin-bottom: 20px;
+  display: flex; flex-direction: column; gap: 10px;
+}
+.phase-tabs { display: flex; gap: 8px; flex-wrap: wrap; }
+.phase-tab {
+  flex: 1; min-width: 120px;
+  padding: 10px 14px; border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--bg2); color: var(--muted);
+  font-family: var(--font); font-weight: 700; font-size: .9rem;
+  cursor: pointer; transition: .15s;
+}
+.phase-tab.active[data-phase="A"] {
+  background: rgba(201,162,39,.15);
+  border-color: var(--phase-a); color: var(--phase-a);
+}
+.phase-tab.active[data-phase="B"] {
+  background: rgba(155,107,255,.15);
+  border-color: var(--phase-b); color: var(--phase-b);
+}
+.phase-tab:hover { border-color: var(--muted); }
+.search-row { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+.search-row input {
+  flex: 1; min-width: 160px;
+  padding: 10px 14px; border-radius: 8px;
+  border: 1px solid var(--border); background: var(--bg2);
+  color: var(--text); font-family: var(--font); font-size: .9rem;
+  outline: none;
+}
+.search-row input:focus { border-color: var(--accent); }
+.tag-filters { display: flex; flex-wrap: wrap; gap: 6px; }
+.tag-chip {
+  font-size: .72rem; padding: 5px 11px; border-radius: 999px;
+  border: 1px solid var(--border); background: transparent;
+  color: var(--muted); cursor: pointer; font-family: var(--font);
+  font-weight: 600; transition: .12s;
+}
+.tag-chip.active {
+  background: var(--accent); color: #0a0b0e; border-color: var(--accent);
+}
+.tag-chip:hover:not(.active) { border-color: var(--accent); color: var(--accent); }
+
+/* —— Move cards —— */
+.section-label {
+  font-size: .75rem; letter-spacing: .14em; color: var(--muted);
+  font-weight: 700; margin: 28px 0 12px; text-transform: uppercase;
+}
+.move-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px;
+}
+.move-card {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: border-color .2s;
+}
+.move-card:hover { border-color: #3a4050; }
+.move-card[hidden] { display: none !important; }
+.move-card-head {
+  display: flex; flex-wrap: wrap; align-items: center;
+  gap: 10px; padding: 14px 16px;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg3);
+}
+.move-id {
+  font-family: var(--display); font-size: .7rem;
+  color: var(--muted); letter-spacing: .08em;
+}
+.move-name { font-size: 1.15rem; font-weight: 900; flex: 1; min-width: 140px; }
+.danger-badge {
+  font-size: .7rem; font-weight: 800; letter-spacing: .06em;
+  padding: 4px 10px; border-radius: 6px;
+  display: inline-flex; align-items: center; gap: 4px;
+}
+.danger-badge.d1 { background: rgba(61,191,122,.15); color: var(--safe); }
+.danger-badge.d2 { background: rgba(224,154,50,.15); color: var(--warn); }
+.danger-badge.d3 { background: rgba(224,69,69,.15); color: var(--danger); }
+.danger-badge.d4 { background: rgba(224,69,69,.3); color: #ff6b6b; border: 1px solid var(--danger); }
+.danger-badge.d5 {
+  background: linear-gradient(90deg, rgba(224,69,69,.4), rgba(155,107,255,.3));
+  color: #ff8a8a; border: 1px solid var(--danger);
+  animation: pulse-danger 2s ease infinite;
+}
+@keyframes pulse-danger {
+  0%,100% { box-shadow: 0 0 0 0 rgba(224,69,69,.3); }
+  50% { box-shadow: 0 0 12px 2px rgba(224,69,69,.35); }
+}
+.move-tags { display: flex; flex-wrap: wrap; gap: 5px; width: 100%; }
+.move-tags .tag {
+  font-size: .65rem; padding: 2px 8px; border-radius: 4px;
+  background: var(--bg); border: 1px solid var(--border); color: var(--muted);
+}
+
+.move-body {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+}
+@media (min-width: 780px) {
+  .move-body { grid-template-columns: 1.1fr 1fr; }
+}
+
+/* Video loop */
+.clip-pane {
+  position: relative; background: #000;
+  min-height: 200px;
+}
+.clip-pane video {
+  width: 100%; height: 100%; max-height: 320px;
+  object-fit: cover; background: #000;
+}
+.clip-pane .poster-fallback {
+  width: 100%; max-height: 320px; object-fit: cover;
+}
+.clip-badge {
+  position: absolute; top: 10px; left: 10px;
+  font-size: .65rem; font-weight: 700;
+  padding: 3px 8px; border-radius: 4px;
+  background: rgba(0,0,0,.7); color: var(--accent);
+  letter-spacing: .06em; pointer-events: none;
+}
+.clip-controls {
+  position: absolute; bottom: 10px; right: 10px;
+  display: flex; gap: 6px;
+}
+.clip-controls button {
+  font-size: .65rem; padding: 4px 8px; border-radius: 4px;
+  border: 1px solid rgba(255,255,255,.25);
+  background: rgba(0,0,0,.65); color: #fff;
+  cursor: pointer; font-family: var(--font);
+}
+.clip-controls button:hover { border-color: var(--accent); color: var(--accent); }
+
+/* Info pane */
+.info-pane { padding: 14px 16px; display: flex; flex-direction: column; gap: 12px; }
+
+/* Compare strip */
+.compare {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 8px;
+}
+.compare-col {
+  border-radius: 8px; padding: 10px 12px;
+  border: 1px solid var(--border); background: var(--bg);
+}
+.compare-col.boss { border-color: rgba(224,69,69,.35); }
+.compare-col.player { border-color: rgba(61,191,122,.35); }
+.compare-label {
+  font-size: .65rem; font-weight: 800; letter-spacing: .1em;
+  margin-bottom: 4px;
+}
+.compare-col.boss .compare-label { color: var(--danger); }
+.compare-col.player .compare-label { color: var(--safe); }
+.compare-col p { font-size: .82rem; color: var(--text); }
+
+/* Keyframe timeline */
+.timeline-wrap { margin-top: 2px; }
+.timeline-title {
+  font-size: .68rem; color: var(--muted); letter-spacing: .08em;
+  font-weight: 700; margin-bottom: 6px;
+}
+.timeline {
+  position: relative; height: 36px;
+  background: var(--bg); border: 1px solid var(--border);
+  border-radius: 6px; overflow: hidden; cursor: pointer;
+}
+.timeline-track {
+  position: absolute; inset: 0;
+  background: linear-gradient(90deg,
+    rgba(201,162,39,.08) 0%,
+    rgba(201,162,39,.04) 50%,
+    transparent 100%);
+}
+.timeline-playhead {
+  position: absolute; top: 0; bottom: 0; width: 2px;
+  background: var(--accent); z-index: 3;
+  box-shadow: 0 0 8px var(--accent);
+  left: 0; pointer-events: none;
+}
+.kf-mark {
+  position: absolute; top: 4px; transform: translateX(-50%);
+  z-index: 2; text-align: center; cursor: pointer;
+}
+.kf-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  margin: 0 auto 2px; border: 1.5px solid #fff;
+}
+.kf-mark.type-telegraph .kf-dot { background: var(--warn); }
+.kf-mark.type-hit .kf-dot { background: var(--danger); }
+.kf-mark.type-window .kf-dot { background: var(--safe); }
+.kf-mark.type-recover .kf-dot { background: var(--info); }
+.kf-mark.type-perilous .kf-dot { background: #ff2d2d; box-shadow: 0 0 6px #ff2d2d; }
+.kf-label {
+  font-size: .55rem; color: var(--muted); white-space: nowrap;
+  max-width: 56px; overflow: hidden; text-overflow: ellipsis;
+  display: none;
+}
+@media (min-width: 600px) {
+  .kf-label { display: block; }
+}
+.timing-bar-row {
+  display: flex; align-items: center; gap: 10px; margin-top: 8px;
+}
+.timing-bar-row input[type=range] {
+  flex: 1; accent-color: var(--accent); cursor: pointer;
+}
+.timing-bar-row .t-label {
+  font-size: .7rem; color: var(--muted); font-variant-numeric: tabular-nums;
+  min-width: 72px; text-align: right;
+}
+.slowmo-btn {
+  font-size: .7rem; padding: 4px 10px; border-radius: 6px;
+  border: 1px solid var(--border); background: var(--bg);
+  color: var(--muted); cursor: pointer; font-family: var(--font); font-weight: 700;
+}
+.slowmo-btn.on { border-color: var(--accent); color: var(--accent); }
+
+.tips-row {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 8px;
+}
+.tip-box {
+  font-size: .78rem; padding: 8px 10px;
+  border-radius: 6px; background: var(--bg); border: 1px solid var(--border);
+}
+.tip-box strong {
+  display: block; font-size: .65rem; letter-spacing: .08em;
+  color: var(--muted); margin-bottom: 2px;
+}
+.risk-line {
+  font-size: .8rem; color: var(--warn);
+  padding: 8px 10px; border-left: 3px solid var(--warn);
+  background: rgba(224,154,50,.08); border-radius: 0 6px 6px 0;
+}
+
+/* —— Hardcore blessings —— */
+.blessings {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 12px; margin-top: 8px;
+}
+.bless-card {
+  padding: 16px; border-radius: var(--radius);
+  background: linear-gradient(160deg, var(--bg2), #1a1210);
+  border: 1px solid #3a2a1a;
+}
+.bless-card h3 {
+  font-size: .95rem; color: var(--accent); margin-bottom: 6px;
+}
+.bless-card .num {
+  font-family: var(--display); font-size: .65rem;
+  color: var(--muted); letter-spacing: .1em; margin-bottom: 4px;
+}
+.bless-card p { font-size: .85rem; color: var(--muted); }
+
+/* —— Death table —— */
+.death-table {
+  width: 100%; border-collapse: collapse;
+  font-size: .88rem; margin-top: 8px;
+}
+.death-table th, .death-table td {
+  padding: 10px 12px; text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+.death-table th {
+  font-size: .7rem; letter-spacing: .1em; color: var(--accent);
+  background: var(--bg3);
+}
+.death-table tr:hover td { background: rgba(255,255,255,.02); }
+.death-table td:first-child { color: var(--danger); font-weight: 700; width: 38%; }
+
+/* —— Rewards —— */
+.rewards {
+  display: flex; flex-wrap: wrap; gap: 10px; margin-top: 8px;
+}
+.reward {
+  padding: 12px 16px; border-radius: 10px;
+  background: var(--bg2); border: 1px solid var(--border);
+  font-size: .9rem; font-weight: 700;
+}
+.reward span { display: block; font-size: .65rem; color: var(--muted); font-weight: 500; margin-top: 2px; }
+
+/* —— Live excerpts (folded) —— */
+details.live-excerpts {
+  margin-top: 28px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg2);
+  overflow: hidden;
+}
+details.live-excerpts > summary {
+  padding: 14px 18px; cursor: pointer;
+  font-weight: 700; list-style: none;
+  display: flex; align-items: center; justify-content: space-between;
+  color: var(--muted);
+}
+details.live-excerpts > summary::-webkit-details-marker { display: none; }
+details.live-excerpts > summary::after { content: "＋展開"; font-size: .75rem; color: var(--accent); }
+details.live-excerpts[open] > summary::after { content: "－收起"; }
+.live-body {
+  padding: 0 16px 16px;
+  display: grid; gap: 14px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+.live-card video { width: 100%; border-radius: 8px; background: #000; }
+.live-card h4 { font-size: .9rem; margin: 8px 0 4px; }
+.live-card p { font-size: .75rem; color: var(--muted); }
+
+
+/* —— Lost Fool Zone —— */
+.lost-zone {
+  margin-top: 36px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: linear-gradient(160deg, rgba(224,154,50,.07), var(--bg2) 40%);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+.lost-zone-head {
+  padding: 20px 20px 14px;
+  border-bottom: 1px solid var(--border);
+  background: rgba(0,0,0,.25);
+}
+.lost-zone-kicker {
+  font-family: var(--display);
+  font-size: .68rem; letter-spacing: .14em;
+  color: var(--warn); font-weight: 800; margin-bottom: 6px;
+}
+.lost-zone-head h2 {
+  font-size: clamp(1.35rem, 3vw, 1.75rem);
+  font-weight: 900; letter-spacing: .04em; margin-bottom: 6px;
+}
+.lost-zone-head h2 em { font-style: normal; color: var(--warn); }
+.lost-zone-sub { font-size: .9rem; color: var(--muted); max-width: 560px; }
+.lost-zone-body { padding: 18px 20px 22px; display: flex; flex-direction: column; gap: 22px; }
+.lost-block-title {
+  font-size: .95rem; font-weight: 800;
+  color: var(--accent); letter-spacing: .04em;
+  margin-bottom: 10px; display: flex; align-items: center; gap: 8px;
+}
+.lost-block-title .badge {
+  font-size: .65rem; padding: 2px 8px; border-radius: 4px;
+  background: rgba(201,162,39,.15); border: 1px solid var(--accent-dim);
+  color: var(--accent); letter-spacing: .08em;
+}
+.cave-table-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+.cave-table {
+  width: 100%; border-collapse: collapse; font-size: .86rem;
+}
+.cave-table th, .cave-table td {
+  padding: 11px 14px; text-align: left;
+  border-bottom: 1px solid var(--border); vertical-align: top;
+}
+.cave-table th {
+  font-size: .68rem; letter-spacing: .1em; color: var(--accent);
+  background: var(--bg3);
+}
+.cave-table tr:last-child td { border-bottom: none; }
+.cave-table tr:hover td { background: rgba(255,255,255,.02); }
+.cave-table td:first-child { font-weight: 700; color: var(--text); min-width: 140px; }
+.cave-table .hl { color: var(--accent); }
+.lotus-steps {
+  list-style: none; counter-reset: lotus;
+  display: flex; flex-direction: column; gap: 8px;
+}
+.lotus-steps li {
+  counter-increment: lotus;
+  display: flex; gap: 12px; align-items: flex-start;
+  padding: 10px 12px; border-radius: 8px;
+  background: var(--bg); border: 1px solid var(--border);
+  font-size: .88rem;
+}
+.lotus-steps li::before {
+  content: counter(lotus);
+  flex-shrink: 0;
+  width: 24px; height: 24px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: .75rem; font-weight: 800;
+  background: rgba(201,162,39,.2); color: var(--accent);
+  border: 1px solid var(--accent-dim);
+}
+.lotus-note {
+  margin-top: 10px; font-size: .82rem; color: var(--warn);
+  padding: 8px 12px; border-left: 3px solid var(--warn);
+  background: rgba(224,154,50,.08); border-radius: 0 8px 8px 0;
+}
+.path-start {
+  font-size: .85rem; color: var(--muted); margin-bottom: 12px;
+  padding: 8px 12px; border-radius: 8px;
+  background: var(--bg); border: 1px dashed var(--border);
+}
+.path-start strong { color: var(--phase-b); }
+.path-steps { display: flex; flex-direction: column; gap: 14px; }
+.path-step {
+  display: grid; gap: 12px;
+  padding: 14px; border-radius: 10px;
+  background: var(--bg); border: 1px solid var(--border);
+}
+@media (min-width: 700px) {
+  .path-step.has-imgs { grid-template-columns: 1fr 1.15fr; align-items: start; }
+}
+.path-step-num {
+  font-family: var(--display); font-size: .65rem;
+  letter-spacing: .1em; color: var(--muted); margin-bottom: 4px;
+}
+.path-step-text { font-size: .9rem; line-height: 1.5; }
+.path-step-text strong { color: var(--accent); }
+.path-step-note {
+  margin-top: 8px; font-size: .78rem; color: var(--muted);
+  padding: 8px 10px; border-radius: 6px;
+  background: rgba(155,107,255,.08); border: 1px solid rgba(155,107,255,.25);
+  color: #c4a8ff;
+}
+.path-imgs {
+  display: grid; gap: 8px;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+}
+.path-imgs figure {
+  margin: 0; border-radius: 8px; overflow: hidden;
+  border: 1px solid var(--border); background: #000;
+}
+.path-imgs img {
+  width: 100%; height: 140px; object-fit: cover;
+  display: block;
+}
+.path-imgs figcaption {
+  font-size: .65rem; color: var(--muted);
+  padding: 4px 8px; background: var(--bg3);
+}
+.treasure-list {
+  display: grid; gap: 8px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  margin-bottom: 10px;
+}
+.treasure-item {
+  padding: 12px 14px; border-radius: 10px;
+  background: var(--bg); border: 1px solid var(--border);
+  font-size: .88rem; font-weight: 700;
+}
+.treasure-item span {
+  display: block; font-size: .72rem; color: var(--muted);
+  font-weight: 500; margin-top: 3px;
+}
+.treasure-after {
+  font-size: .85rem; color: var(--muted);
+  padding: 10px 12px; border-radius: 8px;
+  border: 1px solid var(--border); background: var(--bg);
+}
+.fool-fails {
+  list-style: none; display: flex; flex-direction: column; gap: 8px;
+}
+.fool-fails li {
+  font-size: .86rem; padding: 10px 12px 10px 14px;
+  border-radius: 8px; background: var(--bg);
+  border: 1px solid var(--border); border-left: 3px solid var(--danger);
+}
+.fool-fails li strong { color: var(--danger); }
+.lost-source {
+  font-size: .72rem; color: var(--muted); opacity: .85;
+  padding-top: 4px; border-top: 1px dashed var(--border);
+}
+
+
+
+/* —— Route map (lost zone primary) —— */
+.route-map-wrap {
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background:
+    radial-gradient(ellipse 70% 60% at 50% 0%, rgba(224,154,50,.1), transparent 55%),
+    var(--bg);
+  padding: 18px 14px 20px;
+  overflow-x: auto;
+}
+.route-map-label {
+  font-family: var(--display);
+  font-size: .68rem; letter-spacing: .14em;
+  color: var(--warn); font-weight: 800;
+  margin-bottom: 6px; text-align: center;
+}
+.route-map-title {
+  text-align: center; font-size: 1.15rem; font-weight: 900;
+  margin-bottom: 4px; letter-spacing: .04em;
+}
+.route-map-hint {
+  text-align: center; font-size: .78rem; color: var(--muted);
+  margin-bottom: 16px;
+}
+.route-map {
+  display: flex; flex-direction: column; align-items: center; gap: 0;
+  min-width: 320px; max-width: 920px; margin: 0 auto;
+}
+.route-node {
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  text-align: center;
+  min-width: 140px; max-width: 220px;
+  padding: 12px 16px;
+  border-radius: 12px;
+  border: 1.5px solid var(--border);
+  background: var(--bg3);
+  color: var(--text);
+  font: inherit; cursor: pointer;
+  transition: border-color .15s, box-shadow .15s, transform .12s, background .15s;
+  text-decoration: none;
+}
+.route-node:hover {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(201,162,39,.15);
+  text-decoration: none; color: var(--text);
+}
+.route-node:focus-visible {
+  outline: 2px solid var(--accent); outline-offset: 3px;
+}
+.route-node.active {
+  border-color: var(--accent);
+  background: rgba(201,162,39,.12);
+  box-shadow: 0 0 0 3px rgba(201,162,39,.2);
+}
+.route-node .rn-k {
+  font-family: var(--display); font-size: .58rem;
+  letter-spacing: .12em; color: var(--muted); margin-bottom: 3px;
+}
+.route-node .rn-t { font-size: .92rem; font-weight: 800; line-height: 1.3; }
+.route-node .rn-s { font-size: .72rem; color: var(--muted); margin-top: 3px; }
+.route-node.start {
+  border-color: var(--accent-dim);
+  background: rgba(201,162,39,.1);
+  min-width: 180px;
+}
+.route-node.goal-a {
+  border-color: rgba(61,191,122,.55);
+  background: rgba(61,191,122,.1);
+}
+.route-node.goal-a.active { box-shadow: 0 0 0 3px rgba(61,191,122,.25); }
+.route-node.goal-b {
+  border-color: rgba(155,107,255,.55);
+  background: rgba(155,107,255,.1);
+}
+.route-node.goal-b.active { box-shadow: 0 0 0 3px rgba(155,107,255,.25); }
+.route-node.snake {
+  border-color: rgba(224,69,69,.55);
+  background: rgba(224,69,69,.08);
+}
+.route-node.snake.active { box-shadow: 0 0 0 3px rgba(224,69,69,.22); }
+.route-node.snake .rn-t { color: #ff8a8a; }
+.route-v {
+  width: 2px; height: 22px;
+  background: linear-gradient(180deg, var(--border), var(--accent-dim));
+  flex-shrink: 0;
+}
+.route-fork {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px 20px;
+  width: 100%;
+  max-width: 880px;
+  position: relative;
+  margin-top: 4px;
+}
+.route-fork::before {
+  content: "";
+  position: absolute; top: 0; left: 25%; right: 25%;
+  height: 2px; background: var(--border);
+}
+.route-fork::after {
+  content: "";
+  position: absolute; top: -22px; left: 50%;
+  width: 2px; height: 22px;
+  background: linear-gradient(180deg, var(--accent-dim), var(--border));
+  transform: translateX(-50%);
+}
+.route-branch {
+  display: flex; flex-direction: column; align-items: center; gap: 0;
+  padding-top: 14px;
+}
+.route-branch-tag {
+  font-size: .65rem; font-weight: 800; letter-spacing: .1em;
+  padding: 3px 10px; border-radius: 999px; margin-bottom: 10px;
+}
+.route-branch.a .route-branch-tag {
+  color: var(--safe); background: rgba(61,191,122,.12);
+  border: 1px solid rgba(61,191,122,.35);
+}
+.route-branch.b .route-branch-tag {
+  color: #c4a8ff; background: rgba(155,107,255,.12);
+  border: 1px solid rgba(155,107,255,.35);
+}
+.route-branch .route-v { height: 16px; }
+.route-snake-extra {
+  margin-top: 8px; font-size: .7rem;
+}
+.route-snake-extra a {
+  color: var(--danger); font-weight: 700;
+  text-decoration: none;
+  border-bottom: 1px dashed rgba(224,69,69,.5);
+}
+.route-snake-extra a:hover { color: #ff8a8a; }
+.route-legend {
+  display: flex; flex-wrap: wrap; justify-content: center; gap: 10px 16px;
+  margin-top: 16px; font-size: .72rem; color: var(--muted);
+}
+.route-legend span { display: inline-flex; align-items: center; gap: 6px; }
+.route-legend i {
+  width: 10px; height: 10px; border-radius: 3px; display: inline-block;
+}
+.route-legend .la { background: var(--safe); }
+.route-legend .lb { background: var(--phase-b); }
+.route-legend .ls { background: var(--danger); }
+
+.route-detail-panel {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--bg);
+  padding: 14px 16px;
+  scroll-margin-top: 88px;
+  transition: border-color .15s, box-shadow .15s;
+}
+.route-detail-panel.lit {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(201,162,39,.18);
+}
+.route-detail-panel[hidden] { display: none !important; }
+.route-details-toolbar {
+  display: flex; flex-wrap: wrap; align-items: center;
+  justify-content: space-between; gap: 8px;
+  margin-bottom: 4px;
+}
+.route-details-toolbar h3 { margin: 0; }
+.route-show-all {
+  font-size: .75rem; font-weight: 700;
+  padding: 6px 12px; border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--bg3); color: var(--muted);
+  cursor: pointer; font: inherit;
+}
+.route-show-all:hover { border-color: var(--accent); color: var(--accent); }
+.route-empty-hint {
+  text-align: center; font-size: .85rem; color: var(--muted);
+  padding: 28px 16px; border: 1px dashed var(--border);
+  border-radius: 12px; background: rgba(0,0,0,.2);
+}
+
+@media (max-width: 640px) {
+  .route-fork { grid-template-columns: 1fr; gap: 28px; }
+  .route-fork::before, .route-fork::after { display: none; }
+  .route-node { max-width: 100%; width: 100%; }
+}
+
+/* —— Feedback —— */
+.feedback {
+  margin-top: 36px;
+  padding: 28px 24px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: linear-gradient(145deg, var(--bg2), var(--bg3));
+  box-shadow: var(--shadow);
+}
+.feedback-head {
+  display: flex; flex-wrap: wrap; align-items: baseline;
+  justify-content: space-between; gap: 8px 16px;
+  margin-bottom: 8px;
+}
+.feedback h2 {
+  font-size: 1.15rem; font-weight: 900; letter-spacing: .04em;
+}
+.feedback h2 em { font-style: normal; color: var(--accent); }
+.feedback-lead {
+  font-size: .88rem; color: var(--muted);
+  max-width: 560px; margin-bottom: 18px;
+}
+.feedback-form {
+  display: grid; gap: 14px;
+  max-width: 560px;
+}
+.feedback-field label {
+  display: block; font-size: .78rem; font-weight: 700;
+  color: var(--muted); letter-spacing: .04em;
+  margin-bottom: 6px;
+}
+.feedback-field label .opt { font-weight: 500; opacity: .75; }
+.feedback-field input,
+.feedback-field textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font);
+  font-size: .9rem;
+  outline: none;
+  transition: border-color .15s;
+}
+.feedback-field input:focus,
+.feedback-field textarea:focus {
+  border-color: var(--accent-dim);
+}
+.feedback-field textarea { min-height: 110px; resize: vertical; line-height: 1.5; }
+.rating-row {
+  display: flex; flex-wrap: wrap; gap: 8px;
+}
+.rating-chip {
+  font-size: .78rem; font-weight: 700;
+  padding: 6px 12px; border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--bg); color: var(--muted);
+  cursor: pointer; font-family: var(--font);
+  transition: .15s;
+}
+.rating-chip:hover { border-color: var(--accent); color: var(--accent); }
+.rating-chip[aria-pressed="true"] {
+  border-color: var(--accent);
+  color: #0a0b0e;
+  background: var(--accent);
+}
+.feedback-actions {
+  display: flex; flex-wrap: wrap; gap: 10px; align-items: center;
+  margin-top: 4px;
+}
+.feedback-submit {
+  padding: 11px 22px; border-radius: 999px;
+  background: var(--accent); color: #0a0b0e;
+  font-weight: 800; font-size: .9rem;
+  border: none; cursor: pointer; font-family: var(--font);
+  transition: .15s;
+}
+.feedback-submit:hover { filter: brightness(1.1); }
+.feedback-secondary {
+  padding: 10px 16px; border-radius: 999px;
+  border: 1px solid var(--border);
+  background: transparent; color: var(--muted);
+  font-size: .82rem; font-weight: 700;
+  cursor: pointer; font-family: var(--font);
+  transition: .15s;
+}
+.feedback-secondary:hover { border-color: var(--accent); color: var(--accent); }
+.feedback-note {
+  font-size: .72rem; color: var(--muted); margin-top: 12px;
+}
+.feedback-status {
+  font-size: .85rem; padding: 10px 12px;
+  border-radius: 8px; margin-top: 12px;
+  display: none;
+}
+.feedback-status.show { display: block; }
+.feedback-status.ok {
+  background: rgba(61,191,122,.12);
+  border: 1px solid rgba(61,191,122,.35);
+  color: var(--safe);
+}
+.feedback-status.err {
+  background: rgba(224,69,69,.1);
+  border: 1px solid rgba(224,69,69,.35);
+  color: var(--danger);
+}
+.feedback-thanks {
+  display: none;
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px dashed var(--accent-dim);
+  background: rgba(201,162,39,.06);
+  text-align: center;
+}
+.feedback-thanks.show { display: block; }
+.feedback-thanks h3 { color: var(--accent); font-size: 1rem; margin-bottom: 6px; }
+.feedback-thanks p { font-size: .88rem; color: var(--muted); }
+.feedback-list {
+  margin-top: 20px; padding-top: 16px;
+  border-top: 1px dashed var(--border);
+}
+.feedback-list h3 {
+  font-size: .78rem; color: var(--muted);
+  letter-spacing: .06em; margin-bottom: 10px;
+  text-transform: uppercase;
+}
+.feedback-list ul { list-style: none; display: grid; gap: 8px; }
+.feedback-list li {
+  font-size: .82rem; padding: 10px 12px;
+  background: var(--bg); border: 1px solid var(--border);
+  border-radius: 8px;
+}
+.feedback-list li .meta {
+  font-size: .7rem; color: var(--muted); margin-bottom: 4px;
+}
+.feedback-list li .msg { color: var(--text); white-space: pre-wrap; }
+.feedback-list .empty-local { font-size: .8rem; color: var(--muted); }
+
+/* —— Donate —— */
+.donate {
+  margin-top: 36px;
+  padding: 28px 24px;
+  text-align: center;
+  border-radius: var(--radius);
+  border: 1px dashed var(--accent-dim);
+  background: linear-gradient(180deg, rgba(201,162,39,.06), transparent);
+}
+.donate h2 { font-size: 1.1rem; margin-bottom: 8px; }
+.donate p { font-size: .88rem; color: var(--muted); max-width: 480px; margin: 0 auto 16px; }
+.donate-btn {
+  display: inline-block;
+  padding: 12px 28px; border-radius: 999px;
+  background: var(--accent); color: #0a0b0e;
+  font-weight: 800; font-size: .95rem;
+  border: none; cursor: pointer; font-family: var(--font);
+  text-decoration: none; transition: .15s;
+}
+.donate-btn:hover { filter: brightness(1.1); text-decoration: none; }
+.donate-note { font-size: .72rem; color: var(--muted); margin-top: 10px; }
+
+/* —— Footer —— */
+.site-footer {
+  border-top: 1px solid var(--border);
+  padding: 24px 20px; text-align: center;
+  color: var(--muted); font-size: .8rem;
+}
+.site-footer .brand-line {
+  font-family: var(--display); color: var(--accent);
+  letter-spacing: .12em; font-size: .75rem; margin-bottom: 4px;
+}
+
+.empty-state {
+  text-align: center; padding: 40px 20px; color: var(--muted);
+  border: 1px dashed var(--border); border-radius: var(--radius);
+}
+
+/* Keyframe strip (4 webp) */
+.kf-strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 6px;
+  margin-top: 4px;
+}
+.kf-thumb {
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  overflow: hidden;
+  background: #000;
+  cursor: pointer;
+  padding: 0;
+  font-family: var(--font);
+  text-align: left;
+  color: var(--text);
+  transition: border-color .15s, box-shadow .15s;
+}
+.kf-thumb:hover, .kf-thumb.active {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 1px var(--accent);
+}
+.kf-thumb img {
+  width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block;
+}
+.kf-thumb .kf-cap {
+  font-size: .58rem; padding: 4px 5px; color: var(--muted);
+  line-height: 1.3; min-height: 2.4em;
+}
+.kf-thumb .kf-type {
+  display: block; font-size: .55rem; font-weight: 800;
+  letter-spacing: .06em; color: var(--accent); margin-bottom: 1px;
+}
+.kf-mark.type-commit .kf-dot { background: var(--danger); }
+.kf-mark.type-punish .kf-dot { background: var(--safe); box-shadow: 0 0 4px var(--safe); }
+.kf-mark.type-recovery .kf-dot { background: var(--info); }
+.pack-label {
+  font-size: .62rem; color: var(--muted); margin-top: 2px;
+}
+
+.sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0,0,0,0); border: 0;
+}
+
+/* —— Force-Guide · 逼人看攻略 —— */
+.force-guide {
+  margin: 28px 0 32px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: linear-gradient(165deg, rgba(224,69,69,.09), var(--bg2) 42%);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+.force-guide-head {
+  padding: 20px 20px 14px;
+  border-bottom: 1px solid var(--border);
+  background: rgba(0,0,0,.28);
+}
+.force-guide-kicker {
+  font-family: var(--display);
+  font-size: .68rem; letter-spacing: .14em;
+  color: var(--danger); font-weight: 800; margin-bottom: 6px;
+}
+.force-guide-head h2 {
+  font-size: clamp(1.25rem, 3vw, 1.7rem);
+  font-weight: 900; letter-spacing: .04em; margin-bottom: 6px;
+}
+.force-guide-head h2 em { font-style: normal; color: var(--danger); }
+.force-guide-sub { font-size: .9rem; color: var(--muted); max-width: 640px; }
+.force-guide-body { padding: 18px 20px 22px; display: flex; flex-direction: column; gap: 20px; }
+.force-guide-meta {
+  font-size: .88rem; line-height: 1.55;
+  padding: 12px 14px; border-radius: 10px;
+  background: rgba(224,69,69,.08);
+  border: 1px solid rgba(224,69,69,.35);
+  color: var(--text);
+}
+.force-guide-video-wrap {
+  border-radius: 10px; overflow: hidden;
+  border: 1px solid var(--border); background: #000;
+  position: relative;
+}
+.force-guide-video-wrap video {
+  width: 100%; aspect-ratio: 16/9; object-fit: contain; background: #000;
+}
+.force-guide-steps { display: flex; flex-direction: column; gap: 14px; }
+
+.fg-video-label {
+  position: absolute; top: 8px; left: 8px; z-index: 2;
+  font-size: .65rem; font-weight: 800; letter-spacing: .08em;
+  padding: 3px 8px; border-radius: 4px;
+  background: rgba(0,0,0,.65); color: var(--accent);
+  pointer-events: none;
+}
+.force-guide-video-wrap { position: relative; }
+.fg-video-label.live { color: #f0c14a; border: 1px solid rgba(240,193,74,.35); }
+.fg-live-demo {
+  display: flex; flex-direction: column; gap: 12px;
+  padding: 14px; border-radius: 12px;
+  background: var(--bg); border: 1px solid rgba(240,193,74,.35);
+}
+.fg-live-demo h3 {
+  font-size: 1.05rem; font-weight: 900; color: #f0c14a;
+  letter-spacing: .03em; margin: 0;
+}
+.fg-live-demo h3 .badge {
+  display: inline-block; margin-left: 8px;
+  font-size: .65rem; font-weight: 800; letter-spacing: .08em;
+  padding: 2px 8px; border-radius: 4px; vertical-align: middle;
+  background: rgba(240,193,74,.15); color: #f0c14a;
+  border: 1px solid rgba(240,193,74,.4);
+}
+.fg-live-summary {
+  font-size: .88rem; line-height: 1.55; color: var(--text); margin: 0;
+}
+.fg-live-credit {
+  font-size: .75rem; line-height: 1.5; color: var(--muted); margin: 0;
+}
+.fg-live-credit a { color: var(--accent); font-weight: 700; }
+.fg-live-credit .fair-use { display: block; margin-top: 4px; opacity: .85; }
+.fg-walkthrough-lead {
+  font-size: .85rem; color: var(--muted); margin: -4px 0 12px; line-height: 1.5;
+}
+.fg-step {
+  display: grid; gap: 12px;
+  padding: 0; border-radius: 12px;
+  background: var(--bg); border: 1px solid var(--border);
+  overflow: hidden;
+}
+.fg-step-inner {
+  display: grid; gap: 12px; padding: 14px;
+}
+@media (min-width: 700px) {
+  .fg-step-inner { grid-template-columns: 1fr 1.05fr; align-items: start; }
+}
+.fg-step-num {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-width: 2rem; height: 1.7rem; padding: 0 8px;
+  border-radius: 6px; margin-right: 8px;
+  font-family: var(--display); font-size: .72rem; font-weight: 900;
+  letter-spacing: .06em;
+  background: rgba(224,69,69,.18); color: var(--danger);
+  border: 1px solid rgba(224,69,69,.45);
+  vertical-align: middle;
+}
+.fg-step-title {
+  font-size: 1rem; font-weight: 800; color: var(--accent);
+  margin-bottom: 8px; line-height: 1.35;
+  display: flex; flex-wrap: wrap; align-items: center; gap: 4px 0;
+}
+.fg-step-body { font-size: .9rem; line-height: 1.55; margin-bottom: 10px; color: var(--text); }
+.fg-step-tips { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+.fg-step-tips li {
+  font-size: .8rem; color: var(--muted);
+  padding: 7px 10px; border-radius: 6px;
+  background: rgba(255,255,255,.03); border-left: 3px solid var(--warn);
+  line-height: 1.45;
+}
+.fg-step figure {
+  margin: 0; border-radius: 8px; overflow: hidden;
+  border: 1px solid var(--border); background: #000;
+}
+.fg-step img {
+  width: 100%; height: auto; max-height: 220px;
+  object-fit: cover; display: block; aspect-ratio: 16/9;
+}
+.fg-step figcaption {
+  font-size: .68rem; color: var(--muted);
+  padding: 5px 8px; background: var(--bg3);
+}
+.path-step-cta { margin-top: 10px; }
+.path-step-cta a {
+  display: inline-block;
+  padding: 8px 14px; border-radius: 999px;
+  border: 1px solid rgba(224,69,69,.55);
+  color: #f08a8a; font-weight: 800; font-size: .82rem;
+  text-decoration: none; background: rgba(224,69,69,.08);
+}
+.path-step-cta a:hover { border-color: var(--danger); color: var(--danger); background: rgba(224,69,69,.14); text-decoration: none; }
+.fool-fails a { color: var(--accent); font-weight: 700; }
+@media (max-width: 699px) {
+  .force-guide-body { padding: 14px 14px 18px; gap: 16px; }
+  .force-guide-head { padding: 16px 14px 12px; }
+  .fg-step img { max-height: 200px; }
+}
+
+.fg-source { font-size: .72rem; color: var(--muted); opacity: .85; }
+
+.play-area { position: relative; }
+</style>
+<link rel="stylesheet" href="assets/vote-widget.css" />
+<link rel="stylesheet" href="assets/feedback-form.css" />
+<link rel="stylesheet" href="assets/age-gate.css" />
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner header-bar">
+    <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap;">
+      <a class="back-home" href="index.html">← 返回主頁（揀遊戲）</a>
+      <div class="brand">
+        <div class="brand-name">硬核祝福</div>
+        <div class="brand-slogan">別人改數值，你改規則。</div>
+      </div>
+    </div>
+    <div class="header-right">
+      <div class="page-title">BOSS 獵殺區 · <span id="focus-title">隻狼</span></div>
+      <nav class="nav-mini" aria-label="本頁分類" id="nav-mini">
+        <a href="#boss" data-focus-link="boss">BOSS</a>
+        <a href="#lost-fool" data-focus-link="lost">地圖資訊</a>
+        <a href="#force-guide-serpent" data-focus-link="force">智能解謎</a>
+        <a href="index.html">主頁</a>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <p class="focus-hint" id="focus-hint"></p>
+
+  
+  <div data-boss-vote data-vote-slug="sekiro-guardian-ape"></div>
+<!-- Hero / Basics -->
+  <section class="hero zone zone-hero" aria-labelledby="boss-title">
+    <div>
+      <h1 id="boss-title">隻狼 · <em>獅猿</em></h1>
+      <div class="meta-row">
+        <span class="chip gold">沉淪谷通道</span>
+        <span class="chip red">必打</span>
+        <span class="chip">一階段：爆竹有效</span>
+        <span class="chip purple">二階段：爆竹無效</span>
+        <span class="chip">指笛無效</span>
+      </div>
+    </div>
+    <div class="basics-grid">
+      <div class="basic-card">
+        <h3>階段流程</h3>
+        <ul>
+          <li><strong>A 有頭：</strong>磨血破架 → 第一次忍殺斬頭（未完，會復活）</li>
+          <li><strong>B 無頭持刀：</strong>完美彈刀為主，長槍拉蜈蚣</li>
+        </ul>
+      </div>
+      <div class="basic-card">
+        <h3>一階段道具</h3>
+        <p>爆竹＋噴火筒（＋油）；解毒粉、丸藥</p>
+      </div>
+      <div class="basic-card">
+        <h3>二階段道具</h3>
+        <p>機關長槍＋鐵傘；驅怖粉／紫葫蘆、丸藥</p>
+      </div>
+      <div class="basic-card">
+        <h3>查招優先</h3>
+        <p>下面用卡片＋篩選睇招；短片可選展開。實戰長節錄預設摺埋。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Force-Guide · 逼人看攻略 -->
+  <section class="force-guide zone zone-force" id="force-guide-serpent" data-zone="force-guide-serpent" aria-labelledby="force-guide-title">
+    <div class="force-guide-head">
+      <div class="force-guide-kicker">智能解謎 · 白蛇擋路</div>
+      <h2 id="force-guide-title">智能解謎 · <em>白蛇擋路</em></h2>
+      <p class="force-guide-sub" id="force-guide-subtitle">大白蛇擋路——睇片、跟步驟、用傀儡術過關。唔使答題，內容完全開放。</p>
+    </div>
+    <div class="force-guide-body">
+      <p class="force-guide-meta" id="force-guide-meta">載入攻略資料中…</p>
+
+      <div class="force-guide-video-wrap">
+        <div class="fg-video-label">步驟幻燈（無聲循環）</div>
+        <video
+          id="force-guide-serpent-video"
+          autoplay muted loop playsinline preload="metadata"
+          poster="assets/force-guide/white-snake/frames/f02.webp"
+        >
+          <source id="fg-src-webm" src="assets/force-guide/white-snake/guide-loop.webm" type="video/webm" />
+          <source id="fg-src-mp4" src="assets/force-guide/white-snake/guide-loop.mp4" type="video/mp4" />
+        </video>
+      </div>
+
+      <div class="fg-live-demo" id="fg-live-puppeteer">
+        <h3>真人示範 · 傀儡術過白蛇 <span class="badge">實機示範</span></h3>
+        <p class="fg-live-summary">見洞內大白蛇擋路 → 左跳發抖猴台 → 背刺＋傀儡術 → 猴引蛇 → 鈎索衝入神廟攞干柿（Dried Serpent Viscera）。</p>
+        <div class="force-guide-video-wrap">
+          <div class="fg-video-label live">實機示範 · 按播放</div>
+          <video
+            id="force-guide-live-puppeteer"
+            controls
+            playsinline
+            preload="metadata"
+            poster="assets/force-guide/white-snake/live-puppeteer-pass-poster.webp"
+          >
+            <source src="assets/force-guide/white-snake/live-puppeteer-pass.webm" type="video/webm" />
+            <source src="assets/force-guide/white-snake/live-puppeteer-pass.mp4" type="video/mp4" />
+          </video>
+        </div>
+        <p class="fg-live-credit">
+          來源：
+          <a href="https://www.youtube.com/watch?v=RmfoxIzbLoM" target="_blank" rel="noopener noreferrer">Fuzzy Bearbarian · SEKIRO: How to Get Past the Cave Snake</a>
+          （YouTube RmfoxIzbLoM · 精剪約 106–149s）
+          <span class="fair-use">教學用途節錄（fair use educational excerpt），僅供 BOSS 獵殺區攻略示範。</span>
+        </p>
+      </div>
+
+      <div class="fg-walkthrough">
+        <h3 class="lost-block-title" id="force-guide-walkthrough-title">白蛇擋路 · 一步一圖 <span class="badge">WALKTHROUGH</span></h3>
+        <p class="fg-walkthrough-lead">以下五步＝過關正路。硬斬鱗片無用；左邊矮台＋傀儡術先係答案。</p>
+        <div class="force-guide-steps" id="force-guide-steps"></div>
+      </div>
+
+
+      <p class="fg-source" id="force-guide-source"></p>
+    </div>
+  </section>
+
+  <!-- Play area (always open) -->
+  <div id="boss" class="play-area zone zone-boss">
+  <div id="play">
+  <!-- Toolbar -->
+  <div class="toolbar" id="moves">
+    <div class="phase-tabs" role="tablist" aria-label="階段篩選">
+      <button type="button" class="phase-tab active" data-phase="ALL" role="tab" aria-selected="true">全部階段</button>
+      <button type="button" class="phase-tab" data-phase="A" role="tab" aria-selected="false">第一階段 · 有頭</button>
+      <button type="button" class="phase-tab" data-phase="B" role="tab" aria-selected="false">無頭 · 後期</button>
+    </div>
+    <div class="search-row">
+      <label class="sr-only" for="q">搜尋招式</label>
+      <input type="search" id="q" placeholder="搜招式名／應對關鍵字…" autocomplete="off" />
+    </div>
+    <div class="tag-filters" id="tagFilters" aria-label="標籤篩選"></div>
+  </div>
+
+  <p class="section-label">招式卡 · 危險度／循環短片／時機軸／Boss↔玩家對照</p>
+  <div class="move-grid" id="moveGrid"></div>
+  <div class="empty-state" id="emptyState" hidden>冇符合條件嘅招式，試下清篩選。</div>
+
+  <!-- Hardcore blessings -->
+  <h2 class="section-label" id="blessings">硬核祝福 · 挑戰模式</h2>
+  <div class="blessings">
+    <article class="bless-card">
+      <div class="num">BLESSING 01</div>
+      <h3>紙人斷食 · 禁爆竹</h3>
+      <p>全程唔使神樂鈴爆竹。靠走位、彈反同火傷過第一階段。</p>
+    </article>
+    <article class="bless-card">
+      <div class="num">BLESSING 02</div>
+      <h3>無傘無粉</h3>
+      <p>二階段唔帶鐵傘、唔食驅怖粉／紫葫蘆。怖氣靠距離同安頭即跑。</p>
+    </article>
+    <article class="bless-card">
+      <div class="num">BLESSING 03</div>
+      <h3>零貪刀誓約</h3>
+      <p>每次完美彈後最多補 1 刀。寧穩過貪，練節奏唔練血量。</p>
+    </article>
+  </div>
+
+  <!-- Death table -->
+  <h2 class="section-label" id="deaths">死因對策表</h2>
+  <div style="overflow-x:auto;border:1px solid var(--border);border-radius:var(--radius);">
+    <table class="death-table">
+      <thead>
+        <tr><th>常見死因</th><th>對策</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>危・抓技抱死</td><td>見紅危標即後跑／後跳，唔好硬擋；成功後補約 3 刀。</td></tr>
+        <tr><td>捶地板下段命中</td><td>紅危＋手臂高舉 → 跳過衝擊波，落地再接戰。</td></tr>
+        <tr><td>毒霧／糞疊毒</td><td>側走離開毒區；預留解毒粉；丟糞落地有長硬直可打。</td></tr>
+        <tr><td>五連擊破架後被追</td><td>擋滿 5 下，最多補 2 刀就收手，唔好貪。</td></tr>
+        <tr><td>二階段怖氣滿</td><td>見蛇扭／安頭即拉開或鐵傘；備驅怖粉／紫葫蘆。</td></tr>
+        <tr><td>無頭高舉下劈硬吃</td><td>完美彈 → 砍 1 → 長槍兩下拉蜈蚣，唔好連砍。</td></tr>
+        <tr><td>二階段仲搵爆竹</td><td>爆竹無效。改彈刀＋長槍節奏。</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Rewards -->
+  <h2 class="section-label" id="rewards">通關獎勵</h2>
+  <div class="rewards">
+    <div class="reward">記憶・獅猿<span>技能點／攻擊力素材</span></div>
+    <div class="reward">細長手指<span>關鍵道具</span></div>
+    <div class="reward">宮之蓮<span>收集／用途相關</span></div>
+  </div>
+
+  <!-- Live excerpts folded -->
+  <details class="live-excerpts">
+    <summary>實戰節錄（長片 · 選睇）</summary>
+    <div class="live-body">
+      <div class="live-card">
+        <div style="display:flex;align-items:center;justify-content:center;min-height:140px;color:var(--muted);font-size:.9rem;padding:20px;text-align:center;background:#111;border-radius:8px;">
+          本便攜包未附長片（為慳容量）<br/><small>招式卡 5 秒 loop 已夠查招；完整長片見完整素材包</small>
+        </div>
+        <h4>一階段實戰節錄</h4>
+        <p>約 104 秒 · 有頭階段節奏參考（文字說明）</p>
+      </div>
+      <div class="live-card">
+        <div style="display:flex;align-items:center;justify-content:center;min-height:140px;color:var(--muted);font-size:.9rem;padding:20px;text-align:center;background:#111;border-radius:8px;">
+          本便攜包未附長片（為慳容量）<br/><small>招式卡 5 秒 loop 已夠查招；完整長片見完整素材包</small>
+        </div>
+        <h4>二階段實戰節錄</h4>
+        <p>約 124 秒 · 無頭持刀節奏參考（文字說明）</p>
+      </div>
+    </div>
+  </details>
+  </div><!-- /#play -->
+  </div><!-- /#boss.play-area -->
+
+
+  <!-- Lost Fool Zone -->
+  <section class="lost-zone zone zone-lost" id="lost-fool" aria-labelledby="lost-fool-title">
+    <div class="lost-zone-head">
+      <div class="lost-zone-kicker">ROUTE MAP · 地圖資訊</div>
+      <h2 id="lost-fool-title">地圖資訊<em>（迷路）</em></h2>
+      <p class="lost-zone-sub">以<strong>路線圖</strong>為主。打完獅猿之後兩條路：攞宮之蓮，或者去葦名之底。撳圖上節點睇步驟同截圖。</p>
+    </div>
+    <div class="lost-zone-body">
+
+      <!-- PRIMARY: Route map -->
+      <div class="route-map-wrap" id="route-map">
+        <div class="route-map-label">SUNKEN VALLEY · AFTER GUARDIAN APE</div>
+        <div class="route-map-title">沉淪谷 · 獅猿之後路線圖</div>
+        <p class="route-map-hint">撳任一節點 → 下面顯示對應步驟／截圖</p>
+
+        <div class="route-map" role="navigation" aria-label="獅猿之後路線圖">
+          <button type="button" class="route-node start" data-route="start" aria-pressed="false">
+            <span class="rn-k">START</span>
+            <span class="rn-t">打完獅猿</span>
+            <span class="rn-s">戰場 · 先分兩個洞</span>
+          </button>
+          <div class="route-v" aria-hidden="true"></div>
+
+          <div class="route-fork">
+            <!-- Branch A -->
+            <div class="route-branch a">
+              <div class="route-branch-tag">分支 A · 主線花</div>
+              <button type="button" class="route-node" data-route="a-idol" aria-pressed="false">
+                <span class="rn-k">A1</span>
+                <span class="rn-t">獅猿飲水處</span>
+                <span class="rn-s">新鬼佛（戰場隔鄰）</span>
+              </button>
+              <div class="route-v" aria-hidden="true"></div>
+              <button type="button" class="route-node" data-route="a-cave" aria-pressed="false">
+                <span class="rn-k">A2</span>
+                <span class="rn-t">濕洞</span>
+                <span class="rn-s">戰場後方 · 要蹲低</span>
+              </button>
+              <div class="route-v" aria-hidden="true"></div>
+              <button type="button" class="route-node goal-a" data-route="a-lotus" aria-pressed="false">
+                <span class="rn-k">GOAL</span>
+                <span class="rn-t">宮之蓮</span>
+                <span class="rn-s">約 30 秒 · 必做</span>
+              </button>
+            </div>
+
+            <!-- Branch B -->
+            <div class="route-branch b">
+              <div class="route-branch-tag">分支 B · 葦名之底</div>
+              <button type="button" class="route-node" data-route="b-idol" aria-pressed="false">
+                <span class="rn-k">B1</span>
+                <span class="rn-t">菩薩谷</span>
+                <span class="rn-s">鬼佛（唔係飲水處）</span>
+              </button>
+              <div class="route-v" aria-hidden="true"></div>
+              <button type="button" class="route-node" data-route="b-drop" aria-pressed="false">
+                <span class="rn-k">B2</span>
+                <span class="rn-t">落谷 · 貼右</span>
+                <span class="rn-s">對面山谷鉤爪落地</span>
+              </button>
+              <div class="route-v" aria-hidden="true"></div>
+              <button type="button" class="route-node" data-route="b-merchant" aria-pressed="false">
+                <span class="rn-k">B3</span>
+                <span class="rn-t">毒紀念商人</span>
+                <span class="rn-s">骷髏棚 · 貼右牆</span>
+              </button>
+              <div class="route-v" aria-hidden="true"></div>
+              <button type="button" class="route-node" data-route="b-cave" aria-pressed="false">
+                <span class="rn-k">B4</span>
+                <span class="rn-t">暗洞</span>
+                <span class="rn-s">商人隔鄰入</span>
+              </button>
+              <div class="route-v" aria-hidden="true"></div>
+              <button type="button" class="route-node snake" data-route="b-snake" aria-pressed="false">
+                <span class="rn-k">B5 · 關鍵</span>
+                <span class="rn-t">白蛇／傀儡</span>
+                <span class="rn-s">引開再鉤入小屋</span>
+              </button>
+              <p class="route-snake-extra"><a href="#force-guide-serpent">→ 智能解謎：白蛇擋路詳解</a></p>
+              <div class="route-v" aria-hidden="true"></div>
+              <button type="button" class="route-node" data-route="b-climb" aria-pressed="false">
+                <span class="rn-k">B6</span>
+                <span class="rn-t">小屋 · 向上</span>
+                <span class="rn-s">連續鉤爪出洞</span>
+              </button>
+              <div class="route-v" aria-hidden="true"></div>
+              <button type="button" class="route-node goal-b" data-route="b-depths" aria-pressed="false">
+                <span class="rn-k">GOAL</span>
+                <span class="rn-t">葦名之底 · 毒池</span>
+                <span class="rn-s">出洞鬼佛</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="route-legend">
+          <span><i class="la"></i>分支 A · 宮之蓮</span>
+          <span><i class="lb"></i>分支 B · 葦名之底</span>
+          <span><i class="ls"></i>白蛇關卡（可跳智能解謎）</span>
+        </div>
+      </div>
+
+      <!-- SECONDARY: details driven by map -->
+      <div class="route-details-toolbar">
+        <h3 class="lost-block-title" style="margin:0">節點詳情 <span class="badge">次要</span></h3>
+        <button type="button" class="route-show-all" id="route-show-all">顯示全部步驟</button>
+      </div>
+      <p class="route-empty-hint" id="route-empty-hint">↑ 撳路線圖節點，呢度會顯示對應步驟同截圖。</p>
+
+      <div class="route-detail-panel" id="rd-start" data-route-panel="start" hidden>
+        <h3 class="lost-block-title">先分清楚兩個洞 <span class="badge">最易懵</span></h3>
+        <div class="cave-table-wrap">
+          <table class="cave-table">
+            <thead>
+              <tr><th>你想做咩</th><th>邊個洞</th><th>點認</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>攞 <span class="hl">宮之蓮</span>（主線花）</td>
+                <td>獅猿戰場後濕洞</td>
+                <td>「獅猿飲水處」隔鄰，<strong>蹲低</strong>入</td>
+              </tr>
+              <tr>
+                <td>去 <span class="hl">葦名之底</span></td>
+                <td>谷底暗洞（蛇巢）</td>
+                <td><strong>菩薩谷</strong>鬼佛對面落谷，貼右見毒紀念商人</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="route-detail-panel" id="rd-a-idol" data-route-panel="a-idol" hidden>
+        <h3 class="lost-block-title">A1 · 獅猿飲水處</h3>
+        <ol class="lotus-steps">
+          <li>打完獅猿後，新鬼佛「獅猿飲水處」會出現喺戰場隔鄰</li>
+          <li>坐低存檔，再準備入濕洞</li>
+        </ol>
+      </div>
+
+      <div class="route-detail-panel" id="rd-a-cave" data-route-panel="a-cave" hidden>
+        <h3 class="lost-block-title">A2 · 濕洞</h3>
+        <ol class="lotus-steps">
+          <li>入戰場後方霧散後嘅濕洞</li>
+          <li><strong>一定要蹲低</strong>先入得去</li>
+        </ol>
+      </div>
+
+      <div class="route-detail-panel" id="rd-a-lotus" data-route-panel="a-lotus" hidden>
+        <h3 class="lost-block-title">GOAL · 宮之蓮 <span class="badge">約 30 秒</span></h3>
+        <ol class="lotus-steps">
+          <li>坐「獅猿飲水處」鬼佛</li>
+          <li>入戰場後方霧散後嘅濕洞（蹲）</li>
+          <li>撿 <strong>宮之蓮</strong> → 出嚟</li>
+        </ol>
+        <p class="lotus-note">唔好以為打完就可以返城完事。攞完花先去菩薩谷（分支 B）。</p>
+      </div>
+
+      <div class="route-detail-panel" id="rd-b-idol" data-route-panel="b-idol" hidden>
+        <h3 class="lost-block-title">B1 · 菩薩谷</h3>
+        <p class="path-start">起點：<strong>菩薩谷</strong>鬼佛（唔係飲水處）</p>
+        <div class="path-steps">
+          <article class="path-step has-imgs">
+            <div>
+              <div class="path-step-num">STEP</div>
+              <p class="path-step-text">傳送／行去<strong>菩薩谷</strong>鬼佛。呢度係落谷去暗洞嘅起點。</p>
+            </div>
+            <div class="path-imgs">
+              <figure>
+                <img src="assets/path-imgs/01_bodhisattva_idol.png" alt="菩薩谷鬼佛" loading="lazy" width="480" height="270" />
+                <figcaption>01 · 菩薩谷鬼佛</figcaption>
+              </figure>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <div class="route-detail-panel" id="rd-b-drop" data-route-panel="b-drop" hidden>
+        <h3 class="lost-block-title">B2 · 落谷 · 貼右</h3>
+        <div class="path-steps">
+          <article class="path-step has-imgs">
+            <div>
+              <div class="path-step-num">STEP</div>
+              <p class="path-step-text">背對獅猿戰場，對面山谷落去，樹枝鉤爪落地。之後<strong>貼右牆</strong>行。</p>
+            </div>
+            <div class="path-imgs">
+              <figure>
+                <img src="assets/path-imgs/02_valley_floor_poison.png" alt="谷底毒地" loading="lazy" width="480" height="270" />
+                <figcaption>02 · 谷底落地</figcaption>
+              </figure>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <div class="route-detail-panel" id="rd-b-merchant" data-route-panel="b-merchant" hidden>
+        <h3 class="lost-block-title">B3 · 毒紀念商人</h3>
+        <div class="path-steps">
+          <article class="path-step has-imgs">
+            <div>
+              <div class="path-step-num">STEP</div>
+              <p class="path-step-text"><strong>貼右牆</strong>行 → 骷髏棚商人＝毒紀念商人。</p>
+            </div>
+            <div class="path-imgs">
+              <figure>
+                <img src="assets/path-imgs/03_toxic_memorial_mob.png" alt="毒紀念商人" loading="lazy" width="480" height="270" />
+                <figcaption>03 · 毒紀念商人</figcaption>
+              </figure>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <div class="route-detail-panel" id="rd-b-cave" data-route-panel="b-cave" hidden>
+        <h3 class="lost-block-title">B4 · 暗洞</h3>
+        <div class="path-steps">
+          <article class="path-step has-imgs">
+            <div>
+              <div class="path-step-num">STEP</div>
+              <p class="path-step-text">商人隔鄰入暗洞（蛇巢）。</p>
+            </div>
+            <div class="path-imgs">
+              <figure>
+                <img src="assets/path-imgs/04_serpent_cave_entrance.png" alt="蛇巢暗洞入口" loading="lazy" width="480" height="270" />
+                <figcaption>04 · 暗洞入口</figcaption>
+              </figure>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <div class="route-detail-panel" id="rd-b-snake" data-route-panel="b-snake" hidden>
+        <h3 class="lost-block-title">B5 · 白蛇／傀儡 <span class="badge">關鍵</span></h3>
+        <div class="path-steps">
+          <article class="path-step has-imgs">
+            <div>
+              <div class="path-step-num">STEP</div>
+              <p class="path-step-text">大白蛇擋路：左邊矮台搵驚恐猴子，用 <strong>傀儡術</strong> 引開，再鉤衝入小屋。</p>
+              <p class="path-step-note">※ 傀儡術要先打仙峰寺幻廊屏風猿。未有就先傳仙峰寺，或改由葦名城投身之所跳入葦名之底。</p>
+              <p class="path-step-cta"><a href="#force-guide-serpent">詳細步驟＋實機片 → 智能解謎（白蛇擋路）</a></p>
+            </div>
+            <div class="path-imgs">
+              <figure>
+                <img src="assets/path-imgs/05_great_serpent_blocks.png" alt="大白蛇擋路" loading="lazy" width="480" height="270" />
+                <figcaption>05 · 大白蛇擋路</figcaption>
+              </figure>
+              <figure>
+                <img src="assets/path-imgs/06_serpent_temple.png" alt="蛇旁小屋" loading="lazy" width="480" height="270" />
+                <figcaption>06 · 鉤入小屋</figcaption>
+              </figure>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <div class="route-detail-panel" id="rd-b-climb" data-route-panel="b-climb" hidden>
+        <h3 class="lost-block-title">B6 · 小屋 · 向上</h3>
+        <div class="path-steps">
+          <article class="path-step">
+            <div>
+              <div class="path-step-num">STEP</div>
+              <p class="path-step-text">屋內出口鎖住 → <strong>連續鉤爪向上</strong> → 準備出洞。</p>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <div class="route-detail-panel" id="rd-b-depths" data-route-panel="b-depths" hidden>
+        <h3 class="lost-block-title">GOAL · 葦名之底 · 毒池</h3>
+        <div class="path-steps">
+          <article class="path-step has-imgs">
+            <div>
+              <div class="path-step-num">STEP</div>
+              <p class="path-step-text">出洞＝<strong>葦名之底・毒池</strong>鬼佛。記得解毒，少浸水多跳。</p>
+            </div>
+            <div class="path-imgs">
+              <figure>
+                <img src="assets/path-imgs/07_exit_ashina_depths.png" alt="葦名之底毒池鬼佛" loading="lazy" width="480" height="270" />
+                <figcaption>07 · 出洞＝毒池</figcaption>
+              </figure>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <div class="route-detail-panel" id="rd-extra-treasure" data-route-panel="extra" hidden>
+        <h3 class="lost-block-title">之後主線（三寶）</h3>
+        <div class="treasure-list">
+          <div class="treasure-item">宮之蓮<span>獅猿後濕洞</span></div>
+          <div class="treasure-item">不死斬<span>仙峰寺・幻廊</span></div>
+          <div class="treasure-item">棲宿之石<span>水生村・破戒僧後婚禮洞窟</span></div>
+        </div>
+        <p class="treasure-after">三寶齊後城會變，鬼佛多數熄 → 由 <strong>地牢入口</strong> 鬼佛返城見九郎。湊齊先開源之宮。</p>
+      </div>
+
+      <div class="route-detail-panel" id="rd-extra-fails" data-route-panel="extra" hidden>
+        <h3 class="lost-block-title">傻子常見死因／走錯</h3>
+        <ul class="fool-fails">
+          <li><strong>攞完花仲企喺飲水處兜圈</strong> → 去菩薩谷落另一邊</li>
+          <li><strong>未有傀儡術硬闖白蛇</strong> → 先仙峰寺；詳見 <a href="#force-guide-serpent">智能解謎（白蛇擋路）</a></li>
+          <li><strong>以為一定要原路折返城</strong> → 錯；可以鬼佛傳送</li>
+          <li><strong>毒水企太耐</strong> → 買綠苔葫蘆／解毒粉，少浸水多跳</li>
+        </ul>
+      </div>
+
+      <p class="lost-source">來源：路線圖參考 Fextralife Sunken Valley Passage；本區截圖存於 path-imgs。以路線圖為主，步驟文／圖為輔助。</p>
+    </div>
+  </section>
+
+  <section class="feedback" id="feedback" data-netlify-feedback aria-labelledby="feedback-title">
+    <div class="feedback-head">
+      <h2 id="feedback-title">留下<em>意見</em>俾網主</h2>
+      <span class="feedback-badge">真係會送到</span>
+    </div>
+    <p class="feedback-lead">招式唔清楚、想加邊個 Boss、有錯漏——丢句說話。留言經 Netlify Forms 直達網主信箱／後台，唔再只係本機保存。</p>
+
+    <div class="feedback-thanks" data-feedback-thanks role="status" aria-live="polite" hidden>
+      <h3>收到，多謝硬核祝福！</h3>
+      <p>你嘅意見已送出俾網主。想再講可以繼續填。</p>
+      <button type="button" class="feedback-secondary" data-feedback-again>再留一句</button>
+    </div>
+
+    <form class="feedback-form" name="boss-hunt-feedback" method="POST" action="/" data-netlify="true" netlify netlify-honeypot="bot-field" data-boss-feedback>
+      <input type="hidden" name="form-name" value="boss-hunt-feedback" />
+      <input type="hidden" name="page" value="sekiro-guardian-ape.html · 隻狼｜獅猿" />
+      <p class="feedback-honeypot" aria-hidden="true">
+        <label>唔好填呢格 <input type="text" name="bot-field" tabindex="-1" autocomplete="off" /></label>
+      </p>
+      <div class="feedback-field">
+        <label for="fb-name-sekiro-guardian-ape">暱稱 <span class="opt">（可選）</span></label>
+        <input type="text" id="fb-name-sekiro-guardian-ape" name="name" maxlength="80" placeholder="例如：狼忍新手" autocomplete="nickname" />
+      </div>
+      <div class="feedback-field">
+        <label for="fb-contact-sekiro-guardian-ape">聯絡 <span class="opt">（可選）</span></label>
+        <input type="text" id="fb-contact-sekiro-guardian-ape" name="contact" maxlength="120" placeholder="電郵／Discord（方便回覆）" autocomplete="email" />
+      </div>
+      <div class="feedback-field">
+        <label for="fb-msg-sekiro-guardian-ape">意見 <span class="opt">（必填）</span></label>
+        <textarea id="fb-msg-sekiro-guardian-ape" name="message" maxlength="4000" required rows="4" placeholder="想講咩就寫低…"></textarea>
+      </div>
+      <div class="feedback-actions">
+        <button type="submit" class="feedback-submit">送出意見</button>
+      </div>
+      <p class="feedback-note">送出後網主喺 Netlify → Forms 收到。唔填一樣睇晒全頁。</p>
+      <div class="feedback-status" data-feedback-status role="status" aria-live="polite"></div>
+    </form>
+  </section>
+
+<!-- Donate -->
+  <section class="donate zone zone-extra" id="donate">
+    <h2>自願捐款 · 內容唔鎖</h2>
+    <p>所有招式卡、短片、對策表一律免費開放。想撐「硬核祝福」再出下一個 Boss，可以自願丢一個餅乾。</p>
+    <a class="donate-btn" href="#donate">自願捐款（佔位）</a>
+    <p class="donate-note">唔捐一樣睇晒 · 別人改數值，你改規則。</p>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="brand-line">HARDCORE BLESSING · 硬核祝福</div>
+  <div>BOSS 獵殺區 · 獅猿示範頁</div>
+  <div style="margin-top:6px;opacity:.7">「別人改數值，你改規則。」</div>
+</footer>
+
+<script>
+/* ========== GAME BOT combat text + Phase1 pack media ========== */
+const LEGACY_CLIPS = "assets/clips/";
+const PACK_ROOT = "assets/guardian-ape/phase1/";
+
+/** Page move id → pack move id (from moves.json). A5/A6 share combined fart+dung. */
+const PACK_BY_MOVE = {
+  A1: "ape-p1-01-walk-left",
+  A2: "ape-p1-02-five-hit",
+  A3: "ape-p1-03-ground-slam-jump",
+  A4: "ape-p1-04-perilous-grab",
+  A5: "ape-p1-05-fart-and-dung",
+  A6: "ape-p1-05-fart-and-dung",
+  A7: "ape-p1-06-tantrum-punches",
+  A8: "ape-p1-07-baby-pose",
+  B3: "ape-p1-09-deflect-spear-pull",
+  B4: "ape-p1-08-terror-roar-telegraph"
+};
+
+const ALL_TAGS = ["走位","彈反","迴避","跳躍","抓取","危技","毒","硬直","火","長槍","怖氣","補刀"];
+
+const MOVES = [
+  {
+    id: "A1", phase: "A", slug: "walk-left",
+    name: "向左走位",
+    danger: 1, tags: ["走位"],
+    boss: "獅猿習慣用右手／右側壓力，正面硬拼易被連段壓住。",
+    player: "開戰同換招空檔優先向左橫移，保持斜角，方便睇清前搖。",
+    defend: "保持左側斜角，唔好貼死正面。",
+    respond: "用走位創造彈／打窗口。",
+    risk: "行錯邊會被甩臂同連斬追到。"
+  },
+  {
+    id: "A2", phase: "A", slug: "five-hit",
+    name: "五連擊（微抬手）",
+    danger: 3, tags: ["彈反","補刀"],
+    boss: "微抬手起手，連續揮臂約五下，壓姿勢同架勢。",
+    player: "擋滿 5 下；之後最多補 2 刀就收，唔好貪第三下。",
+    defend: "彈反／格擋連續五下。",
+    respond: "第五下後補最多 2 刀。",
+    risk: "貪刀會食返下一招開端。"
+  },
+  {
+    id: "A3", phase: "A", slug: "ground-slam",
+    name: "危・捶地板下段",
+    danger: 4, tags: ["危技","跳躍","迴避"],
+    boss: "紅危標＋高舉雙臂，全力捶地，衝擊波下段判定。",
+    player: "見紅危即跳起越過衝擊；落地可短暫補刀。",
+    defend: "跳躍（唔好只擋）。",
+    respond: "落地後補 1–2 刀。",
+    risk: "跳遲／跳早都會硬食下段。"
+  },
+  {
+    id: "A4", phase: "A", slug: "grab",
+    name: "危・抓技抱摔",
+    danger: 5, tags: ["危技","抓取","迴避","補刀"],
+    boss: "紅危、前撲抱人；無捶地版，抱中幾乎必死。",
+    player: "即後跑或後跳拉開；成功迴避後可補約 3 刀。",
+    defend: "後跑／後跳（唔好擋）。",
+    respond: "拉開後貼返補約 3 刀。",
+    risk: "誤當普通攻擊去擋＝直接出局。"
+  },
+  {
+    id: "A5", phase: "A", slug: "fart-poison",
+    name: "放屁毒霧",
+    danger: 2, tags: ["毒","迴避","走位"],
+    boss: "轉身／擡臀放毒霧，地面留毒。",
+    player: "側走離開毒區；預留解毒粉。同段常接丟糞。",
+    defend: "側走離毒，唔好企毒上。",
+    respond: "清毒後再近身。",
+    risk: "疊毒＋後續攻擊夾擊。"
+  },
+  {
+    id: "A6", phase: "A", slug: "dung-throw",
+    name: "丟糞",
+    danger: 2, tags: ["毒","硬直","補刀"],
+    boss: "抓糞拋出；命中上毒，落地後有長硬直。",
+    player: "側閃糞彈；見落地硬直就全力輸出。",
+    defend: "側閃／拉開。",
+    respond: "落地長硬直＝輸出窗。",
+    risk: "硬吃會疊毒，後面壓力大。"
+  },
+  {
+    id: "A7", phase: "A", slug: "tantrum",
+    name: "耍賴拳法（仰躺亂打）",
+    danger: 3, tags: ["迴避","彈反","走位"],
+    boss: "仰躺地上亂揮拳，範圍亂、節奏差。",
+    player: "退後等亂打結束，或小心貼邊打；唔好企正中心。",
+    defend: "後退觀望／邊緣點打。",
+    respond: "亂打停後再輸出。",
+    risk: "貼太近會被連續拳磨死。"
+  },
+  {
+    id: "A8", phase: "A", slug: "baby-pose",
+    name: "Baby 姿勢硬直",
+    danger: 1, tags: ["硬直","補刀","火"],
+    boss: "蜷成細蚊仔姿勢，露出超長硬直。",
+    player: "全力輸出；一階段可配噴火筒＋油最大化傷害。",
+    defend: "唔使防，純輸出。",
+    respond: "打到硬直完或轉招。",
+    risk: "打太出位可能被跟住嘅轉招掃到。"
+  },
+  {
+    id: "A9", phase: "A", slug: "roar-retreat",
+    name: "後退吼／鉤爪",
+    danger: 2, tags: ["走位","迴避"],
+    boss: "後退同時吼叫或伸臂鉤近，重整距離。",
+    player: "唔好盲追；等佢定返先再壓。鉤爪前搖要側閃。",
+    defend: "保持距離，防鉤爪。",
+    respond: "定住後再近身。",
+    risk: "盲追容易撞上跟住嘅連段。"
+  },
+  {
+    id: "B1", phase: "B", slug: "blade-combo",
+    name: "普攻刀連",
+    danger: 3, tags: ["彈反","補刀"],
+    boss: "無頭持刀普通連斬，節奏比有頭更「刀」。",
+    player: "完美彈反為主；每段後最多補 1 刀（零貪刀誓約更嚴）。",
+    defend: "完美彈刀。",
+    respond: "彈完補 1 刀即收。",
+    risk: "當一階段亂擋會破架。"
+  },
+  {
+    id: "B2", phase: "B", slug: "land-sweep",
+    name: "落地危橫掃",
+    danger: 4, tags: ["危技","跳躍","迴避"],
+    boss: "跳躍落地接紅色危技橫掃。",
+    player: "跳過橫掃；唔好用鐵傘硬食除非練習無傘挑戰。",
+    defend: "跳躍越過。",
+    respond: "落地後再接彈刀節奏。",
+    risk: "當普通橫掃去擋＝重傷。"
+  },
+  {
+    id: "B3", phase: "B", slug: "overhead-spear",
+    name: "高舉下劈 → 長槍拉蜈蚣",
+    danger: 4, tags: ["彈反","長槍","補刀"],
+    boss: "高舉刀下劈（右下起手常見）；頸部蜈蚣露出。",
+    player: "完美彈 → 砍 1 → 機關長槍兩下拉蜈蚣。爆竹無效。",
+    defend: "完美彈下劈。",
+    respond: "砍1＋長槍兩下。",
+    risk: "彈完連砍唔拉槍＝浪費破點。"
+  },
+  {
+    id: "B4", phase: "B", slug: "terror-roar",
+    name: "危・怖氣咆哮",
+    danger: 5, tags: ["危技","怖氣","迴避"],
+    boss: "頸部蛇扭／安頭前置，之後怖氣咆哮，疊怖氣。",
+    player: "見蛇扭或安頭即跑開，或開鐵傘；備驅怖粉／紫葫蘆。",
+    defend: "即跑／鐵傘。",
+    respond: "怖氣清走再接戰。",
+    risk: "怖氣滿直接死亡；無粉無傘要距離夠。"
+  }
+];
+
+function mergePack(pack) {
+  const byId = Object.fromEntries((pack.moves || []).map(m => [m.id, m]));
+  MOVES.forEach(m => {
+    const pid = PACK_BY_MOVE[m.id];
+    if (!pid || !byId[pid]) {
+      m.pack = null;
+      m.durationMs = m.durationMs || 8000;
+      m.frames = m.frames || [
+        { tMs: 0, label: "開始", type: "telegraph" },
+        { tMs: 4000, label: "結束", type: "recovery" }
+      ];
+      return;
+    }
+    const p = byId[pid];
+    m.pack = p;
+    m.packId = p.id;
+    m.mediaLabel = p.titleZh || m.name;
+    m.durationMs = (p.loop && p.loop.durationMs) || 5000;
+    m.frames = (p.timeline && p.timeline.length ? p.timeline : p.frames).map(f => ({
+      tMs: f.tMs,
+      label: f.label,
+      type: f.type,
+      file: f.file || null
+    }));
+    m.packFrames = (p.frames || []).map(f => ({
+      tMs: f.tMs,
+      label: f.label,
+      type: f.type,
+      file: f.file,
+      src: PACK_ROOT + f.file
+    }));
+    m.loopMp4 = (p.loop && p.loop.mp4) ? (PACK_ROOT + p.loop.mp4) : "";
+    m.loopWebm = (p.loop && p.loop.webm) ? (PACK_ROOT + p.loop.webm) : "";
+    m.poster = m.packFrames[0] ? m.packFrames[0].src : "";
+  });
+}
+
+const grid = document.getElementById("moveGrid");
+const emptyState = document.getElementById("emptyState");
+const tagFiltersEl = document.getElementById("tagFilters");
+let activePhase = "ALL";
+let activeTags = new Set();
+let query = "";
+
+function dangerClass(d) { return "d" + Math.min(5, Math.max(1, d)); }
+function dangerLabel(d) {
+  const map = {1:"危險度 ★☆☆☆☆",2:"危險度 ★★☆☆☆",3:"危險度 ★★★☆☆",4:"危險度 ★★★★☆",5:"危險度 ★★★★★"};
+  return map[d] || ("危險度 " + d);
+}
+function typeLabel(t) {
+  const map = { telegraph:"前搖", commit:"出手", window:"窗口", punish:"懲罰", recovery:"硬直", hit:"命中", perilous:"危技", recover:"硬直" };
+  return map[t] || t;
+}
+
+function buildTagFilters() {
+  const used = new Set();
+  MOVES.forEach(m => m.tags.forEach(t => used.add(t)));
+  [...used].sort().forEach(tag => {
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "tag-chip";
+    btn.textContent = tag;
+    btn.dataset.tag = tag;
+    btn.addEventListener("click", () => {
+      if (activeTags.has(tag)) { activeTags.delete(tag); btn.classList.remove("active"); }
+      else { activeTags.add(tag); btn.classList.add("active"); }
+      filterMoves();
+    });
+    tagFiltersEl.appendChild(btn);
+  });
+}
+
+function renderCard(m) {
+  const card = document.createElement("article");
+  card.className = "move-card";
+  card.dataset.phase = m.phase;
+  card.dataset.id = m.id;
+  card.dataset.search = (m.name + " " + m.defend + " " + m.respond + " " + m.tags.join(" ") + " " + (m.mediaLabel || "")).toLowerCase();
+
+  const hasPack = !!m.pack;
+  const tagsHtml = m.tags.map(t => `<span class="tag">${t}</span>`).join("");
+  const frames = m.frames || [];
+  const dur = m.durationMs || 5000;
+
+  const marksHtml = frames.map(f => {
+    const pct = Math.min(98, Math.max(1, (f.tMs / dur) * 100));
+    return `<div class="kf-mark type-${f.type}" style="left:${pct}%" data-t="${f.tMs}" title="${f.label} (${(f.tMs/1000).toFixed(1)}s)">
+      <div class="kf-dot"></div>
+      <div class="kf-label">${f.label}</div>
+    </div>`;
+  }).join("");
+
+  const stripHtml = hasPack && m.packFrames ? `
+    <div class="kf-strip" aria-label="關鍵幀">
+      ${m.packFrames.map((f, i) => `
+        <button type="button" class="kf-thumb" data-t="${f.tMs}" data-i="${i}" title="${f.label}">
+          <img src="${f.src}" alt="${f.label}" loading="lazy" width="200" height="112" />
+          <div class="kf-cap"><span class="kf-type">${typeLabel(f.type)}</span>${f.label}</div>
+        </button>
+      `).join("")}
+    </div>
+  ` : "";
+
+  const mediaHtml = hasPack ? `
+    <span class="clip-badge">LOOP · 5s</span>
+    <video autoplay muted loop playsinline preload="metadata" poster="${m.poster}" data-dur="${dur}">
+      ${m.loopWebm ? `<source src="${m.loopWebm}" type="video/webm" />` : ""}
+      ${m.loopMp4 ? `<source src="${m.loopMp4}" type="video/mp4" />` : ""}
+    </video>
+    <div class="clip-controls">
+      <button type="button" class="btn-play" title="播放／暫停">▶</button>
+      <button type="button" class="btn-mute" title="靜音（示範預設靜音）">🔇</button>
+    </div>
+  ` : `
+    <span class="clip-badge">暫無 loop</span>
+    <div style="display:flex;align-items:center;justify-content:center;min-height:200px;color:var(--muted);font-size:.85rem;padding:20px;text-align:center;">
+      暫無短片 · 文字對策仍可用<br/><small style="opacity:.7">${m.id} · ${m.slug}</small>
+    </div>
+  `;
+
+  card.innerHTML = `
+    <div class="move-card-head">
+      <span class="move-id">${m.id} · ${m.phase === "A" ? "有頭" : "無頭"}</span>
+      <h3 class="move-name">${m.name}</h3>
+      <span class="danger-badge ${dangerClass(m.danger)}">${dangerLabel(m.danger)}</span>
+      <div class="move-tags">${tagsHtml}</div>
+      ${hasPack ? `<div class="pack-label">素材：${m.mediaLabel} · ${m.packId}</div>` : ""}
+    </div>
+    <div class="move-body">
+      <div class="clip-pane">${mediaHtml}</div>
+      <div class="info-pane">
+        <div class="compare">
+          <div class="compare-col boss">
+            <div class="compare-label">BOSS 動作</div>
+            <p>${m.boss}</p>
+          </div>
+          <div class="compare-col player">
+            <div class="compare-label">玩家反應</div>
+            <p>${m.player}</p>
+          </div>
+        </div>
+        ${stripHtml}
+        <div class="timeline-wrap">
+          <div class="timeline-title">KEYFRAME 時機軸 · 點擊標記／縮圖跳轉</div>
+          <div class="timeline" data-dur="${dur}">
+            <div class="timeline-track"></div>
+            <div class="timeline-playhead"></div>
+            ${marksHtml}
+          </div>
+          <div class="timing-bar-row">
+            <button type="button" class="slowmo-btn" data-rate="0.5">慢鏡 0.5×</button>
+            <input type="range" min="0" max="${dur}" value="0" step="50" class="scrub" aria-label="時機條" />
+            <span class="t-label">0.0s / ${(dur/1000).toFixed(1)}s</span>
+          </div>
+        </div>
+        <div class="tips-row">
+          <div class="tip-box"><strong>判定／防禦</strong>${m.defend}</div>
+          <div class="tip-box"><strong>應對</strong>${m.respond}</div>
+        </div>
+        <div class="risk-line">風險：${m.risk}</div>
+      </div>
+    </div>
+  `;
+
+  const video = card.querySelector("video");
+  const playhead = card.querySelector(".timeline-playhead");
+  const scrub = card.querySelector(".scrub");
+  const tLabel = card.querySelector(".t-label");
+  const timeline = card.querySelector(".timeline");
+  const slowBtn = card.querySelector(".slowmo-btn");
+  const thumbs = card.querySelectorAll(".kf-thumb");
+
+  function setTime(ms, fromVideo) {
+    const pct = (ms / dur) * 100;
+    if (playhead) playhead.style.left = pct + "%";
+    if (scrub && document.activeElement !== scrub) scrub.value = String(ms);
+    if (tLabel) tLabel.textContent = (ms/1000).toFixed(1) + "s / " + (dur/1000).toFixed(1) + "s";
+    thumbs.forEach(th => {
+      const t = Number(th.dataset.t);
+      th.classList.toggle("active", Math.abs(t - ms) < 400);
+    });
+    if (video && !fromVideo && Math.abs((video.currentTime * 1000) - ms) > 80) {
+      video.currentTime = ms / 1000;
+    }
+  }
+
+  if (video) {
+    video.addEventListener("timeupdate", () => setTime(video.currentTime * 1000, true));
+    video.addEventListener("loadeddata", () => { try { video.play(); } catch(e){} });
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(en => {
+        if (en.isIntersecting) { video.play().catch(()=>{}); }
+        else { video.pause(); }
+      });
+    }, { threshold: 0.35 });
+    io.observe(video);
+
+    card.querySelector(".btn-play")?.addEventListener("click", () => {
+      if (video.paused) video.play(); else video.pause();
+    });
+    card.querySelector(".btn-mute")?.addEventListener("click", (e) => {
+      video.muted = !video.muted;
+      e.currentTarget.textContent = video.muted ? "🔇" : "🔊";
+    });
+  }
+
+  scrub?.addEventListener("input", () => {
+    setTime(Number(scrub.value), false);
+    if (video) video.pause();
+  });
+
+  timeline?.addEventListener("click", (e) => {
+    const mark = e.target.closest(".kf-mark");
+    if (mark) {
+      setTime(Number(mark.dataset.t), false);
+      if (video) { video.currentTime = Number(mark.dataset.t)/1000; video.play().catch(()=>{}); }
+      return;
+    }
+    const rect = timeline.getBoundingClientRect();
+    const ms = ((e.clientX - rect.left) / rect.width) * dur;
+    setTime(ms, false);
+  });
+
+  thumbs.forEach(th => {
+    th.addEventListener("click", () => {
+      const t = Number(th.dataset.t);
+      setTime(t, false);
+      if (video) { video.currentTime = t / 1000; video.play().catch(()=>{}); }
+    });
+  });
+
+  slowBtn?.addEventListener("click", () => {
+    const on = slowBtn.classList.toggle("on");
+    if (video) video.playbackRate = on ? 0.5 : 1;
+    slowBtn.textContent = on ? "慢鏡 ON" : "慢鏡 0.5×";
+  });
+
+  return card;
+}
+
+function filterMoves() {
+  const cards = grid.querySelectorAll(".move-card");
+  let shown = 0;
+  cards.forEach(card => {
+    const phaseOk = activePhase === "ALL" || card.dataset.phase === activePhase;
+    const q = query.trim().toLowerCase();
+    const qOk = !q || card.dataset.search.includes(q);
+    let tagOk = true;
+    if (activeTags.size) {
+      const m = MOVES.find(x => x.id === card.dataset.id);
+      tagOk = m && [...activeTags].every(t => m.tags.includes(t));
+    }
+    const ok = phaseOk && qOk && tagOk;
+    card.hidden = !ok;
+    if (ok) shown++;
+  });
+  emptyState.hidden = shown > 0;
+}
+
+async function init() {
+  let pack = null;
+  try {
+    const res = await fetch(PACK_ROOT + "moves.json", { cache: "no-store" });
+    if (!res.ok) throw new Error("HTTP " + res.status);
+    pack = await res.json();
+  } catch (err) {
+    console.warn("[BOSS獵殺區] moves.json 載入失敗，純文字模式", err);
+  }
+  if (pack) mergePack(pack);
+  else MOVES.forEach(m => { m.pack = null; m.durationMs = 8000; m.frames = [{ tMs:0,label:"開始",type:"telegraph"},{tMs:4000,label:"結束",type:"recovery"}]; });
+
+  buildTagFilters();
+  MOVES.forEach(m => grid.appendChild(renderCard(m)));
+
+  document.querySelectorAll(".phase-tab").forEach(btn => {
+    btn.addEventListener("click", () => {
+      document.querySelectorAll(".phase-tab").forEach(b => {
+        b.classList.remove("active");
+        b.setAttribute("aria-selected", "false");
+      });
+      btn.classList.add("active");
+      btn.setAttribute("aria-selected", "true");
+      activePhase = btn.dataset.phase;
+      filterMoves();
+    });
+  });
+
+  document.getElementById("q").addEventListener("input", e => {
+    query = e.target.value;
+    filterMoves();
+  });
+
+  const wired = MOVES.filter(m => m.pack).map(m => m.id);
+  window.__BOSS_HUNT_TIMING__ = MOVES.map(m => ({
+    moveId: m.id,
+    packId: m.packId || null,
+    durationMs: m.durationMs,
+    frames: m.frames
+  }));
+  console.info("[BOSS獵殺區] Phase1 pack wired:", wired.join(", "), "| total", MOVES.length);
+}
+
+init();
+
+
+
+/* ========== Force-Guide · white-snake (guide only, no quiz) ========== */
+(function () {
+  const PACK = "assets/force-guide/white-snake/";
+
+  const metaEl = document.getElementById("force-guide-meta");
+  const stepsEl = document.getElementById("force-guide-steps");
+  const titleEl = document.getElementById("force-guide-title");
+  const subEl = document.getElementById("force-guide-subtitle");
+  const sourceEl = document.getElementById("force-guide-source");
+  const videoEl = document.getElementById("force-guide-serpent-video");
+
+  function esc(str) {
+    return String(str == null ? "" : str)
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;");
+  }
+
+  function renderSteps(guide) {
+    if (!stepsEl) return;
+    const root = PACK;
+    const walkTitle = document.getElementById("force-guide-walkthrough-title");
+    if (walkTitle && guide.walkthroughTitleZh) {
+      walkTitle.innerHTML = esc(guide.walkthroughTitleZh) + ' <span class="badge">WALKTHROUGH</span>';
+    }
+    stepsEl.innerHTML = (guide.steps || []).map((st, idx) => {
+      const num = st.stepNum != null ? st.stepNum : (idx + 1);
+      const tips = (st.tips || []).map(t => "<li>" + esc(t) + "</li>").join("");
+      const img = st.image ? root + st.image : "";
+      const caption = st.imageAlt || ("步驟 " + num);
+      return (
+        '<article class="fg-step" id="fg-step-' + esc(st.id || ("n" + num)) + '">' +
+          '<div class="fg-step-inner">' +
+            "<div>" +
+              '<div class="fg-step-title"><span class="fg-step-num">STEP ' + String(num).padStart(2, "0") + "</span>" + esc(st.title) + "</div>" +
+              '<p class="fg-step-body">' + esc(st.body) + "</p>" +
+              (tips ? '<ul class="fg-step-tips">' + tips + "</ul>" : "") +
+            "</div>" +
+            (img
+              ? "<figure><img src=\"" + esc(img) + "\" alt=\"" + esc(st.imageAlt || st.title) + "\" loading=\"lazy\" decoding=\"async\" width=\"480\" height=\"270\" /><figcaption>" + esc(caption) + "</figcaption></figure>"
+              : "") +
+          "</div>" +
+        "</article>"
+      );
+    }).join("");
+  }
+
+  async function init() {
+    // Always unlock play area (legacy lock removed)
+    const boss = document.getElementById("boss");
+    if (boss) boss.classList.remove("is-locked");
+
+    try {
+      const gRes = await fetch(PACK + "guide.json");
+      if (!gRes.ok) throw new Error("fetch failed");
+      const guideData = await gRes.json();
+
+      if (titleEl) {
+        titleEl.innerHTML = '智能解謎 · <em>白蛇擋路</em>';
+      }
+      if (subEl) {
+        subEl.textContent = guideData.subtitleZh
+          ? String(guideData.subtitleZh).replace(/答啱智力題[^。]*。?/g, "").replace(/先解鎖招式區。?/g, "").trim() ||
+            "大白蛇擋路——睇片、跟步驟、用傀儡術過關。"
+          : "大白蛇擋路——睇片、跟步驟、用傀儡術過關。";
+        // Prefer clean static copy
+        subEl.textContent = "大白蛇擋路——睇片、跟步驟、用傀儡術過關。唔使答題，內容完全開放。";
+      }
+      if (metaEl) {
+        const joke = guideData.metaJoke || "";
+        metaEl.textContent = joke.replace(/智力測試/g, "路線謎題").replace(/答啱智力題[^。]*。?/g, "").trim() || joke;
+      }
+      if (sourceEl) sourceEl.textContent = guideData.sourceNote || "";
+
+      renderSteps(guideData);
+
+      if (videoEl) {
+        const playP = videoEl.play();
+        if (playP && playP.catch) playP.catch(() => {});
+      }
+    } catch (err) {
+      if (metaEl) metaEl.textContent = "攻略資料載入失敗。請用本機 server 開啟（唔好雙擊 HTML），並確認 assets/force-guide/white-snake/ 存在。";
+      console.warn("[force-guide]", err);
+    }
+  }
+
+  init();
+})();
+
+
+</script>
+
+<script>
+(function () {
+  var TITLES = {
+    boss: "BOSS · 獅猿",
+    force: "智能解謎 · 白蛇擋路",
+    lost: "地圖資訊 · 路線圖",
+    all: "隻狼 · 全頁"
+  };
+  var HINTS = {
+    boss: "而家只顯示「BOSS」專區。<a href=\"index.html\">← 返回主頁</a> 再揀其他。",
+    force: "而家只顯示「智能解謎」專區。<a href=\"index.html\">← 返回主頁</a> 再揀其他。",
+    lost: "而家只顯示「地圖資訊（迷路）」· 路線圖為主。<a href=\"index.html\">← 返回主頁</a> 再揀其他。"
+  };
+
+  function hashToFocus(hash) {
+    hash = (hash || "").replace(/^#/, "");
+    if (hash === "force-guide-serpent" || hash.indexOf("force-guide") === 0) return "force";
+    if (hash === "lost-fool" || hash === "lost") return "lost";
+    if (hash === "boss" || hash === "moves" || hash === "play" || hash === "blessings" || hash === "deaths" || hash === "rewards") return "boss";
+    if (hash === "feedback" || hash === "donate") return "all";
+    return "all"; // no hash / unknown → show everything (less surprising for direct open)
+  }
+
+  function applyFocus(focus) {
+    var body = document.body;
+    var titleEl = document.getElementById("focus-title");
+    var hintEl = document.getElementById("focus-hint");
+    document.querySelectorAll("#nav-mini a").forEach(function (a) {
+      a.classList.toggle("active", a.getAttribute("data-focus-link") === focus);
+    });
+    if (focus === "all") {
+      body.classList.remove("focus-mode");
+      body.removeAttribute("data-focus");
+      if (titleEl) titleEl.textContent = TITLES.all;
+      if (hintEl) hintEl.innerHTML = "";
+      return;
+    }
+    body.classList.add("focus-mode");
+    body.setAttribute("data-focus", focus);
+    if (titleEl) titleEl.textContent = TITLES[focus] || TITLES.all;
+    if (hintEl) hintEl.innerHTML = HINTS[focus] || "";
+  }
+
+  function syncFromHash() {
+    applyFocus(hashToFocus(location.hash));
+  }
+
+  window.addEventListener("hashchange", syncFromHash);
+  syncFromHash();
+
+  // When clicking mini-nav "意見", show all so feedback is visible
+  document.querySelectorAll("#nav-mini a").forEach(function (a) {
+    a.addEventListener("click", function () {
+      var f = a.getAttribute("data-focus-link");
+      if (f === "all") {
+        applyFocus("all");
+      }
+    });
+  });
+})();
+</script>
+
+
+<script>
+(function () {
+  var nodes = Array.prototype.slice.call(document.querySelectorAll(".route-node[data-route]"));
+  var panels = Array.prototype.slice.call(document.querySelectorAll("[data-route-panel]"));
+  var hint = document.getElementById("route-empty-hint");
+  var showAllBtn = document.getElementById("route-show-all");
+  var showingAll = false;
+
+  function clearActive() {
+    nodes.forEach(function (n) {
+      n.classList.remove("active");
+      n.setAttribute("aria-pressed", "false");
+    });
+    panels.forEach(function (p) {
+      p.classList.remove("lit");
+    });
+  }
+
+  function hideRoutePanels() {
+    panels.forEach(function (p) {
+      if (p.getAttribute("data-route-panel") === "extra") return;
+      p.hidden = true;
+    });
+    // also hide extras unless showing all
+    document.querySelectorAll('[data-route-panel="extra"]').forEach(function (p) {
+      if (!showingAll) p.hidden = true;
+    });
+  }
+
+  function showPanel(id) {
+    var panel = document.getElementById("rd-" + id);
+    if (!panel) return;
+    panel.hidden = false;
+    panel.classList.add("lit");
+    if (hint) hint.hidden = true;
+  }
+
+  function selectRoute(id, scroll) {
+    showingAll = false;
+    if (showAllBtn) showAllBtn.textContent = "顯示全部步驟";
+    clearActive();
+    hideRoutePanels();
+    nodes.forEach(function (n) {
+      if (n.getAttribute("data-route") === id) {
+        n.classList.add("active");
+        n.setAttribute("aria-pressed", "true");
+      }
+    });
+    showPanel(id);
+    if (scroll) {
+      var panel = document.getElementById("rd-" + id);
+      if (panel) panel.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    }
+  }
+
+  function showAll() {
+    showingAll = true;
+    clearActive();
+    panels.forEach(function (p) {
+      p.hidden = false;
+      p.classList.remove("lit");
+    });
+    if (hint) hint.hidden = true;
+    if (showAllBtn) showAllBtn.textContent = "收起（只睇圖）";
+    var map = document.getElementById("route-map");
+    if (map) map.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+
+  function collapseToMap() {
+    showingAll = false;
+    clearActive();
+    hideRoutePanels();
+    document.querySelectorAll('[data-route-panel="extra"]').forEach(function (p) {
+      p.hidden = true;
+    });
+    if (hint) hint.hidden = false;
+    if (showAllBtn) showAllBtn.textContent = "顯示全部步驟";
+  }
+
+  nodes.forEach(function (n) {
+    n.addEventListener("click", function () {
+      selectRoute(n.getAttribute("data-route"), true);
+    });
+  });
+
+  if (showAllBtn) {
+    showAllBtn.addEventListener("click", function () {
+      if (showingAll) collapseToMap();
+      else showAll();
+    });
+  }
+
+  // default: map only, hint visible
+  hideRoutePanels();
+  document.querySelectorAll('[data-route-panel="extra"]').forEach(function (p) {
+    p.hidden = true;
+  });
+})();
+</script>
+
+<script src="assets/vote-widget.js" defer></script>
+<script src="assets/feedback-form.js" defer></script>
+<script src="assets/age-gate.js" defer></script>
+</body>
+</html>

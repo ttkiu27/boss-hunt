@@ -1,0 +1,123 @@
+/* Age gate — site-wide 18+ wall */
+.age-gate {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background:
+    radial-gradient(ellipse 70% 50% at 50% 40%, rgba(224,69,69,.18), transparent 60%),
+    rgba(6,7,10,.94);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+.age-gate[hidden] { display: none !important; }
+.age-gate-card {
+  width: min(420px, 100%);
+  padding: 28px 24px 24px;
+  background: #12141a;
+  border: 1px solid #2a2f3c;
+  border-radius: 14px;
+  box-shadow: 0 16px 48px rgba(0,0,0,.55);
+  text-align: center;
+  font-family: "Noto Sans TC", "PingFang HK", "Microsoft JhengHei", sans-serif;
+  color: #e8e6e1;
+}
+.age-gate-kicker {
+  font-size: .68rem;
+  font-weight: 800;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: #c9a227;
+  margin-bottom: 10px;
+}
+.age-gate-card h2 {
+  font-size: 1.35rem;
+  font-weight: 900;
+  letter-spacing: .04em;
+  margin: 0 0 10px;
+  line-height: 1.35;
+}
+.age-gate-card h2 em {
+  font-style: normal;
+  color: #e04545;
+}
+.age-gate-lead {
+  font-size: .9rem;
+  color: #9a968c;
+  line-height: 1.55;
+  margin: 0 0 20px;
+}
+.age-gate-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.age-gate-btn {
+  font: inherit;
+  font-size: .95rem;
+  font-weight: 800;
+  letter-spacing: .04em;
+  padding: 12px 16px;
+  border-radius: 10px;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: background .15s, border-color .15s, transform .12s;
+}
+.age-gate-btn:hover { transform: translateY(-1px); }
+.age-gate-btn:focus-visible {
+  outline: 2px solid #c9a227;
+  outline-offset: 2px;
+}
+.age-gate-yes {
+  background: rgba(201,162,39,.16);
+  border-color: #8a7018;
+  color: #c9a227;
+}
+.age-gate-yes:hover {
+  background: rgba(201,162,39,.28);
+  border-color: #c9a227;
+}
+.age-gate-no {
+  background: rgba(224,69,69,.1);
+  border-color: #8b2222;
+  color: #e04545;
+}
+.age-gate-no:hover {
+  background: rgba(224,69,69,.2);
+  border-color: #e04545;
+}
+.age-gate-blocked {
+  margin-top: 8px;
+}
+.age-gate-blocked h3 {
+  font-size: 1.1rem;
+  font-weight: 900;
+  color: #e04545;
+  margin: 0 0 8px;
+}
+.age-gate-blocked p {
+  font-size: .88rem;
+  color: #9a968c;
+  margin: 0 0 16px;
+  line-height: 1.5;
+}
+.age-gate-leave {
+  display: inline-block;
+  font-size: .85rem;
+  font-weight: 700;
+  color: #9a968c;
+  text-decoration: none;
+  border-bottom: 1px solid #2a2f3c;
+  padding-bottom: 2px;
+}
+.age-gate-leave:hover { color: #c9a227; border-color: #c9a227; }
+body.age-gate-lock {
+  overflow: hidden !important;
+}
+body.age-gate-lock > *:not(.age-gate) {
+  visibility: hidden !important;
+  pointer-events: none !important;
+}

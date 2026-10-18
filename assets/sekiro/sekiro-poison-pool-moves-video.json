@@ -1,0 +1,555 @@
+{
+  "meta": {
+    "title_zh": "毒沼鬼佛・出口／白萩招式短片＋解說嵌播包",
+    "game": "Sekiro: Shadows Die Twice",
+    "game_zh": "隻狼：暗影雙死",
+    "page_zh": "毒沼鬼佛",
+    "page_en": "Poison Pool Idol",
+    "source_guide": "sekiro-poison-pool-zh-Hant.md",
+    "updated": "2026-10-17",
+    "tz": "Asia/Hong_Kong",
+    "privacy": {
+      "no_school_names": true,
+      "user_footage": "none_yet_use_third_party_embeds"
+    },
+    "honesty_note": "start_s/end_s only when verified by visual scrub, on-screen text, or YouTube chapters. Exit: nsQWc5tQwLg chapter 05:04=304s (通往葦名底層「毒沼」的密道); look_up/statue_roof filled by 1fps scrub of downloaded exit segment. RzGfC6KMIV8 confetti_path 62–68 / land_poison_idol 68–74 verified on-screen English tips + Idol commune (parent+影片大臣). Shirahagi: gR29pWORyHw is poison/cheese guide with ZH burned-in subtitles; rifle_poke+melee filled from subtitle/visual; retreat_fire+perilous_thrust remain null. Headless ape: mortal_blade_window = visible Mortal Draw red aura ~158s (medium); opening 0–20 noted in source_note.",
+    "updated_time_hk": "2026-10-17 21:46 Asia/Hong_Kong",
+    "asr_method": "ffmpeg 1fps/0.2fps visual scrub; YouTube chapter scrape; no Whisper (no usable auto-captions on nsQ)",
+    "clip_dir_store": "boss-hunt/ghost-buddha-swamp/clips/",
+    "clip_dir_workspace": "/workspace/onimusha-clips/ghost-buddha/clips/",
+    "scrub_2026_10_17": {
+      "exit_nsQ": {
+        "video_id": "nsQWc5tQwLg",
+        "duration_s": 418,
+        "chapter_exit_start_s": 304,
+        "methods": [
+          "yt chapter scrape",
+          "yt-dlp download-sections *304-418",
+          "1fps frames e001–e118"
+        ],
+        "filled": [
+          "look_up_grapple",
+          "statue_roof"
+        ]
+      },
+      "exit_rz": {
+        "video_id": "RzGfC6KMIV8",
+        "duration_s": 74.601,
+        "local_mp4": "/workspace/sekiro-white-snake/vids/RzGfC6KMIV8.mp4",
+        "methods": [
+          "1fps frames-rz-tail f01–f20 (fNN≈54+N s)",
+          "on-screen English tip text"
+        ],
+        "filled": [
+          "confetti_path",
+          "land_poison_idol"
+        ]
+      },
+      "shirahagi": {
+        "video_id": "gR29pWORyHw",
+        "duration_s": 407,
+        "methods": [
+          "5s overview + 1fps dense 12–67s",
+          "ZH burned-in subtitles"
+        ],
+        "filled": [
+          "rifle_poke",
+          "melee_combo"
+        ],
+        "still_null": [
+          "retreat_fire",
+          "perilous_thrust"
+        ]
+      },
+      "headless_ape": {
+        "video_id": "zIxL3A9vTaI",
+        "duration_s": 356,
+        "methods": [
+          "5s + 2s interval frames"
+        ],
+        "filled": [
+          "mortal_blade_window"
+        ]
+      }
+    }
+  },
+  "primary_videos": {
+    "exit_guide": {
+      "id": "nsQWc5tQwLg",
+      "url": "https://www.youtube.com/watch?v=nsQWc5tQwLg",
+      "embed": "https://www.youtube.com/embed/nsQWc5tQwLg",
+      "title_zh": "＃13【隻狼】斬白蛇＆盜蛇心…通往毒沼密道",
+      "chapter_hint": "05:04 通往葦名底層・毒沼的密道",
+      "chapter_start_s": 304,
+      "role": "primary_exit",
+      "duration_s": 418,
+      "chapters": [
+        {
+          "label_zh": "無意義的片頭",
+          "start_s": 0
+        },
+        {
+          "label_zh": "斬白蛇的兩個前置條件",
+          "start_s": 4
+        },
+        {
+          "label_zh": "斬白蛇，獲得新鮮蛇柿",
+          "start_s": 22
+        },
+        {
+          "label_zh": "入蛇洞，盜取乾燥蛇柿",
+          "start_s": 155
+        },
+        {
+          "label_zh": "通往葦名底層「毒沼」的密道",
+          "start_s": 304
+        }
+      ]
+    },
+    "exit_short": {
+      "id": "RzGfC6KMIV8",
+      "url": "https://www.youtube.com/watch?v=RzGfC6KMIV8",
+      "embed": "https://www.youtube.com/embed/RzGfC6KMIV8",
+      "title": "SEKIRO Dried Serpent Viscera [EASY NO PUPPETEER]",
+      "duration_s": 74.601,
+      "local_mp4": "/workspace/sekiro-white-snake/vids/RzGfC6KMIV8.mp4",
+      "role": "exit_tail_confetti_poison_ledge",
+      "suggested_window_s": [
+        62,
+        74
+      ]
+    },
+    "valley_overview": {
+      "id": "SZtDUPUMaws",
+      "url": "https://www.youtube.com/watch?v=SZtDUPUMaws",
+      "title": "Sekiro - How to go from Sunken Valley to Ashina Depths",
+      "role": "backup_overview"
+    },
+    "shirahagi_bilibili": {
+      "bvid": "BV1jb411x7qa",
+      "url": "https://www.bilibili.com/video/BV1jb411x7qa/",
+      "title_zh": "蛇眼白萩——只狼里最简单的精英怪攻略解说",
+      "role": "shirahagi_primary_zh"
+    },
+    "shirahagi_youtube": {
+      "id": "gR29pWORyHw",
+      "url": "https://www.youtube.com/watch?v=gR29pWORyHw",
+      "title_zh": "【隻狼】蛇眼 白萩 毒沼打法／刺殺打法",
+      "role": "shirahagi_primary_yt",
+      "duration_s": 407
+    },
+    "headless_ape": {
+      "id": "zIxL3A9vTaI",
+      "url": "https://www.youtube.com/watch?v=zIxL3A9vTaI",
+      "title_zh": "Sekiro隻狼　毒沼　無頭獅猿打法",
+      "role": "optional_headless_ape",
+      "duration_s": 356
+    }
+  },
+  "sections": {
+    "exit": {
+      "anchor": "#exit",
+      "title_zh": "干柿神廟 → 毒沼鬼佛",
+      "moves": [
+        {
+          "id": "look_up_grapple",
+          "name_zh": "望上鈎點",
+          "name_en": "Look up for grapple",
+          "videoId": "nsQWc5tQwLg",
+          "start_s": 304,
+          "end_s": 320,
+          "commentary_zh": "章節 05:04 起：乾柿 UI 後喺神廟望上搵藍鈎點。門鎖／蛇封口就望神像／樑，唔好原路返白蛇口。",
+          "status": "verified_visual_scrub",
+          "duration_s": 16,
+          "break_one_liner_zh": "門鎖咗就望神像／樑上藍點，唔好返白蛇口",
+          "confidence": "high",
+          "clip_file": "ghost-buddha-swamp/clips/move-look_up_grapple.mp4",
+          "html_anchor_hint": "exit-look-up-grapple",
+          "evidence_zh": "nsQ chapter 304；1fps：e001–e006 乾柿 UI → e014–e016（≈317–319）樑隙／鈎點望上。窗 304–320 含章節開頭＋望鈎。",
+          "youtube_status": "verified_visual_scrub",
+          "embed_url": "https://www.youtube-nocookie.com/embed/nsQWc5tQwLg?start=304&end=320",
+          "watch_url": "https://www.youtube.com/watch?v=nsQWc5tQwLg&t=304s"
+        },
+        {
+          "id": "statue_roof",
+          "name_zh": "鈎上石像／窄路",
+          "name_en": "Grapple statue roof path",
+          "videoId": "nsQWc5tQwLg",
+          "start_s": 320,
+          "end_s": 340,
+          "commentary_zh": "望鈎之後勾上石像／平台，沿窄路同崖邊向上；片中可見鳥瞰大菩薩同毒沼綠霧。",
+          "status": "verified_visual_scrub",
+          "duration_s": 20,
+          "break_one_liner_zh": "勾菩薩頭頂／平台，沿窄路向上",
+          "confidence": "high",
+          "clip_file": "ghost-buddha-swamp/clips/move-statue_roof.mp4",
+          "html_anchor_hint": "exit-statue-roof",
+          "evidence_zh": "1fps：e018–e022 窄路 → e028–e035 上攀／粉塵×3 提示 → e042（≈345）崖邊吊掛望大佛。卡窗取 320–340（20s）。",
+          "youtube_status": "verified_visual_scrub",
+          "embed_url": "https://www.youtube-nocookie.com/embed/nsQWc5tQwLg?start=320&end=340",
+          "watch_url": "https://www.youtube.com/watch?v=nsQWc5tQwLg&t=320s"
+        },
+        {
+          "id": "confetti_path",
+          "name_zh": "神威粉塵×3 出路",
+          "name_en": "Divine Confetti x3 exit path",
+          "videoId": "RzGfC6KMIV8",
+          "start_s": 62,
+          "end_s": 68,
+          "commentary_zh": "正確出口經鉤點去一條有神威粉塵×3 嘅路。片尾英文字幕：Don't do what I did / exit via a grapple to a path with (3x) Divine Confetti。",
+          "status": "verified_visual_scrub",
+          "duration_s": 6,
+          "break_one_liner_zh": "片尾講嘅正確出口會經過粉塵×3",
+          "confidence": "high",
+          "clip_file": "ghost-buddha-swamp/clips/move-confetti_path.mp4",
+          "html_anchor_hint": "exit-confetti-path",
+          "evidence_zh": "Rz 本機 mp4；f07–f12（≈61–66s）中央字幕 Divine Confetti×3。父代理確認 62–68。",
+          "youtube_status": "verified_visual_scrub",
+          "embed_url": "https://www.youtube-nocookie.com/embed/RzGfC6KMIV8?start=62&end=68",
+          "watch_url": "https://www.youtube.com/watch?v=RzGfC6KMIV8&t=62s"
+        },
+        {
+          "id": "land_poison_idol",
+          "name_zh": "落地毒沼鬼佛",
+          "name_en": "Land at Poison Pool idol",
+          "videoId": "RzGfC6KMIV8",
+          "start_s": 68,
+          "end_s": 74,
+          "commentary_zh": "由崖上落毒沼鬼佛。字幕：You should exit from this ledge above the Poison Pool Idol；隨後 Commune／Poison Pool 鬼佛選單。先坐低再落毒。",
+          "status": "verified_visual_scrub",
+          "duration_s": 6,
+          "break_one_liner_zh": "出崖就係毒沼；先坐低再落毒",
+          "confidence": "high",
+          "clip_file": "ghost-buddha-swamp/clips/move-land_poison_idol.mp4",
+          "html_anchor_hint": "exit-land-poison-idol",
+          "evidence_zh": "f14–f18（≈68–72）ledge 字幕；f18 commune prompt；f19 Idol 選單顯示 Poison Pool。父代理確認 68–74。",
+          "youtube_status": "verified_visual_scrub",
+          "embed_url": "https://www.youtube-nocookie.com/embed/RzGfC6KMIV8?start=68&end=74",
+          "watch_url": "https://www.youtube.com/watch?v=RzGfC6KMIV8&t=68s"
+        }
+      ]
+    },
+    "shirahagi": {
+      "anchor": "#shirahagi",
+      "title_zh": "蛇之目・白萩",
+      "boss_zh": "蛇之目・白萩",
+      "boss_en": "Snake Eyes Shirahagi",
+      "primary_videoId": "gR29pWORyHw",
+      "backup_bilibili": "BV1jb411x7qa",
+      "moves": [
+        {
+          "id": "rifle_poke",
+          "name_zh": "遠距點射／連射",
+          "name_en": "Rifle poke / burst",
+          "videoId": "gR29pWORyHw",
+          "start_s": 42,
+          "end_s": 60,
+          "commentary_zh": "白萩步槍傷害高。片中「最佳地點」高位／石柱掩體：佢開火打中石面而非你；用掩體換位再逼近。",
+          "status": "verified_visual_scrub",
+          "duration_s": 18,
+          "break_one_liner_zh": "用石／柱做掩體，開槍後再換位逼近",
+          "confidence": "medium",
+          "clip_file": null,
+          "html_anchor_hint": "shirahagi-rifle-poke",
+          "evidence_zh": "gR29pWORyHw ~45s 燒入字幕「最佳地點」＋石面中槍爆炸（5s 幀 s010／dense≈45s）。窗取 42–60。本片偏毒沼／cheese，非純拆招。",
+          "youtube_status": "verified_visual_scrub",
+          "backups": [
+            {
+              "bilibili": "BV1jb411x7qa",
+              "note_zh": "中文白萩解說；秒數未核"
+            }
+          ],
+          "embed_url": "https://www.youtube-nocookie.com/embed/gR29pWORyHw?start=42&end=60",
+          "watch_url": "https://www.youtube.com/watch?v=gR29pWORyHw&t=42s"
+        },
+        {
+          "id": "retreat_fire",
+          "name_zh": "邊退邊射",
+          "name_en": "Retreat while firing",
+          "videoId": "gR29pWORyHw",
+          "start_s": null,
+          "end_s": null,
+          "commentary_zh": "邊退邊射時唔好直線追；斜切／掩體接近。",
+          "status": "null_unverified",
+          "break_one_liner_zh": "唔好追直線；斜切接近",
+          "confidence": null,
+          "clip_file": null,
+          "html_anchor_hint": "shirahagi-retreat-fire",
+          "evidence_zh": "gR29pWORyHw 視覺掃未見獨立「邊退邊射」教學段（片偏潛行刺殺＋毒／高位 cheese）。維持 null。",
+          "youtube_status": "null_unverified",
+          "note_zh": "誠實原則：無明確 tell→resolve 幀／字幕 → null"
+        },
+        {
+          "id": "melee_combo",
+          "name_zh": "近身刀／槍托連段",
+          "name_en": "Melee combo",
+          "videoId": "gR29pWORyHw",
+          "start_s": 18,
+          "end_s": 36,
+          "commentary_zh": "潛行刺一管後貼身。片字幕：刺殺後走到定位引佢來。貼身後專心彈／拆，唔好再同遠距對槍。",
+          "status": "verified_visual_scrub",
+          "duration_s": 18,
+          "break_one_liner_zh": "貼身後專心彈／拆招，勿再同遠距對槍",
+          "confidence": "medium",
+          "clip_file": null,
+          "html_anchor_hint": "shirahagi-melee-combo",
+          "evidence_zh": "~15s 字幕「靠右走…」；~20s 已近身（一管已削）；~30s「刺殺後，走到這停一下，引她來」。窗 18–36。",
+          "youtube_status": "verified_visual_scrub",
+          "embed_url": "https://www.youtube-nocookie.com/embed/gR29pWORyHw?start=18&end=36",
+          "watch_url": "https://www.youtube.com/watch?v=gR29pWORyHw&t=18s"
+        },
+        {
+          "id": "perilous_thrust",
+          "name_zh": "危・突刺（若出現）",
+          "name_en": "Perilous thrust",
+          "videoId": "gR29pWORyHw",
+          "start_s": null,
+          "end_s": null,
+          "commentary_zh": "若見危・突刺：跳或側閃，唔好硬格。",
+          "status": "null_unverified",
+          "break_one_liner_zh": "見危即跳／側閃，唔好硬格",
+          "confidence": null,
+          "clip_file": null,
+          "html_anchor_hint": "shirahagi-perilous-thrust",
+          "evidence_zh": "全片 5s／1fps 掃未鎖定清晰危・突刺紅字／跳反示範。若有則見危即跳／側閃。維持 null。",
+          "youtube_status": "null_unverified",
+          "note_zh": "誠實原則：無視覺核實 → null"
+        }
+      ]
+    },
+    "headless_ape": {
+      "anchor": "#headless-ape",
+      "title_zh": "無頭獅子猿（可選短卡）",
+      "optional": true,
+      "primary_videoId": "zIxL3A9vTaI",
+      "moves": [
+        {
+          "id": "mortal_blade_window",
+          "name_zh": "不死斬窗口",
+          "name_en": "Mortal Blade vs immortality",
+          "videoId": "zIxL3A9vTaI",
+          "start_s": 155,
+          "end_s": 175,
+          "commentary_zh": "毒沼洞窟雙猿要用不死斬去不死性。開場定位見片頭入洞窟；本窗約 158s 可見紅氣／Mort Draw 對無頭猿。",
+          "status": "verified_visual_scrub",
+          "duration_s": 20,
+          "break_one_liner_zh": "要先打過菩薩谷獅子猿；無不死斬唔好硬打無頭",
+          "confidence": "medium",
+          "clip_file": null,
+          "html_anchor_hint": "ape-mortal-blade-window",
+          "evidence_zh": "zIxL3A9vTaI：2s 幀 b080≈158s 角色紅氣＋Mort Draw 圖示對無頭獅猿。開場 0–20s 已入戰（b003≈4s）。無章節／字幕；confidence medium。",
+          "youtube_status": "verified_visual_scrub",
+          "opening_positioning": {
+            "start_s": 0,
+            "end_s": 20,
+            "note_zh": "開場入毒沼洞窟雙猿定位（可選第二嵌）"
+          },
+          "embed_url": "https://www.youtube-nocookie.com/embed/zIxL3A9vTaI?start=155&end=175",
+          "watch_url": "https://www.youtube.com/watch?v=zIxL3A9vTaI&t=155s"
+        }
+      ]
+    }
+  },
+  "route_map": {
+    "want_lost_fool_style": true,
+    "note_zh": "建議做類似守護猿 #lost-fool 嘅「出口迷路」小區：神廟內→望上→粉塵路→毒沼鬼佛一步一圖；可用既有 path 說明，截圖可後補"
+  },
+  "moves": [
+    {
+      "id": "look_up_grapple",
+      "name_zh": "望上鈎點",
+      "name_en": "Look up for grapple",
+      "videoId": "nsQWc5tQwLg",
+      "start_s": 304,
+      "end_s": 320,
+      "commentary_zh": "章節 05:04 起：乾柿 UI 後喺神廟望上搵藍鈎點。門鎖／蛇封口就望神像／樑，唔好原路返白蛇口。",
+      "status": "verified_visual_scrub",
+      "duration_s": 16,
+      "break_one_liner_zh": "門鎖咗就望神像／樑上藍點，唔好返白蛇口",
+      "confidence": "high",
+      "clip_file": "ghost-buddha-swamp/clips/move-look_up_grapple.mp4",
+      "html_anchor_hint": "exit-look-up-grapple",
+      "evidence_zh": "nsQ chapter 304；1fps：e001–e006 乾柿 UI → e014–e016（≈317–319）樑隙／鈎點望上。窗 304–320 含章節開頭＋望鈎。",
+      "youtube_status": "verified_visual_scrub",
+      "embed_url": "https://www.youtube-nocookie.com/embed/nsQWc5tQwLg?start=304&end=320",
+      "watch_url": "https://www.youtube.com/watch?v=nsQWc5tQwLg&t=304s",
+      "anchor": "#exit",
+      "section": "exit"
+    },
+    {
+      "id": "statue_roof",
+      "name_zh": "鈎上石像／窄路",
+      "name_en": "Grapple statue roof path",
+      "videoId": "nsQWc5tQwLg",
+      "start_s": 320,
+      "end_s": 340,
+      "commentary_zh": "望鈎之後勾上石像／平台，沿窄路同崖邊向上；片中可見鳥瞰大菩薩同毒沼綠霧。",
+      "status": "verified_visual_scrub",
+      "duration_s": 20,
+      "break_one_liner_zh": "勾菩薩頭頂／平台，沿窄路向上",
+      "confidence": "high",
+      "clip_file": "ghost-buddha-swamp/clips/move-statue_roof.mp4",
+      "html_anchor_hint": "exit-statue-roof",
+      "evidence_zh": "1fps：e018–e022 窄路 → e028–e035 上攀／粉塵×3 提示 → e042（≈345）崖邊吊掛望大佛。卡窗取 320–340（20s）。",
+      "youtube_status": "verified_visual_scrub",
+      "embed_url": "https://www.youtube-nocookie.com/embed/nsQWc5tQwLg?start=320&end=340",
+      "watch_url": "https://www.youtube.com/watch?v=nsQWc5tQwLg&t=320s",
+      "anchor": "#exit",
+      "section": "exit"
+    },
+    {
+      "id": "confetti_path",
+      "name_zh": "神威粉塵×3 出路",
+      "name_en": "Divine Confetti x3 exit path",
+      "videoId": "RzGfC6KMIV8",
+      "start_s": 62,
+      "end_s": 68,
+      "commentary_zh": "正確出口經鉤點去一條有神威粉塵×3 嘅路。片尾英文字幕：Don't do what I did / exit via a grapple to a path with (3x) Divine Confetti。",
+      "status": "verified_visual_scrub",
+      "duration_s": 6,
+      "break_one_liner_zh": "片尾講嘅正確出口會經過粉塵×3",
+      "confidence": "high",
+      "clip_file": "ghost-buddha-swamp/clips/move-confetti_path.mp4",
+      "html_anchor_hint": "exit-confetti-path",
+      "evidence_zh": "Rz 本機 mp4；f07–f12（≈61–66s）中央字幕 Divine Confetti×3。父代理確認 62–68。",
+      "youtube_status": "verified_visual_scrub",
+      "embed_url": "https://www.youtube-nocookie.com/embed/RzGfC6KMIV8?start=62&end=68",
+      "watch_url": "https://www.youtube.com/watch?v=RzGfC6KMIV8&t=62s",
+      "anchor": "#exit",
+      "section": "exit"
+    },
+    {
+      "id": "land_poison_idol",
+      "name_zh": "落地毒沼鬼佛",
+      "name_en": "Land at Poison Pool idol",
+      "videoId": "RzGfC6KMIV8",
+      "start_s": 68,
+      "end_s": 74,
+      "commentary_zh": "由崖上落毒沼鬼佛。字幕：You should exit from this ledge above the Poison Pool Idol；隨後 Commune／Poison Pool 鬼佛選單。先坐低再落毒。",
+      "status": "verified_visual_scrub",
+      "duration_s": 6,
+      "break_one_liner_zh": "出崖就係毒沼；先坐低再落毒",
+      "confidence": "high",
+      "clip_file": "ghost-buddha-swamp/clips/move-land_poison_idol.mp4",
+      "html_anchor_hint": "exit-land-poison-idol",
+      "evidence_zh": "f14–f18（≈68–72）ledge 字幕；f18 commune prompt；f19 Idol 選單顯示 Poison Pool。父代理確認 68–74。",
+      "youtube_status": "verified_visual_scrub",
+      "embed_url": "https://www.youtube-nocookie.com/embed/RzGfC6KMIV8?start=68&end=74",
+      "watch_url": "https://www.youtube.com/watch?v=RzGfC6KMIV8&t=68s",
+      "anchor": "#exit",
+      "section": "exit"
+    },
+    {
+      "id": "rifle_poke",
+      "name_zh": "遠距點射／連射",
+      "name_en": "Rifle poke / burst",
+      "videoId": "gR29pWORyHw",
+      "start_s": 42,
+      "end_s": 60,
+      "commentary_zh": "白萩步槍傷害高。片中「最佳地點」高位／石柱掩體：佢開火打中石面而非你；用掩體換位再逼近。",
+      "status": "verified_visual_scrub",
+      "duration_s": 18,
+      "break_one_liner_zh": "用石／柱做掩體，開槍後再換位逼近",
+      "confidence": "medium",
+      "clip_file": null,
+      "html_anchor_hint": "shirahagi-rifle-poke",
+      "evidence_zh": "gR29pWORyHw ~45s 燒入字幕「最佳地點」＋石面中槍爆炸（5s 幀 s010／dense≈45s）。窗取 42–60。本片偏毒沼／cheese，非純拆招。",
+      "youtube_status": "verified_visual_scrub",
+      "backups": [
+        {
+          "bilibili": "BV1jb411x7qa",
+          "note_zh": "中文白萩解說；秒數未核"
+        }
+      ],
+      "embed_url": "https://www.youtube-nocookie.com/embed/gR29pWORyHw?start=42&end=60",
+      "watch_url": "https://www.youtube.com/watch?v=gR29pWORyHw&t=42s",
+      "anchor": "#shirahagi",
+      "section": "shirahagi"
+    },
+    {
+      "id": "retreat_fire",
+      "name_zh": "邊退邊射",
+      "name_en": "Retreat while firing",
+      "videoId": "gR29pWORyHw",
+      "start_s": null,
+      "end_s": null,
+      "commentary_zh": "邊退邊射時唔好直線追；斜切／掩體接近。",
+      "status": "null_unverified",
+      "break_one_liner_zh": "唔好追直線；斜切接近",
+      "confidence": null,
+      "clip_file": null,
+      "html_anchor_hint": "shirahagi-retreat-fire",
+      "evidence_zh": "gR29pWORyHw 視覺掃未見獨立「邊退邊射」教學段（片偏潛行刺殺＋毒／高位 cheese）。維持 null。",
+      "youtube_status": "null_unverified",
+      "note_zh": "誠實原則：無明確 tell→resolve 幀／字幕 → null",
+      "anchor": "#shirahagi",
+      "section": "shirahagi"
+    },
+    {
+      "id": "melee_combo",
+      "name_zh": "近身刀／槍托連段",
+      "name_en": "Melee combo",
+      "videoId": "gR29pWORyHw",
+      "start_s": 18,
+      "end_s": 36,
+      "commentary_zh": "潛行刺一管後貼身。片字幕：刺殺後走到定位引佢來。貼身後專心彈／拆，唔好再同遠距對槍。",
+      "status": "verified_visual_scrub",
+      "duration_s": 18,
+      "break_one_liner_zh": "貼身後專心彈／拆招，勿再同遠距對槍",
+      "confidence": "medium",
+      "clip_file": null,
+      "html_anchor_hint": "shirahagi-melee-combo",
+      "evidence_zh": "~15s 字幕「靠右走…」；~20s 已近身（一管已削）；~30s「刺殺後，走到這停一下，引她來」。窗 18–36。",
+      "youtube_status": "verified_visual_scrub",
+      "embed_url": "https://www.youtube-nocookie.com/embed/gR29pWORyHw?start=18&end=36",
+      "watch_url": "https://www.youtube.com/watch?v=gR29pWORyHw&t=18s",
+      "anchor": "#shirahagi",
+      "section": "shirahagi"
+    },
+    {
+      "id": "perilous_thrust",
+      "name_zh": "危・突刺（若出現）",
+      "name_en": "Perilous thrust",
+      "videoId": "gR29pWORyHw",
+      "start_s": null,
+      "end_s": null,
+      "commentary_zh": "若見危・突刺：跳或側閃，唔好硬格。",
+      "status": "null_unverified",
+      "break_one_liner_zh": "見危即跳／側閃，唔好硬格",
+      "confidence": null,
+      "clip_file": null,
+      "html_anchor_hint": "shirahagi-perilous-thrust",
+      "evidence_zh": "全片 5s／1fps 掃未鎖定清晰危・突刺紅字／跳反示範。若有則見危即跳／側閃。維持 null。",
+      "youtube_status": "null_unverified",
+      "note_zh": "誠實原則：無視覺核實 → null",
+      "anchor": "#shirahagi",
+      "section": "shirahagi"
+    },
+    {
+      "id": "mortal_blade_window",
+      "name_zh": "不死斬窗口",
+      "name_en": "Mortal Blade vs immortality",
+      "videoId": "zIxL3A9vTaI",
+      "start_s": 155,
+      "end_s": 175,
+      "commentary_zh": "毒沼洞窟雙猿要用不死斬去不死性。開場定位見片頭入洞窟；本窗約 158s 可見紅氣／Mort Draw 對無頭猿。",
+      "status": "verified_visual_scrub",
+      "duration_s": 20,
+      "break_one_liner_zh": "要先打過菩薩谷獅子猿；無不死斬唔好硬打無頭",
+      "confidence": "medium",
+      "clip_file": null,
+      "html_anchor_hint": "ape-mortal-blade-window",
+      "evidence_zh": "zIxL3A9vTaI：2s 幀 b080≈158s 角色紅氣＋Mort Draw 圖示對無頭獅猿。開場 0–20s 已入戰（b003≈4s）。無章節／字幕；confidence medium。",
+      "youtube_status": "verified_visual_scrub",
+      "opening_positioning": {
+        "start_s": 0,
+        "end_s": 20,
+        "note_zh": "開場入毒沼洞窟雙猿定位（可選第二嵌）"
+      },
+      "embed_url": "https://www.youtube-nocookie.com/embed/zIxL3A9vTaI?start=155&end=175",
+      "watch_url": "https://www.youtube.com/watch?v=zIxL3A9vTaI&t=155s",
+      "anchor": "#headless-ape",
+      "section": "headless_ape"
+    }
+  ]
+}

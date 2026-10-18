@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-HK">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>BOSS 獵殺區｜硬核祝福</title>
+<meta name="description" content="BOSS 獵殺區 — 揀遊戲、揀卡關類型。別人改數值，你改規則。" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Orbitron:wght@600;800&display=swap" rel="stylesheet" />
+<style>
+:root {
+  --bg: #0a0b0e;
+  --bg2: #12141a;
+  --border: #2a2f3c;
+  --text: #e8e6e1;
+  --muted: #9a968c;
+  --accent: #c9a227;
+  --danger: #e04545;
+  --info: #4a9eff;
+  --radius: 14px;
+  --font: "Noto Sans TC", "PingFang HK", "Microsoft JhengHei", sans-serif;
+  --display: "Orbitron", "Noto Sans TC", sans-serif;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; }
+body {
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-image:
+    radial-gradient(ellipse 70% 45% at 50% -15%, rgba(201,162,39,.14), transparent),
+    linear-gradient(180deg, #0a0b0e 0%, #0d0f14 100%);
+}
+a { color: inherit; text-decoration: none; }
+
+.site-header {
+  padding: 20px 24px 0;
+}
+.header-inner {
+  max-width: 720px; margin: 0 auto;
+  display: flex; align-items: baseline; justify-content: space-between; gap: 16px;
+}
+.brand-name {
+  font-family: var(--display);
+  font-weight: 800; font-size: .8rem;
+  letter-spacing: .14em; color: var(--accent);
+  text-transform: uppercase;
+}
+.brand-slogan { font-size: .78rem; color: var(--muted); margin-top: 4px; }
+
+.hub {
+  flex: 1;
+  max-width: 720px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 48px 24px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 36px;
+}
+
+.hub-title {
+  text-align: center;
+}
+.hub-title h1 {
+  font-size: clamp(1.8rem, 5vw, 2.4rem);
+  font-weight: 900;
+  letter-spacing: .06em;
+}
+.hub-title h1 em { font-style: normal; color: var(--accent); }
+.hub-title p {
+  margin-top: 10px;
+  font-size: .95rem;
+  color: var(--muted);
+}
+
+.step-label {
+  font-size: .72rem; font-weight: 700;
+  letter-spacing: .16em; color: var(--accent);
+  text-transform: uppercase;
+  margin-bottom: 14px;
+  text-align: center;
+}
+
+.panel[hidden] { display: none !important; }
+
+.card-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+}
+@media (min-width: 560px) {
+  .card-grid.games { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+  .card-grid.cats { grid-template-columns: 1fr; }
+}
+
+.pick {
+  display: block;
+  padding: 22px 24px;
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  transition: border-color .15s, transform .15s, box-shadow .15s;
+  cursor: pointer;
+  font: inherit;
+  color: inherit;
+  text-align: left;
+  width: 100%;
+}
+.pick:hover, .pick:focus-visible {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 36px rgba(0,0,0,.45);
+  outline: none;
+}
+.pick .tag {
+  font-size: .68rem; font-weight: 800;
+  letter-spacing: .12em; color: var(--accent);
+  margin-bottom: 6px;
+}
+.pick h2 {
+  font-size: 1.35rem; font-weight: 900; letter-spacing: .03em;
+}
+.pick p {
+  margin-top: 6px;
+  font-size: .88rem; color: var(--muted);
+}
+.pick .go {
+  margin-top: 12px;
+  font-size: .82rem; font-weight: 700; color: var(--accent);
+}
+.pick.disabled {
+  opacity: .4; cursor: not-allowed; transform: none !important;
+}
+.pick.disabled:hover { border-color: var(--border); box-shadow: none; }
+
+.pick.danger { border-color: #3a1a1a; }
+.pick.danger:hover { border-color: var(--danger); }
+.pick.danger .tag, .pick.danger .go { color: var(--danger); }
+
+.pick.info { border-color: #1a2a3a; }
+.pick.info:hover { border-color: var(--info); }
+.pick.info .tag, .pick.info .go { color: var(--info); }
+
+.pick.gold { border-color: #3a3010; }
+
+.back-row {
+  text-align: center;
+  margin-top: 8px;
+}
+.back-row button {
+  font: inherit; font-size: .85rem; font-weight: 700;
+  color: var(--muted);
+  background: none; border: none; cursor: pointer;
+  padding: 8px 12px;
+}
+.back-row button:hover { color: var(--accent); }
+
+.site-footer {
+  text-align: center;
+  padding: 16px 24px 28px;
+  font-size: .72rem; color: var(--muted);
+}
+</style>
+<link rel="stylesheet" href="assets/vote-widget.css" />
+<link rel="stylesheet" href="assets/feedback-form.css" />
+<link rel="stylesheet" href="assets/age-gate.css" />
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <div>
+      <div class="brand-name">硬核祝福</div>
+      <div class="brand-slogan">別人改數值，你改規則。</div>
+    </div>
+  </div>
+</header>
+
+<main class="hub">
+  <div class="hub-title">
+    <h1>BOSS <em>獵殺區</em></h1>
+    <p>揀遊戲 → 再入專區。短入口，唔堆內容。</p>
+  </div>
+
+  
+  <div data-boss-vote data-vote-slug="index"></div>
+<!-- Step 1 -->
+  <section class="panel" id="panel-games" aria-labelledby="games-label">
+    <div class="step-label" id="games-label">① 選擇遊戲</div>
+    <div class="card-grid games">
+      <button type="button" class="pick gold" data-go="sekiro" aria-label="進入隻狼">
+        <div class="tag">SEKIRO</div>
+        <h2>隻狼</h2>
+        <p>BOSS · 地圖資訊 · 智能解謎</p>
+        <div class="go">進入 →</div>
+      </button>
+      <button type="button" class="pick gold" data-go="onimusha" aria-label="進入鬼武者 劍之道">
+        <div class="tag">ONIMUSHA</div>
+        <h2>鬼武者 劍之道</h2>
+        <p>BOSS · 岩流／大唾拉／羅掌願／百穢／畏風／鵺／弁慶／酒吞／道狂／義經 等</p>
+        <div class="go">進入 →</div>
+      </button>
+      <button type="button" class="pick info" data-go="arc-raiders" aria-label="進入 ARC Raiders">
+        <div class="tag">ARC RAIDERS</div>
+        <h2>ARC Raiders</h2>
+        <p>BOSS · 火箭兵（Rocketeer）</p>
+        <div class="go">進入 →</div>
+      </button>
+      <button type="button" class="pick danger" data-go="dawnwalker" aria-label="進入黎明行者之血">
+        <div class="tag">DAWNWALKER</div>
+        <h2>黎明行者之血</h2>
+        <p>BOSS · 布倫西斯（Brencis）最終戰</p>
+        <div class="go">進入 →</div>
+      </button>
+      <button type="button" class="pick info" data-go="cs2" aria-label="進入 CS2">
+        <div class="tag">CS2</div>
+        <h2>Counter-Strike 2</h2>
+        <p>沙2獨狼 · Rush 3v3 衝鋒時刻</p>
+        <div class="go">進入 →</div>
+      </button>
+      <button type="button" class="pick danger" data-go="hellraiser" aria-label="進入養鬼吃人：復甦">
+        <div class="tag">HELLRAISER</div>
+        <h2>養鬼吃人：復甦</h2>
+        <p>BOSS · 馬洛（Marlowe）最終戰 · Hellraiser 難度</p>
+        <div class="go">進入 →</div>
+      </button>
+    </div>
+  </section>
+
+  <!-- Step 2 -->
+  <section class="panel" id="panel-sekiro" hidden aria-labelledby="sekiro-label">
+    <div class="step-label" id="sekiro-label">② 隻狼 · 揀專區</div>
+    <div class="card-grid cats">
+      <a class="pick gold" href="sekiro-guardian-ape.html#boss">
+        <div class="tag">BOSS</div>
+        <h2>BOSS</h2>
+        <p>獅猿招式卡 · 短片 · 時機軸</p>
+        <div class="go">進入 →</div>
+      </a>
+      <a class="pick gold" href="sekiro-poison-pool.html#exit">
+        <div class="tag">BOSS · 地圖</div>
+        <h2>毒沼鬼佛</h2>
+        <p>干柿神廟望上勾出 · 白萩 · 出口迷路</p>
+        <div class="go">進入 →</div>
+      </a>
+      <a class="pick info" href="sekiro-guardian-ape.html#lost-fool">
+        <div class="tag">地圖資訊</div>
+        <h2>地圖資訊（迷路）</h2>
+        <p>路線圖為主 · 宮之蓮／葦名之底</p>
+        <div class="go">進入 →</div>
+      </a>
+      <a class="pick danger" href="sekiro-guardian-ape.html#force-guide-serpent">
+        <div class="tag">智能解謎</div>
+        <h2>智能解謎</h2>
+        <p>白蛇擋路 · 實機片 · 步驟圖（唔使答題）</p>
+        <div class="go">進入 →</div>
+      </a>
+    </div>
+    <div class="back-row">
+      <button type="button" data-back="games">← 返回揀遊戲</button>
+    </div>
+  </section>
+
+  <!-- Step 2 · Onimusha -->
+  <section class="panel" id="panel-onimusha" hidden aria-labelledby="onimusha-label">
+    <div class="step-label" id="onimusha-label">② 鬼武者 劍之道 · 揀專區</div>
+    <div class="card-grid cats">
+      <a class="pick danger" href="onimusha-sasaki-ganryu.html#boss">
+        <div class="tag">BOSS · P1</div>
+        <h2>佐佐木岩流（本體）</h2>
+        <p>清水寺初見 · 快刺／波浪斬 · 藍抓反</p>
+        <div class="go">進入 →</div>
+      </a>
+      <a class="pick danger" href="onimusha-daidara.html#boss">
+        <div class="tag">BOSS</div>
+        <h2>大唾拉</h2>
+        <p>巨錘彈反天堂 · 搶藍魂 · 破腿甲</p>
+        <div class="go">進入 →</div>
+      </a>
+      <a class="pick danger" href="onimusha-rasho-gan.html#boss">
+        <div class="tag">BOSS</div>
+        <h2>羅掌願</h2>
+        <p>斷線弱化 · 大氣泡射爆 · P2 閃樹</p>
+        <div class="go">進入 →</div>
+      </a>
+      <a class="pick danger" href="onimusha-byakue.html#boss">
+        <div class="tag">BOSS · Demo</div>
+        <h2>百穢（白衣）</h2>
+        <p>斧揮彈 · 衝撞閃 · 強化禍氣跳砸</p>
+        <div class="go">進入 →</div>
+      </a>
+      <a class="pick danger" href="onimusha-ifuu.html#boss">
+        <div class="tag">BOSS</div>
+        <h2>畏風</h2>
+        <p>風刃彈返 · P2 弓射背囊</p>
+        <div class="go">進入 →</div>
+      </a>
+      <a class="pick danger" href="onimusha-nue-blue-red.html#boss">
+        <div class="tag">BOSS · 雙體</div>
+        <h2>鵺（青＋赤）</h2>
+        <p>解鎖鏡頭 · 閃避為主 · 彈電球</p>
+        <div class="go">進入 →</div>
+      </a>
+      <a class="pick danger" href="onimusha-greater-nue.html#boss">
+        <div class="tag">BOSS</div>
+        <h2>大鵺</h2>
+        <p>白光尾必擋 · 落雷跑 · 藍抓反</p>
+        <div class="go">進入 →</div>
+      </a>
+      <a class="pick danger" href="onimusha-dohatsu-ten.html#boss">
+        <div class="tag">BOSS</div>
+        <h2>怒伐天</h2>
+        <p>白光擋 · 飛斬彈返 · 強化轉移預擋</p>
+        <div class="go">進入 →</div>
+      </a>
+      <a class="pick danger" href="onimusha-benkei.html#boss">
+        <div class="tag">BOSS · 破甲</div>
+        <h2>弁慶</h2>
+        <p>彈反削力動 · 紅點破甲 · 完全武裝摺入</p>
+        <div class="go">進入 →</div>
+      </a>
+      <a class="pick danger" href="onimusha-burai.html#boss">
+        <div class="tag">BOSS</div>
+        <h2>撫雷</h2>
+        <p>穿雷球打眼 · P2 跳雷砸</p>
+        <div class="go">進入 →</div>
+      </a>
+      <a class="pick danger" href="onimusha-ifuu-burai.html#boss">
+        <div class="tag">BOSS · 雙人</div>
+        <h2>畏風＋撫雷</h2>
+        <p>同步突進彈 · 嵐技末段必擋</p>
+        <div class="go">進入 →</div>
+      </a>
+      <a class="pick danger" href="onimusha-sasaki-ganryu-altered.html#boss">
+        <div class="tag">BOSS 太難打</div>
+        <h2>佐佐木岩流（異形）</h2>
+        <p>副標：佐佐木小次郎 · 嵐山・渡月橋 · 攻略已上</p>
+        <div class="go">進入 →</div>
+      </a>
+      <a class="pick danger" href="onimusha-shuten-doji.html#boss">
+        <div class="tag">BOSS</div>
+        <h2>酒吞童子</h2>
+        <p>唔俾飲 · 噴火射斷 · P2 鬼化收尾</p>
+        <div class="go">進入 →</div>
+      </a>
+      <a class="pick danger" href="onimusha-dokyo.html#boss">
+        <div class="tag">BOSS · 機制</div>
+        <h2>道狂</h2>
+        <p>追跑解謎 · 分身找金 · 碎石躲完好石</p>
+        <div class="go">進入 →</div>
+      </a>
+      <a class="pick danger" href="onimusha-yoshitsune.html#boss">
+        <div class="tag">最終 BOSS</div>
+        <h2>源義經</h2>
+        <p>Minamoto no Yoshitsune · 三階連打 · 抓取必閃 · 覺醒留三階</p>
+        <div class="go">進入 →</div>
+      </a>
+    </div>
+    <div class="back-row">
+      <button type="button" data-back="games">← 返回揀遊戲</button>
+    </div>
+  </section>
+
+  <!-- Step 2 · ARC Raiders -->
+  <section class="panel" id="panel-arc-raiders" hidden aria-labelledby="arc-raiders-label">
+    <div class="step-label" id="arc-raiders-label">② ARC Raiders · 揀專區</div>
+    <div class="card-grid cats">
+      <a class="pick info" href="arc-raiders-rocketeer.html#flow">
+        <div class="tag">BOSS · 飛行砲兵</div>
+        <h2>火箭兵 · Rocketeer</h2>
+        <p>推進器弱點 · 彈幕預兆 · Hornet Driver · peek-and-shoot</p>
+        <div class="go">進入 →</div>
+      </a>
+    </div>
+    <div class="back-row">
+      <button type="button" data-back="games">← 返回揀遊戲</button>
+    </div>
+  </section>
+
+
+  <!-- Step 2 · Dawnwalker -->
+  <section class="panel" id="panel-dawnwalker" hidden aria-labelledby="dawnwalker-label">
+    <div class="step-label" id="dawnwalker-label">② 黎明行者之血 · 揀專區</div>
+    <div class="card-grid cats">
+      <a class="pick danger" href="dawnwalker-brencis.html#boss">
+        <div class="tag">最終 BOSS</div>
+        <h2>布倫西斯 · Brencis</h2>
+        <p>P1 Knyaz＠Greifberg → P2 Ascendant＠Anachora · 盾格骷髏閃 · 藥留二階</p>
+        <div class="go">進入 →</div>
+      </a>
+    </div>
+    <div class="back-row">
+      <button type="button" data-back="games">← 返回揀遊戲</button>
+    </div>
+  </section>
+
+
+  <!-- Step 2 · CS2 -->
+  <section class="panel" id="panel-cs2" hidden aria-labelledby="cs2-label">
+    <div class="step-label" id="cs2-label">② CS2 · 揀專區</div>
+    <div class="card-grid cats">
+      <a class="pick info" href="cs2-dust2-solo.html#overview">
+        <div class="tag">地圖 · 獨狼</div>
+        <h2>沙2獨狼套路</h2>
+        <p>Dust2 · 自己丟煙閃 · T／CT Default · Eco 快擠</p>
+        <div class="go">進入 →</div>
+      </a>
+      <a class="pick info" href="cs2-rush-3v3.html#overview">
+        <div class="tag">模式 · 3v3</div>
+        <h2>Rush 3v3（衝鋒時刻）</h2>
+        <p>Complex 塔控 · 全滅都要點塔 · Castle／Convoy</p>
+        <div class="go">進入 →</div>
+      </a>
+    </div>
+    <div class="back-row">
+      <button type="button" data-back="games">← 返回揀遊戲</button>
+    </div>
+  </section>
+
+
+
+  <!-- Step 2 · Hellraiser -->
+  <section class="panel" id="panel-hellraiser" hidden aria-labelledby="hellraiser-label">
+    <div class="step-label" id="hellraiser-label">② 養鬼吃人：復甦 · 揀專區</div>
+    <div class="card-grid cats">
+      <a class="pick danger" href="hellraiser-marlowe.html#overview">
+        <div class="tag">最終 BOSS · Hellraiser</div>
+        <h2>馬洛 · Marlowe</h2>
+        <p>背體×3 → Hellchains 開殼 → 霰彈 · P2 環境 · Save Token</p>
+        <div class="go">進入 →</div>
+      </a>
+    </div>
+    <div class="back-row">
+      <button type="button" data-back="games">← 返回揀遊戲</button>
+    </div>
+  </section>
+
+  <section class="feedback" id="feedback" data-netlify-feedback aria-labelledby="feedback-title">
+    <div class="feedback-head">
+      <h2 id="feedback-title">留下<em>意見</em>俾網主</h2>
+      <span class="feedback-badge">真係會送到</span>
+    </div>
+    <p class="feedback-lead">招式唔清楚、想加邊個 Boss、有錯漏——丢句說話。留言經 Netlify Forms 直達網主信箱／後台，唔再只係本機保存。</p>
+
+    <div class="feedback-thanks" data-feedback-thanks role="status" aria-live="polite" hidden>
+      <h3>收到，多謝硬核祝福！</h3>
+      <p>你嘅意見已送出俾網主。想再講可以繼續填。</p>
+      <button type="button" class="feedback-secondary" data-feedback-again>再留一句</button>
+    </div>
+
+    <form class="feedback-form" name="boss-hunt-feedback" method="POST" action="/" data-netlify="true" netlify netlify-honeypot="bot-field" data-boss-feedback>
+      <input type="hidden" name="form-name" value="boss-hunt-feedback" />
+      <input type="hidden" name="page" value="index.html · Hub｜BOSS 獵殺區" />
+      <p class="feedback-honeypot" aria-hidden="true">
+        <label>唔好填呢格 <input type="text" name="bot-field" tabindex="-1" autocomplete="off" /></label>
+      </p>
+      <div class="feedback-field">
+        <label for="fb-name-index">暱稱 <span class="opt">（可選）</span></label>
+        <input type="text" id="fb-name-index" name="name" maxlength="80" placeholder="例如：狼忍新手" autocomplete="nickname" />
+      </div>
+      <div class="feedback-field">
+        <label for="fb-contact-index">聯絡 <span class="opt">（可選）</span></label>
+        <input type="text" id="fb-contact-index" name="contact" maxlength="120" placeholder="電郵／Discord（方便回覆）" autocomplete="email" />
+      </div>
+      <div class="feedback-field">
+        <label for="fb-msg-index">意見 <span class="opt">（必填）</span></label>
+        <textarea id="fb-msg-index" name="message" maxlength="4000" required rows="4" placeholder="想講咩就寫低…"></textarea>
+      </div>
+      <div class="feedback-actions">
+        <button type="submit" class="feedback-submit">送出意見</button>
+      </div>
+      <p class="feedback-note">送出後網主喺 Netlify → Forms 收到。唔填一樣睇晒全頁。</p>
+      <div class="feedback-status" data-feedback-status role="status" aria-live="polite"></div>
+    </form>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  硬核祝福 · BOSS 獵殺區 · 捐款自願、唔鎖內容 · 唔教修改器／外掛
+</footer>
+
+<script>
+(function () {
+  var panels = {
+    games: document.getElementById("panel-games"),
+    sekiro: document.getElementById("panel-sekiro"),
+    onimusha: document.getElementById("panel-onimusha"),
+    "arc-raiders": document.getElementById("panel-arc-raiders"),
+    dawnwalker: document.getElementById("panel-dawnwalker"),
+    cs2: document.getElementById("panel-cs2"),
+    hellraiser: document.getElementById("panel-hellraiser")
+  };
+
+  function show(step) {
+    var known = step === "sekiro" || step === "onimusha" || step === "arc-raiders" || step === "dawnwalker" || step === "cs2" || step === "hellraiser";
+    var target = known ? step : "games";
+    Object.keys(panels).forEach(function (key) {
+      if (panels[key]) panels[key].hidden = key !== target;
+    });
+    if (target === "games") history.replaceState(null, "", "#");
+    else history.replaceState(null, "", "#" + target);
+  }
+
+  document.querySelectorAll("[data-go]").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      show(btn.getAttribute("data-go"));
+    });
+  });
+  document.querySelectorAll("[data-back]").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      show(btn.getAttribute("data-back"));
+    });
+  });
+
+  var hash = (location.hash || "").replace(/^#/, "");
+  if (hash === "sekiro" || hash === "onimusha" || hash === "arc-raiders" || hash === "dawnwalker" || hash === "cs2" || hash === "hellraiser") show(hash);
+  else show("games");
+})();
+</script>
+<script src="assets/vote-widget.js" defer></script>
+<script src="assets/feedback-form.js" defer></script>
+<script src="assets/age-gate.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,598 @@
+{
+  "bossId": "guardian-ape",
+  "phase": 1,
+  "assetRoot": "/workspace/boss-hunt-zone/assets/guardian-ape/phase1",
+  "notes": {
+    "A1-A7": "Phase1 core moves 01–07",
+    "A8": "skipped (no dedicated clip; optional from 10_phase1_live_excerpt later)",
+    "08-09": "tagged phaseTag=phase2 but included in this pack for early wiring",
+    "timing": "tMs relative to loop start; labels from clip names + source VTT, not invented combat theory"
+  },
+  "moves": [
+    {
+      "id": "ape-p1-01-walk-left",
+      "slug": "walk-left",
+      "legacyId": "A1",
+      "phaseTag": "phase1",
+      "sourceClip": "01_walk_left_positioning.mp4",
+      "sourceCut": {
+        "ss": 4.0,
+        "durationSec": 5.0
+      },
+      "titleZh": "向左走位示範",
+      "loop": {
+        "mp4": "ape-p1-01-walk-left/loop.mp4",
+        "webm": "ape-p1-01-walk-left/loop.webm",
+        "durationMs": 5000
+      },
+      "frames": [
+        {
+          "file": "ape-p1-01-walk-left/frames/f01.webp",
+          "tMs": 500,
+          "label": "擋第一下後開始向左",
+          "type": "telegraph"
+        },
+        {
+          "file": "ape-p1-01-walk-left/frames/f02.webp",
+          "tMs": 1750,
+          "label": "向左走位中",
+          "type": "commit"
+        },
+        {
+          "file": "ape-p1-01-walk-left/frames/f03.webp",
+          "tMs": 3000,
+          "label": "餘擊打空／走位窗口",
+          "type": "window"
+        },
+        {
+          "file": "ape-p1-01-walk-left/frames/f04.webp",
+          "tMs": 4250,
+          "label": "走位結束／站穩",
+          "type": "recovery"
+        }
+      ],
+      "timeline": [
+        {
+          "tMs": 500,
+          "label": "擋第一下後開始向左",
+          "type": "telegraph"
+        },
+        {
+          "tMs": 1750,
+          "label": "向左走位中",
+          "type": "commit"
+        },
+        {
+          "tMs": 3000,
+          "label": "餘擊打空／走位窗口",
+          "type": "window"
+        },
+        {
+          "tMs": 4250,
+          "label": "走位結束／站穩",
+          "type": "recovery"
+        }
+      ]
+    },
+    {
+      "id": "ape-p1-02-five-hit",
+      "slug": "five-hit",
+      "legacyId": "A2",
+      "phaseTag": "phase1",
+      "sourceClip": "02_five_hit_combo.mp4",
+      "sourceCut": {
+        "ss": 9.5,
+        "durationSec": 5.0
+      },
+      "titleZh": "五連擊（微抬手）",
+      "loop": {
+        "mp4": "ape-p1-02-five-hit/loop.mp4",
+        "webm": "ape-p1-02-five-hit/loop.webm",
+        "durationMs": 5000
+      },
+      "frames": [
+        {
+          "file": "ape-p1-02-five-hit/frames/f01.webp",
+          "tMs": 500,
+          "label": "微抬手起手",
+          "type": "telegraph"
+        },
+        {
+          "file": "ape-p1-02-five-hit/frames/f02.webp",
+          "tMs": 1750,
+          "label": "連擊進行中",
+          "type": "commit"
+        },
+        {
+          "file": "ape-p1-02-five-hit/frames/f03.webp",
+          "tMs": 3000,
+          "label": "中段架擋窗口",
+          "type": "window"
+        },
+        {
+          "file": "ape-p1-02-five-hit/frames/f04.webp",
+          "tMs": 4250,
+          "label": "末擊前後",
+          "type": "punish"
+        }
+      ],
+      "timeline": [
+        {
+          "tMs": 500,
+          "label": "微抬手起手",
+          "type": "telegraph"
+        },
+        {
+          "tMs": 1750,
+          "label": "連擊進行中",
+          "type": "commit"
+        },
+        {
+          "tMs": 3000,
+          "label": "中段架擋窗口",
+          "type": "window"
+        },
+        {
+          "tMs": 4250,
+          "label": "末擊前後",
+          "type": "punish"
+        }
+      ]
+    },
+    {
+      "id": "ape-p1-03-ground-slam-jump",
+      "slug": "ground-slam-jump",
+      "legacyId": "A3",
+      "phaseTag": "phase1",
+      "sourceClip": "03_perilous_ground_slam_jump.mp4",
+      "sourceCut": {
+        "ss": 17.5,
+        "durationSec": 5.0
+      },
+      "titleZh": "危・捶地板下段（跳）",
+      "loop": {
+        "mp4": "ape-p1-03-ground-slam-jump/loop.mp4",
+        "webm": "ape-p1-03-ground-slam-jump/loop.webm",
+        "durationMs": 5000
+      },
+      "frames": [
+        {
+          "file": "ape-p1-03-ground-slam-jump/frames/f01.webp",
+          "tMs": 500,
+          "label": "雙手捶地板前置",
+          "type": "telegraph"
+        },
+        {
+          "file": "ape-p1-03-ground-slam-jump/frames/f02.webp",
+          "tMs": 1750,
+          "label": "危・跳起下段",
+          "type": "commit"
+        },
+        {
+          "file": "ape-p1-03-ground-slam-jump/frames/f03.webp",
+          "tMs": 3000,
+          "label": "跳起／落地窗口",
+          "type": "window"
+        },
+        {
+          "file": "ape-p1-03-ground-slam-jump/frames/f04.webp",
+          "tMs": 4250,
+          "label": "落地後可砍／防禦",
+          "type": "punish"
+        }
+      ],
+      "timeline": [
+        {
+          "tMs": 500,
+          "label": "雙手捶地板前置",
+          "type": "telegraph"
+        },
+        {
+          "tMs": 1750,
+          "label": "危・跳起下段",
+          "type": "commit"
+        },
+        {
+          "tMs": 3000,
+          "label": "跳起／落地窗口",
+          "type": "window"
+        },
+        {
+          "tMs": 4250,
+          "label": "落地後可砍／防禦",
+          "type": "punish"
+        }
+      ]
+    },
+    {
+      "id": "ape-p1-04-perilous-grab",
+      "slug": "perilous-grab",
+      "legacyId": "A4",
+      "phaseTag": "phase1",
+      "sourceClip": "04_perilous_grab.mp4",
+      "sourceCut": {
+        "ss": 10.5,
+        "durationSec": 5.0
+      },
+      "titleZh": "危・抓技（無捶地）",
+      "loop": {
+        "mp4": "ape-p1-04-perilous-grab/loop.mp4",
+        "webm": "ape-p1-04-perilous-grab/loop.webm",
+        "durationMs": 5000
+      },
+      "frames": [
+        {
+          "file": "ape-p1-04-perilous-grab/frames/f01.webp",
+          "tMs": 500,
+          "label": "無捶地・危字出現",
+          "type": "telegraph"
+        },
+        {
+          "file": "ape-p1-04-perilous-grab/frames/f02.webp",
+          "tMs": 1750,
+          "label": "抓技突進",
+          "type": "commit"
+        },
+        {
+          "file": "ape-p1-04-perilous-grab/frames/f03.webp",
+          "tMs": 3000,
+          "label": "向後跑／後跳窗口",
+          "type": "window"
+        },
+        {
+          "file": "ape-p1-04-perilous-grab/frames/f04.webp",
+          "tMs": 4250,
+          "label": "抓空後空隙",
+          "type": "punish"
+        }
+      ],
+      "timeline": [
+        {
+          "tMs": 500,
+          "label": "無捶地・危字出現",
+          "type": "telegraph"
+        },
+        {
+          "tMs": 1750,
+          "label": "抓技突進",
+          "type": "commit"
+        },
+        {
+          "tMs": 3000,
+          "label": "向後跑／後跳窗口",
+          "type": "window"
+        },
+        {
+          "tMs": 4250,
+          "label": "抓空後空隙",
+          "type": "punish"
+        }
+      ]
+    },
+    {
+      "id": "ape-p1-05-fart-and-dung",
+      "slug": "fart-and-dung",
+      "legacyId": "A5",
+      "phaseTag": "phase1",
+      "sourceClip": "05_fart_and_dung.mp4",
+      "sourceCut": {
+        "ss": 6.5,
+        "durationSec": 5.0
+      },
+      "titleZh": "放屁毒霧＋丟糞",
+      "loop": {
+        "mp4": "ape-p1-05-fart-and-dung/loop.mp4",
+        "webm": "ape-p1-05-fart-and-dung/loop.webm",
+        "durationMs": 5000
+      },
+      "frames": [
+        {
+          "file": "ape-p1-05-fart-and-dung/frames/f01.webp",
+          "tMs": 500,
+          "label": "放屁毒霧後準備丟糞",
+          "type": "telegraph"
+        },
+        {
+          "file": "ape-p1-05-fart-and-dung/frames/f02.webp",
+          "tMs": 1750,
+          "label": "起飛丟糞",
+          "type": "commit"
+        },
+        {
+          "file": "ape-p1-05-fart-and-dung/frames/f03.webp",
+          "tMs": 3000,
+          "label": "往左走位窗口",
+          "type": "window"
+        },
+        {
+          "file": "ape-p1-05-fart-and-dung/frames/f04.webp",
+          "tMs": 4250,
+          "label": "落地後可接刀",
+          "type": "punish"
+        }
+      ],
+      "timeline": [
+        {
+          "tMs": 500,
+          "label": "放屁毒霧後準備丟糞",
+          "type": "telegraph"
+        },
+        {
+          "tMs": 1750,
+          "label": "起飛丟糞",
+          "type": "commit"
+        },
+        {
+          "tMs": 3000,
+          "label": "往左走位窗口",
+          "type": "window"
+        },
+        {
+          "tMs": 4250,
+          "label": "落地後可接刀",
+          "type": "punish"
+        }
+      ]
+    },
+    {
+      "id": "ape-p1-06-tantrum-punches",
+      "slug": "tantrum-punches",
+      "legacyId": "A6",
+      "phaseTag": "phase1",
+      "sourceClip": "06_tantrum_punches.mp4",
+      "sourceCut": {
+        "ss": 2.0,
+        "durationSec": 5.0
+      },
+      "titleZh": "耍賴拳法（仰躺亂打）",
+      "loop": {
+        "mp4": "ape-p1-06-tantrum-punches/loop.mp4",
+        "webm": "ape-p1-06-tantrum-punches/loop.webm",
+        "durationMs": 5000
+      },
+      "frames": [
+        {
+          "file": "ape-p1-06-tantrum-punches/frames/f01.webp",
+          "tMs": 500,
+          "label": "仰躺起手",
+          "type": "telegraph"
+        },
+        {
+          "file": "ape-p1-06-tantrum-punches/frames/f02.webp",
+          "tMs": 1750,
+          "label": "亂打進行中",
+          "type": "commit"
+        },
+        {
+          "file": "ape-p1-06-tantrum-punches/frames/f03.webp",
+          "tMs": 3000,
+          "label": "中段反應窗口",
+          "type": "window"
+        },
+        {
+          "file": "ape-p1-06-tantrum-punches/frames/f04.webp",
+          "tMs": 4250,
+          "label": "結束後可貪刀",
+          "type": "punish"
+        }
+      ],
+      "timeline": [
+        {
+          "tMs": 500,
+          "label": "仰躺起手",
+          "type": "telegraph"
+        },
+        {
+          "tMs": 1750,
+          "label": "亂打進行中",
+          "type": "commit"
+        },
+        {
+          "tMs": 3000,
+          "label": "中段反應窗口",
+          "type": "window"
+        },
+        {
+          "tMs": 4250,
+          "label": "結束後可貪刀",
+          "type": "punish"
+        }
+      ]
+    },
+    {
+      "id": "ape-p1-07-baby-pose",
+      "slug": "baby-pose",
+      "legacyId": "A7",
+      "phaseTag": "phase1",
+      "sourceClip": "07_baby_pose.mp4",
+      "sourceCut": {
+        "ss": 3.5,
+        "durationSec": 5.0
+      },
+      "titleZh": "小 baby 姿勢硬直",
+      "loop": {
+        "mp4": "ape-p1-07-baby-pose/loop.mp4",
+        "webm": "ape-p1-07-baby-pose/loop.webm",
+        "durationMs": 5000
+      },
+      "frames": [
+        {
+          "file": "ape-p1-07-baby-pose/frames/f01.webp",
+          "tMs": 500,
+          "label": "進入 baby 姿勢",
+          "type": "telegraph"
+        },
+        {
+          "file": "ape-p1-07-baby-pose/frames/f02.webp",
+          "tMs": 1750,
+          "label": "硬直中",
+          "type": "commit"
+        },
+        {
+          "file": "ape-p1-07-baby-pose/frames/f03.webp",
+          "tMs": 3000,
+          "label": "可摸刀窗口",
+          "type": "window"
+        },
+        {
+          "file": "ape-p1-07-baby-pose/frames/f04.webp",
+          "tMs": 4250,
+          "label": "無動靜可再補刀",
+          "type": "punish"
+        }
+      ],
+      "timeline": [
+        {
+          "tMs": 500,
+          "label": "進入 baby 姿勢",
+          "type": "telegraph"
+        },
+        {
+          "tMs": 1750,
+          "label": "硬直中",
+          "type": "commit"
+        },
+        {
+          "tMs": 3000,
+          "label": "可摸刀窗口",
+          "type": "window"
+        },
+        {
+          "tMs": 4250,
+          "label": "無動靜可再補刀",
+          "type": "punish"
+        }
+      ]
+    },
+    {
+      "id": "ape-p1-08-terror-roar-telegraph",
+      "slug": "terror-roar-telegraph",
+      "legacyId": "P2-T",
+      "phaseTag": "phase2",
+      "sourceClip": "08_terror_roar_telegraph.mp4",
+      "sourceCut": {
+        "ss": 5.0,
+        "durationSec": 5.0
+      },
+      "titleZh": "二階段怖氣咆哮前置（蛇扭）",
+      "loop": {
+        "mp4": "ape-p1-08-terror-roar-telegraph/loop.mp4",
+        "webm": "ape-p1-08-terror-roar-telegraph/loop.webm",
+        "durationMs": 5000
+      },
+      "frames": [
+        {
+          "file": "ape-p1-08-terror-roar-telegraph/frames/f01.webp",
+          "tMs": 500,
+          "label": "蛇扭前置開始",
+          "type": "telegraph"
+        },
+        {
+          "file": "ape-p1-08-terror-roar-telegraph/frames/f02.webp",
+          "tMs": 1750,
+          "label": "蛇扭加劇",
+          "type": "commit"
+        },
+        {
+          "file": "ape-p1-08-terror-roar-telegraph/frames/f03.webp",
+          "tMs": 3000,
+          "label": "必須提早跑開",
+          "type": "window"
+        },
+        {
+          "file": "ape-p1-08-terror-roar-telegraph/frames/f04.webp",
+          "tMs": 4250,
+          "label": "危字吼叫逼近",
+          "type": "recovery"
+        }
+      ],
+      "timeline": [
+        {
+          "tMs": 500,
+          "label": "蛇扭前置開始",
+          "type": "telegraph"
+        },
+        {
+          "tMs": 1750,
+          "label": "蛇扭加劇",
+          "type": "commit"
+        },
+        {
+          "tMs": 3000,
+          "label": "必須提早跑開",
+          "type": "window"
+        },
+        {
+          "tMs": 4250,
+          "label": "危字吼叫逼近",
+          "type": "recovery"
+        }
+      ]
+    },
+    {
+      "id": "ape-p1-09-deflect-spear-pull",
+      "slug": "deflect-spear-pull",
+      "legacyId": "P2-S",
+      "phaseTag": "phase2",
+      "sourceClip": "09_deflect_and_spear_pull.mp4",
+      "sourceCut": {
+        "ss": 12.0,
+        "durationSec": 5.0
+      },
+      "titleZh": "右下起手完美架＋長槍拉蟲",
+      "loop": {
+        "mp4": "ape-p1-09-deflect-spear-pull/loop.mp4",
+        "webm": "ape-p1-09-deflect-spear-pull/loop.webm",
+        "durationMs": 5000
+      },
+      "frames": [
+        {
+          "file": "ape-p1-09-deflect-spear-pull/frames/f01.webp",
+          "tMs": 500,
+          "label": "末擊架開・踉蹌",
+          "type": "telegraph"
+        },
+        {
+          "file": "ape-p1-09-deflect-spear-pull/frames/f02.webp",
+          "tMs": 1750,
+          "label": "先砍一刀",
+          "type": "window"
+        },
+        {
+          "file": "ape-p1-09-deflect-spear-pull/frames/f03.webp",
+          "tMs": 3000,
+          "label": "長槍拉蟲",
+          "type": "commit"
+        },
+        {
+          "file": "ape-p1-09-deflect-spear-pull/frames/f04.webp",
+          "tMs": 4250,
+          "label": "血量／軀幹變化",
+          "type": "punish"
+        }
+      ],
+      "timeline": [
+        {
+          "tMs": 500,
+          "label": "末擊架開・踉蹌",
+          "type": "telegraph"
+        },
+        {
+          "tMs": 1750,
+          "label": "先砍一刀",
+          "type": "window"
+        },
+        {
+          "tMs": 3000,
+          "label": "長槍拉蟲",
+          "type": "commit"
+        },
+        {
+          "tMs": 4250,
+          "label": "血量／軀幹變化",
+          "type": "punish"
+        }
+      ]
+    }
+  ]
+}

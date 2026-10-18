@@ -1,0 +1,1119 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-HK">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>布倫西斯・Brencis｜黎明行者之血｜BOSS 獵殺區｜硬核祝福</title>
+<meta name="description" content="BOSS 獵殺區 — The Blood of Dawnwalker · 布倫西斯（Brencis）最終 BOSS。P1 Knyaz＠Greifberg → P2 Grotesque Ascendant＠Anachora。盾格骷髏閃、紅幽靈先清、藥留二階 solo。" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Orbitron:wght@600;800&display=swap" rel="stylesheet" />
+<style>
+:root {
+  --bg: #0a0b0e;
+  --bg2: #12141a;
+  --bg3: #1a1d26;
+  --border: #2a2f3c;
+  --text: #e8e6e1;
+  --muted: #9a968c;
+  --accent: #c9a227;
+  --accent-dim: #8a7018;
+  --danger: #e04545;
+  --danger-dim: #8b2222;
+  --safe: #3dbf7a;
+  --warn: #e09a32;
+  --info: #4a9eff;
+  --phase-b: #9b6bff;
+  --radius: 12px;
+  --shadow: 0 8px 32px rgba(0,0,0,.45);
+  --font: "Noto Sans TC", "PingFang HK", "Microsoft JhengHei", sans-serif;
+  --display: "Orbitron", "Noto Sans TC", sans-serif;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.55;
+  min-height: 100vh;
+  background-image:
+    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(201,162,39,.12), transparent),
+    radial-gradient(ellipse 40% 30% at 100% 50%, rgba(224,69,69,.07), transparent),
+    linear-gradient(180deg, #0a0b0e 0%, #0d0f14 100%);
+}
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.site-header {
+  position: sticky; top: 0; z-index: 100;
+  backdrop-filter: blur(14px);
+  background: rgba(10,11,14,.85);
+  border-bottom: 1px solid var(--border);
+}
+.header-inner {
+  max-width: 1100px; margin: 0 auto;
+  padding: 12px 20px;
+  display: flex; flex-wrap: wrap; align-items: center; gap: 12px 24px;
+  justify-content: space-between;
+}
+.brand { display: flex; flex-direction: column; gap: 2px; }
+.brand-name {
+  font-family: var(--display);
+  font-weight: 800; font-size: .85rem;
+  letter-spacing: .12em; color: var(--accent);
+  text-transform: uppercase;
+}
+.brand-slogan { font-size: .75rem; color: var(--muted); }
+.back-home {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: .9rem; font-weight: 800;
+  padding: 8px 14px;
+  border: 1px solid var(--accent-dim);
+  border-radius: 999px;
+  color: var(--accent);
+  background: rgba(201,162,39,.08);
+  text-decoration: none;
+  letter-spacing: .04em;
+}
+.back-home:hover { background: rgba(201,162,39,.16); text-decoration: none; border-color: var(--accent); }
+.header-right { display: flex; flex-direction: column; align-items: flex-end; gap: 6px; }
+.page-title { font-size: 1rem; font-weight: 900; letter-spacing: .06em; }
+.page-title span { color: var(--accent); }
+.nav-mini { display: flex; gap: 6px; flex-wrap: wrap; justify-content: flex-end; }
+.nav-mini a {
+  font-size: .72rem; padding: 4px 10px;
+  border: 1px solid var(--border); border-radius: 999px;
+  color: var(--muted); text-decoration: none;
+  transition: .15s;
+}
+.nav-mini a:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
+
+.wrap { max-width: 1100px; margin: 0 auto; padding: 24px 20px 80px; }
+
+.hero {
+  display: grid; gap: 20px;
+  margin-bottom: 28px;
+  padding: 24px;
+  background: linear-gradient(135deg, var(--bg2), var(--bg3));
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  position: relative; overflow: hidden;
+  scroll-margin-top: 72px;
+}
+.hero::before {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(90deg, transparent 60%, rgba(224,69,69,.07));
+  pointer-events: none;
+}
+.hero h1 {
+  font-size: clamp(1.5rem, 4vw, 2.2rem);
+  font-weight: 900; letter-spacing: .06em;
+}
+.hero h1 em { font-style: normal; color: var(--accent); }
+.hero-sub { margin-top: 8px; font-size: .95rem; color: var(--muted); }
+.slogan-box {
+  margin-top: 14px;
+  padding: 12px 16px;
+  border-radius: 10px;
+  border: 1px solid rgba(224,69,69,.4);
+  background: rgba(224,69,69,.08);
+  font-size: 1rem; font-weight: 800;
+  color: var(--danger);
+  letter-spacing: .02em;
+}
+.meta-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+.chip {
+  font-size: .72rem; font-weight: 700;
+  padding: 4px 10px; border-radius: 6px;
+  background: var(--bg); border: 1px solid var(--border);
+  color: var(--muted); letter-spacing: .04em;
+}
+.chip.gold { color: var(--accent); border-color: var(--accent-dim); }
+.chip.red { color: var(--danger); border-color: var(--danger-dim); }
+.chip.warn { color: var(--warn); border-color: #8a5a18; }
+.chip.info { color: var(--info); border-color: #1a4a7a; }
+.chip.safe { color: var(--safe); border-color: #1a6a45; }
+
+.basics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px; margin-top: 16px;
+}
+.basic-card {
+  background: var(--bg); border: 1px solid var(--border);
+  border-radius: 10px; padding: 14px 16px;
+}
+.basic-card h3 {
+  font-size: .72rem; color: var(--accent);
+  letter-spacing: .1em; margin-bottom: 6px; font-weight: 700;
+}
+.basic-card p, .basic-card ul { font-size: .88rem; color: var(--text); }
+.basic-card ul { padding-left: 1.1em; }
+.basic-card li { margin: 4px 0; color: var(--muted); }
+.basic-card li strong { color: var(--text); }
+
+.section {
+  margin: 28px 0;
+  padding: 22px;
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  scroll-margin-top: 72px;
+}
+.section-kicker {
+  font-size: .7rem; font-weight: 800;
+  letter-spacing: .14em; color: var(--accent);
+  text-transform: uppercase; margin-bottom: 6px;
+}
+.section h2 {
+  font-size: 1.25rem; font-weight: 900;
+  letter-spacing: .04em; margin-bottom: 8px;
+}
+.section h2 em { font-style: normal; color: var(--accent); }
+.section-lead { font-size: .9rem; color: var(--muted); margin-bottom: 16px; }
+
+.route-strip {
+  display: flex; flex-wrap: wrap; gap: 8px; align-items: center;
+  margin: 0 0 18px; padding: 12px 14px;
+  background: var(--bg); border: 1px dashed var(--border);
+  border-radius: 10px; font-size: .82rem; color: var(--muted);
+}
+.route-strip .rs-step {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-weight: 700; color: var(--text);
+}
+.route-strip .rs-num {
+  font-family: var(--display); font-size: .65rem;
+  letter-spacing: .08em; color: var(--accent);
+  border: 1px solid var(--accent-dim); border-radius: 999px;
+  padding: 2px 8px;
+}
+.route-strip .rs-arrow { color: var(--accent-dim); font-weight: 900; }
+
+.path-steps { display: flex; flex-direction: column; gap: 14px; }
+.path-step {
+  display: grid; gap: 12px;
+  padding: 14px; border-radius: 10px;
+  background: var(--bg); border: 1px solid var(--border);
+  scroll-margin-top: 88px;
+}
+@media (min-width: 700px) {
+  .path-step.has-clip { grid-template-columns: 1fr 1.15fr; align-items: start; }
+}
+.path-step:target { border-color: var(--accent); box-shadow: 0 0 0 1px rgba(201,162,39,.35); }
+.path-step-num {
+  font-family: var(--display); font-size: .65rem;
+  letter-spacing: .1em; color: var(--muted); margin-bottom: 4px;
+}
+.path-step-text { font-size: .9rem; line-height: 1.5; }
+.path-step-text strong { color: var(--accent); }
+.path-step-note {
+  margin-top: 8px; font-size: .78rem;
+  padding: 8px 10px; border-radius: 6px;
+  background: rgba(61,191,122,.08); border: 1px solid rgba(61,191,122,.25);
+  color: var(--safe); font-weight: 700;
+}
+.path-step-note::before { content: "要點："; color: var(--muted); font-weight: 800; margin-right: 4px; }
+.path-step-link { margin-top: 8px; font-size: .72rem; color: var(--muted); }
+.path-step-link a { color: var(--accent); font-weight: 700; }
+
+.move-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 14px;
+  margin: 16px 0 12px;
+}
+.move-card {
+  display: flex; flex-direction: column; gap: 8px;
+  padding: 14px; background: var(--bg);
+  border: 1px solid var(--border); border-radius: 12px;
+  scroll-margin-top: 88px;
+}
+.move-card:target {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 1px rgba(201,162,39,.35);
+}
+.move-card .mc-head {
+  display: flex; flex-wrap: wrap; gap: 8px;
+  align-items: baseline; justify-content: space-between;
+}
+.move-card .mc-name {
+  font-weight: 900; font-size: .95rem;
+  letter-spacing: .02em; color: var(--text);
+}
+.move-card .mc-phase {
+  font-size: .66rem; font-weight: 800;
+  letter-spacing: .06em; text-transform: uppercase;
+  color: var(--muted); border: 1px solid var(--border);
+  border-radius: 999px; padding: 2px 8px;
+}
+.move-card .mc-tell { font-size: .8rem; color: var(--muted); line-height: 1.45; }
+.move-card .mc-tell strong { color: var(--accent); font-weight: 800; margin-right: 4px; }
+.move-card .mc-counter {
+  font-size: .86rem; font-weight: 700; color: var(--safe);
+  line-height: 1.45; padding: 8px 10px;
+  background: rgba(61,191,122,.08);
+  border-left: 3px solid var(--safe);
+  border-radius: 0 8px 8px 0;
+}
+.move-card .mc-counter::before {
+  content: "用法："; color: var(--muted); font-weight: 800;
+  font-size: .72rem; letter-spacing: .06em; margin-right: 4px;
+}
+.move-clip {
+  position: relative; width: 100%; aspect-ratio: 16 / 9;
+  border-radius: 10px; overflow: hidden;
+  border: 1px dashed #3a4050; background: #0d0f14;
+  display: flex; align-items: center; justify-content: center;
+}
+.move-clip.is-filled {
+  border-style: solid; border-color: var(--border); background: #000;
+}
+.move-clip .clip-placeholder {
+  font-size: .78rem; font-weight: 700; color: var(--muted);
+  letter-spacing: .04em; text-align: center; padding: 12px;
+}
+.move-clip iframe, .move-clip video {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  border: 0; object-fit: contain; background: #000;
+}
+.move-card .mc-chapter { font-size: .72rem; color: var(--muted); line-height: 1.4; }
+.move-card .mc-chapter a { color: var(--accent); font-weight: 700; }
+
+.video-list { display: grid; gap: 16px; }
+.video-card {
+  background: var(--bg); border: 1px solid var(--border);
+  border-radius: 12px; padding: 14px; overflow: hidden;
+}
+.video-card h3 { font-size: .95rem; font-weight: 900; margin-bottom: 6px; }
+.video-card p { font-size: .82rem; color: var(--muted); margin-bottom: 10px; }
+.video-frame {
+  position: relative; width: 100%; aspect-ratio: 16 / 9;
+  border-radius: 10px; overflow: hidden; background: #000;
+  border: 1px solid var(--border);
+}
+.video-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.video-card .ext-links { margin-top: 8px; font-size: .78rem; }
+.video-card .ext-links a { margin-right: 12px; }
+
+.table-wrap { overflow-x: auto; margin-top: 8px; border: 1px solid var(--border); border-radius: 10px; }
+table { width: 100%; border-collapse: collapse; font-size: .88rem; }
+th, td {
+  text-align: left; padding: 10px 12px;
+  border-bottom: 1px solid var(--border); vertical-align: top;
+}
+th {
+  font-size: .72rem; letter-spacing: .08em;
+  color: var(--accent); font-weight: 800;
+  text-transform: uppercase; background: var(--bg3);
+}
+td { color: var(--muted); }
+td strong { color: var(--text); font-weight: 700; }
+tr:last-child td { border-bottom: none; }
+tr:hover td { background: rgba(255,255,255,.02); }
+
+.mistake-list { padding-left: 1.2em; }
+.mistake-list li {
+  margin: 8px 0; font-size: .9rem; color: var(--danger);
+  font-weight: 600;
+}
+.mistake-list li span { color: var(--muted); font-weight: 500; }
+
+.tip-line {
+  margin-top: 12px;
+  font-size: .85rem; color: var(--warn);
+  padding: 10px 12px;
+  border-left: 3px solid var(--warn);
+  background: rgba(224,154,50,.08);
+  border-radius: 0 8px 8px 0;
+}
+
+details.sources {
+  margin-top: 28px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg2);
+  overflow: hidden;
+}
+details.sources > summary {
+  padding: 14px 18px; cursor: pointer;
+  font-weight: 700; list-style: none;
+  display: flex; align-items: center; justify-content: space-between;
+  color: var(--muted); font-size: .9rem;
+}
+details.sources > summary::-webkit-details-marker { display: none; }
+details.sources > summary::after { content: "＋展開"; font-size: .75rem; color: var(--accent); }
+details.sources[open] > summary::after { content: "－收起"; }
+.sources-body {
+  padding: 0 18px 16px;
+  font-size: .78rem; color: var(--muted);
+}
+.sources-body ol { padding-left: 1.3em; }
+.sources-body li { margin: 6px 0; }
+.sources-body a { word-break: break-all; }
+
+.site-footer {
+  text-align: center; padding: 24px 20px 40px;
+  font-size: .72rem; color: var(--muted);
+  border-top: 1px solid var(--border);
+}
+</style>
+<link rel="stylesheet" href="assets/vote-widget.css" />
+<link rel="stylesheet" href="assets/feedback-form.css" />
+<link rel="stylesheet" href="assets/age-gate.css" />
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <div class="brand">
+      <a class="back-home" href="index.html#dawnwalker">← 返回獵殺區</a>
+      <div class="brand-name" style="margin-top:8px">硬核祝福</div>
+      <div class="brand-slogan">別人改數值，你改規則。</div>
+    </div>
+    <div class="header-right">
+      <div class="page-title">黎明行者之血 · <span>布倫西斯</span></div>
+      <nav class="nav-mini" aria-label="本頁錨點">
+        <a href="#boss">Boss</a>
+        <a href="#routes">路線</a>
+        <a href="#flow">流程</a>
+        <a href="#moves">短卡</a>
+        <a href="#prep">戰前</a>
+        <a href="#videos">片源</a>
+        <a href="#disputed">爭議</a>
+        <a href="#mistakes">常見錯</a>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  
+  <div data-boss-vote data-vote-slug="dawnwalker-brencis"></div>
+<!-- ========== #boss ========== -->
+  <section class="hero" id="boss" aria-labelledby="boss-title">
+    <div>
+      <h1 id="boss-title">布倫西斯 · <em>Brencis</em></h1>
+      <p class="hero-sub">最終 BOSS · Vale Sangora 親王（Knyaz）→ 怪誕昇華者（Grotesque Ascendant）· 任務《與魔鬼的交易》· 30 遊戲日</p>
+      <div class="slogan-box">盾標格、骷髏閃——藥留畀二階 solo</div>
+      <div class="meta-row">
+        <span class="chip red">最終 BOSS</span>
+        <span class="chip gold">The Blood of Dawnwalker</span>
+        <span class="chip warn">P1 Greifberg</span>
+        <span class="chip info">P2 Anachora · Solo</span>
+        <span class="chip">與魔鬼的交易</span>
+        <span class="chip safe">進戰前手動存檔</span>
+      </div>
+      <div class="basics-grid">
+        <div class="basic-card">
+          <h3>兩階段</h3>
+          <ul>
+            <li><strong>P1</strong> Knyaz＠Greifberg Castle（亦見 Griefberg）</li>
+            <li>Cutscene 傳送 → <strong>P2</strong> Grotesque Ascendant＠<strong>Anachora</strong></li>
+            <li>多數源：<strong>兩階段之間無檢查點</strong></li>
+          </ul>
+        </div>
+        <div class="basic-card">
+          <h3>心法</h3>
+          <ul>
+            <li><strong>盾標</strong> → 格擋／完美格／招架</li>
+            <li><strong>骷髏標</strong> → 必須閃／Shadowstep</li>
+            <li>紅幽靈<strong>先清</strong>，先後再打 Boss</li>
+          </ul>
+        </div>
+        <div class="basic-card">
+          <h3>盟友</h3>
+          <ul>
+            <li>Lacra／Crake <strong>只限 P1</strong></li>
+            <li>P2 <strong>一定 solo</strong></li>
+            <li>P1 <strong>唔好花光藥</strong></li>
+          </ul>
+        </div>
+        <div class="basic-card">
+          <h3>粵語 Tip</h3>
+          <ul>
+            <li>進《與魔鬼的交易》前<strong>手動存檔</strong></li>
+            <li>留意<strong>30 日</strong>救家人時限</li>
+            <li>最終 BOSS 係 Brencis，<strong>唔係源義經</strong></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== #routes ========== -->
+  <section class="section" id="routes" aria-labelledby="routes-title">
+    <div class="section-kicker">ROUTES</div>
+    <h2 id="routes-title">進入<em>路線</em></h2>
+    <p class="section-lead">標準線：打完三博雅爾（Ambrus → Bakir → Xanthe）→ 惡名拉滿 → 隔日觸發會談。對話決定單人／Lacra／Crake／跳過。</p>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>路線</th>
+            <th>條件</th>
+            <th>戰鬥／結局</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Solo／Folk Hero</strong></td>
+            <td>會談選「Enough. Time to end this.」／「夠了。是時候結束這一切了。」</td>
+            <td>單人打 Brencis（最難）；獎盃 The Folk Hero</td>
+          </tr>
+          <tr>
+            <td><strong>Lacra／Patricide</strong></td>
+            <td>Lacra 任務鏈 → <em>Midnight Reckoning</em></td>
+            <td>P1 有 Lacra；獎盃 The Patricide</td>
+          </tr>
+          <tr>
+            <td><strong>Crake／Knyazmaker</strong></td>
+            <td>Manumit／Crake 鏈 → <em>Rise at Dawn</em>／<em>Fall Before Dusk</em></td>
+            <td>P1 有 Crake；獎盃 The Knyazmaker</td>
+          </tr>
+          <tr>
+            <td><strong>Turncoat</strong></td>
+            <td>接受 Brencis 交易、出賣 hideout</td>
+            <td><strong>跳過 BOSS 戰</strong>；獎盃 The Turncoat</td>
+          </tr>
+          <tr>
+            <td><strong>Early castle</strong></td>
+            <td>夜爬牆（Planeshift＋Shadowstep）或側門鑰匙</td>
+            <td>提前結局序列；極難</td>
+          </tr>
+          <tr>
+            <td><strong>Prologue win</strong></td>
+            <td>序章 <em>Bad Blood</em> 打贏 Knyaz</td>
+            <td>即入 Ascendant；可提前完結（極難）</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="tip-line">無 NG+；多結局靠讀檔。進終局前<strong>一定要手動存</strong>。</p>
+  </section>
+
+  <!-- ========== #flow ========== -->
+  <section class="section" id="flow" aria-labelledby="flow-title">
+    <div class="section-kicker">KILL FLOW</div>
+    <h2 id="flow-title">標準<em>擊殺流程</em></h2>
+    <p class="section-lead">讀標記 → 清紅幽靈 → P1 短輸出慳藥 → P2 閃觸手／Soul Drain → 擊敗。短片已鎖秒；完整片喺 <a href="#videos">#videos</a>。</p>
+
+    <div class="route-strip" aria-label="擊殺五步">
+      <span class="rs-step"><span class="rs-num">01</span>讀標記</span>
+      <span class="rs-arrow">→</span>
+      <span class="rs-step"><span class="rs-num">02</span>清幽靈</span>
+      <span class="rs-arrow">→</span>
+      <span class="rs-step"><span class="rs-num">03</span>P1 短罰</span>
+      <span class="rs-arrow">→</span>
+      <span class="rs-step"><span class="rs-num">04</span>P2 閃觸手</span>
+      <span class="rs-arrow">→</span>
+      <span class="rs-step"><span class="rs-num">05</span>擊敗</span>
+    </div>
+
+    <div class="path-steps">
+
+      <article class="path-step has-clip" id="step-marks">
+        <div>
+          <div class="path-step-num">STEP 01 · READ MARKS</div>
+          <p class="path-step-text"><strong>盾標</strong>＝格擋／完美格／招架；<strong>骷髏標</strong>＝必須閃避／Shadowstep，<strong>唔好硬格</strong>。P1 親王態示範片已鎖秒。</p>
+          <p class="path-step-note">盾就格、骷髏就閃——搞反＝送命</p>
+          <p class="path-step-link">P1 無傷 329–530s：<a href="https://www.youtube.com/watch?v=H365eLChcFM&amp;t=329s" target="_blank" rel="noopener noreferrer">H365eLChcFM @ 329s →</a></p>
+        </div>
+        <div class="move-clip"
+             data-yt-id="H365eLChcFM"
+             data-yt-start="329"
+             data-yt-end="530"
+             data-clip-src="">
+          <span class="clip-placeholder">短片待嵌</span>
+        </div>
+      </article>
+
+      <article class="path-step has-clip" id="step-wraiths">
+        <div>
+          <div class="path-step-num">STEP 02 · CLEAR WRAITHS</div>
+          <p class="path-step-text">Brencis 會反覆召喚<strong>紅色幽靈（red wraiths）</strong>。只 tunnel Boss 好易被圍——<strong>先清 add，再打親王</strong>。</p>
+          <p class="path-step-note">紅怪先清；唔好貪 Boss 血條</p>
+          <p class="path-step-link">完整戰有章 294s：<a href="https://www.youtube.com/watch?v=u54buF7T97o&amp;t=294s" target="_blank" rel="noopener noreferrer">u54buF7T97o @ 294s →</a></p>
+        </div>
+        <div class="move-clip"
+             data-yt-id="u54buF7T97o"
+             data-yt-start="294"
+             data-yt-end="707"
+             data-clip-src="">
+          <span class="clip-placeholder">短片待嵌</span>
+        </div>
+      </article>
+
+      <article class="path-step has-clip" id="step-p1-punish">
+        <div>
+          <div class="path-step-num">STEP 03 · P1 SHORT PUNISH</div>
+          <p class="path-step-text">等連招打完再打幾下；<strong>唔好長串硬砍</strong>。有 Lacra／Crake 用佢哋拉仇恨——<strong>藥唔使光</strong>，盟友只限 P1。</p>
+          <p class="path-step-note">短輸出；慳藥畀 Anachora solo</p>
+          <p class="path-step-link">弒父開打 331s：<a href="https://www.youtube.com/watch?v=Or_P84_IGJ0&amp;t=331s" target="_blank" rel="noopener noreferrer">Or_P84_IGJ0 @ 331s →</a></p>
+        </div>
+        <div class="move-clip"
+             data-yt-id="Or_P84_IGJ0"
+             data-yt-start="331"
+             data-yt-end="735"
+             data-clip-src="">
+          <span class="clip-placeholder">短片待嵌</span>
+        </div>
+      </article>
+
+      <article class="path-step has-clip" id="step-p2">
+        <div>
+          <div class="path-step-num">STEP 04 · P2 ASCENDANT</div>
+          <p class="path-step-text">觸手射程遠、多<strong>不可擋</strong>（Tendril Whip／Slam／Tantrum）→ 閃或側移。見 <strong>Soul Drain</strong> 先閃 snare；中咗會定身大傷（多源指唔回 Boss 血）。</p>
+          <p class="path-step-note">當新一場；舊 spacing 唔再安全</p>
+          <p class="path-step-link">P2 無傷 530–693s：<a href="https://www.youtube.com/watch?v=H365eLChcFM&amp;t=530s" target="_blank" rel="noopener noreferrer">H365eLChcFM @ 530s →</a></p>
+        </div>
+        <div class="move-clip"
+             data-yt-id="H365eLChcFM"
+             data-yt-start="530"
+             data-yt-end="693"
+             data-clip-src="">
+          <span class="clip-placeholder">短片待嵌</span>
+        </div>
+      </article>
+
+      <article class="path-step has-clip" id="step-defeat">
+        <div>
+          <div class="path-step-num">STEP 05 · DEFEAT</div>
+          <p class="path-step-text">Ascendant 倒下後入擊敗演出／結局對話。清空 P1 血條<strong>唔等於通關</strong>——仲有第二形態。</p>
+          <p class="path-step-note">P1 清空＝轉場，唔係完</p>
+          <p class="path-step-link">擊敗 693s–end：<a href="https://www.youtube.com/watch?v=H365eLChcFM&amp;t=693s" target="_blank" rel="noopener noreferrer">H365eLChcFM @ 693s →</a></p>
+        </div>
+        <div class="move-clip"
+             data-yt-id="H365eLChcFM"
+             data-yt-start="693"
+             data-yt-end=""
+             data-clip-src="">
+          <span class="clip-placeholder">短片待嵌</span>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ========== #moves ========== -->
+  <section class="section" id="moves" aria-labelledby="moves-title">
+    <div class="section-kicker">MOVES · LOCKED CLIPS</div>
+    <h2 id="moves-title">招式／路線<em>卡</em></h2>
+    <p class="section-lead">開頁自動嵌播；原始碼見「短片待嵌」屬正常。有章節先鎖秒；無章節片放 <a href="#videos">#videos</a> 全段嵌。</p>
+
+    <div class="move-cards">
+
+      <article class="move-card" id="move-p1-phase">
+        <div class="mc-head">
+          <span class="mc-name">第一階段・親王態</span>
+          <span class="mc-phase">P1 · 無傷</span>
+        </div>
+        <p class="mc-tell"><strong>預兆：</strong>盾／骷髏標記； Overhead slam 有完美格窗。</p>
+        <p class="mc-counter">讀標再出手；短 punish；清幽靈。</p>
+        <div class="move-clip" data-yt-id="H365eLChcFM" data-yt-start="329" data-yt-end="530" data-clip-src="">
+          <span class="clip-placeholder">短片待嵌</span>
+        </div>
+        <p class="mc-chapter">05:29–08:50 · <a href="https://www.youtube.com/watch?v=H365eLChcFM&amp;t=329s" target="_blank" rel="noopener noreferrer">H365eLChcFM @ 329s →</a></p>
+      </article>
+
+      <article class="move-card" id="move-p2-phase">
+        <div class="mc-head">
+          <span class="mc-name">第二階段・昇華者</span>
+          <span class="mc-phase">P2 · 無傷</span>
+        </div>
+        <p class="mc-tell"><strong>預兆：</strong>觸手伸展／Soul Drain snare 光效。</p>
+        <p class="mc-counter">觸手多不可擋→閃；先閃 Soul Drain snare。</p>
+        <div class="move-clip" data-yt-id="H365eLChcFM" data-yt-start="530" data-yt-end="693" data-clip-src="">
+          <span class="clip-placeholder">短片待嵌</span>
+        </div>
+        <p class="mc-chapter">08:50–11:33 · <a href="https://www.youtube.com/watch?v=H365eLChcFM&amp;t=530s" target="_blank" rel="noopener noreferrer">H365eLChcFM @ 530s →</a></p>
+      </article>
+
+      <article class="move-card" id="move-full-battle">
+        <div class="mc-head">
+          <span class="mc-name">完整戰・有章</span>
+          <span class="mc-phase">Battle</span>
+        </div>
+        <p class="mc-tell"><strong>用途：</strong>Legacy Wings「Battle at the summit」章節。</p>
+        <p class="mc-counter">從頭睇完 P1→P2 節奏；鎖 04:54 起。</p>
+        <div class="move-clip" data-yt-id="u54buF7T97o" data-yt-start="294" data-yt-end="707" data-clip-src="">
+          <span class="clip-placeholder">短片待嵌</span>
+        </div>
+        <p class="mc-chapter">04:54–11:47 · <a href="https://www.youtube.com/watch?v=u54buF7T97o&amp;t=294s" target="_blank" rel="noopener noreferrer">u54buF7T97o @ 294s →</a></p>
+      </article>
+
+      <article class="move-card" id="move-lacra-confront">
+        <div class="mc-head">
+          <span class="mc-name">弒父・開打</span>
+          <span class="mc-phase">Lacra</span>
+        </div>
+        <p class="mc-tell"><strong>路線：</strong>Midnight Reckoning → Confront Brencis with Lacra。</p>
+        <p class="mc-counter">P1 有盟友拉仇恨；仍要慳藥。</p>
+        <div class="move-clip" data-yt-id="Or_P84_IGJ0" data-yt-start="331" data-yt-end="735" data-clip-src="">
+          <span class="clip-placeholder">短片待嵌</span>
+        </div>
+        <p class="mc-chapter">05:31 · <a href="https://www.youtube.com/watch?v=Or_P84_IGJ0&amp;t=331s" target="_blank" rel="noopener noreferrer">Or_P84_IGJ0 @ 331s →</a></p>
+      </article>
+
+      <article class="move-card" id="move-lacra-fight">
+        <div class="mc-head">
+          <span class="mc-name">弒父・決戰本體</span>
+          <span class="mc-phase">Lacra</span>
+        </div>
+        <p class="mc-tell"><strong>章節：</strong>Defeat Brencis（ZaFrostPet）。</p>
+        <p class="mc-counter">Lacra 同行完整戰段；約 20:17–32:50。</p>
+        <div class="move-clip" data-yt-id="s-MZkSkviQo" data-yt-start="1217" data-yt-end="1970" data-clip-src="">
+          <span class="clip-placeholder">短片待嵌</span>
+        </div>
+        <p class="mc-chapter">20:17 · <a href="https://www.youtube.com/watch?v=s-MZkSkviQo&amp;t=1217s" target="_blank" rel="noopener noreferrer">s-MZkSkviQo @ 1217s →</a></p>
+      </article>
+
+      <article class="move-card" id="move-lacra-short">
+        <div class="mc-head">
+          <span class="mc-name">弒父・短戰備援</span>
+          <span class="mc-phase">Lacra</span>
+        </div>
+        <p class="mc-tell"><strong>備援：</strong>Deathmetal「The battle begins」。</p>
+        <p class="mc-counter">較短完整戰；適合快速重溫。</p>
+        <div class="move-clip" data-yt-id="8K1MkAqP2ZE" data-yt-start="305" data-yt-end="578" data-clip-src="">
+          <span class="clip-placeholder">短片待嵌</span>
+        </div>
+        <p class="mc-chapter">05:05 · <a href="https://www.youtube.com/watch?v=8K1MkAqP2ZE&amp;t=305s" target="_blank" rel="noopener noreferrer">8K1MkAqP2ZE @ 305s →</a></p>
+      </article>
+
+      <article class="move-card" id="move-emmie">
+        <div class="mc-head">
+          <span class="mc-name">實況弒父</span>
+          <span class="mc-phase">Lacra</span>
+        </div>
+        <p class="mc-tell"><strong>用途：</strong>邊打邊講；有升級過程。</p>
+        <p class="mc-counter">Emmie Jacob @ 41:39 Brencis。</p>
+        <div class="move-clip" data-yt-id="mKCWDr-K70Y" data-yt-start="2499" data-yt-end="" data-clip-src="">
+          <span class="clip-placeholder">短片待嵌</span>
+        </div>
+        <p class="mc-chapter">41:39 · <a href="https://www.youtube.com/watch?v=mKCWDr-K70Y&amp;t=2499s" target="_blank" rel="noopener noreferrer">mKCWDr-K70Y @ 2499s →</a></p>
+      </article>
+
+      <article class="move-card" id="move-early-p1">
+        <div class="mc-head">
+          <span class="mc-name">Early castle · P1</span>
+          <span class="mc-phase">Early</span>
+        </div>
+        <p class="mc-tell"><strong>路線：</strong>提前入城單挑（Ferzen）。</p>
+        <p class="mc-counter">極難線；鎖 28:33 First Boss Fight。</p>
+        <div class="move-clip" data-yt-id="KOCW3XwmNrA" data-yt-start="1713" data-yt-end="1976" data-clip-src="">
+          <span class="clip-placeholder">短片待嵌</span>
+        </div>
+        <p class="mc-chapter">28:33 · <a href="https://www.youtube.com/watch?v=KOCW3XwmNrA&amp;t=1713s" target="_blank" rel="noopener noreferrer">KOCW3XwmNrA @ 1713s →</a></p>
+      </article>
+
+      <article class="move-card" id="move-early-p2">
+        <div class="mc-head">
+          <span class="mc-name">Early castle · P2</span>
+          <span class="mc-phase">Early</span>
+        </div>
+        <p class="mc-tell"><strong>接續：</strong>Second Boss Fight。</p>
+        <p class="mc-counter">Ascendant 段；鎖 32:56。</p>
+        <div class="move-clip" data-yt-id="KOCW3XwmNrA" data-yt-start="1976" data-yt-end="2329" data-clip-src="">
+          <span class="clip-placeholder">短片待嵌</span>
+        </div>
+        <p class="mc-chapter">32:56 · <a href="https://www.youtube.com/watch?v=KOCW3XwmNrA&amp;t=1976s" target="_blank" rel="noopener noreferrer">KOCW3XwmNrA @ 1976s →</a></p>
+      </article>
+
+      <article class="move-card" id="move-ending-lacra">
+        <div class="mc-head">
+          <span class="mc-name">結局・Lacra</span>
+          <span class="mc-phase">All Endings</span>
+        </div>
+        <p class="mc-tell"><strong>總覽：</strong>Dan Allen All Endings 開首。</p>
+        <p class="mc-counter">弒父結局對照入口。</p>
+        <div class="move-clip" data-yt-id="2l0UUPe5hdU" data-yt-start="0" data-yt-end="" data-clip-src="">
+          <span class="clip-placeholder">短片待嵌</span>
+        </div>
+        <p class="mc-chapter">00:00 · <a href="https://www.youtube.com/watch?v=2l0UUPe5hdU" target="_blank" rel="noopener noreferrer">2l0UUPe5hdU →</a></p>
+      </article>
+
+      <article class="move-card" id="move-ending-crake">
+        <div class="mc-head">
+          <span class="mc-name">結局・Crake／擁王者</span>
+          <span class="mc-phase">All Endings</span>
+        </div>
+        <p class="mc-tell"><strong>章節：</strong>Defeat Brencis with Crake。</p>
+        <p class="mc-counter">Knyazmaker 線對照。</p>
+        <div class="move-clip" data-yt-id="2l0UUPe5hdU" data-yt-start="2737" data-yt-end="" data-clip-src="">
+          <span class="clip-placeholder">短片待嵌</span>
+        </div>
+        <p class="mc-chapter">45:37 · <a href="https://www.youtube.com/watch?v=2l0UUPe5hdU&amp;t=2737s" target="_blank" rel="noopener noreferrer">2l0UUPe5hdU @ 2737s →</a></p>
+      </article>
+
+      <article class="move-card" id="move-ending-prologue">
+        <div class="mc-head">
+          <span class="mc-name">結局・序章速通</span>
+          <span class="mc-phase">All Endings</span>
+        </div>
+        <p class="mc-tell"><strong>風險：</strong>序章打贏即入 Ascendant。</p>
+        <p class="mc-counter">可提前完結；極難／開發者級挑戰。</p>
+        <div class="move-clip" data-yt-id="2l0UUPe5hdU" data-yt-start="3816" data-yt-end="" data-clip-src="">
+          <span class="clip-placeholder">短片待嵌</span>
+        </div>
+        <p class="mc-chapter">01:03:36 · <a href="https://www.youtube.com/watch?v=2l0UUPe5hdU&amp;t=3816s" target="_blank" rel="noopener noreferrer">2l0UUPe5hdU @ 3816s →</a></p>
+      </article>
+
+      <article class="move-card" id="move-ending-turncoat">
+        <div class="mc-head">
+          <span class="mc-name">結局・Turncoat</span>
+          <span class="mc-phase">All Endings</span>
+        </div>
+        <p class="mc-tell"><strong>注意：</strong>接受交易＝跳過 BOSS。</p>
+        <p class="mc-counter">出賣盟友線；唔使打戰。</p>
+        <div class="move-clip" data-yt-id="2l0UUPe5hdU" data-yt-start="4185" data-yt-end="" data-clip-src="">
+          <span class="clip-placeholder">短片待嵌</span>
+        </div>
+        <p class="mc-chapter">01:09:45 · <a href="https://www.youtube.com/watch?v=2l0UUPe5hdU&amp;t=4185s" target="_blank" rel="noopener noreferrer">2l0UUPe5hdU @ 4185s →</a></p>
+      </article>
+
+      <article class="move-card" id="move-ending-solo">
+        <div class="mc-head">
+          <span class="mc-name">結局・Solo／Folk Hero</span>
+          <span class="mc-phase">All Endings</span>
+        </div>
+        <p class="mc-tell"><strong>章節：</strong>Defeat Brencis Alone。</p>
+        <p class="mc-counter">單人結局段；完整無章 Solo 片見 #videos。</p>
+        <div class="move-clip" data-yt-id="2l0UUPe5hdU" data-yt-start="5294" data-yt-end="" data-clip-src="">
+          <span class="clip-placeholder">短片待嵌</span>
+        </div>
+        <p class="mc-chapter">01:28:14 · <a href="https://www.youtube.com/watch?v=2l0UUPe5hdU&amp;t=5294s" target="_blank" rel="noopener noreferrer">2l0UUPe5hdU @ 5294s →</a></p>
+      </article>
+
+      <article class="move-card" id="move-lacra-full">
+        <div class="mc-head">
+          <span class="mc-name">Lacra 全線・決戰</span>
+          <span class="mc-phase">超長</span>
+        </div>
+        <p class="mc-tell"><strong>用途：</strong>任務鏈終點 Boss &amp; Ending。</p>
+        <p class="mc-counter">只嵌決戰章；唔好從頭播。</p>
+        <div class="move-clip" data-yt-id="oiLivo4H1l8" data-yt-start="10159" data-yt-end="" data-clip-src="">
+          <span class="clip-placeholder">短片待嵌</span>
+        </div>
+        <p class="mc-chapter">02:49:19 · <a href="https://www.youtube.com/watch?v=oiLivo4H1l8&amp;t=10159s" target="_blank" rel="noopener noreferrer">oiLivo4H1l8 @ 10159s →</a></p>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ========== #prep ========== -->
+  <section class="section" id="prep" aria-labelledby="prep-title">
+    <div class="section-kicker">PREP</div>
+    <h2 id="prep-title">戰前<em>清單</em></h2>
+    <p class="section-lead">無可靠官方弱點表／HP／等級門檻。準備靠路線完成度同消耗品。</p>
+    <div class="basics-grid">
+      <div class="basic-card">
+        <h3>必做</h3>
+        <ul>
+          <li><strong>手動存檔</strong>（結局分支前）</li>
+          <li>完成想要嘅盟友線再進會談</li>
+          <li>留意<strong>30 日</strong>時限</li>
+        </ul>
+      </div>
+      <div class="basic-card">
+        <h3>消耗品</h3>
+        <ul>
+          <li>血藥／Blood Vial 盡量帶齊</li>
+          <li>Solo 線再多帶</li>
+          <li><strong>P1 慳藥</strong>畀 P2</li>
+        </ul>
+      </div>
+      <div class="basic-card">
+        <h3>技能工具（社群常見）</h3>
+        <ul>
+          <li>Swordmastery <strong>Charge</strong>（拉近＋硬直）</li>
+          <li>Voracious Bite 續航</li>
+          <li>Shadowstep／Planeshift 脫困</li>
+        </ul>
+      </div>
+      <div class="basic-card">
+        <h3>唔好假設</h3>
+        <ul>
+          <li>元素弱點表</li>
+          <li>固定等級門檻</li>
+          <li>盟友減 Boss 具體 %</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== #videos ========== -->
+  <section class="section" id="videos" aria-labelledby="videos-title">
+    <div class="section-kicker">VIDEOS</div>
+    <h2 id="videos-title">片源<em>列表</em></h2>
+    <p class="section-lead">有章節片已拆入流程／短卡。以下整段嵌或外連備援；無章節＝人手跳。</p>
+
+    <div class="video-list">
+
+      <article class="video-card">
+        <h3>階段鎖秒首選 · H365eLChcFM</h3>
+        <p>Panzarini｜No Damage Duelist｜P1 05:29／P2 08:50／Defeat 11:33</p>
+        <div class="video-frame">
+          <iframe src="https://www.youtube-nocookie.com/embed/H365eLChcFM?start=329&amp;rel=0" title="H365eLChcFM Brencis" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <p class="ext-links"><a href="https://www.youtube.com/watch?v=H365eLChcFM&amp;t=329s" target="_blank" rel="noopener noreferrer">YouTube 外連 →</a></p>
+      </article>
+
+      <article class="video-card">
+        <h3>全結局對照 · 2l0UUPe5hdU</h3>
+        <p>Dan Allen｜Lacra 0／Crake 2737／序章 3816／Turncoat 4185／Solo 5294</p>
+        <div class="video-frame">
+          <iframe src="https://www.youtube-nocookie.com/embed/2l0UUPe5hdU?rel=0" title="2l0UUPe5hdU All Endings" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <p class="ext-links"><a href="https://www.youtube.com/watch?v=2l0UUPe5hdU" target="_blank" rel="noopener noreferrer">YouTube 外連 →</a></p>
+      </article>
+
+      <article class="video-card">
+        <h3>弒父開打 · Or_P84_IGJ0</h3>
+        <p>Gamerpillar｜Confront @ 05:31</p>
+        <div class="video-frame">
+          <iframe src="https://www.youtube-nocookie.com/embed/Or_P84_IGJ0?start=331&amp;rel=0" title="Or_P84_IGJ0 Patricide" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <p class="ext-links"><a href="https://www.youtube.com/watch?v=Or_P84_IGJ0&amp;t=331s" target="_blank" rel="noopener noreferrer">YouTube 外連 →</a></p>
+      </article>
+
+      <article class="video-card">
+        <h3>弒父決戰 · s-MZkSkviQo</h3>
+        <p>ZaFrostPet｜Defeat Brencis @ 20:17</p>
+        <div class="video-frame">
+          <iframe src="https://www.youtube-nocookie.com/embed/s-MZkSkviQo?start=1217&amp;rel=0" title="s-MZkSkviQo Defeat" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <p class="ext-links"><a href="https://www.youtube.com/watch?v=s-MZkSkviQo&amp;t=1217s" target="_blank" rel="noopener noreferrer">YouTube 外連 →</a></p>
+      </article>
+
+      <article class="video-card">
+        <h3>完整戰有章 · u54buF7T97o</h3>
+        <p>Legacy Wings｜Battle at the summit @ 04:54</p>
+        <div class="video-frame">
+          <iframe src="https://www.youtube-nocookie.com/embed/u54buF7T97o?start=294&amp;rel=0" title="u54buF7T97o Battle" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <p class="ext-links"><a href="https://www.youtube.com/watch?v=u54buF7T97o&amp;t=294s" target="_blank" rel="noopener noreferrer">YouTube 外連 →</a></p>
+      </article>
+
+      <article class="video-card">
+        <h3>Solo／Folk Hero（無章節・人手跳）· zg4Rmyzrf2Q</h3>
+        <p>Boss Fight Database｜全段約 2366s</p>
+        <div class="video-frame">
+          <iframe src="https://www.youtube-nocookie.com/embed/zg4Rmyzrf2Q?rel=0" title="zg4Rmyzrf2Q Folk Hero" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <p class="ext-links"><a href="https://www.youtube.com/watch?v=zg4Rmyzrf2Q" target="_blank" rel="noopener noreferrer">YouTube 外連 →</a></p>
+      </article>
+
+      <article class="video-card">
+        <h3>Solo 無旁白（無章節）· VPm05NwDlIE</h3>
+        <p>Rubhen925｜PS5 Pro｜全段約 4417s</p>
+        <div class="video-frame">
+          <iframe src="https://www.youtube-nocookie.com/embed/VPm05NwDlIE?rel=0" title="VPm05NwDlIE Solo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <p class="ext-links"><a href="https://www.youtube.com/watch?v=VPm05NwDlIE" target="_blank" rel="noopener noreferrer">YouTube 外連 →</a></p>
+      </article>
+
+    </div>
+
+    <div class="basics-grid" style="margin-top:16px">
+      <div class="basic-card">
+        <h3>Bilibili 外連（唔嵌）</h3>
+        <ul>
+          <li><a href="https://www.bilibili.com/video/BV1Npt96NEWV/" target="_blank" rel="noopener noreferrer">BV1Npt96NEWV →</a>（平民英雄／約 4418s）</li>
+          <li><a href="https://www.bilibili.com/video/BV1Pup26AEmJ/" target="_blank" rel="noopener noreferrer">BV1Pup26AEmJ →</a>（短戰／約 291s）</li>
+        </ul>
+        <p style="margin-top:8px;font-size:.82rem;color:var(--muted)">API 存活已核；無單招章節＝人手跳。只外連唔嵌播。</p>
+      </div>
+      <div class="basic-card">
+        <h3>其他外連備援</h3>
+        <ul>
+          <li><a href="https://www.youtube.com/watch?v=8K1MkAqP2ZE&amp;t=305s" target="_blank" rel="noopener noreferrer">8K1MkAqP2ZE @ 305s →</a> Lacra 短戰</li>
+          <li><a href="https://www.youtube.com/watch?v=KOCW3XwmNrA&amp;t=1713s" target="_blank" rel="noopener noreferrer">KOCW3XwmNrA @ 1713s →</a> Early castle</li>
+          <li><a href="https://www.youtube.com/watch?v=k_7GPUAJOPU" target="_blank" rel="noopener noreferrer">k_7GPUAJOPU →</a> 弒父無旁白（無章）</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== #disputed ========== -->
+  <section class="section" id="disputed" aria-labelledby="disputed-title">
+    <div class="section-kicker">DISPUTED</div>
+    <h2 id="disputed-title">衝突／未定<em>資訊</em></h2>
+    <p class="section-lead">多源有出入；頁內「建議」跟核實稿。版本會改手感，以遊戲內同主 wiki 為準。</p>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>議題</th>
+            <th>說法 A</th>
+            <th>說法 B</th>
+            <th>建議</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>P2 地點</strong></td>
+            <td>dawnwalkers／gg.wiki：<strong>Anachora</strong></td>
+            <td>Fextralife 真身頁標 Griefberg Castle</td>
+            <td>寫「P1 Greifberg → cutscene → <strong>Anachora</strong>」；括註 Fextralife 亦標城堡</td>
+          </tr>
+          <tr>
+            <td><strong>P2 開場血／藥</strong></td>
+            <td>Ascendant 大幅回血；P1 慳藥</td>
+            <td>玩家 P2 滿血開始；P1 可花藥</td>
+            <td>分兩說；實務<strong>優先留藥畀 P2 solo</strong></td>
+          </tr>
+          <tr>
+            <td><strong>P2 adds／回血</strong></td>
+            <td>召喚吸血鬼＋回血光束</td>
+            <td>P2 唔再召喚 wraiths；或只有 Bakir’s Bats</td>
+            <td>見光優先清；標衝突</td>
+          </tr>
+          <tr>
+            <td><strong>盟友減 Boss HP %</strong></td>
+            <td>部分 wiki 寫約 −20%</td>
+            <td>valeguides：無驗證</td>
+            <td><strong>唔寫具體 %</strong>；只寫有盟友較易</td>
+          </tr>
+          <tr>
+            <td><strong>招名／幀數據</strong></td>
+            <td>Fextralife／社群有招名表</td>
+            <td>valeguides 拒發明幀表</td>
+            <td>招名標「社群 wiki」；唔當官方 frame data</td>
+          </tr>
+          <tr>
+            <td><strong>城名拼寫</strong></td>
+            <td>Greifberg</td>
+            <td>Griefberg</td>
+            <td>正文用 <strong>Greifberg</strong>，括註別名</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ========== #mistakes ========== -->
+  <section class="section" id="mistakes" aria-labelledby="mistakes-title">
+    <div class="section-kicker">MISTAKES</div>
+    <h2 id="mistakes-title">常見<em>錯</em></h2>
+    <ul class="mistake-list">
+      <li>骷髏標硬格／盾骷髏搞反 → <span>盾格、骷髏閃</span></li>
+      <li>忽略紅幽靈被圍殺 → <span>先清 add 再打 Boss</span></li>
+      <li>以為清空第一條血＝通關 → <span>仲有 Ascendant</span></li>
+      <li>P2 用 P1 遠距站樁 → <span>觸手射程遠，要移動閃</span></li>
+      <li>Soul Drain snare 冇閃 → <span>先閃第一下定身</span></li>
+      <li>P1 花光藥 → <span>P2 一定 solo，藥要留</span></li>
+      <li>未手動存檔就進結局叉 → <span>進會談前存</span></li>
+      <li>超 30 日仲以為準時救家人 → <span>時限影響獎盃／結局</span></li>
+      <li>中文站錯配源義經 → <span>最終 BOSS 係布倫西斯</span></li>
+    </ul>
+  </section>
+
+  <details class="sources">
+    <summary>圖文交叉源（公開攻略）</summary>
+    <div class="sources-body">
+      <ol>
+        <li><a href="https://valeguides.com/en/guides/brencis-final-boss/" target="_blank" rel="noopener noreferrer">valeguides · Brencis final boss</a></li>
+        <li><a href="https://dawnwalkers.wiki/combat/boss-brencis/" target="_blank" rel="noopener noreferrer">dawnwalkers.wiki · boss-brencis</a></li>
+        <li><a href="https://bloodofdawnwalker.wiki.fextralife.com/Brencis_Grotesque_Ascendant" target="_blank" rel="noopener noreferrer">Fextralife · Grotesque Ascendant</a></li>
+        <li><a href="https://allthings.how/the-blood-of-dawnwalker-how-to-defeat-brencis-in-the-final-boss-fight/" target="_blank" rel="noopener noreferrer">allthings.how · defeat Brencis</a></li>
+        <li><a href="https://www.powerpyx.com/the-blood-of-dawnwalker-all-endings-guide/" target="_blank" rel="noopener noreferrer">PowerPyx · All Endings</a></li>
+        <li><a href="https://www.gamespot.com/articles/blood-of-dawnwalker-boss-guide-brencis-ambrus-bakir-xanthe/" target="_blank" rel="noopener noreferrer">GameSpot · Boss guide</a></li>
+        <li><a href="https://www.oslink.io/tw/blog/guide/the-blood-of-dawnwalker-boss-guide.html" target="_blank" rel="noopener noreferrer">oslink · 繁中 Boss 順序</a></li>
+      </ol>
+    </div>
+  </details>
+
+
+  <section class="feedback" id="feedback" data-netlify-feedback aria-labelledby="feedback-title">
+    <div class="feedback-head">
+      <h2 id="feedback-title">留下<em>意見</em>俾網主</h2>
+      <span class="feedback-badge">真係會送到</span>
+    </div>
+    <p class="feedback-lead">招式唔清楚、想加邊個 Boss、有錯漏——丢句說話。留言經 Netlify Forms 直達網主信箱／後台，唔再只係本機保存。</p>
+
+    <div class="feedback-thanks" data-feedback-thanks role="status" aria-live="polite" hidden>
+      <h3>收到，多謝硬核祝福！</h3>
+      <p>你嘅意見已送出俾網主。想再講可以繼續填。</p>
+      <button type="button" class="feedback-secondary" data-feedback-again>再留一句</button>
+    </div>
+
+    <form class="feedback-form" name="boss-hunt-feedback" method="POST" action="/" data-netlify="true" netlify netlify-honeypot="bot-field" data-boss-feedback>
+      <input type="hidden" name="form-name" value="boss-hunt-feedback" />
+      <input type="hidden" name="page" value="dawnwalker-brencis.html · 黎明行者之血｜布倫西斯" />
+      <p class="feedback-honeypot" aria-hidden="true">
+        <label>唔好填呢格 <input type="text" name="bot-field" tabindex="-1" autocomplete="off" /></label>
+      </p>
+      <div class="feedback-field">
+        <label for="fb-name-dawnwalker-brencis">暱稱 <span class="opt">（可選）</span></label>
+        <input type="text" id="fb-name-dawnwalker-brencis" name="name" maxlength="80" placeholder="例如：狼忍新手" autocomplete="nickname" />
+      </div>
+      <div class="feedback-field">
+        <label for="fb-contact-dawnwalker-brencis">聯絡 <span class="opt">（可選）</span></label>
+        <input type="text" id="fb-contact-dawnwalker-brencis" name="contact" maxlength="120" placeholder="電郵／Discord（方便回覆）" autocomplete="email" />
+      </div>
+      <div class="feedback-field">
+        <label for="fb-msg-dawnwalker-brencis">意見 <span class="opt">（必填）</span></label>
+        <textarea id="fb-msg-dawnwalker-brencis" name="message" maxlength="4000" required rows="4" placeholder="想講咩就寫低…"></textarea>
+      </div>
+      <div class="feedback-actions">
+        <button type="submit" class="feedback-submit">送出意見</button>
+      </div>
+      <p class="feedback-note">送出後網主喺 Netlify → Forms 收到。唔填一樣睇晒全頁。</p>
+      <div class="feedback-status" data-feedback-status role="status" aria-live="polite"></div>
+    </form>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  硬核祝福 · BOSS 獵殺區 · 黎明行者之血 · 布倫西斯 · 唔教修改器／外掛
+</footer>
+
+<script>
+(function () {
+  function hydrateMoveClips() {
+    document.querySelectorAll('.move-clip').forEach(function (slot) {
+      var clipSrc = (slot.getAttribute('data-clip-src') || '').trim();
+      var ytId = (slot.getAttribute('data-yt-id') || '').trim();
+      var ytStart = (slot.getAttribute('data-yt-start') || '').trim();
+      var ytEnd = (slot.getAttribute('data-yt-end') || '').trim();
+      /* start="0" is valid; only skip when start attribute is empty AND no clip */
+      if (!clipSrc && ytStart === '') return;
+      slot.classList.add('is-filled');
+      slot.innerHTML = '';
+      if (clipSrc) {
+        var v = document.createElement('video');
+        v.src = clipSrc;
+        v.controls = true;
+        v.playsInline = true;
+        v.preload = 'metadata';
+        slot.appendChild(v);
+        return;
+      }
+      if (!ytId) return;
+      var params = ['start=' + encodeURIComponent(ytStart)];
+      if (ytEnd) params.push('end=' + encodeURIComponent(ytEnd));
+      params.push('rel=0');
+      var ifr = document.createElement('iframe');
+      ifr.src = 'https://www.youtube-nocookie.com/embed/' + encodeURIComponent(ytId) + '?' + params.join('&');
+      ifr.title = '招式／步驟短片';
+      ifr.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+      ifr.allowFullscreen = true;
+      ifr.loading = 'lazy';
+      slot.appendChild(ifr);
+    });
+  }
+  hydrateMoveClips();
+})();
+</script>
+
+<script src="assets/vote-widget.js" defer></script>
+<script src="assets/feedback-form.js" defer></script>
+<script src="assets/age-gate.js" defer></script>
+</body>
+</html>
