@@ -1,0 +1,329 @@
+/* 氣功大全 · 角色卡（頭像＋戰鬥力＋絕招）
+   用頁面已有 token：--bg --border --text --muted --accent --danger --safe --warn --info */
+
+.char-sheet-note {
+  font-size: .84rem;
+  color: var(--muted, #9a968c);
+  margin: 0 0 12px;
+  line-height: 1.55;
+}
+
+.char-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 12px;
+  margin: 0 0 18px;
+}
+.char-grid--ranks {
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+
+.char-card {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 12px 14px;
+  align-items: start;
+  min-width: 0;
+  color: var(--text, #e8e6e1);
+}
+a.char-card,
+a.char-card:hover {
+  color: var(--text, #e8e6e1);
+  text-decoration: none;
+}
+.char-grid .char-card,
+.hero > .char-card {
+  padding: 12px;
+  background: var(--bg, #0a0b0e);
+  border: 1px solid var(--border, #2a2f3c);
+  border-radius: 10px;
+}
+.hero > .char-card {
+  background: rgba(10, 11, 14, .55);
+}
+a.char-card:hover {
+  border-color: var(--accent, #c9a227);
+}
+a.char-card:focus-visible {
+  outline: 2px solid var(--accent, #c9a227);
+  outline-offset: 2px;
+}
+
+.char-avatar {
+  position: relative;
+  width: 104px;
+  height: 104px;
+  border-radius: 12px;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 50% 42%, rgba(154, 150, 140, .18), transparent 58%),
+    var(--bg3, #1a1d26);
+  border: 1px solid var(--accent-dim, #8a7018);
+  flex: none;
+}
+.char-card--compact .char-avatar,
+.char-card--rank .char-avatar {
+  width: 72px;
+  height: 72px;
+}
+.char-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
+  display: block;
+}
+.char-silhouette {
+  display: none;
+  position: absolute;
+  inset: 18% 22% 16%;
+  width: auto;
+  height: auto;
+  color: var(--muted, #9a968c);
+  opacity: .45;
+}
+.char-silhouette circle,
+.char-silhouette path { fill: currentColor; }
+.char-initials {
+  display: none;
+  position: absolute;
+  inset: 0;
+  place-items: center;
+  font-weight: 900;
+  font-size: 1.55rem;
+  letter-spacing: .04em;
+  color: var(--accent, #c9a227);
+  text-shadow: 0 1px 0 rgba(0, 0, 0, .45);
+}
+.char-card--compact .char-initials,
+.char-card--rank .char-initials { font-size: 1.25rem; }
+.char-avatar.is-fallback img { display: none; }
+.char-avatar.is-fallback .char-silhouette { display: block; }
+.char-avatar.is-fallback .char-initials { display: grid; z-index: 1; }
+.char-badge {
+  position: absolute;
+  left: 4px;
+  right: 4px;
+  bottom: 4px;
+  z-index: 2;
+  text-align: center;
+  font-size: .62rem;
+  font-weight: 800;
+  letter-spacing: .08em;
+  color: var(--warn, #e09a32);
+  background: rgba(10, 11, 14, .88);
+  border: 1px solid #8a5a18;
+  border-radius: 4px;
+  padding: 1px 0 2px;
+}
+
+.char-main { min-width: 0; }
+.char-kicker {
+  font-size: .68rem;
+  font-weight: 800;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--accent, #c9a227);
+  margin-bottom: 4px;
+}
+.char-name,
+.char-card h1,
+.char-card h3.char-name {
+  font-size: 1.05rem;
+  font-weight: 900;
+  letter-spacing: .04em;
+  line-height: 1.35;
+  margin: 0 0 4px;
+}
+.hero .char-card h1 {
+  font-size: clamp(1.35rem, 3vw, 1.85rem);
+}
+a.char-card:hover .char-name { color: var(--accent, #c9a227); }
+
+.char-power {
+  font-size: .92rem;
+  font-weight: 800;
+  margin: 0 0 6px;
+}
+.char-power strong {
+  font-family: var(--display, "Orbitron", "Noto Sans TC", sans-serif);
+  color: var(--accent, #c9a227);
+  letter-spacing: .03em;
+  font-size: 1.02rem;
+}
+.char-power-note {
+  display: block;
+  margin-top: 2px;
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .02em;
+  color: var(--muted, #9a968c);
+}
+.char-card--compact .char-power-note { font-size: .68rem; }
+
+.char-moves-label {
+  font-size: .72rem;
+  font-weight: 800;
+  letter-spacing: .08em;
+  color: var(--muted, #9a968c);
+  margin: 8px 0 6px;
+}
+.char-moves-label span { font-weight: 700; letter-spacing: 0; }
+
+.char-moves {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+}
+.char-move {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 2px 8px;
+  align-items: center;
+  padding: 6px 8px;
+  border: 1px solid var(--border, #2a2f3c);
+  border-radius: 8px;
+  background: rgba(10, 11, 14, .4);
+  font-size: .82rem;
+}
+.move-tag {
+  font-size: .64rem;
+  font-weight: 800;
+  letter-spacing: .04em;
+  padding: 2px 6px;
+  border-radius: 4px;
+  border: 1px solid var(--border, #2a2f3c);
+  color: var(--muted, #9a968c);
+  white-space: nowrap;
+}
+.move-name { font-weight: 900; min-width: 0; }
+.move-note {
+  grid-column: 1 / -1;
+  color: var(--muted, #9a968c);
+  font-size: .75rem;
+  font-weight: 500;
+  line-height: 1.45;
+}
+.char-card--compact .move-note { display: none; }
+.char-card--compact .char-move { padding: 4px 6px; }
+
+.char-move[data-kind="ok"] .move-tag { color: var(--safe, #3dbf7a); border-color: #1a6a45; }
+.char-move[data-kind="hype"] {
+  background: rgba(224, 69, 69, .08);
+  border-color: var(--danger-dim, #8b2222);
+}
+.char-move[data-kind="hype"] .move-tag { color: var(--danger, #e04545); border-color: var(--danger-dim, #8b2222); }
+.char-move[data-kind="dance"] .move-tag { color: var(--info, #4a9eff); border-color: #1a4a7a; }
+.char-move[data-kind="fun"] .move-tag,
+.char-move[data-kind="weak"] .move-tag,
+.char-move[data-kind="pending"] .move-tag { color: var(--warn, #e09a32); border-color: #8a5a18; }
+.char-card--compact .char-move[data-kind="hype"] .move-name::after {
+  content: "（唔當高戰力）";
+  font-weight: 700;
+  color: var(--danger, #e04545);
+  font-size: .72rem;
+}
+
+.char-oneline {
+  margin: 8px 0 0;
+  padding: 8px 10px;
+  border-left: 3px solid var(--accent, #c9a227);
+  background: rgba(201, 162, 39, .08);
+  font-size: .8rem;
+  font-weight: 700;
+  line-height: 1.45;
+}
+.char-oneline span {
+  display: block;
+  margin-bottom: 2px;
+  font-size: .66rem;
+  letter-spacing: .08em;
+  color: var(--accent, #c9a227);
+  font-weight: 800;
+}
+.char-credit {
+  margin: 8px 0 0;
+  font-size: .72rem;
+  color: var(--muted, #9a968c);
+  line-height: 1.45;
+}
+.char-grid--battle {
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+}
+.card-deck { margin: 0 0 18px; }
+.card-pager {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 12px;
+}
+.card-pager a {
+  font-size: .84rem;
+  font-weight: 800;
+  letter-spacing: .04em;
+  padding: 6px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--border, #2a2f3c);
+  color: var(--text, #e8e6e1);
+  text-decoration: none;
+  background: var(--bg, #0a0b0e);
+}
+.card-pager a:hover,
+.card-deck:not(:has(.card-page:target)) .card-pager a[href="#ranks-p1"],
+.card-deck:not(:has(.card-page:target)) .card-pager a[href="#internet-p1"],
+.card-deck:has(#ranks-p1:target) .card-pager a[href="#ranks-p1"],
+.card-deck:has(#ranks-p2:target) .card-pager a[href="#ranks-p2"],
+.card-deck:has(#internet-p1:target) .card-pager a[href="#internet-p1"] {
+  border-color: var(--accent, #c9a227);
+  color: var(--accent, #c9a227);
+}
+.card-pager-meta {
+  font-size: .75rem;
+  color: var(--muted, #9a968c);
+}
+.card-page { scroll-margin-top: 96px; }
+.card-pages > .card-page { display: none; }
+.card-pages > .card-page:first-child,
+.card-pages > .card-page:target { display: block; }
+.card-pages:has(> .card-page:target) > .card-page:not(:target) { display: none; }
+.char-card .meta-row { margin-top: 10px; }
+.char-card .hero-sub { margin-top: 4px; margin-bottom: 8px; }
+
+/* 彩色公開照＋TCG 框係直向卡面（約 5:7），用 contain 先唔切走卡框同名字 */
+.char-avatar--poster {
+  width: 120px;
+  height: 168px;
+  border-radius: 8px;
+  background: #14110c;
+  border-color: #8a7018;
+}
+.char-card--compact .char-avatar--poster,
+.char-card--rank .char-avatar--poster {
+  width: 108px;
+  height: 151px;
+}
+.hero .char-avatar--poster {
+  width: 168px;
+  height: 235px;
+}
+.char-avatar--poster img {
+  object-fit: contain;
+  object-position: center;
+  background: #14110c;
+}
+
+@media (max-width: 640px) {
+  .char-avatar { width: 72px; height: 72px; }
+  .char-avatar--poster,
+  .hero .char-avatar--poster,
+  .char-card--compact .char-avatar--poster,
+  .char-card--rank .char-avatar--poster {
+    width: 96px;
+    height: 134px;
+  }
+  .hero .char-card h1 { font-size: 1.3rem; }
+}

@@ -183,6 +183,50 @@ code {
 }
 .jump-row a:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
 
+.cat-bar {
+  display: flex; flex-wrap: wrap; gap: 8px;
+  margin: 0 0 18px;
+  position: sticky; top: 72px; z-index: 40;
+  padding: 8px;
+  background: rgba(10,11,14,.92);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+}
+.cat-bar a {
+  font-size: .82rem; font-weight: 800;
+  padding: 8px 12px; border-radius: 999px;
+  border: 1px solid var(--accent-dim);
+  color: var(--accent); text-decoration: none;
+  background: rgba(201,162,39,.08);
+}
+.cat-bar a:hover { background: rgba(201,162,39,.18); text-decoration: none; }
+.cat-rail {
+  display: none;
+}
+@media (min-width: 1500px) {
+  .cat-rail {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    position: fixed;
+    z-index: 90;
+    left: 16px;
+    top: 120px;
+    width: 168px;
+  }
+  .cat-rail a {
+    font-size: .82rem; font-weight: 800; line-height: 1.35;
+    padding: 10px 12px;
+    border-radius: 10px;
+    border: 1px solid var(--accent-dim);
+    color: var(--accent);
+    text-decoration: none;
+    background: rgba(10,11,14,.92);
+  }
+  .cat-rail a:hover { background: rgba(201,162,39,.16); text-decoration: none; }
+}
+
 .vid-card {
   background: var(--bg);
   border: 1px solid var(--border);
@@ -247,6 +291,8 @@ tr:hover td { background: rgba(255,255,255,.02); }
 <link rel="stylesheet" href="assets/vote-widget.css" />
 <link rel="stylesheet" href="assets/feedback-form.css" />
 <link rel="stylesheet" href="assets/age-gate.css" />
+<link rel="stylesheet" href="assets/qigong-char-card.css" />
+<script src="assets/qigong-char-card.js" defer></script>
 </head>
 <body>
 
@@ -259,19 +305,30 @@ tr:hover td { background: rgba(255,255,255,.02); }
     </div>
     <div class="header-right">
       <div class="page-title">氣功大全 · <span>公開真料庫</span></div>
-      <nav class="nav-mini" aria-label="本頁錨點">
-        <a href="#about">關於</a>
-        <a href="#method">尺</a>
-        <a href="#truth">影片</a>
-        <a href="#ranks">人物</a>
-        <a href="#internet">奇人</a>
-        <a href="#regions">地區</a>
+      <nav class="nav-mini" aria-label="分類跳轉">
+        <a href="#internet">網路奇人／待核</a>
+        <a href="#ranks">三六九等／ranks</a>
+        <a href="#truth">影片真相庫</a>
+        <a href="#regions">地區榜</a>
       </nav>
     </div>
   </div>
 </header>
 
+<aside class="cat-rail" aria-label="分類側欄">
+  <a href="#internet">網路奇人／待核</a>
+  <a href="#ranks">三六九等／ranks</a>
+  <a href="#truth">影片真相庫</a>
+  <a href="#regions">地區榜</a>
+</aside>
+
 <main class="wrap">
+  <nav class="cat-bar" aria-label="分類跳轉">
+    <a href="#internet">網路奇人／待核</a>
+    <a href="#ranks">三六九等／ranks</a>
+    <a href="#truth">影片真相庫</a>
+    <a href="#regions">地區榜</a>
+  </nav>
 
   <div data-boss-vote data-vote-slug="qigong-encyclopedia"></div>
 
@@ -707,6 +764,39 @@ tr:hover td { background: rgba(255,255,255,.02); }
       <p class="section-lead" style="margin-top:10px">一句依據只引用公開片、可見接觸訓練、賽績、公開約戰結果。吹水、無接觸神功唔當高戰力。網路奇人見 <a href="#internet">#internet</a>，數字跟第二批，唔好估到接近 3。</p>
     </div>
 
+    <h3 id="rank-cards-title">角色卡</h3>
+    <p class="char-sheet-note">14 人未有傳記頁，卡片先掛喺度，唔連去空頁。第 1 頁係一等至二等，第 2 頁係三等至六等。頭像、戰鬥力、絕招跟 2026-10-18 採集檔，硬核祝福編輯意見｜非官方。下面人物表係較早暫估，同卡嘅數字若唔同，唔好當成同一條數。楊軍（GFDL）、陳小旺（Public domain）、葉問（Public domain）、黃淳樑（CC BY-SA 3.0）、Gordon Ryan（CC BY 3.0）係彩色公開照＋TCG 框，來源 Wikimedia Commons，見各卡。John Danaher、Yang Xiaojun 係 YouTube 縮圖＋TCG 框，跟 YouTube ToS，唔係 Wikimedia。卡面字係草圖，戰鬥力以呢頁為準。吹水、表演、傳說、影視唔當高戰力。</p>
+    <div class="card-deck" id="rank-cards" aria-label="人物角色卡">
+      <nav class="card-pager" aria-label="三六九等分頁">
+        <a href="#ranks-p1">第 1 頁</a>
+        <a href="#ranks-p2">第 2 頁</a>
+        <span class="card-pager-meta">14 人 · 第 1 頁一等至二等 · 第 2 頁三等至六等</span>
+      </nav>
+      <div class="card-pages">
+        <div class="card-page" id="ranks-p1">
+          <div class="char-grid char-grid--ranks">
+      <article class="char-card char-card--rank" data-slug="bio-ip-man"><div class="char-avatar char-avatar--poster"><img src="assets/qigong-avatars/bio-ip-man.jpg" data-fallback-src="https://upload.wikimedia.org/wikipedia/commons/5/50/Ip_Man_Wing_Chun_Association.jpg" alt="彩色公開照加TCG框" width="108" height="151" loading="lazy" decoding="async" /><svg class="char-silhouette" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><circle cx="32" cy="22" r="10"></circle><path d="M12 56c2-14 10-20 20-20s18 6 20 20"></path></svg><span class="char-initials" aria-hidden="true">葉</span></div><div class="char-main"><p class="char-kicker">一等 · 香港 · 未有傳記頁</p><h3 class="char-name">葉問</h3><p class="char-power"><span class="char-power-k">戰鬥力</span> <strong>1.6–2.2</strong><span class="char-power-note">歷史估計｜編輯意見｜非官方 · 影視唔當實戰</span></p><ul class="char-moves" aria-label="絕招"><li class="char-move" data-kind="ok"><span class="move-tag">傳承可核</span><span class="move-name">詠春木人樁體系</span><span class="move-note">公開傳承標準訓練。影視改編唔加分。</span></li><li class="char-move" data-kind="ok"><span class="move-tag">傳承可核</span><span class="move-name">黏手（Chi Sao）</span><span class="move-note">葉問系接觸訓練。弟子系教學可見，唔等於本人賽績。</span></li><li class="char-move" data-kind="weak"><span class="move-tag">門派基本</span><span class="move-name">小念頭／尋橋結構</span><span class="move-note">公開教學生態可核。影視改編當娛樂，唔當實戰。</span></li></ul><p class="char-credit">彩色公開照＋TCG 框。來源 <a href="https://commons.wikimedia.org/wiki/File:Yip_Man.jpg" target="_blank" rel="noopener">Wikimedia Commons File:Yip_Man.jpg</a>（Public domain）。卡面字係草圖，戰鬥力以呢頁為準。載入失敗先用 Commons 團體照 Ip_Man_Wing_Chun_Association.jpg 作備援。</p></div></article>
+      <article class="char-card char-card--rank" data-slug="bio-bruce-lee"><div class="char-avatar"><img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/Bruce_Lee_1973.jpg" alt="" width="104" height="104" loading="lazy" decoding="async" referrerpolicy="no-referrer" /><svg class="char-silhouette" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><circle cx="32" cy="22" r="10"></circle><path d="M12 56c2-14 10-20 20-20s18 6 20 20"></path></svg><span class="char-initials" aria-hidden="true">李</span><span class="char-badge">劇照</span></div><div class="char-main"><p class="char-kicker">一等 · 香港／美國 · 未有傳記頁</p><h3 class="char-name">李小龍</h3><p class="char-power"><span class="char-power-k">戰鬥力</span> <strong>2.0–2.6</strong><span class="char-power-note">歷史估計｜編輯意見｜非官方 · 唔單片定論，唔超泰臣＝3</span></p><ul class="char-moves" aria-label="絕招"><li class="char-move" data-kind="ok"><span class="move-tag">方法論可核</span><span class="move-name">截拳直拳／非古典組合</span><span class="move-note">公開訓練史同方法論。唔靠一條街頭剪輯定論。</span></li><li class="char-move" data-kind="fun"><span class="move-tag">史料／影視娛樂</span><span class="move-name">踢擊／敏捷體能展示</span><span class="move-note">訓練史料可核。電影武打係娛樂，唔直接等於擂台戰績。</span></li><li class="char-move" data-kind="weak"><span class="move-tag">示範｜勿吹神功</span><span class="move-name">一寸拳</span><span class="move-note">公開示範存在。實戰效力勿神話，唔當高戰力神功。</span></li></ul><p class="char-credit">頭像：Wikimedia Commons 劇照 Bruce_Lee_1973.jpg。授權見 Commons 頁，上站再核。</p></div></article>
+      <article class="char-card char-card--rank" data-slug="bio-mas-oyama"><div class="char-avatar"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6f/Masutatsu_Oyama_karate.jpg" alt="" width="104" height="104" loading="lazy" decoding="async" referrerpolicy="no-referrer" /><svg class="char-silhouette" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><circle cx="32" cy="22" r="10"></circle><path d="M12 56c2-14 10-20 20-20s18 6 20 20"></path></svg><span class="char-initials" aria-hidden="true">大</span></div><div class="char-main"><p class="char-kicker">一等 · 日本 · 未有傳記頁</p><h3 class="char-name">大山倍達</h3><p class="char-power"><span class="char-power-k">戰鬥力</span> <strong>2.2–2.8</strong><span class="char-power-note">歷史估計｜編輯意見｜非官方 · 傳說唔自動超泰臣＝3</span></p><ul class="char-moves" aria-label="絕招"><li class="char-move" data-kind="ok"><span class="move-tag">體系可核</span><span class="move-name">極真全接觸組手</span><span class="move-note">無護手套錦標賽規則可核。個人傳奇要分開睇。</span></li><li class="char-move" data-kind="ok"><span class="move-tag">賽事可證</span><span class="move-name">中段踢／重擊傳統</span><span class="move-note">體系全接觸賽事可見。唔把傳說加進戰鬥力。</span></li><li class="char-move" data-kind="pending"><span class="move-tag">待核／傳說</span><span class="move-name">山籠訓練敘事</span><span class="move-note">個人傳奇同非賽事敘事混埋。狀態待核，唔當已證絕招。</span></li></ul><p class="char-credit">頭像：Wikimedia Commons 1954 報道照片 Masutatsu_Oyama_karate.jpg。授權見 Commons 頁，上站再核。</p></div></article>
+      <article class="char-card char-card--rank" data-slug="bio-gordon-ryan"><div class="char-avatar char-avatar--poster"><img src="assets/qigong-avatars/bio-gordon-ryan.jpg" data-fallback-src="https://i.ytimg.com/vi/Cwp2Q0angjc/hqdefault.jpg" alt="彩色公開照加TCG框" width="108" height="151" loading="lazy" decoding="async" /><svg class="char-silhouette" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><circle cx="32" cy="22" r="10"></circle><path d="M12 56c2-14 10-20 20-20s18 6 20 20"></path></svg><span class="char-initials" aria-hidden="true">G</span></div><div class="char-main"><p class="char-kicker">一等 · 美國 · 未有傳記頁</p><h3 class="char-name">Gordon Ryan</h3><p class="char-power"><span class="char-power-k">戰鬥力</span> <strong>2.4–2.9</strong><span class="char-power-note">編輯意見｜非官方 · 貼近上限，唔寫超泰臣＝3</span></p><ul class="char-moves" aria-label="絕招"><li class="char-move" data-kind="ok"><span class="move-tag">可證教學</span><span class="move-name">站立防摔基本</span><span class="move-note">公開站立防摔拆解。</span></li><li class="char-move" data-kind="ok"><span class="move-tag">賽績可核</span><span class="move-name">無道服上層／腿鎖體系</span><span class="move-note">ADCC 級公開賽果。專項係寢技，唔漫畫化。</span></li><li class="char-move" data-kind="ok"><span class="move-tag">可證競技</span><span class="move-name">身體鎖／體位壓制</span><span class="move-note">公開賽可見結束技術。</span></li></ul><p class="char-credit">彩色公開照＋TCG 框。來源 <a href="https://commons.wikimedia.org/wiki/File:ADCC_King_Gordon_Ryan_Gritty_Path_To_Glory_-_YouTube_-_10_12_(cropped).jpg" target="_blank" rel="noopener">Wikimedia Commons File:ADCC_King_Gordon_Ryan_Gritty_Path_To_Glory_-_YouTube_-_10_12_(cropped).jpg</a>（CC BY 3.0，Artist: Derek Moneyberg；Commons 上載嘅 YouTube 靜幀）。卡面字係草圖，戰鬥力以呢頁為準。載入失敗先用 YouTube 縮圖（跟 ToS，唔係 Wikimedia）。</p></div></article>
+      <article class="char-card char-card--rank" data-slug="bio-chen-xiaowang"><div class="char-avatar char-avatar--poster"><img src="assets/qigong-avatars/bio-chen-xiaowang.jpg" data-fallback-src="https://i.ytimg.com/vi/bUmE_1L4vdo/hqdefault.jpg" alt="彩色公開照加TCG框" width="108" height="151" loading="lazy" decoding="async" /><svg class="char-silhouette" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><circle cx="32" cy="22" r="10"></circle><path d="M12 56c2-14 10-20 20-20s18 6 20 20"></path></svg><span class="char-initials" aria-hidden="true">陳</span></div><div class="char-main"><p class="char-kicker">二等 · 中國 · 未有傳記頁</p><h3 class="char-name">陳小旺</h3><p class="char-power"><span class="char-power-k">戰鬥力</span> <strong>1.4–2.0</strong><span class="char-power-note">編輯意見｜非官方 · 示範可核，無全接觸職業賽績</span></p><ul class="char-moves" aria-label="絕招"><li class="char-move" data-kind="ok"><span class="move-tag">可證示範</span><span class="move-name">纏絲功</span><span class="move-note">螺旋結構、全身協調可見。唔當全接觸賽績。</span></li><li class="char-move" data-kind="ok"><span class="move-tag">可證</span><span class="move-name">定式發力／纏絲續</span><span class="move-note">續練公開可見。</span></li><li class="char-move" data-kind="ok"><span class="move-tag">可證接觸教學</span><span class="move-name">陳氏推手協調</span><span class="move-note">推手結構。唔當擂台戰績。</span></li></ul><p class="char-credit">彩色公開照＋TCG 框。來源 <a href="https://commons.wikimedia.org/wiki/File:Cxwrio.jpg" target="_blank" rel="noopener">Wikimedia Commons File:Cxwrio.jpg</a>（Public domain）。卡面字係草圖，戰鬥力以呢頁為準。載入失敗先用 YouTube 縮圖（跟 ToS，唔係 Wikimedia）。</p></div></article>
+      <article class="char-card char-card--rank" data-slug="bio-wong-shun-leung"><div class="char-avatar char-avatar--poster"><img src="assets/qigong-avatars/bio-wong-shun-leung.jpg" data-fallback-src="https://i.ytimg.com/vi/r4RkhTyfrZE/hqdefault.jpg" alt="彩色公開照加TCG框" width="108" height="151" loading="lazy" decoding="async" /><svg class="char-silhouette" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><circle cx="32" cy="22" r="10"></circle><path d="M12 56c2-14 10-20 20-20s18 6 20 20"></path></svg><span class="char-initials" aria-hidden="true">黃</span></div><div class="char-main"><p class="char-kicker">二等 · 香港 · 未有傳記頁</p><h3 class="char-name">黃淳樑</h3><p class="char-power"><span class="char-power-k">戰鬥力</span> <strong>1.7–2.3</strong><span class="char-power-note">編輯意見｜非官方 · 比武場次數字口述待核</span></p><ul class="char-moves" aria-label="絕招"><li class="char-move" data-kind="ok"><span class="move-tag">可證教學</span><span class="move-name">攤膀／圈手</span><span class="move-note">研討會影像見結構。</span></li><li class="char-move" data-kind="weak"><span class="move-tag">教學導向</span><span class="move-name">講手</span><span class="move-note">紀錄片可核教學導向。場次數字待核，唔硬當官方紀錄。</span></li><li class="char-move" data-kind="ok"><span class="move-tag">可證結構</span><span class="move-name">直線中線拳法</span><span class="move-note">公開教學可見。</span></li></ul><p class="char-credit">彩色公開照＋TCG 框。來源 <a href="https://commons.wikimedia.org/wiki/File:Wong_Shun_Leung_and_Wan_Kam_Leung.jpg" target="_blank" rel="noopener">Wikimedia Commons File:Wong_Shun_Leung_and_Wan_Kam_Leung.jpg</a>（CC BY-SA 3.0，Artist: Echirlin；雙人照裁左，解析度偏低）。卡面字係草圖，戰鬥力以呢頁為準。載入失敗先用 YouTube 縮圖（跟 ToS，唔係 Wikimedia）。</p></div></article>
+      <article class="char-card char-card--rank" data-slug="bio-john-danaher"><div class="char-avatar char-avatar--poster"><img src="assets/qigong-avatars/bio-john-danaher.jpg" data-fallback-src="https://i.ytimg.com/vi/jdv82OdlTO8/hqdefault.jpg" alt="彩色公開照加TCG框" width="108" height="151" loading="lazy" decoding="async" /><svg class="char-silhouette" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><circle cx="32" cy="22" r="10"></circle><path d="M12 56c2-14 10-20 20-20s18 6 20 20"></path></svg><span class="char-initials" aria-hidden="true">J</span></div><div class="char-main"><p class="char-kicker">二等 · 紐西蘭→美國 · 未有傳記頁</p><h3 class="char-name">John Danaher</h3><p class="char-power"><span class="char-power-k">戰鬥力</span> <strong>1.5–2.0</strong><span class="char-power-note">教練為主｜編輯意見｜非官方 · 學員金牌 ≠ 本人出場</span></p><ul class="char-moves" aria-label="絕招"><li class="char-move" data-kind="ok"><span class="move-tag">可證教學</span><span class="move-name">體位控制系統</span><span class="move-note">公開課程拆解體位。</span></li><li class="char-move" data-kind="ok"><span class="move-tag">可證課程</span><span class="move-name">腿鎖／下層系統教學</span><span class="move-note">教練體系。學員賽績唔加成本人肢體戰力。</span></li></ul><p class="char-credit">彩色公開照＋TCG 框。照片係 <a href="https://www.youtube.com/watch?v=jdv82OdlTO8" target="_blank" rel="noopener">YouTube 縮圖</a>（片 jdv82OdlTO8，教學畫面或有字幕殘影；勿與同名參議員相混淆），跟 YouTube ToS，唔係 Wikimedia，唔當永久圖庫。卡面字係草圖，戰鬥力以呢頁為準。</p></div></article>
+          </div>
+        </div>
+        <div class="card-page" id="ranks-p2">
+          <div class="char-grid char-grid--ranks">
+      <article class="char-card char-card--rank" data-slug="bio-yang-jun"><div class="char-avatar char-avatar--poster"><img src="assets/qigong-avatars/bio-yang-jun.jpg" alt="彩色公開照加TCG框" width="108" height="151" loading="lazy" decoding="async" /><svg class="char-silhouette" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><circle cx="32" cy="22" r="10"></circle><path d="M12 56c2-14 10-20 20-20s18 6 20 20"></path></svg><span class="char-initials" aria-hidden="true">楊</span></div><div class="char-main"><p class="char-kicker">三等 · 中國→美國 · 未有傳記頁</p><h3 class="char-name">楊軍</h3><p class="char-power"><span class="char-power-k">戰鬥力</span> <strong>1.2–1.7</strong><span class="char-power-note">編輯意見｜非官方 · 傳承為主，非全接觸賽績</span></p><ul class="char-moves" aria-label="絕招"><li class="char-move" data-kind="ok"><span class="move-tag">公開傳承可核</span><span class="move-name">楊氏太極套路示範</span><span class="move-note">公開教學／推廣標準。非擂台選手型。</span></li><li class="char-move" data-kind="fun"><span class="move-tag">暱稱・推廣向</span><span class="move-name">國際研習帶功</span><span class="move-note">國際巡迴教學角色。唔當殺招。</span></li></ul><p class="char-credit">彩色公開照＋TCG 框。來源 <a href="https://commons.wikimedia.org/wiki/File:Master_Yang_Jun_Bend_The_Bow_Shoot_The_Tiger.jpg" target="_blank" rel="noopener">Wikimedia Commons File:Master_Yang_Jun_Bend_The_Bow_Shoot_The_Tiger.jpg</a>（GFDL，Artist: Yang Jun）。卡面姓名係楊軍。卡面字係草圖，戰鬥力以呢頁為準。</p></div></article>
+      <article class="char-card char-card--rank" data-slug="bio-luo-dexiu"><div class="char-avatar"><img src="https://i.ytimg.com/vi/-CA-eGPtXPo/hqdefault.jpg" alt="" width="104" height="104" loading="lazy" decoding="async" referrerpolicy="no-referrer" /><svg class="char-silhouette" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><circle cx="32" cy="22" r="10"></circle><path d="M12 56c2-14 10-20 20-20s18 6 20 20"></path></svg><span class="char-initials" aria-hidden="true">羅</span></div><div class="char-main"><p class="char-kicker">三等 · 台灣 · 未有傳記頁</p><h3 class="char-name">羅德修</h3><p class="char-power"><span class="char-power-k">戰鬥力</span> <strong>1.5–2.1</strong><span class="char-power-note">編輯意見｜非官方 · 早期賽績細節待核</span></p><ul class="char-moves" aria-label="絕招"><li class="char-move" data-kind="ok"><span class="move-tag">可證</span><span class="move-name">高氏八卦走圈</span><span class="move-note">轉身、走圈公開可見。</span></li><li class="char-move" data-kind="ok"><span class="move-tag">可證教學</span><span class="move-name">八卦應用接觸</span><span class="move-note">片內應用段落。</span></li><li class="char-move" data-kind="pending"><span class="move-tag">敘事可核・賽績待核</span><span class="move-name">形意／意宗結構</span><span class="move-note">師承摘要可核。早期賽績細節未當已證。</span></li></ul><p class="char-credit">頭像：YouTube 縮圖（-CA-eGPtXPo）。跟 YouTube ToS，非官方圖庫。</p></div></article>
+      <article class="char-card char-card--rank" data-slug="bio-lam-kam-chuen"><div class="char-avatar"><img src="https://i.ytimg.com/vi/y07FauHYlmg/hqdefault.jpg" alt="" width="104" height="104" loading="lazy" decoding="async" referrerpolicy="no-referrer" /><svg class="char-silhouette" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><circle cx="32" cy="22" r="10"></circle><path d="M12 56c2-14 10-20 20-20s18 6 20 20"></path></svg><span class="char-initials" aria-hidden="true">林</span></div><div class="char-main"><p class="char-kicker">四等 · 香港→英國 · 未有傳記頁</p><h3 class="char-name">林金泉</h3><p class="char-power"><span class="char-power-k">戰鬥力</span> <strong>0.9–1.2</strong><span class="char-power-note">非格鬥評級｜編輯意見｜非官方 · 養生站樁，唔寫成打人</span></p><ul class="char-moves" aria-label="絕招"><li class="char-move" data-kind="ok"><span class="move-tag">可證養生</span><span class="move-name">站樁日課</span><span class="move-note">呼吸同站姿可見。係養生，唔係格鬥絕招。</span></li><li class="char-move" data-kind="ok"><span class="move-tag">可證養生</span><span class="move-name">站樁進階日課</span><span class="move-note">進階日課同樣係養生。</span></li></ul><p class="char-credit">頭像：YouTube 縮圖（y07FauHYlmg）。跟 YouTube ToS，非官方圖庫。</p></div></article>
+      <article class="char-card char-card--rank" data-slug="bio-federico-malagutti"><div class="char-avatar"><img src="https://i.ytimg.com/vi/Q47CbCc4dXY/hqdefault.jpg" alt="" width="104" height="104" loading="lazy" decoding="async" referrerpolicy="no-referrer" /><svg class="char-silhouette" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><circle cx="32" cy="22" r="10"></circle><path d="M12 56c2-14 10-20 20-20s18 6 20 20"></path></svg><span class="char-initials" aria-hidden="true">F</span></div><div class="char-main"><p class="char-kicker">四等 · 意大利 · 未有傳記頁</p><h3 class="char-name">Federico Malagutti</h3><p class="char-power"><span class="char-power-k">戰鬥力</span> <strong>1.3–1.8</strong><span class="char-power-note">護具劍術語境｜編輯意見｜非官方 · 唔換算做空手搏擊</span></p><ul class="char-moves" aria-label="絕招"><li class="char-move" data-kind="ok"><span class="move-tag">可證 Sparring</span><span class="move-name">長劍距離管理</span><span class="move-note">護具對練可見時機。</span></li><li class="char-move" data-kind="ok"><span class="move-tag">可證對練</span><span class="move-name">Fiore 系砍刺交換</span><span class="move-note">公開交換回合。有護具。</span></li></ul><p class="char-credit">頭像：YouTube 縮圖（Q47CbCc4dXY）。跟 YouTube ToS，非官方圖庫。</p></div></article>
+      <article class="char-card char-card--rank" data-slug="bio-eduardo-tanaka"><div class="char-avatar"><img src="https://i.ytimg.com/vi/a3AGBSz53_Y/hqdefault.jpg" alt="" width="104" height="104" loading="lazy" decoding="async" referrerpolicy="no-referrer" /><svg class="char-silhouette" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><circle cx="32" cy="22" r="10"></circle><path d="M12 56c2-14 10-20 20-20s18 6 20 20"></path></svg><span class="char-initials" aria-hidden="true">E</span></div><div class="char-main"><p class="char-kicker">五等 · 巴西／日本賽場 · 未有傳記頁</p><h3 class="char-name">Eduardo Tanaka</h3><p class="char-power"><span class="char-power-k">戰鬥力</span> <strong>1.6–2.1</strong><span class="char-power-note">編輯意見｜非官方 · 單場可核，唔因單場抬宗師</span></p><ul class="char-moves" aria-label="絕招"><li class="char-move" data-kind="ok"><span class="move-tag">可證單場</span><span class="move-name">極真中段踢攻防</span><span class="move-note">公開全接觸對戰可見。</span></li><li class="char-move" data-kind="ok"><span class="move-tag">可證</span><span class="move-name">全接觸近身打擊</span><span class="move-note">同場攻防節奏。生涯戰績細節待查。</span></li></ul><p class="char-credit">頭像：YouTube 縮圖（a3AGBSz53_Y）。跟 YouTube ToS，非官方圖庫。</p></div></article>
+      <article class="char-card char-card--rank" data-slug="bio-yang-xiaojun-sanda"><div class="char-avatar char-avatar--poster"><img src="assets/qigong-avatars/bio-yang-xiaojun-sanda.jpg" data-fallback-src="https://i.ytimg.com/vi/UCuwGnPR9Jk/hqdefault.jpg" alt="彩色公開照加TCG框" width="108" height="151" loading="lazy" decoding="async" /><svg class="char-silhouette" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><circle cx="32" cy="22" r="10"></circle><path d="M12 56c2-14 10-20 20-20s18 6 20 20"></path></svg><span class="char-initials" aria-hidden="true">Y</span></div><div class="char-main"><p class="char-kicker">五等 · 中國 · 未有傳記頁</p><h3 class="char-name">Yang Xiaojun</h3><p class="char-power"><span class="char-power-k">戰鬥力</span> <strong>1.4–1.9</strong><span class="char-power-note">編輯意見｜非官方 · 教學接觸可核，職銜待核</span></p><ul class="char-moves" aria-label="絕招"><li class="char-move" data-kind="ok"><span class="move-tag">可證教學接觸</span><span class="move-name">散打抱摔／過背類</span><span class="move-note">教學片見摔法。職銜未核，唔抬英雄傳。</span></li><li class="char-move" data-kind="ok"><span class="move-tag">可證教學</span><span class="move-name">散打摔法連接拳腿</span><span class="move-note">訓練結構可見。</span></li></ul><p class="char-credit">彩色公開照＋TCG 框。照片係 <a href="https://www.youtube.com/watch?v=UCuwGnPR9Jk" target="_blank" rel="noopener">YouTube 縮圖</a>（片 UCuwGnPR9Jk，教學縮圖或含英文字幕），跟 YouTube ToS，唔係 Wikimedia，唔當永久圖庫。卡面字係草圖，戰鬥力以呢頁為準。</p></div></article>
+      <article class="char-card char-card--rank" data-slug="bio-zhang-hong-mei"><div class="char-avatar"><img src="https://i.ytimg.com/vi/3NHEOU88TaY/hqdefault.jpg" alt="" width="104" height="104" loading="lazy" decoding="async" referrerpolicy="no-referrer" /><svg class="char-silhouette" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><circle cx="32" cy="22" r="10"></circle><path d="M12 56c2-14 10-20 20-20s18 6 20 20"></path></svg><span class="char-initials" aria-hidden="true">張</span></div><div class="char-main"><p class="char-kicker">六等 · 中國 · 未有傳記頁</p><h3 class="char-name">張洪梅</h3><p class="char-power"><span class="char-power-k">戰鬥力</span> <strong>1.0–1.4</strong><span class="char-power-note">編輯意見｜非官方 · 演示可核，簡歷待核</span></p><ul class="char-moves" aria-label="絕招"><li class="char-move" data-kind="ok"><span class="move-tag">可證示範</span><span class="move-name">八卦掌走轉演示</span><span class="move-note">公開演示。師承簡歷未齊，唔抬宗師。</span></li><li class="char-move" data-kind="ok"><span class="move-tag">可證示範</span><span class="move-name">八卦掌形展開</span><span class="move-note">同片可見。</span></li></ul><p class="char-credit">頭像：YouTube 縮圖（3NHEOU88TaY）。跟 YouTube ToS，非官方圖庫。</p></div></article>
+          </div>
+        </div>
+      </div>
+    </div>
     <div class="table-wrap">
       <table>
         <thead>
@@ -748,8 +838,31 @@ tr:hover td { background: rgba(255,255,255,.02); }
     <div class="section-kicker">INTERNET</div>
     <h2 id="internet-title">網路奇人／<em>待核</em></h2>
     <p class="section-lead">第二批真料（2026-10-18）：7 個必收名，加 3 個相關公開人物，共 10 人。表入面同下面卡嘅人名，連去人物傳。戰鬥力同真假跟採集檔，唔當神功。標尺仍然係 1＝普通成年男子、泰臣＝3（《刃牙》錨，非科學測量）。有公開真接觸先至可以接近或略高過 1；翻車、表演、無接觸吹噓遠低過 3。每行標「硬核祝福編輯意見｜非官方」。代表片用 youtube-nocookie；同場片不重複嵌。</p>
+    <p class="char-sheet-note">10 人完整戰鬥卡（頭像、戰鬥力範圍、全部絕招、一句註）跟 2026-10-18 採集檔 §A，同三六九等同一套卡牌。10 張都係本地彩色公開照＋TCG 框，主圖唔用 YouTube 外鏈。Nobody-here、王慶民嘅卡面照片來自 YouTube 縮圖，跟 YouTube ToS，唔係 Wikimedia。其餘 8 張同樣係彩色公開照＋TCG 框；載入失敗先用 YouTube 縮圖備援，跟 ToS，唔係 Wikimedia。絕招標可證／吹水／表演／舞蹈；吹水同表演唔當高戰力。戰鬥力係硬核祝福編輯意見｜非官方。10 人同一頁。</p>
+    <div class="card-deck" id="internet-cards" aria-label="網路奇人角色卡">
+      <nav class="card-pager" aria-label="網路奇人分頁">
+        <a href="#internet-p1">第 1 頁</a>
+        <span class="card-pager-meta">10 人 · 本頁全部</span>
+      </nav>
+      <div class="card-pages">
+        <div class="card-page" id="internet-p1">
+          <div class="char-grid char-grid--battle">
+      <a class="char-card" data-slug="bio-carriage-lau" href="qigong-bios/qigong-bio-carriage-lau.html"><div class="char-avatar char-avatar--poster"><img src="assets/qigong-avatars/bio-carriage-lau.jpg" data-fallback-src="https://i.ytimg.com/vi/5srmA5xbBJs/hqdefault.jpg" alt="彩色公開照加TCG框" width="120" height="168" loading="lazy" decoding="async" /><svg class="char-silhouette" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><circle cx="32" cy="22" r="10"></circle><path d="M12 56c2-14 10-20 20-20s18 6 20 20"></path></svg><span class="char-initials" aria-hidden="true">劉</span></div><div class="char-main"><p class="char-kicker">CARD-I01 · 香港</p><h3 class="char-name">劉馬車</h3><p class="char-power"><span class="char-power-k">戰鬥力</span> <strong>0.4–0.7</strong><span class="char-power-note">編輯意見｜非官方 · 1＝普通成年男子 · 泰臣＝3</span></p><ul class="char-moves" aria-label="絕招"><li class="char-move" data-kind="hype"><span class="move-tag">娛樂｜非武技</span><span class="move-name">口砲開場</span><span class="move-note">記者會推撞／口角氣氛。唔係可證武技，唔當高戰力。</span></li><li class="char-move" data-kind="ok"><span class="move-tag">可證接觸・娛樂</span><span class="move-name">籠鬥亂拳</span><span class="move-note">素人籠鬥可見揮打。秀場規則，唔當職業賽績。</span></li></ul><p class="char-oneline"><span>一句註</span>話題網絡奇人；戰力遠低於泰臣＝3，唔美化。</p><p class="char-credit">彩色公開照＋TCG 框。主圖係本地卡。載入失敗先用 YouTube 縮圖（片 5srmA5xbBJs，跟 ToS，唔係 Wikimedia）。卡面字係草圖，戰鬥力以呢頁為準。</p></div></a>
+      <a class="char-card" data-slug="bio-long-sum" href="qigong-bios/qigong-bio-long-sum.html"><div class="char-avatar char-avatar--poster"><img src="assets/qigong-avatars/bio-long-sum.jpg" data-fallback-src="https://i.ytimg.com/vi/Mw_C2aC0oro/hqdefault.jpg" alt="彩色公開照加TCG框" width="120" height="168" loading="lazy" decoding="async" /><svg class="char-silhouette" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><circle cx="32" cy="22" r="10"></circle><path d="M12 56c2-14 10-20 20-20s18 6 20 20"></path></svg><span class="char-initials" aria-hidden="true">龍</span></div><div class="char-main"><p class="char-kicker">CARD-I02 · 香港</p><h3 class="char-name">龍心</h3><p class="char-power"><span class="char-power-k">戰鬥力</span> <strong>0.3–0.6</strong><span class="char-power-note">編輯意見｜非官方 · 1＝普通成年男子 · 泰臣＝3</span></p><ul class="char-moves" aria-label="絕招"><li class="char-move" data-kind="ok"><span class="move-tag">可證・娛樂擂台</span><span class="move-name">衝前亂打</span><span class="move-note">公開賽見前衝揮空／被打。係膽色，唔係技術。</span></li><li class="char-move" data-kind="weak"><span class="move-tag">可證・弱</span><span class="move-name">抗打硬撐</span><span class="move-note">多次倒地仍起。技術遠低過受訓拳手。</span></li></ul><p class="char-oneline"><span>一句註</span>有真接觸敗仗；待核＋公開擂台，唔當神功。</p><p class="char-credit">彩色公開照＋TCG 框。主圖係本地卡。載入失敗先用 YouTube 縮圖（片 Mw_C2aC0oro，跟 ToS，唔係 Wikimedia）。卡面字係草圖，戰鬥力以呢頁為準。</p></div></a>
+      <a class="char-card" data-slug="bio-sau-dou-syun" href="qigong-bios/qigong-bio-sau-dou-syun.html"><div class="char-avatar char-avatar--poster"><img src="assets/qigong-avatars/bio-sau-dou-syun.jpg" data-fallback-src="https://i.ytimg.com/vi/Yv8FsLmfKsE/hqdefault.jpg" alt="彩色公開照加TCG框" width="120" height="168" loading="lazy" decoding="async" /><svg class="char-silhouette" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><circle cx="32" cy="22" r="10"></circle><path d="M12 56c2-14 10-20 20-20s18 6 20 20"></path></svg><span class="char-initials" aria-hidden="true">修</span></div><div class="char-main"><p class="char-kicker">CARD-I03 · 香港</p><h3 class="char-name">修道船</h3><p class="char-power"><span class="char-power-k">戰鬥力</span> <strong>0.2–0.4</strong><span class="char-power-note">編輯意見｜非官方 · 自稱唔當高戰力</span></p><ul class="char-moves" aria-label="絕招"><li class="char-move" data-kind="hype"><span class="move-tag">吹水／自稱</span><span class="move-name">九秒一百拳</span><span class="move-note">戰前自稱。公開片未見，唔當高戰力。</span></li><li class="char-move" data-kind="result"><span class="move-tag">可證結果・非招式</span><span class="move-name">沉船翻車</span><span class="move-note">約廿秒內被站立頸鎖結束，其後再被踢倒。呢個係結果，唔係絕招。</span></li></ul><p class="char-oneline"><span>一句註</span>打假教材；自稱標假，翻車片為真。</p><p class="char-credit">彩色公開照＋TCG 框。主圖係本地卡。載入失敗先用 YouTube 縮圖（片 Yv8FsLmfKsE，跟 ToS，唔係 Wikimedia）。卡面字係草圖，戰鬥力以呢頁為準。</p></div></a>
+      <a class="char-card" data-slug="bio-guanzhang-chen-zhihan" href="qigong-bios/qigong-bio-guanzhang-chen-zhihan.html"><div class="char-avatar char-avatar--poster"><img src="assets/qigong-avatars/bio-guanzhang-chen-zhihan.jpg" data-fallback-src="https://i.ytimg.com/vi/1dzBJUV47Bw/hqdefault.jpg" alt="彩色公開照加TCG框" width="120" height="168" loading="lazy" decoding="async" /><svg class="char-silhouette" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><circle cx="32" cy="22" r="10"></circle><path d="M12 56c2-14 10-20 20-20s18 6 20 20"></path></svg><span class="char-initials" aria-hidden="true">館</span></div><div class="char-main"><p class="char-kicker">CARD-I04 · 台灣</p><h3 class="char-name">館長（陳之漢）</h3><p class="char-power"><span class="char-power-k">戰鬥力</span> <strong>1.2–1.8</strong><span class="char-power-note">編輯意見｜非官方 · 受訓館主級，遠低過泰臣＝3</span></p><ul class="char-moves" aria-label="絕招"><li class="char-move" data-kind="ok"><span class="move-tag">可證接觸</span><span class="move-name">低踢壓制</span><span class="move-note">踢館片見腿踢同地面控制優勢。</span></li><li class="char-move" data-kind="ok"><span class="move-tag">可證</span><span class="move-name">地面繳械／壓制</span><span class="move-note">公開挑戰用規則壓制至認輸。</span></li><li class="char-move" data-kind="fun"><span class="move-tag">娛樂暱稱・可證流程</span><span class="move-name">館主踢館開場</span><span class="move-note">公開接受網紅踢館嘅流程，唔係獨門殺招。</span></li></ul><p class="char-oneline"><span>一句註</span>本批少數可見受訓接觸優勢；唔當無敵。</p><p class="char-credit">彩色公開照＋TCG 框。主圖係本地卡。載入失敗先用 YouTube 縮圖（片 1dzBJUV47Bw，跟 ToS，唔係 Wikimedia）。卡面字係草圖，戰鬥力以呢頁為準。</p></div></a>
+      <a class="char-card" data-slug="bio-lei-lei-taiji" href="qigong-bios/qigong-bio-lei-lei-taiji.html"><div class="char-avatar char-avatar--poster"><img src="assets/qigong-avatars/bio-lei-lei-taiji.jpg" data-fallback-src="https://i.ytimg.com/vi/oh_zX4M8Jho/hqdefault.jpg" alt="彩色公開照加TCG框" width="120" height="168" loading="lazy" decoding="async" /><svg class="char-silhouette" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><circle cx="32" cy="22" r="10"></circle><path d="M12 56c2-14 10-20 20-20s18 6 20 20"></path></svg><span class="char-initials" aria-hidden="true">雷</span></div><div class="char-main"><p class="char-kicker">CARD-I05 · 中國</p><h3 class="char-name">雷雷</h3><p class="char-power"><span class="char-power-k">戰鬥力</span> <strong>0.2–0.4</strong><span class="char-power-note">編輯意見｜非官方 · 只跟約戰結果</span></p><ul class="char-moves" aria-label="絕招"><li class="char-move" data-kind="hype"><span class="move-tag">吹水</span><span class="move-name">單手化解</span><span class="move-note">戰前爭議表述。約戰未見，唔當高戰力。</span></li><li class="char-move" data-kind="weak"><span class="move-tag">可證姿勢・該場無效</span><span class="move-name">太極架勢開場</span><span class="move-note">開打後極短時間倒下。姿勢可見，該場無效。</span></li></ul><p class="char-oneline"><span>一句註</span>打假里程碑；戰力只跟約戰結果走。</p><p class="char-credit">彩色公開照＋TCG 框。主圖係本地卡。載入失敗先用 YouTube 縮圖（片 oh_zX4M8Jho，跟 ToS，唔係 Wikimedia）。卡面字係草圖，戰鬥力以呢頁為準。</p></div></a>
+      <a class="char-card" data-slug="bio-ma-baoguo" href="qigong-bios/qigong-bio-ma-baoguo.html"><div class="char-avatar char-avatar--poster"><img src="assets/qigong-avatars/bio-ma-baoguo.jpg" data-fallback-src="https://i.ytimg.com/vi/94aQsvctFoI/hqdefault.jpg" alt="彩色公開照加TCG框" width="120" height="168" loading="lazy" decoding="async" /><svg class="char-silhouette" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><circle cx="32" cy="22" r="10"></circle><path d="M12 56c2-14 10-20 20-20s18 6 20 20"></path></svg><span class="char-initials" aria-hidden="true">馬</span></div><div class="char-main"><p class="char-kicker">CARD-I06 · 中國</p><h3 class="char-name">馬保國</h3><p class="char-power"><span class="char-power-k">戰鬥力</span> <strong>0.15–0.35</strong><span class="char-power-note">編輯意見｜非官方 · 表演唔當實戰</span></p><ul class="char-moves" aria-label="絕招"><li class="char-move" data-kind="hype"><span class="move-tag">表演／吹水</span><span class="move-name">閃電五連鞭</span><span class="move-note">無對抗對象嘅表演短片。唔當實戰，唔當高戰力。</span></li><li class="char-move" data-kind="hype"><span class="move-tag">表演／吹水</span><span class="move-name">接化發</span><span class="move-note">網絡示範向。無真接觸證據可以抬高。</span></li><li class="char-move" data-kind="result"><span class="move-tag">可證結果・非招式</span><span class="move-name">擂台三倒</span><span class="move-note">約 30 秒內三次倒地。呢個係賽果，唔係絕招。</span></li></ul><p class="char-oneline"><span>一句註</span>表演迷因唔等於實戰；戰力跟 KO 結果，嚴禁抬高。</p><p class="char-credit">彩色公開照＋TCG 框。主圖係本地卡。載入失敗先用 YouTube 縮圖（片 94aQsvctFoI，跟 ToS，唔係 Wikimedia）。卡面字係草圖，戰鬥力以呢頁為準。</p></div></a>
+      <a class="char-card" data-slug="bio-shanshenbu-huagudeng" href="qigong-bios/qigong-bio-shanshenbu-huagudeng.html"><div class="char-avatar char-avatar--poster"><img src="assets/qigong-avatars/bio-shanshenbu-huagudeng.jpg" data-fallback-src="https://i.ytimg.com/vi/tI6iE0lVZyw/hqdefault.jpg" alt="彩色公開照加TCG框" width="120" height="168" loading="lazy" decoding="async" /><svg class="char-silhouette" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><circle cx="32" cy="22" r="10"></circle><path d="M12 56c2-14 10-20 20-20s18 6 20 20"></path></svg><span class="char-initials" aria-hidden="true">閃</span><span class="char-badge">教材</span></div><div class="char-main"><p class="char-kicker">CARD-I07 · 中國</p><h3 class="char-name">閃身步</h3><p class="char-power"><span class="char-power-k">戰鬥力</span> <strong>不適用（舞蹈）</strong><span class="char-power-note">編輯意見｜非官方 · 若當實戰閃功吹：遠低於 0.5，狀態假</span></p><ul class="char-moves" aria-label="絕招"><li class="char-move" data-kind="dance"><span class="move-tag">舞蹈・可證</span><span class="move-name">閃身步</span><span class="move-note">花鼓燈教材步伐。可證係舞蹈，唔當武功神技。</span></li><li class="char-move" data-kind="dance"><span class="move-tag">舞蹈暱稱</span><span class="move-name">浪子踢球／狗熊哆嗦毛</span><span class="move-note">同系列民間舞動作，迷因傳播。</span></li><li class="char-move" data-kind="fun"><span class="move-tag">娛樂迷因</span><span class="move-name">生活惡搞閃身</span><span class="move-note">社群惡搞應用。非擂台。</span></li></ul><p class="char-oneline"><span>一句註</span>必須標舞蹈／迷因；嚴禁當氣功閃避抬戰力。</p><p class="char-credit">彩色公開照＋TCG 框。主圖係本地卡。載入失敗先用 YouTube 縮圖（片 tI6iE0lVZyw，跟 ToS，唔係 Wikimedia）。卡面字係草圖，戰鬥力以呢頁為準。</p></div></a>
+      <a class="char-card" data-slug="bio-xu-xiaodong" href="qigong-bios/qigong-bio-xu-xiaodong.html"><div class="char-avatar char-avatar--poster"><img src="assets/qigong-avatars/bio-xu-xiaodong.jpg" data-fallback-src="https://i.ytimg.com/vi/EuusqWtgak0/hqdefault.jpg" alt="彩色公開照加TCG框" width="120" height="168" loading="lazy" decoding="async" /><svg class="char-silhouette" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><circle cx="32" cy="22" r="10"></circle><path d="M12 56c2-14 10-20 20-20s18 6 20 20"></path></svg><span class="char-initials" aria-hidden="true">徐</span></div><div class="char-main"><p class="char-kicker">CARD-I08 · 中國</p><h3 class="char-name">徐曉冬</h3><p class="char-power"><span class="char-power-k">戰鬥力</span> <strong>1.3–1.9</strong><span class="char-power-note">編輯意見｜非官方 · 打假級，遠低過泰臣＝3</span></p><ul class="char-moves" aria-label="絕招"><li class="char-move" data-kind="ok"><span class="move-tag">可證接觸</span><span class="move-name">直拳組合壓制</span><span class="move-note">公開約戰見連續拳打結束。</span></li><li class="char-move" data-kind="ok"><span class="move-tag">可證</span><span class="move-name">低踢＋前壓</span><span class="move-note">多場約戰開打後短時間控制節奏。</span></li><li class="char-move" data-kind="fun"><span class="move-tag">暱稱・可證流程</span><span class="move-name">打假約戰節奏</span><span class="move-note">公開約戰流程。唔係獨門招式。</span></li></ul><p class="char-oneline"><span>一句註</span>真接觸打假可見；唔神化，遠低於泰臣＝3。</p><p class="char-credit">彩色公開照＋TCG 框。主圖係本地卡。載入失敗先用 YouTube 縮圖（片 EuusqWtgak0，跟 ToS，唔係 Wikimedia）。卡面字係草圖，戰鬥力以呢頁為準。</p></div></a>
+      <a class="char-card" data-slug="bio-nobody-here" href="qigong-bios/qigong-bio-nobody-here.html"><div class="char-avatar char-avatar--poster"><img src="assets/qigong-avatars/bio-nobody-here.jpg" data-fallback-src="https://i.ytimg.com/vi/Yv8FsLmfKsE/hqdefault.jpg" alt="彩色公開照加TCG框" width="108" height="151" loading="lazy" decoding="async" /><svg class="char-silhouette" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><circle cx="32" cy="22" r="10"></circle><path d="M12 56c2-14 10-20 20-20s18 6 20 20"></path></svg><span class="char-initials" aria-hidden="true">N</span></div><div class="char-main"><p class="char-kicker">CARD-I09 · 香港</p><h3 class="char-name">Nobody-here</h3><p class="char-power"><span class="char-power-k">戰鬥力</span> <strong>0.8–1.2</strong><span class="char-power-note">編輯意見｜非官方 · 單場樣本，唔抬近泰臣</span></p><ul class="char-moves" aria-label="絕招"><li class="char-move" data-kind="ok"><span class="move-tag">可證</span><span class="move-name">站立斷頭檯／頸鎖</span><span class="move-note">畫面見站立頸鎖逼降。</span></li><li class="char-move" data-kind="ok"><span class="move-tag">可證</span><span class="move-name">後續踢打倒地</span><span class="move-note">部分上傳見踢打，同場事件。</span></li></ul><p class="char-oneline"><span>一句註</span>單場真接觸有效；唔挖私隱、唔抬近泰臣。</p><p class="char-credit">彩色公開照＋TCG 框。照片係 YouTube 縮圖（片 Yv8FsLmfKsE，畫面擠、臉唔清），跟 YouTube ToS，唔係 Wikimedia，唔當永久圖庫。卡面字係草圖，戰鬥力以呢頁為準。</p></div></a>
+      <a class="char-card" data-slug="bio-wang-qingmin" href="qigong-bios/qigong-bio-wang-qingmin.html"><div class="char-avatar char-avatar--poster"><img src="assets/qigong-avatars/bio-wang-qingmin.jpg" data-fallback-src="https://i.ytimg.com/vi/94aQsvctFoI/hqdefault.jpg" alt="彩色公開照加TCG框" width="108" height="151" loading="lazy" decoding="async" /><svg class="char-silhouette" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><circle cx="32" cy="22" r="10"></circle><path d="M12 56c2-14 10-20 20-20s18 6 20 20"></path></svg><span class="char-initials" aria-hidden="true">王</span></div><div class="char-main"><p class="char-kicker">CARD-I10 · 中國</p><h3 class="char-name">王慶民</h3><p class="char-power"><span class="char-power-k">戰鬥力</span> <strong>0.9–1.2</strong><span class="char-power-note">編輯意見｜非官方 · 業餘單場</span></p><ul class="char-moves" aria-label="絕招"><li class="char-move" data-kind="ok"><span class="move-tag">可證</span><span class="move-name">直拳三振</span><span class="move-note">公開片連續打倒對手。</span></li><li class="char-move" data-kind="ok"><span class="move-tag">可證・業餘級</span><span class="move-name">基本拳腿節奏</span><span class="move-note">相對神功敘事，顯示基本接觸。單場樣本。</span></li></ul><p class="char-oneline"><span>一句註</span>業餘單場有效；唔抬英雄傳。</p><p class="char-credit">彩色公開照＋TCG 框。照片係 YouTube 縮圖（片 94aQsvctFoI，擂台雙人裁右側），跟 YouTube ToS，唔係 Wikimedia，唔當永久圖庫。卡面字係草圖，戰鬥力以呢頁為準。</p></div></a>
+    </div>
+        </div>
+      </div>
+    </div>
     <div class="jump-row" aria-label="奇人跳轉">
-      <a href="#net-p01">P01</a> <a href="qigong-bios/qigong-bio-bio-carriage-lau.html">劉馬車</a><a href="#net-p02">P02</a> <a href="qigong-bios/qigong-bio-bio-long-sum.html">龍心</a><a href="#net-p03">P03</a> <a href="qigong-bios/qigong-bio-bio-sau-dou-syun.html">修道船</a><a href="#net-p04">P04</a> <a href="qigong-bios/qigong-bio-bio-guanzhang-chen-zhihan.html">館長（陳之漢）</a><a href="#net-p05">P05</a> <a href="qigong-bios/qigong-bio-bio-lei-lei-taiji.html">雷雷</a><a href="#net-p06">P06</a> <a href="qigong-bios/qigong-bio-bio-ma-baoguo.html">馬保國</a><a href="#net-p07">P07</a> <a href="qigong-bios/qigong-bio-bio-shanshenbu-huagudeng.html">閃身步</a><a href="#net-r01">R01</a> <a href="qigong-bios/qigong-bio-bio-xu-xiaodong.html">徐曉冬</a><a href="#net-r02">R02</a> <a href="qigong-bios/qigong-bio-bio-nobody-here.html">Nobody-here</a><a href="#net-r03">R03</a> <a href="qigong-bios/qigong-bio-bio-wang-qingmin.html">王慶民</a>
+      <a href="#net-p01">P01</a> <a href="qigong-bios/qigong-bio-carriage-lau.html">劉馬車</a><a href="#net-p02">P02</a> <a href="qigong-bios/qigong-bio-long-sum.html">龍心</a><a href="#net-p03">P03</a> <a href="qigong-bios/qigong-bio-sau-dou-syun.html">修道船</a><a href="#net-p04">P04</a> <a href="qigong-bios/qigong-bio-guanzhang-chen-zhihan.html">館長（陳之漢）</a><a href="#net-p05">P05</a> <a href="qigong-bios/qigong-bio-lei-lei-taiji.html">雷雷</a><a href="#net-p06">P06</a> <a href="qigong-bios/qigong-bio-ma-baoguo.html">馬保國</a><a href="#net-p07">P07</a> <a href="qigong-bios/qigong-bio-shanshenbu-huagudeng.html">閃身步</a><a href="#net-r01">R01</a> <a href="qigong-bios/qigong-bio-xu-xiaodong.html">徐曉冬</a><a href="#net-r02">R02</a> <a href="qigong-bios/qigong-bio-nobody-here.html">Nobody-here</a><a href="#net-r03">R03</a> <a href="qigong-bios/qigong-bio-wang-qingmin.html">王慶民</a>
     </div>
     <div class="table-wrap">
       <table>
@@ -757,7 +870,7 @@ tr:hover td { background: rgba(255,255,255,.02); }
           <tr><th>人物</th><th>建議等</th><th>戰鬥力</th><th>真假</th><th>一句點解</th></tr>
         </thead>
         <tbody>
-          <tr><td><strong><a href="qigong-bios/qigong-bio-bio-carriage-lau.html">劉馬車</a></strong><br>P01 · 香港</td><td>九等（娛樂／話題向）</td><td><strong>0.4–0.7</strong><br>編輯意見｜非官方</td><td>娛樂／待證</td><td>相對泰臣／刃牙標尺遠低於 1；公開可見多為口角、記者會衝突與素人籠鬥娛樂片，原定培生擂台對龍心因故未能成賽，無可靠職業賽績可抬高。</td></tr><tr><td><strong><a href="qigong-bios/qigong-bio-bio-long-sum.html">龍心</a></strong><br>P02 · 香港</td><td>八等（勇氣／娛樂擂台；技術向偏低）</td><td><strong>0.3–0.6</strong><br>編輯意見｜非官方</td><td>待證／娛樂</td><td>相對泰臣＝3 極低；培生擂台公開對宗健、曹Bee 兩場均敗（多次倒地、後場 TKO），可見膽色與抗打，但技術遠低於一般受訓拳手。</td></tr><tr><td><strong><a href="qigong-bios/qigong-bio-bio-sau-dou-syun.html">修道船</a></strong><br>P03 · 香港</td><td>九等（公開約戰結果同自稱不符）</td><td><strong>0.2–0.4</strong><br>編輯意見｜非官方</td><td>假（若把戰前自稱當實戰）／片為真接觸</td><td>相對泰臣＝3 接近可忽略；2003 公開約戰約廿秒內被 Nobody-here 以頸鎖逼降，其後再被踢倒。自稱同公開片結果不符。</td></tr><tr><td><strong><a href="qigong-bios/qigong-bio-bio-guanzhang-chen-zhihan.html">館長（陳之漢）</a></strong><br>P04 · 台灣</td><td>五～六等（相對本批奇人偏高；相對職業拳壇仍普通）</td><td><strong>1.2–1.8</strong><br>編輯意見｜非官方</td><td>真（接觸對打可見）</td><td>相對泰臣＝3 仍明顯低一截；公開館內／挑戰片見真實接觸壓制與踢打優勢（如對蔡阿嘎、吃屎哥），屬受訓館主級，遠未到職業頂尖或泰臣錨點。</td></tr><tr><td><strong><a href="qigong-bios/qigong-bio-bio-lei-lei-taiji.html">雷雷</a></strong><br>P05 · 中國</td><td>九等（公開約戰快速結束）</td><td><strong>0.2–0.4</strong><br>編輯意見｜非官方</td><td>假（若把「可打綜合格鬥」暗示當實）／翻車片為真</td><td>相對泰臣＝3 可忽略；2017 對徐曉冬公開無護具約戰約 10–20 秒內倒地認輸，事後受訪稱「無能就無能吧」（HK01 等）。</td></tr><tr><td><strong><a href="qigong-bios/qigong-bio-bio-ma-baoguo.html">馬保國</a></strong><br>P06 · 中國</td><td>九等（表演向短片＋公開擂台結果）</td><td><strong>0.15–0.35</strong><br>編輯意見｜非官方</td><td>假（表演當實戰）／擂台片為真</td><td>相對泰臣＝3 接近標尺底部；2020「江湖十六」公開對業餘搏擊者王慶民約 30 秒內三次倒地，同系列「閃電五連鞭」係表演向短片，唔當實戰證據。</td></tr><tr><td><strong><a href="qigong-bios/qigong-bio-bio-shanshenbu-huagudeng.html">閃身步</a></strong><br>P07 · 中國</td><td>唔適用（舞蹈／迷因）</td><td><strong>不適用（舞蹈）</strong><br>編輯意見｜非官方</td><td>真（花鼓燈教材）／假（若當實戰閃功）</td><td>相對泰臣／刃牙標尺唔應評戰鬥力；原片係民間舞教材，爆紅係迷因，當神功閃避＝假。若有人硬當實戰閃功吹，視作遠低於 0.5，狀態「假」。</td></tr><tr><td><strong><a href="qigong-bios/qigong-bio-bio-xu-xiaodong.html">徐曉冬</a></strong><br>R01 · 中國（北京）</td><td>五～六等（相對吹牛對象佔優；非頂級職業選手）</td><td><strong>1.3–1.9</strong><br>編輯意見｜非官方</td><td>真（接觸約戰可見）</td><td>相對泰臣＝3 仍低；公開約戰快速結束多名傳統武術自稱者（如雷雷、詠春丁浩等片），屬業餘／館訓級打假戰績，唔等於世界級拳王。</td></tr><tr><td><strong><a href="qigong-bios/qigong-bio-bio-nobody-here.html">Nobody-here</a></strong><br>R02 · 香港</td><td>六～七等（相對修道船明顯高；樣本僅公開一戰）</td><td><strong>0.8–1.2</strong><br>編輯意見｜非官方</td><td>真（該場接觸）</td><td>相對泰臣＝3 仍低；公開片以站立頸鎖迅速結束自稱「九秒一百拳」者，顯示基本格鬥結束能力，但無系列職業賽績可抬近泰臣。</td></tr><tr><td><strong><a href="qigong-bios/qigong-bio-bio-wang-qingmin.html">王慶民</a></strong><br>R03 · 中國</td><td>六～七等（單場對馬保國）</td><td><strong>0.9–1.2</strong><br>編輯意見｜非官方</td><td>真（該場）</td><td>相對泰臣＝3 低；公開約 30 秒內三次擊倒馬保國，顯示相對「神功敘事」有基本拳腿，仍屬業餘級單場樣本。</td></tr>
+          <tr><td><strong><a href="qigong-bios/qigong-bio-carriage-lau.html">劉馬車</a></strong><br>P01 · 香港</td><td>九等（娛樂／話題向）</td><td><strong>0.4–0.7</strong><br>編輯意見｜非官方</td><td>娛樂／待證</td><td>相對泰臣／刃牙標尺遠低於 1；公開可見多為口角、記者會衝突與素人籠鬥娛樂片，原定培生擂台對龍心因故未能成賽，無可靠職業賽績可抬高。</td></tr><tr><td><strong><a href="qigong-bios/qigong-bio-long-sum.html">龍心</a></strong><br>P02 · 香港</td><td>八等（勇氣／娛樂擂台；技術向偏低）</td><td><strong>0.3–0.6</strong><br>編輯意見｜非官方</td><td>待證／娛樂</td><td>相對泰臣＝3 極低；培生擂台公開對宗健、曹Bee 兩場均敗（多次倒地、後場 TKO），可見膽色與抗打，但技術遠低於一般受訓拳手。</td></tr><tr><td><strong><a href="qigong-bios/qigong-bio-sau-dou-syun.html">修道船</a></strong><br>P03 · 香港</td><td>九等（公開約戰結果同自稱不符）</td><td><strong>0.2–0.4</strong><br>編輯意見｜非官方</td><td>假（若把戰前自稱當實戰）／片為真接觸</td><td>相對泰臣＝3 接近可忽略；2003 公開約戰約廿秒內被 Nobody-here 以頸鎖逼降，其後再被踢倒。自稱同公開片結果不符。</td></tr><tr><td><strong><a href="qigong-bios/qigong-bio-guanzhang-chen-zhihan.html">館長（陳之漢）</a></strong><br>P04 · 台灣</td><td>五～六等（相對本批奇人偏高；相對職業拳壇仍普通）</td><td><strong>1.2–1.8</strong><br>編輯意見｜非官方</td><td>真（接觸對打可見）</td><td>相對泰臣＝3 仍明顯低一截；公開館內／挑戰片見真實接觸壓制與踢打優勢（如對蔡阿嘎、吃屎哥），屬受訓館主級，遠未到職業頂尖或泰臣錨點。</td></tr><tr><td><strong><a href="qigong-bios/qigong-bio-lei-lei-taiji.html">雷雷</a></strong><br>P05 · 中國</td><td>九等（公開約戰快速結束）</td><td><strong>0.2–0.4</strong><br>編輯意見｜非官方</td><td>假（若把「可打綜合格鬥」暗示當實）／翻車片為真</td><td>相對泰臣＝3 可忽略；2017 對徐曉冬公開無護具約戰約 10–20 秒內倒地認輸，事後受訪稱「無能就無能吧」（HK01 等）。</td></tr><tr><td><strong><a href="qigong-bios/qigong-bio-ma-baoguo.html">馬保國</a></strong><br>P06 · 中國</td><td>九等（表演向短片＋公開擂台結果）</td><td><strong>0.15–0.35</strong><br>編輯意見｜非官方</td><td>假（表演當實戰）／擂台片為真</td><td>相對泰臣＝3 接近標尺底部；2020「江湖十六」公開對業餘搏擊者王慶民約 30 秒內三次倒地，同系列「閃電五連鞭」係表演向短片，唔當實戰證據。</td></tr><tr><td><strong><a href="qigong-bios/qigong-bio-shanshenbu-huagudeng.html">閃身步</a></strong><br>P07 · 中國</td><td>唔適用（舞蹈／迷因）</td><td><strong>不適用（舞蹈）</strong><br>編輯意見｜非官方</td><td>真（花鼓燈教材）／假（若當實戰閃功）</td><td>相對泰臣／刃牙標尺唔應評戰鬥力；原片係民間舞教材，爆紅係迷因，當神功閃避＝假。若有人硬當實戰閃功吹，視作遠低於 0.5，狀態「假」。</td></tr><tr><td><strong><a href="qigong-bios/qigong-bio-xu-xiaodong.html">徐曉冬</a></strong><br>R01 · 中國（北京）</td><td>五～六等（相對吹牛對象佔優；非頂級職業選手）</td><td><strong>1.3–1.9</strong><br>編輯意見｜非官方</td><td>真（接觸約戰可見）</td><td>相對泰臣＝3 仍低；公開約戰快速結束多名傳統武術自稱者（如雷雷、詠春丁浩等片），屬業餘／館訓級打假戰績，唔等於世界級拳王。</td></tr><tr><td><strong><a href="qigong-bios/qigong-bio-nobody-here.html">Nobody-here</a></strong><br>R02 · 香港</td><td>六～七等（相對修道船明顯高；樣本僅公開一戰）</td><td><strong>0.8–1.2</strong><br>編輯意見｜非官方</td><td>真（該場接觸）</td><td>相對泰臣＝3 仍低；公開片以站立頸鎖迅速結束自稱「九秒一百拳」者，顯示基本格鬥結束能力，但無系列職業賽績可抬近泰臣。</td></tr><tr><td><strong><a href="qigong-bios/qigong-bio-wang-qingmin.html">王慶民</a></strong><br>R03 · 中國</td><td>六～七等（單場對馬保國）</td><td><strong>0.9–1.2</strong><br>編輯意見｜非官方</td><td>真（該場）</td><td>相對泰臣＝3 低；公開約 30 秒內三次擊倒馬保國，顯示相對「神功敘事」有基本拳腿，仍屬業餘級單場樣本。</td></tr>
         </tbody>
       </table>
     </div>
@@ -768,7 +881,7 @@ tr:hover td { background: rgba(255,255,255,.02); }
         <span class="chip gold">P01</span>
         <span class="chip info">網路奇人／待核</span>
       </div>
-      <h3><a href="qigong-bios/qigong-bio-bio-carriage-lau.html">劉馬車</a></h3>
+      <h3><a href="qigong-bios/qigong-bio-carriage-lau.html">劉馬車</a></h3>
       <p class="vid-claim"><strong>公開名</strong>　Carriage Lau／劉駿軒 · 香港</p>
       <p class="vid-note"><strong>風格</strong>　網絡紅人；非系統武術門派掌門表述</p>
       <p class="vid-note"><strong>建議等</strong>　九等（娛樂／話題向）</p>
@@ -788,7 +901,7 @@ tr:hover td { background: rgba(255,255,255,.02); }
         <span class="chip gold">P02</span>
         <span class="chip info">網路奇人／待核 · 另註：有公開真接觸拳賽</span>
       </div>
-      <h3><a href="qigong-bios/qigong-bio-bio-long-sum.html">龍心</a></h3>
+      <h3><a href="qigong-bios/qigong-bio-long-sum.html">龍心</a></h3>
       <p class="vid-claim"><strong>公開名</strong>　林克霖／剋龍 · 香港</p>
       <p class="vid-note"><strong>風格</strong>　網絡行為藝術／Ego Fight Club 等自稱；非傳統氣功宗師</p>
       <p class="vid-note"><strong>建議等</strong>　八等（勇氣／娛樂擂台；技術向偏低）</p>
@@ -808,7 +921,7 @@ tr:hover td { background: rgba(255,255,255,.02); }
         <span class="chip gold">P03</span>
         <span class="chip info">網路奇人／待核</span>
       </div>
-      <h3><a href="qigong-bios/qigong-bio-bio-sau-dou-syun.html">修道船</a></h3>
+      <h3><a href="qigong-bios/qigong-bio-sau-dou-syun.html">修道船</a></h3>
       <p class="vid-claim"><strong>公開名</strong>　鄺啟源 · 香港</p>
       <p class="vid-note"><strong>風格</strong>　自稱「真武道」；公開日記曾稱九秒一百拳等（網典轉載）</p>
       <p class="vid-note"><strong>建議等</strong>　九等（公開約戰結果同自稱不符）</p>
@@ -828,7 +941,7 @@ tr:hover td { background: rgba(255,255,255,.02); }
         <span class="chip gold">P04</span>
         <span class="chip info">網路奇人／待核 · 另註：有公開真接觸對打</span>
       </div>
-      <h3><a href="qigong-bios/qigong-bio-bio-guanzhang-chen-zhihan.html">館長（陳之漢）</a></h3>
+      <h3><a href="qigong-bios/qigong-bio-guanzhang-chen-zhihan.html">館長（陳之漢）</a></h3>
       <p class="vid-claim"><strong>公開名</strong>　陳之漢 · 台灣</p>
       <p class="vid-note"><strong>風格</strong>　綜合格鬥／健身館經營與公開挑戰；非傳統氣功宗師</p>
       <p class="vid-note"><strong>建議等</strong>　五～六等（相對本批奇人偏高；相對職業拳壇仍普通）</p>
@@ -848,7 +961,7 @@ tr:hover td { background: rgba(255,255,255,.02); }
         <span class="chip gold">P05</span>
         <span class="chip info">網路奇人／待核</span>
       </div>
-      <h3><a href="qigong-bios/qigong-bio-bio-lei-lei-taiji.html">雷雷</a></h3>
+      <h3><a href="qigong-bios/qigong-bio-lei-lei-taiji.html">雷雷</a></h3>
       <p class="vid-claim"><strong>公開名</strong>　雷公太極／部分報導寫魏雷 · 中國</p>
       <p class="vid-note"><strong>風格</strong>　楊氏太極相關公開自稱／教學形象</p>
       <p class="vid-note"><strong>建議等</strong>　九等（公開約戰快速結束）</p>
@@ -868,7 +981,7 @@ tr:hover td { background: rgba(255,255,255,.02); }
         <span class="chip gold">P06</span>
         <span class="chip info">網路奇人／待核</span>
       </div>
-      <h3><a href="qigong-bios/qigong-bio-bio-ma-baoguo.html">馬保國</a></h3>
+      <h3><a href="qigong-bios/qigong-bio-ma-baoguo.html">馬保國</a></h3>
       <p class="vid-claim"><strong>公開名</strong>　渾元形意太極門公開形象 · 中國</p>
       <p class="vid-note"><strong>風格</strong>　「接化發」「閃電五連鞭」等公開示範</p>
       <p class="vid-note"><strong>建議等</strong>　九等（表演向短片＋公開擂台結果）</p>
@@ -888,7 +1001,7 @@ tr:hover td { background: rgba(255,255,255,.02); }
         <span class="chip gold">P07</span>
         <span class="chip info">網路奇人／待核 · 更精確：網路迷因／非遺舞蹈</span>
       </div>
-      <h3><a href="qigong-bios/qigong-bio-bio-shanshenbu-huagudeng.html">閃身步</a></h3>
+      <h3><a href="qigong-bios/qigong-bio-shanshenbu-huagudeng.html">閃身步</a></h3>
       <p class="vid-claim"><strong>公開名</strong>　動作名；示範者趙鐵春 · 中國</p>
       <p class="vid-note"><strong>風格</strong>　安徽花鼓燈基本功；唔係武術氣功門派。社群爆紅後常被誤認功夫閃避</p>
       <p class="vid-note"><strong>建議等</strong>　唔適用（舞蹈／迷因）</p>
@@ -908,7 +1021,7 @@ tr:hover td { background: rgba(255,255,255,.02); }
         <span class="chip gold">R01</span>
         <span class="chip info">網路奇人／待核 · 另註：多場公開真接觸約戰</span>
       </div>
-      <h3><a href="qigong-bios/qigong-bio-bio-xu-xiaodong.html">徐曉冬</a></h3>
+      <h3><a href="qigong-bios/qigong-bio-xu-xiaodong.html">徐曉冬</a></h3>
       <p class="vid-claim"><strong>公開名</strong>　格鬥打假公開人物 · 中國（北京）</p>
       <p class="vid-note"><strong>風格</strong>　綜合格鬥教練；公開約戰傳統武術吹牛表述</p>
       <p class="vid-note"><strong>建議等</strong>　五～六等（相對吹牛對象佔優；非頂級職業選手）</p>
@@ -928,7 +1041,7 @@ tr:hover td { background: rgba(255,255,255,.02); }
         <span class="chip gold">R02</span>
         <span class="chip info">網路奇人／待核 · 另註：對修道船公開片可見技術結束</span>
       </div>
-      <h3><a href="qigong-bios/qigong-bio-bio-nobody-here.html">Nobody-here</a></h3>
+      <h3><a href="qigong-bios/qigong-bio-nobody-here.html">Nobody-here</a></h3>
       <p class="vid-claim"><strong>公開名</strong>　網絡名；真實身份本頁不考據 · 香港</p>
       <p class="vid-note"><strong>風格</strong>　網絡武術論壇實戰派形象（網典）</p>
       <p class="vid-note"><strong>建議等</strong>　六～七等（相對修道船明顯高；樣本僅公開一戰）</p>
@@ -945,7 +1058,7 @@ tr:hover td { background: rgba(255,255,255,.02); }
         <span class="chip gold">R03</span>
         <span class="chip info">網路奇人／待核 · 另註：公開真接觸</span>
       </div>
-      <h3><a href="qigong-bios/qigong-bio-bio-wang-qingmin.html">王慶民</a></h3>
+      <h3><a href="qigong-bios/qigong-bio-wang-qingmin.html">王慶民</a></h3>
       <p class="vid-claim"><strong>公開名</strong>　媒體稱業餘搏擊愛好者 · 中國</p>
       <p class="vid-note"><strong>風格</strong>　業餘搏擊</p>
       <p class="vid-note"><strong>建議等</strong>　六～七等（單場對馬保國）</p>
