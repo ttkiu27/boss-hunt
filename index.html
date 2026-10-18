@@ -231,6 +231,12 @@ a { color: inherit; text-decoration: none; }
         <p>BOSS · 馬洛（Marlowe）最終戰 · Hellraiser 難度</p>
         <div class="go">進入 →</div>
       </button>
+      <button type="button" class="pick info" data-go="qigong" aria-label="進入氣功大全">
+        <div class="tag">QIGONG</div>
+        <h2>氣功大全</h2>
+        <p>影片真相庫 · 人物三六九等 · 網路奇人／待核 · 地區排行榜</p>
+        <div class="go">進入 →</div>
+      </button>
     </div>
   </section>
 
@@ -448,6 +454,39 @@ a { color: inherit; text-decoration: none; }
     </div>
   </section>
 
+  <section class="panel" id="panel-qigong" hidden aria-labelledby="qigong-label">
+    <div class="step-label" id="qigong-label">② 氣功大全 · 揀專區</div>
+    <div class="card-grid cats">
+      <a class="pick info" href="qigong-encyclopedia.html#truth">
+        <div class="tag">影片</div>
+        <h2>影片真相庫</h2>
+        <p>22 條主證 · 真／待證 · 可見訓練、賽事、紀錄片</p>
+        <div class="go">進入 →</div>
+      </a>
+      <a class="pick info" href="qigong-encyclopedia.html#ranks">
+        <div class="tag">人物</div>
+        <h2>人物三六九等</h2>
+        <p>一等至六等 · 戰鬥力 1＝普通男 · 泰臣＝3</p>
+        <div class="go">進入 →</div>
+      </a>
+      <a class="pick info" href="qigong-encyclopedia.html#internet">
+        <div class="tag">待核</div>
+        <h2>網路奇人／待核</h2>
+        <p>10 人 · 代表片 · 唔當神功</p>
+        <div class="go">進入 →</div>
+      </a>
+      <a class="pick info" href="qigong-encyclopedia.html#regions">
+        <div class="tag">地區</div>
+        <h2>地區排行榜</h2>
+        <p>中國 · 香港 · 台灣 · 日本 · 歐洲</p>
+        <div class="go">進入 →</div>
+      </a>
+    </div>
+    <div class="back-row">
+      <button type="button" data-back="games">← 返回揀遊戲</button>
+    </div>
+  </section>
+
   <section class="feedback" id="feedback" data-netlify-feedback aria-labelledby="feedback-title">
     <div class="feedback-head">
       <h2 id="feedback-title">留下<em>意見</em>俾網主</h2>
@@ -502,11 +541,12 @@ a { color: inherit; text-decoration: none; }
     "arc-raiders": document.getElementById("panel-arc-raiders"),
     dawnwalker: document.getElementById("panel-dawnwalker"),
     cs2: document.getElementById("panel-cs2"),
-    hellraiser: document.getElementById("panel-hellraiser")
+    hellraiser: document.getElementById("panel-hellraiser"),
+    qigong: document.getElementById("panel-qigong")
   };
 
   function show(step) {
-    var known = step === "sekiro" || step === "onimusha" || step === "arc-raiders" || step === "dawnwalker" || step === "cs2" || step === "hellraiser";
+    var known = step === "sekiro" || step === "onimusha" || step === "arc-raiders" || step === "dawnwalker" || step === "cs2" || step === "hellraiser" || step === "qigong";
     var target = known ? step : "games";
     Object.keys(panels).forEach(function (key) {
       if (panels[key]) panels[key].hidden = key !== target;
@@ -527,7 +567,7 @@ a { color: inherit; text-decoration: none; }
   });
 
   var hash = (location.hash || "").replace(/^#/, "");
-  if (hash === "sekiro" || hash === "onimusha" || hash === "arc-raiders" || hash === "dawnwalker" || hash === "cs2" || hash === "hellraiser") show(hash);
+  if (hash === "sekiro" || hash === "onimusha" || hash === "arc-raiders" || hash === "dawnwalker" || hash === "cs2" || hash === "hellraiser" || hash === "qigong") show(hash);
   else show("games");
 })();
 </script>
