@@ -1,5 +1,6 @@
 /* Age gate — site-wide 18+ wall */
 .age-gate {
+  pointer-events: auto;
   position: fixed;
   inset: 0;
   z-index: 99999;
@@ -120,4 +121,9 @@ body.age-gate-lock {
 body.age-gate-lock > *:not(.age-gate) {
   visibility: hidden !important;
   pointer-events: none !important;
+}
+
+.age-gate-actions .age-gate-leave {
+  margin-top: 4px;
+  align-self: center;
 }
