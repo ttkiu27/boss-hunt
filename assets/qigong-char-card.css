@@ -227,12 +227,69 @@ a.char-card:hover .char-name { color: var(--accent, #c9a227); }
   font-size: .72rem;
 }
 
+.char-oneline {
+  margin: 8px 0 0;
+  padding: 8px 10px;
+  border-left: 3px solid var(--accent, #c9a227);
+  background: rgba(201, 162, 39, .08);
+  font-size: .8rem;
+  font-weight: 700;
+  line-height: 1.45;
+}
+.char-oneline span {
+  display: block;
+  margin-bottom: 2px;
+  font-size: .66rem;
+  letter-spacing: .08em;
+  color: var(--accent, #c9a227);
+  font-weight: 800;
+}
 .char-credit {
   margin: 8px 0 0;
   font-size: .72rem;
   color: var(--muted, #9a968c);
   line-height: 1.45;
 }
+.char-grid--battle {
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+}
+.card-deck { margin: 0 0 18px; }
+.card-pager {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 12px;
+}
+.card-pager a {
+  font-size: .84rem;
+  font-weight: 800;
+  letter-spacing: .04em;
+  padding: 6px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--border, #2a2f3c);
+  color: var(--text, #e8e6e1);
+  text-decoration: none;
+  background: var(--bg, #0a0b0e);
+}
+.card-pager a:hover,
+.card-deck:not(:has(.card-page:target)) .card-pager a[href="#ranks-p1"],
+.card-deck:not(:has(.card-page:target)) .card-pager a[href="#internet-p1"],
+.card-deck:has(#ranks-p1:target) .card-pager a[href="#ranks-p1"],
+.card-deck:has(#ranks-p2:target) .card-pager a[href="#ranks-p2"],
+.card-deck:has(#internet-p1:target) .card-pager a[href="#internet-p1"] {
+  border-color: var(--accent, #c9a227);
+  color: var(--accent, #c9a227);
+}
+.card-pager-meta {
+  font-size: .75rem;
+  color: var(--muted, #9a968c);
+}
+.card-page { scroll-margin-top: 96px; }
+.card-pages > .card-page { display: none; }
+.card-pages > .card-page:first-child,
+.card-pages > .card-page:target { display: block; }
+.card-pages:has(> .card-page:target) > .card-page:not(:target) { display: none; }
 .char-card .meta-row { margin-top: 10px; }
 .char-card .hero-sub { margin-top: 4px; margin-bottom: 8px; }
 
