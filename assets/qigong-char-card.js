@@ -1,4 +1,4 @@
-/* 本地 TCG 卡牌風頭像優先。data-fallback-src（YouTube／Commons）失敗先試一次，再退回首字。 */
+/* 本地彩色公開照＋TCG 框優先。data-fallback-src（YouTube／Commons）失敗先試一次，再退回首字。 */
 (function () {
   function toInitials(img) {
     img.hidden = true;

@@ -236,27 +236,27 @@ a.char-card:hover .char-name { color: var(--accent, #c9a227); }
 .char-card .meta-row { margin-top: 10px; }
 .char-card .hero-sub { margin-top: 4px; margin-bottom: 8px; }
 
-/* TCG／卡牌風頭像係橫向卡面，用 contain 先唔切走卡框同名字 */
+/* 彩色公開照＋TCG 框係直向卡面（約 5:7），用 contain 先唔切走卡框同名字 */
 .char-avatar--poster {
-  width: 168px;
-  height: 104px;
+  width: 120px;
+  height: 168px;
   border-radius: 8px;
-  background: #d9d0c1;
+  background: #14110c;
   border-color: #8a7018;
 }
 .char-card--compact .char-avatar--poster,
 .char-card--rank .char-avatar--poster {
-  width: 136px;
-  height: 84px;
+  width: 108px;
+  height: 151px;
 }
 .hero .char-avatar--poster {
-  width: 220px;
-  height: 132px;
+  width: 168px;
+  height: 235px;
 }
 .char-avatar--poster img {
   object-fit: contain;
   object-position: center;
-  background: #d9d0c1;
+  background: #14110c;
 }
 
 @media (max-width: 640px) {
@@ -265,8 +265,8 @@ a.char-card:hover .char-name { color: var(--accent, #c9a227); }
   .hero .char-avatar--poster,
   .char-card--compact .char-avatar--poster,
   .char-card--rank .char-avatar--poster {
-    width: 128px;
-    height: 80px;
+    width: 96px;
+    height: 134px;
   }
   .hero .char-card h1 { font-size: 1.3rem; }
 }
