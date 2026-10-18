@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-HK">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>陳小旺｜人物傳｜氣功大全｜硬核祝福</title>
+<meta name="description" content="陳小旺人物傳。陳氏太極公開傳承同纏絲示範。戰鬥力 1.4–2.0 係編輯意見。" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Orbitron:wght@600;800&display=swap" rel="stylesheet" />
+<style>
+
+:root {
+  --bg: #0a0b0e;
+  --bg2: #12141a;
+  --bg3: #1a1d26;
+  --border: #2a2f3c;
+  --text: #e8e6e1;
+  --muted: #9a968c;
+  --accent: #c9a227;
+  --accent-dim: #8a7018;
+  --danger: #e04545;
+  --danger-dim: #8b2222;
+  --safe: #3dbf7a;
+  --warn: #e09a32;
+  --info: #4a9eff;
+  --radius: 12px;
+  --shadow: 0 8px 32px rgba(0,0,0,.45);
+  --font: "Noto Sans TC", "PingFang HK", "Microsoft JhengHei", sans-serif;
+  --display: "Orbitron", "Noto Sans TC", sans-serif;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.55;
+  min-height: 100vh;
+  background-image:
+    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(201,162,39,.12), transparent),
+    radial-gradient(ellipse 40% 30% at 100% 50%, rgba(61,191,122,.05), transparent),
+    linear-gradient(180deg, #0a0b0e 0%, #0d0f14 100%);
+}
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+code {
+  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  font-size: .82em; color: var(--text);
+}
+.site-header {
+  position: sticky; top: 0; z-index: 100;
+  backdrop-filter: blur(14px);
+  background: rgba(10,11,14,.85);
+  border-bottom: 1px solid var(--border);
+}
+.header-inner {
+  max-width: 1100px; margin: 0 auto;
+  padding: 12px 20px;
+  display: flex; flex-wrap: wrap; align-items: center; gap: 12px 24px;
+  justify-content: space-between;
+}
+.brand { display: flex; flex-direction: column; gap: 2px; }
+.brand-name {
+  font-family: var(--display);
+  font-weight: 800; font-size: .85rem;
+  letter-spacing: .12em; color: var(--accent);
+  text-transform: uppercase;
+}
+.brand-slogan { font-size: .75rem; color: var(--muted); }
+.back-home {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: .9rem; font-weight: 800;
+  padding: 8px 14px;
+  border: 1px solid var(--accent-dim);
+  border-radius: 999px;
+  color: var(--accent);
+  background: rgba(201,162,39,.08);
+  text-decoration: none;
+  letter-spacing: .04em;
+}
+.back-home:hover { background: rgba(201,162,39,.16); text-decoration: none; border-color: var(--accent); }
+.header-links { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+.header-right { display: flex; flex-direction: column; align-items: flex-end; gap: 6px; }
+.page-title { font-size: 1rem; font-weight: 900; letter-spacing: .06em; }
+.page-title span { color: var(--accent); }
+.nav-mini { display: flex; gap: 6px; flex-wrap: wrap; justify-content: flex-end; }
+.nav-mini a {
+  font-size: .72rem; padding: 4px 10px;
+  border: 1px solid var(--border); border-radius: 999px;
+  color: var(--muted); text-decoration: none;
+  transition: .15s;
+}
+.nav-mini a:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
+.wrap { max-width: 1100px; margin: 0 auto; padding: 24px 20px 80px; }
+.hero {
+  display: grid; gap: 20px;
+  margin-bottom: 28px;
+  padding: 24px;
+  background: linear-gradient(135deg, var(--bg2), var(--bg3));
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  position: relative; overflow: hidden;
+}
+.hero h1 {
+  font-size: clamp(1.5rem, 4vw, 2.2rem);
+  font-weight: 900; letter-spacing: .06em;
+}
+.hero h1 em { font-style: normal; color: var(--accent); }
+.hero-sub { margin-top: 8px; font-size: .95rem; color: var(--muted); }
+.slogan-box {
+  margin-top: 14px;
+  padding: 12px 16px;
+  border-radius: 10px;
+  border: 1px solid rgba(224,69,69,.4);
+  background: rgba(224,69,69,.08);
+  font-size: 1rem; font-weight: 800;
+  color: var(--danger);
+  letter-spacing: .02em;
+}
+.meta-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+.chip {
+  font-size: .72rem; font-weight: 700;
+  padding: 4px 10px; border-radius: 6px;
+  background: var(--bg); border: 1px solid var(--border);
+  color: var(--muted); letter-spacing: .04em;
+}
+.chip.gold { color: var(--accent); border-color: var(--accent-dim); }
+.chip.red { color: var(--danger); border-color: var(--danger-dim); }
+.chip.warn { color: var(--warn); border-color: #8a5a18; }
+.chip.info { color: var(--info); border-color: #1a4a7a; }
+.chip.safe { color: var(--safe); border-color: #1a6a45; }
+.section {
+  margin: 28px 0;
+  padding: 22px;
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  scroll-margin-top: 88px;
+}
+.section-kicker {
+  font-size: .7rem; font-weight: 800;
+  letter-spacing: .14em; color: var(--accent);
+  text-transform: uppercase; margin-bottom: 6px;
+}
+.section h2 {
+  font-size: 1.25rem; font-weight: 900;
+  letter-spacing: .04em; margin-bottom: 8px;
+}
+.section h2 em { font-style: normal; color: var(--accent); }
+.section h3 {
+  font-size: 1.02rem; font-weight: 900; margin: 0 0 8px;
+  letter-spacing: .02em; line-height: 1.4;
+}
+.section-lead { font-size: .9rem; color: var(--muted); margin-bottom: 16px; }
+.prose p { font-size: .95rem; color: var(--text); margin: 0 0 12px; }
+.prose p:last-child { margin-bottom: 0; }
+.vid-card {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 14px 16px 16px;
+  margin: 0 0 14px;
+}
+.vid-note, .vid-id { font-size: .88rem; color: var(--muted); margin-top: 6px; }
+.vid-note strong, .vid-id strong { color: var(--text); }
+.embed {
+  position: relative;
+  margin-top: 12px;
+  padding-top: 56.25%;
+  background: #000;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+.embed iframe {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%; border: 0;
+}
+.tips-list { padding-left: 1.2em; }
+.tips-list li { margin: 8px 0; font-size: .9rem; color: var(--muted); }
+.tips-list li strong { color: var(--text); }
+.summary-box {
+  margin-top: 12px; padding: 14px 16px; border-radius: 10px;
+  border: 1px solid rgba(201,162,39,.45);
+  background: rgba(201,162,39,.08);
+  font-size: .95rem; font-weight: 800; color: var(--text);
+  line-height: 1.5;
+}
+.summary-box em { font-style: normal; color: var(--accent); }
+.site-footer {
+  text-align: center; padding: 24px 20px 40px;
+  font-size: .72rem; color: var(--muted);
+}
+
+.card-grid { display: grid; grid-template-columns: 1fr; gap: 12px; }
+@media (min-width: 720px) {
+  .card-grid { grid-template-columns: 1fr 1fr; }
+}
+.hero-card {
+  display: block;
+  padding: 16px 18px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  color: inherit;
+  text-decoration: none;
+}
+.hero-card:hover { border-color: var(--accent); text-decoration: none; }
+.hero-card h3 { margin: 6px 0 4px; font-size: 1.15rem; }
+.hero-card p { color: var(--muted); font-size: .88rem; }
+.hero-card .go { margin-top: 8px; color: var(--accent); font-weight: 800; font-size: .82rem; }
+
+</style>
+<link rel="stylesheet" href="../assets/vote-widget.css" />
+<link rel="stylesheet" href="../assets/feedback-form.css" />
+<link rel="stylesheet" href="../assets/age-gate.css" />
+</head>
+<body>
+<header class="site-header">
+  <div class="header-inner">
+    <div class="brand">
+      <a class="back-home" href="../qigong-encyclopedia.html#ranks">← 返回三六九等</a>
+      <div class="header-links">
+        <a class="back-home" href="../index.html#qigong">← 氣功大全</a>
+        <a class="back-home" href="../qigong-heroes.html">英雄傳</a>
+      </div>
+      <div class="brand-name" style="margin-top:8px">硬核祝福</div>
+      <div class="brand-slogan">別人改數值，你改規則。</div>
+    </div>
+    <div class="header-right">
+      <div class="page-title">人物傳 · <span>陳小旺</span></div>
+      <nav class="nav-mini" aria-label="本頁錨點">
+        <a href="#bio">生平</a>
+        <a href="#school">門派</a>
+        <a href="#power">戰鬥力</a>
+        <a href="#verdict">真假</a>
+        <a href="#clips">代表片</a>
+        <a href="#sources">來源</a>
+      </nav>
+    </div>
+  </div>
+</header>
+<main class="wrap">
+  <div data-boss-vote data-vote-slug="qigong-bio-bio-chen-xiaowang"></div>
+  <section class="hero" aria-labelledby="hero-title">
+    <div>
+      <h1 id="hero-title">陳小旺 · <em>人物傳</em></h1>
+      <p class="hero-sub">Chen Xiaowang · 中國（陳家溝／國際巡迴）· 採集 2026-10-18</p>
+      <div class="slogan-box">戰鬥力 1＝普通成年男子，泰臣＝3（《刃牙》錨，唔係科學測量）。神功、無接觸吹噓唔當高戰力。</div>
+      <div class="meta-row">
+        <span class="chip info">地區｜中國</span>
+        <span class="chip gold">門派｜陳氏太極拳</span>
+        <span class="chip gold">等第｜二等</span>
+        <span class="chip safe">真假｜真（師承＋示範）</span>
+        <span class="chip info">戰鬥力｜1.4–2.0</span>
+        <span class="chip safe">英雄傳｜Y</span>
+      </div>
+    </div>
+  </section>
+  <section class="section" id="bio" aria-labelledby="bio-title">
+    <div class="section-kicker">BIO</div>
+    <h2 id="bio-title"><em>生平</em></h2>
+    <p class="section-lead">只寫公開片、公開網站可核嘅事實。戰鬥力同真假另標編輯意見。</p>
+    <div class="prose">
+      <p>陳小旺係陳氏太極拳公開嫡系傳承人物，長期喺國際巡迴示範同教學。</p>
+      <p>官方同協會網站、公開傳記可以核到佢嘅傳承角色。</p>
+      <p>公開片睇到纏絲功嘅螺旋結構、全身協調同定式發力。呢啲係傳統套路示範，唔係無接觸吹噓。</p>
+      <p>本站承認佢作為陳氏標準傳承人嘅公開地位同示範質素。</p>
+      <p>同時寫明：等第同戰鬥力反映可核傳統宗師同結構示範，唔等於全接觸擂台戰績。</p>
+    </div>
+  </section>
+  <section class="section" id="school" aria-labelledby="school-title">
+    <div class="section-kicker">SCHOOL</div>
+    <h2 id="school-title"><em>門派</em></h2>
+    <div class="prose">
+      <p>門派欄：陳氏太極拳，公開敘事係十九世傳承。</p>
+      <p>本傳只收公開示範同公開網站，唔把套路示範寫成職業賽績。</p>
+    </div>
+  </section>
+  <section class="section" id="power" aria-labelledby="power-title">
+    <div class="section-kicker">POWER</div>
+    <h2 id="power-title">戰鬥力 · <em>1.4–2.0</em></h2>
+    <p class="section-lead">硬核祝福編輯意見｜非官方。唔係官方排名，亦唔係科學測量。</p>
+    <div class="prose">
+      <p>建議戰鬥力 1.4–2.0。硬核祝福編輯意見｜非官方。建議等第：二等。</p>
+      <p>一句依據：公開片可見纏絲結構、推手協調同身體控制，屬高階傳統內家示範。本庫無佢嘅全接觸職業賽績。</p>
+      <p>相對標尺，高過 1，仍然低過泰臣＝3。唔當擂台選手抬高。</p>
+    </div>
+    <div class="summary-box">標尺提醒：<em>1＝普通成年男子</em>。泰臣＝3，係《刃牙》漫畫錨點。本傳數字跟 2026-10-18 人物傳稿。百科人物表若仍係較早暫估，兩邊都係編輯意見，以本傳稿做人物傳口徑。</div>
+  </section>
+  <section class="section" id="verdict" aria-labelledby="verdict-title">
+    <div class="section-kicker">VERDICT</div>
+    <h2 id="verdict-title">真假／<em>待核</em></h2>
+    <div class="prose">
+      <p>站標：真（公開師承＋可核示範）。非競技賽績型。</p>
+      <p>英雄傳標 Y，傳統可核宗師候選。影視同神功敘事唔加分。</p>
+    </div>
+    <div class="summary-box">一句註：<em>嫡系公開傳承，可見纏絲結構；唔當全接觸賽績抬高。</em> 英雄傳：本頁標 Y，列入英雄傳主名單。仍係編輯候選，唔係官方封神。 以上係硬核祝福編輯意見｜非官方。</div>
+  </section>
+  <section class="section" id="clips" aria-labelledby="clips-title">
+    <div class="section-kicker">CLIPS</div>
+    <h2 id="clips-title">代表<em>片</em></h2>
+    <p class="section-lead">片 ID 跟 2026-10-18 真料庫已核清單，本頁未新造片 ID。嵌入用 youtube-nocookie。旁證片會寫明唔係本人主證。</p>
+    <article class="vid-card">
+      <div class="meta-row">
+        <span class="chip safe">真</span>
+        <span class="chip gold">片 1</span>
+      </div>
+      <h3>纏絲功 Part 01</h3>
+      <p class="vid-note"><strong>註</strong>　陳小旺示範纏絲發力。可見螺旋結構同全身協調。頻道：Tai Chi Dao Chen Style。</p>
+      <p class="vid-id">片 ID <code>bUmE_1L4vdo</code> · <a href="https://www.youtube.com/watch?v=bUmE_1L4vdo" target="_blank" rel="noopener noreferrer">YouTube 連結</a></p>
+      <div class="embed">
+        <iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/bUmE_1L4vdo" title="纏絲功 Part 01" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+    </article>
+    <article class="vid-card">
+      <div class="meta-row">
+        <span class="chip safe">真</span>
+        <span class="chip gold">片 2</span>
+      </div>
+      <h3>纏絲功 Part 02</h3>
+      <p class="vid-note"><strong>註</strong>　同系列公開教學示範。頻道：Jonas Ferreira。</p>
+      <p class="vid-id">片 ID <code>hEqc-tS19oA</code> · <a href="https://www.youtube.com/watch?v=hEqc-tS19oA" target="_blank" rel="noopener noreferrer">YouTube 連結</a></p>
+      <div class="embed">
+        <iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/hEqc-tS19oA" title="纏絲功 Part 02" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+    </article>
+  </section>
+  <section class="section" id="sources" aria-labelledby="sources-title">
+    <div class="section-kicker">SOURCES</div>
+    <h2 id="sources-title"><em>來源</em></h2>
+    <ul class="tips-list">
+      <li><a href="https://www.youtube.com/watch?v=bUmE_1L4vdo" target="_blank" rel="noopener noreferrer">YouTube｜V01 bUmE_1L4vdo</a></li>
+      <li><a href="https://www.youtube.com/watch?v=hEqc-tS19oA" target="_blank" rel="noopener noreferrer">YouTube｜V02 hEqc-tS19oA</a></li>
+      <li><a href="https://chenxiaowang.com/" target="_blank" rel="noopener noreferrer">chenxiaowang.com</a></li>
+      <li><a href="http://chenxiaowang.org.hk/" target="_blank" rel="noopener noreferrer">chenxiaowang.org.hk</a></li>
+      <li><a href="../qigong-encyclopedia.html#ranks">氣功大全｜三六九等</a></li>
+    </ul>
+    <p class="section-lead" style="margin-top:12px;margin-bottom:0">核對日期：2026-10-18（香港）。slug：<code>bio-chen-xiaowang</code></p>
+  </section>
+  <section class="feedback" id="feedback" data-netlify-feedback aria-labelledby="feedback-title">
+    <div class="feedback-head">
+      <h2 id="feedback-title">留下<em>意見</em>俾網主</h2>
+      <span class="feedback-badge">真係會送到</span>
+    </div>
+    <p class="feedback-lead">片狀態唔啱、事實要補、戰力一句唔妥——丢句說話。留言經 Netlify Forms 直達網主（Credits 用完時可能暫收唔到，仍可留低）。</p>
+    <div class="feedback-thanks" data-feedback-thanks role="status" aria-live="polite" hidden>
+      <h3>收到，多謝硬核祝福！</h3>
+      <p>你嘅意見已送出俾網主。想再講可以繼續填。</p>
+      <button type="button" class="feedback-secondary" data-feedback-again>再留一句</button>
+    </div>
+    <form class="feedback-form" name="boss-hunt-feedback" method="POST" action="/" data-netlify="true" netlify netlify-honeypot="bot-field" data-boss-feedback>
+      <input type="hidden" name="form-name" value="boss-hunt-feedback" />
+      <input type="hidden" name="page" value="qigong-bios/qigong-bio-bio-chen-xiaowang.html · 陳小旺｜人物傳" />
+      <p class="feedback-honeypot" aria-hidden="true">
+        <label>唔好填呢格 <input type="text" name="bot-field" tabindex="-1" autocomplete="off" /></label>
+      </p>
+      <div class="feedback-field">
+        <label for="fb-name-bio-chen-xiaowang">暱稱 <span class="opt">（可選）</span></label>
+        <input type="text" id="fb-name-bio-chen-xiaowang" name="name" maxlength="80" placeholder="例如：採集同路人" autocomplete="nickname" />
+      </div>
+      <div class="feedback-field">
+        <label for="fb-contact-bio-chen-xiaowang">聯絡 <span class="opt">（可選）</span></label>
+        <input type="text" id="fb-contact-bio-chen-xiaowang" name="contact" maxlength="120" placeholder="電郵／Discord（方便回覆）" autocomplete="email" />
+      </div>
+      <div class="feedback-field">
+        <label for="fb-msg-bio-chen-xiaowang">意見 <span class="opt">（必填）</span></label>
+        <textarea id="fb-msg-bio-chen-xiaowang" name="message" maxlength="4000" required rows="4" placeholder="想講咩就寫低…"></textarea>
+      </div>
+      <div class="feedback-actions">
+        <button type="submit" class="feedback-submit">送出意見</button>
+      </div>
+      <p class="feedback-note">唔填一樣睇晒全頁。</p>
+      <div class="feedback-status" data-feedback-status role="status" aria-live="polite"></div>
+    </form>
+  </section>
+</main>
+<footer class="site-footer">
+  硬核祝福 · BOSS 獵殺區 · 氣功大全 · 陳小旺 · 唔教修改器／外掛
+</footer>
+<script src="../assets/vote-widget.js" defer></script>
+<script src="../assets/feedback-form.js" defer></script>
+<script src="../assets/age-gate.js" defer></script>
+</body>
+</html>
