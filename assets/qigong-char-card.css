@@ -236,7 +236,7 @@ a.char-card:hover .char-name { color: var(--accent, #c9a227); }
 .char-card .meta-row { margin-top: 10px; }
 .char-card .hero-sub { margin-top: 4px; margin-bottom: 8px; }
 
-/* 粗剪影通緝卡係橫向草圖，用 contain 先唔切走 WANTED／名字 */
+/* TCG／卡牌風頭像係橫向卡面，用 contain 先唔切走卡框同名字 */
 .char-avatar--poster {
   width: 168px;
   height: 104px;
