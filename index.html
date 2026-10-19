@@ -172,8 +172,10 @@ a { color: inherit; text-decoration: none; }
 <link rel="stylesheet" href="assets/share-bar.css" />
 <link rel="stylesheet" href="assets/feedback-form.css" />
 <link rel="stylesheet" href="assets/age-gate.css" />
+<link rel="stylesheet" href="assets/art-banners.css" />
+<link rel="preload" as="image" href="assets/art/sample-hub-hero-watercolor.jpg" />
 </head>
-<body>
+<body class="art-hub">
 
 <header class="site-header">
   <div class="header-inner">
@@ -183,13 +185,16 @@ a { color: inherit; text-decoration: none; }
     </div>
   </div>
 </header>
-
-<main class="hub">
-  <div class="hub-title">
+<figure class="hub-hero">
+  <img src="assets/art/sample-hub-hero-watercolor.jpg" alt="金屑夜色，孤影對住赤紅巨影" width="1280" height="720" decoding="async" fetchpriority="high" />
+  <figcaption class="hub-hero-copy">
     <h1>BOSS <em>獵殺區</em></h1>
     <p>揀遊戲 → 再入專區。短入口，唔堆內容。</p>
-  </div>
+  </figcaption>
+</figure>
 
+
+<main class="hub">
   
   <div data-boss-vote data-vote-slug="index"></div>
   <div data-boss-share></div>
@@ -197,43 +202,50 @@ a { color: inherit; text-decoration: none; }
   <section class="panel" id="panel-games" aria-labelledby="games-label">
     <div class="step-label" id="games-label">① 選擇遊戲</div>
     <div class="card-grid games">
-      <button type="button" class="pick gold" data-go="sekiro" aria-label="進入隻狼">
+      <button type="button" class="pick gold pick-with-art" data-go="sekiro" aria-label="進入隻狼">
+        <img class="pick-mark" src="assets/art/card-sekiro-square.jpg" alt="紅月前的狼影" width="720" height="720" decoding="async" />
         <div class="tag">SEKIRO</div>
         <h2>隻狼</h2>
         <p>BOSS · 地圖資訊 · 智能解謎</p>
         <div class="go">進入 →</div>
       </button>
-      <button type="button" class="pick gold" data-go="onimusha" aria-label="進入鬼武者 劍之道">
+      <button type="button" class="pick gold pick-with-art" data-go="onimusha" aria-label="進入鬼武者 劍之道">
+        <img class="pick-mark" src="assets/art/card-onimusha-square.jpg" alt="赤金鬼面" width="720" height="720" decoding="async" />
         <div class="tag">ONIMUSHA</div>
         <h2>鬼武者 劍之道</h2>
         <p>BOSS · 岩流／大唾拉／羅掌願／百穢／畏風／鵺／弁慶／酒吞／道狂／義經 等</p>
         <div class="go">進入 →</div>
       </button>
-      <button type="button" class="pick info" data-go="arc-raiders" aria-label="進入 ARC Raiders">
+      <button type="button" class="pick info pick-with-art" data-go="arc-raiders" aria-label="進入 ARC Raiders">
+        <img class="pick-mark" src="assets/art/theme-scifi-banner.jpg" alt="霓虹夜裡，槍口對住異形" width="1280" height="720" decoding="async" style="object-position:72% 42%" />
         <div class="tag">ARC RAIDERS</div>
         <h2>ARC Raiders</h2>
         <p>BOSS · 火箭兵（Rocketeer）</p>
         <div class="go">進入 →</div>
       </button>
-      <button type="button" class="pick danger" data-go="dawnwalker" aria-label="進入黎明行者之血">
+      <button type="button" class="pick danger pick-with-art" data-go="dawnwalker" aria-label="進入黎明行者之血">
+        <img class="pick-mark" src="assets/art/type-portrait-knight-helm.jpg" alt="炭黑盔，一隻赤眼" width="1280" height="720" decoding="async" style="object-position:center 42%" />
         <div class="tag">DAWNWALKER</div>
         <h2>黎明行者之血</h2>
         <p>BOSS · 布倫西斯（Brencis）最終戰</p>
         <div class="go">進入 →</div>
       </button>
-      <button type="button" class="pick info" data-go="cs2" aria-label="進入 CS2">
+      <button type="button" class="pick info pick-with-art" data-go="cs2" aria-label="進入 CS2">
+        <img class="pick-mark" src="assets/art/theme-scifi-banner.jpg" alt="科幻夜色，獨狼舉槍" width="1280" height="720" decoding="async" style="object-position:28% 48%" />
         <div class="tag">CS2</div>
         <h2>Counter-Strike 2</h2>
         <p>沙2獨狼 · Rush 3v3 衝鋒時刻</p>
         <div class="go">進入 →</div>
       </button>
-      <button type="button" class="pick danger" data-go="hellraiser" aria-label="進入養鬼吃人：復甦">
+      <button type="button" class="pick danger pick-with-art" data-go="hellraiser" aria-label="進入養鬼吃人：復甦">
+        <img class="pick-mark" src="assets/art/type-portrait-death-mask.jpg" alt="骨白面具，墨灰裂紋" width="1280" height="720" decoding="async" style="object-position:center 46%" />
         <div class="tag">HELLRAISER</div>
         <h2>養鬼吃人：復甦</h2>
         <p>BOSS · 馬洛（Marlowe）最終戰 · Hellraiser 難度</p>
         <div class="go">進入 →</div>
       </button>
-      <button type="button" class="pick info" data-go="qigong" aria-label="進入氣功大全">
+      <button type="button" class="pick info pick-with-art" data-go="qigong" aria-label="進入氣功大全">
+        <img class="pick-mark" src="assets/art/card-qigong-square.jpg" alt="青山一縷氣" width="720" height="720" decoding="async" />
         <div class="tag">QIGONG</div>
         <h2>氣功大全</h2>
         <p>影片真相庫 · 人物三六九等 · 網路奇人／待核 · 地區排行榜</p>
