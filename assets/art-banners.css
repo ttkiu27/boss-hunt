@@ -1,0 +1,213 @@
+/* BOSS 獵殺區 · 水彩橫幅／卡面。object-fit 裁切，底部淡暗方便疊字。 */
+
+.page-banner,
+.hub-hero,
+.art-item {
+  margin: 0;
+}
+
+.page-banner {
+  position: relative;
+  width: min(1100px, calc(100% - 32px));
+  margin: 16px auto 0;
+  height: clamp(168px, 28vw, 280px);
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid #2a2f3c;
+  background: #0a0b0e;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, .35);
+}
+
+.page-banner img,
+.hub-hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 44%;
+  display: block;
+}
+
+.page-banner.pos-sky img { object-position: center 34%; }
+.page-banner.pos-low img { object-position: center 64%; }
+.page-banner.pos-field img { object-position: center 60%; }
+
+.page-banner::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(180deg, rgba(10, 11, 14, .16) 0%, rgba(10, 11, 14, .05) 46%, rgba(10, 11, 14, .58) 100%);
+}
+
+.page-banner--slim {
+  height: clamp(112px, 18vw, 168px);
+}
+
+.wrap .page-banner--rule {
+  width: 100%;
+  height: clamp(100px, 16vw, 156px);
+  margin: 8px 0 16px;
+}
+
+.hub-hero {
+  position: relative;
+  width: min(1100px, calc(100% - 32px));
+  margin: 16px auto 0;
+  height: clamp(240px, 42vw, 440px);
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid #2a2f3c;
+  box-shadow: 0 18px 48px rgba(0, 0, 0, .45);
+  background: #0a0b0e;
+}
+
+.hub-hero img { object-position: center 40%; }
+
+.hub-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(180deg, rgba(10, 11, 14, .1) 10%, rgba(10, 11, 14, .02) 42%, rgba(10, 11, 14, .78) 100%);
+}
+
+.hub-hero-copy {
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 36px 20px 18px;
+  text-align: center;
+}
+
+.hub-hero-copy h1 {
+  font-size: clamp(1.8rem, 5vw, 2.6rem);
+  font-weight: 900;
+  letter-spacing: .06em;
+  text-shadow: 0 2px 16px rgba(0, 0, 0, .75);
+}
+
+.hub-hero-copy h1 em { font-style: normal; color: var(--accent, #c9a227); }
+
+.hub-hero-copy p {
+  margin-top: 8px;
+  font-size: .95rem;
+  color: #e8e6e1;
+  text-shadow: 0 1px 10px rgba(0, 0, 0, .85);
+}
+
+body.art-hub {
+  background-color: #0a0b0e;
+  background-image:
+    linear-gradient(180deg, rgba(10, 11, 14, .42) 0%, rgba(10, 11, 14, .78) 32%, rgba(10, 11, 14, .94) 100%),
+    url("art/theme-darkness-banner.jpg");
+  background-size: auto, cover;
+  background-position: center, center 28%;
+  background-repeat: no-repeat;
+}
+
+.art-hub .hub {
+  justify-content: flex-start;
+  padding-top: 22px;
+}
+
+.art-hub .card-grid.games {
+  grid-template-columns: 1fr;
+}
+
+.art-hub .pick {
+  background-color: rgba(18, 20, 26, .9);
+  background-image:
+    linear-gradient(165deg, rgba(18, 20, 26, .9), rgba(18, 20, 26, .94)),
+    url("art/type-abstract-ink-void.jpg");
+  background-size: auto, cover;
+  background-position: center;
+}
+
+.art-hub .pick.pick-with-art {
+  display: grid;
+  grid-template-columns: 76px 1fr;
+  column-gap: 14px;
+  align-items: center;
+}
+
+.art-hub .pick-mark {
+  width: 76px;
+  height: 76px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, .14);
+  grid-column: 1;
+  grid-row: 1 / span 5;
+  align-self: center;
+}
+
+.art-hub .pick-with-art > :not(.pick-mark) { grid-column: 2; }
+
+body.art-bg-field {
+  background-color: #0a0b0e;
+  background-image:
+    linear-gradient(180deg, rgba(10, 11, 14, .8), rgba(10, 11, 14, .9)),
+    url("art/type-landscape-battlefield.jpg");
+  background-size: auto, cover;
+  background-position: center, center 62%;
+  background-repeat: no-repeat;
+}
+
+body.art-bg-scifi {
+  background-color: #0a0b0e;
+  background-image:
+    linear-gradient(180deg, rgba(10, 11, 14, .78), rgba(10, 11, 14, .92)),
+    url("art/theme-scifi-banner.jpg");
+  background-size: auto, cover;
+  background-position: center, center 40%;
+  background-repeat: no-repeat;
+}
+
+.art-item {
+  display: grid;
+  grid-template-columns: 132px 1fr;
+  gap: 14px;
+  align-items: center;
+  margin: 0 0 14px;
+  padding: 10px;
+  background: rgba(10, 11, 14, .55);
+  border: 1px solid #2a2f3c;
+  border-radius: 10px;
+}
+
+.art-item img {
+  width: 132px;
+  height: 96px;
+  object-fit: cover;
+  object-position: 58% 50%;
+  border-radius: 8px;
+  display: block;
+}
+
+.art-item figcaption {
+  font-size: .88rem;
+  color: var(--muted, #9a968c);
+  line-height: 1.45;
+}
+
+.art-item strong { color: var(--text, #e8e6e1); }
+
+.basic-card .art-prop {
+  width: 100%;
+  height: 92px;
+  object-fit: cover;
+  object-position: 58% 50%;
+  border-radius: 8px;
+  display: block;
+  margin: 0 0 8px;
+}
+
+@media (max-width: 520px) {
+  .art-hub .pick.pick-with-art { grid-template-columns: 60px 1fr; column-gap: 10px; }
+  .art-hub .pick-mark { width: 60px; height: 60px; }
+  .art-item { grid-template-columns: 96px 1fr; }
+  .art-item img { width: 96px; height: 72px; }
+}
