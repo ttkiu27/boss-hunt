@@ -1,0 +1,53 @@
+/* Homepage English intro — same column as .hub-hero / .page-banner. */
+
+.hub-intro {
+  flex: 0 0 auto;
+  width: min(1100px, calc(100% - 32px));
+  margin: 18px auto 0;
+}
+
+.hub-intro-copy {
+  margin: 0 0 12px;
+  text-align: center;
+}
+
+.hub-intro-copy h2 {
+  font-size: clamp(1.25rem, 3.4vw, 1.7rem);
+  font-weight: 900;
+  letter-spacing: .08em;
+}
+
+.hub-intro-copy h2 em {
+  font-style: normal;
+  color: var(--accent, #c9a227);
+}
+
+.hub-intro-copy p {
+  margin-top: 6px;
+  font-size: .92rem;
+  color: var(--muted, #9a968c);
+}
+
+.hub-intro video {
+  width: 100%;
+  height: auto;
+  display: block;
+  aspect-ratio: 16 / 9;
+  object-fit: contain;
+  background: #000;
+  border-radius: 16px;
+  border: 1px solid #2a2f3c;
+  box-shadow: 0 18px 48px rgba(0, 0, 0, .45);
+}
+
+.hub-intro-fallback {
+  margin-top: 8px;
+  text-align: center;
+  font-size: .78rem;
+}
+
+.hub-intro-fallback a {
+  color: var(--accent, #c9a227);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
