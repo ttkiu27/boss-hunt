@@ -1,0 +1,94 @@
+/* BOSS 獵殺區 · 分享列（複製／系統分享／平台） */
+.boss-share {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 12px;
+  margin: 0 0 18px;
+  padding: 12px 14px;
+  border: 1px solid var(--border, #2a2f3c);
+  border-radius: var(--radius, 12px);
+  background: rgba(18, 20, 26, 0.72);
+  max-width: 100%;
+}
+.boss-share-label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--muted, #9a968c);
+}
+.boss-share-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  flex: 1 1 220px;
+}
+.boss-share-btn {
+  appearance: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font: inherit;
+  font-size: 0.85rem;
+  font-weight: 800;
+  line-height: 1.2;
+  padding: 8px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--border, #2a2f3c);
+  background: var(--bg, #0a0b0e);
+  color: var(--text, #e8e6e1);
+  text-decoration: none;
+  transition: border-color 0.15s, background 0.15s, color 0.15s, transform 0.1s;
+}
+.boss-share-btn:hover {
+  border-color: var(--accent, #c9a227);
+  color: var(--accent, #c9a227);
+}
+.boss-share-btn:active {
+  transform: scale(0.97);
+}
+.boss-share-btn:focus-visible {
+  outline: 2px solid var(--accent, #c9a227);
+  outline-offset: 2px;
+}
+.boss-share-native {
+  border-color: var(--accent, #c9a227);
+  background: rgba(201, 162, 39, 0.14);
+  color: var(--accent, #c9a227);
+}
+.boss-share-copy.is-done {
+  border-color: var(--safe, #3dbf7a);
+  color: var(--safe, #3dbf7a);
+}
+.boss-share-status {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--muted, #9a968c);
+  min-height: 1.1em;
+  flex: 1 1 72px;
+}
+.boss-share-status.is-ok {
+  color: var(--safe, #3dbf7a);
+}
+.boss-share-status.is-err {
+  color: var(--danger, #e04545);
+}
+@media (max-width: 640px) {
+  .boss-share {
+    padding: 10px 12px;
+  }
+  .boss-share-label {
+    flex: 1 1 100%;
+  }
+  .boss-share.has-native .boss-share-native {
+    order: -1;
+    flex: 1 1 100%;
+  }
+  .boss-share-btn {
+    font-size: 0.8rem;
+    padding: 7px 12px;
+  }
+}
