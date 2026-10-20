@@ -22,7 +22,6 @@
       "titleZh": "向左走位示範",
       "loop": {
         "mp4": "ape-p1-01-walk-left/loop.mp4",
-        "webm": "ape-p1-01-walk-left/loop.webm",
         "durationMs": 5000
       },
       "frames": [
@@ -87,7 +86,6 @@
       "titleZh": "五連擊（微抬手）",
       "loop": {
         "mp4": "ape-p1-02-five-hit/loop.mp4",
-        "webm": "ape-p1-02-five-hit/loop.webm",
         "durationMs": 5000
       },
       "frames": [
@@ -152,7 +150,6 @@
       "titleZh": "危・捶地板下段（跳）",
       "loop": {
         "mp4": "ape-p1-03-ground-slam-jump/loop.mp4",
-        "webm": "ape-p1-03-ground-slam-jump/loop.webm",
         "durationMs": 5000
       },
       "frames": [
@@ -217,7 +214,6 @@
       "titleZh": "危・抓技（無捶地）",
       "loop": {
         "mp4": "ape-p1-04-perilous-grab/loop.mp4",
-        "webm": "ape-p1-04-perilous-grab/loop.webm",
         "durationMs": 5000
       },
       "frames": [
@@ -282,7 +278,6 @@
       "titleZh": "放屁毒霧＋丟糞",
       "loop": {
         "mp4": "ape-p1-05-fart-and-dung/loop.mp4",
-        "webm": "ape-p1-05-fart-and-dung/loop.webm",
         "durationMs": 5000
       },
       "frames": [
@@ -347,7 +342,6 @@
       "titleZh": "耍賴拳法（仰躺亂打）",
       "loop": {
         "mp4": "ape-p1-06-tantrum-punches/loop.mp4",
-        "webm": "ape-p1-06-tantrum-punches/loop.webm",
         "durationMs": 5000
       },
       "frames": [
@@ -412,7 +406,6 @@
       "titleZh": "小 baby 姿勢硬直",
       "loop": {
         "mp4": "ape-p1-07-baby-pose/loop.mp4",
-        "webm": "ape-p1-07-baby-pose/loop.webm",
         "durationMs": 5000
       },
       "frames": [
@@ -477,7 +470,6 @@
       "titleZh": "二階段怖氣咆哮前置（蛇扭）",
       "loop": {
         "mp4": "ape-p1-08-terror-roar-telegraph/loop.mp4",
-        "webm": "ape-p1-08-terror-roar-telegraph/loop.webm",
         "durationMs": 5000
       },
       "frames": [
@@ -542,7 +534,6 @@
       "titleZh": "右下起手完美架＋長槍拉蟲",
       "loop": {
         "mp4": "ape-p1-09-deflect-spear-pull/loop.mp4",
-        "webm": "ape-p1-09-deflect-spear-pull/loop.webm",
         "durationMs": 5000
       },
       "frames": [
