@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-HK">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>鬼形部正孝｜BOSS 獵殺區｜硬核祝福</title>
+<meta name="description" content="BOSS 獵殺區 — 隻狼 · 鬼形部正孝。爆竹嚇馬，綠鈎就勾，槍連要彈。別人改數值，你改規則。" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Orbitron:wght@600;800&display=swap" rel="stylesheet" />
+<style>
+
+:root {
+  --bg: #0a0b0e;
+  --bg2: #12141a;
+  --bg3: #1a1d26;
+  --border: #2a2f3c;
+  --text: #e8e6e1;
+  --muted: #9a968c;
+  --accent: #c9a227;
+  --accent-dim: #8a7018;
+  --danger: #e04545;
+  --danger-dim: #8b2222;
+  --safe: #3dbf7a;
+  --warn: #e09a32;
+  --info: #4a9eff;
+  --phase-b: #9b6bff;
+  --radius: 12px;
+  --shadow: 0 8px 32px rgba(0,0,0,.45);
+  --font: "Noto Sans TC", "PingFang HK", "Microsoft JhengHei", sans-serif;
+  --display: "Orbitron", "Noto Sans TC", sans-serif;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.55;
+  min-height: 100vh;
+  background-image:
+    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(201,162,39,.12), transparent),
+    radial-gradient(ellipse 40% 30% at 100% 50%, rgba(224,69,69,.06), transparent),
+    linear-gradient(180deg, #0a0b0e 0%, #0d0f14 100%);
+}
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+img, iframe, video { max-width: 100%; }
+
+.site-header {
+  position: sticky; top: 0; z-index: 100;
+  backdrop-filter: blur(14px);
+  background: rgba(10,11,14,.85);
+  border-bottom: 1px solid var(--border);
+}
+.header-inner {
+  max-width: 1100px; margin: 0 auto;
+  padding: 12px 20px;
+  display: flex; flex-wrap: wrap; align-items: center; gap: 12px 24px;
+  justify-content: space-between;
+}
+.brand { display: flex; flex-direction: column; gap: 2px; }
+.brand-name {
+  font-family: var(--display);
+  font-weight: 800; font-size: .85rem;
+  letter-spacing: .12em; color: var(--accent);
+  text-transform: uppercase;
+}
+.brand-slogan { font-size: .75rem; color: var(--muted); }
+.back-home {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: .9rem; font-weight: 800;
+  padding: 8px 14px;
+  border: 1px solid var(--accent-dim);
+  border-radius: 999px;
+  color: var(--accent);
+  background: rgba(201,162,39,.08);
+  text-decoration: none;
+  letter-spacing: .04em;
+}
+.back-home:hover { background: rgba(201,162,39,.16); text-decoration: none; border-color: var(--accent); }
+.header-right { display: flex; flex-direction: column; align-items: flex-end; gap: 6px; }
+.page-title { font-size: 1rem; font-weight: 900; letter-spacing: .06em; }
+.page-title span { color: var(--accent); }
+.nav-mini { display: flex; gap: 6px; flex-wrap: wrap; justify-content: flex-end; }
+.nav-mini a {
+  font-size: .72rem; padding: 4px 10px;
+  border: 1px solid var(--border); border-radius: 999px;
+  color: var(--muted); text-decoration: none;
+  transition: .15s;
+}
+.nav-mini a:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
+
+.wrap { max-width: 1100px; margin: 0 auto; padding: 24px 20px 80px; }
+
+.hero {
+  display: grid; gap: 20px;
+  margin-bottom: 28px;
+  padding: 24px;
+  background: linear-gradient(135deg, var(--bg2), var(--bg3));
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  position: relative; overflow: hidden;
+}
+.hero::before {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(90deg, transparent 60%, rgba(224,69,69,.07));
+  pointer-events: none;
+}
+.hero h1 {
+  font-size: clamp(1.5rem, 4vw, 2.2rem);
+  font-weight: 900; letter-spacing: .06em;
+}
+.hero h1 em { font-style: normal; color: var(--accent); }
+.hero-sub { margin-top: 8px; font-size: .95rem; color: var(--muted); }
+.slogan-box {
+  margin-top: 14px;
+  padding: 12px 16px;
+  border-radius: 10px;
+  border: 1px solid rgba(224,69,69,.4);
+  background: rgba(224,69,69,.08);
+  font-size: 1rem; font-weight: 800;
+  color: var(--danger);
+  letter-spacing: .02em;
+}
+.meta-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+.chip {
+  font-size: .72rem; font-weight: 700;
+  padding: 4px 10px; border-radius: 6px;
+  background: var(--bg); border: 1px solid var(--border);
+  color: var(--muted); letter-spacing: .04em;
+}
+.chip.gold { color: var(--accent); border-color: var(--accent-dim); }
+.chip.red { color: var(--danger); border-color: var(--danger-dim); }
+.chip.warn { color: var(--warn); border-color: #8a5a18; }
+.chip.info { color: var(--info); border-color: #1a4a7a; }
+.chip.safe { color: var(--safe); border-color: #1a6a45; }
+.chip.purple { color: var(--phase-b); border-color: #5a3a99; }
+
+.basics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px; margin-top: 16px;
+}
+.basic-card {
+  background: var(--bg); border: 1px solid var(--border);
+  border-radius: 10px; padding: 14px 16px;
+}
+.basic-card h3 {
+  font-size: .72rem; color: var(--accent);
+  letter-spacing: .1em; margin-bottom: 6px; font-weight: 700;
+}
+.basic-card p, .basic-card ul { font-size: .88rem; color: var(--text); }
+.basic-card ul { padding-left: 1.1em; }
+.basic-card li { margin: 4px 0; color: var(--muted); }
+.basic-card li strong { color: var(--text); }
+
+.section {
+  margin: 28px 0;
+  padding: 22px;
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  scroll-margin-top: 72px;
+}
+.section-kicker {
+  font-size: .7rem; font-weight: 800;
+  letter-spacing: .14em; color: var(--accent);
+  text-transform: uppercase; margin-bottom: 6px;
+}
+.section h2 {
+  font-size: 1.25rem; font-weight: 900;
+  letter-spacing: .04em; margin-bottom: 8px;
+}
+.section h2 em { font-style: normal; color: var(--accent); }
+.section-lead { font-size: .9rem; color: var(--muted); margin-bottom: 16px; }
+
+.phase-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 14px;
+}
+.phase-card {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px;
+}
+.phase-card.p1 { border-color: rgba(201,162,39,.35); }
+.phase-card.p2 { border-color: rgba(155,107,255,.4); }
+.phase-card.p3 { border-color: rgba(224,69,69,.45); }
+.phase-card h3 {
+  font-size: 1rem; font-weight: 900; margin-bottom: 10px;
+  letter-spacing: .03em;
+}
+.phase-card.p1 h3 { color: var(--accent); }
+.phase-card.p2 h3 { color: #b794f6; }
+.phase-card.p3 h3 { color: var(--danger); }
+.phase-card ul { padding-left: 1.15em; }
+.phase-card li { margin: 6px 0; font-size: .88rem; color: var(--muted); }
+.phase-card li strong { color: var(--text); }
+
+.loadout-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px;
+}
+.loadout-card {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 14px 16px;
+}
+.loadout-card h3 {
+  font-size: .72rem; color: var(--accent);
+  letter-spacing: .1em; margin-bottom: 8px; font-weight: 700;
+}
+.loadout-card p, .loadout-card ul { font-size: .88rem; color: var(--muted); }
+.loadout-card ul { padding-left: 1.1em; }
+.loadout-card li { margin: 4px 0; }
+.loadout-card li strong { color: var(--text); }
+
+.cycle-box {
+  margin-top: 8px;
+  padding: 14px 16px;
+  border-radius: 10px;
+  background: var(--bg);
+  border: 1px solid rgba(224,69,69,.35);
+}
+.cycle-box h3 {
+  font-size: .8rem; color: var(--danger);
+  letter-spacing: .08em; margin-bottom: 10px; font-weight: 800;
+}
+.cycle-box ol { padding-left: 1.2em; }
+.cycle-box li { margin: 8px 0; font-size: .9rem; color: var(--muted); }
+.cycle-box li strong { color: var(--text); }
+
+.route-strip {
+  display: flex; flex-wrap: wrap; gap: 8px; align-items: center;
+  margin: 0 0 18px; padding: 12px 14px;
+  background: var(--bg); border: 1px dashed var(--border);
+  border-radius: 10px; font-size: .82rem; color: var(--muted);
+}
+.route-strip .rs-step {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-weight: 700; color: var(--text);
+}
+.route-strip .rs-num {
+  font-family: var(--display); font-size: .65rem;
+  letter-spacing: .08em; color: var(--accent);
+  border: 1px solid var(--accent-dim); border-radius: 999px;
+  padding: 2px 8px;
+}
+.route-strip .rs-arrow { color: var(--accent-dim); font-weight: 900; }
+
+.move-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 14px;
+  margin: 16px 0 12px;
+}
+.move-card {
+  display: flex; flex-direction: column; gap: 8px;
+  padding: 14px; background: var(--bg);
+  border: 1px solid var(--border); border-radius: 12px;
+  scroll-margin-top: 88px;
+}
+.move-card:target {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 1px rgba(201,162,39,.35);
+}
+.move-card .mc-head {
+  display: flex; flex-wrap: wrap; gap: 8px;
+  align-items: baseline; justify-content: space-between;
+}
+.move-card .mc-name {
+  font-weight: 900; font-size: .95rem;
+  letter-spacing: .02em; color: var(--text);
+}
+.move-card .mc-phase {
+  font-size: .66rem; font-weight: 800;
+  letter-spacing: .06em; text-transform: uppercase;
+  color: var(--muted); border: 1px solid var(--border);
+  border-radius: 999px; padding: 2px 8px;
+}
+.move-card .mc-tell { font-size: .8rem; color: var(--muted); line-height: 1.45; }
+.move-card .mc-tell strong { color: var(--accent); font-weight: 800; margin-right: 4px; }
+.move-card .mc-counter {
+  font-size: .86rem; font-weight: 700; color: var(--safe);
+  line-height: 1.45; padding: 8px 10px;
+  background: rgba(61,191,122,.08);
+  border-left: 3px solid var(--safe);
+  border-radius: 0 8px 8px 0;
+}
+.move-card .mc-counter::before {
+  content: "破招："; color: var(--muted); font-weight: 800;
+  font-size: .72rem; letter-spacing: .06em; margin-right: 4px;
+}
+.move-clip {
+  position: relative; width: 100%; aspect-ratio: 16 / 9;
+  border-radius: 10px; overflow: hidden;
+  border: 1px dashed #3a4050; background: #0d0f14;
+  display: flex; align-items: center; justify-content: center;
+}
+.move-clip.is-filled {
+  border-style: solid; border-color: var(--border); background: #000;
+}
+.move-clip .clip-placeholder {
+  font-size: .78rem; font-weight: 700; color: var(--muted);
+  letter-spacing: .04em; text-align: center; padding: 12px;
+}
+.move-clip iframe, .move-clip video {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  border: 0; object-fit: contain; background: #000;
+}
+.move-card .mc-chapter { font-size: .72rem; color: var(--muted); line-height: 1.4; }
+.move-card .mc-chapter a { color: var(--accent); font-weight: 700; }
+
+.video-list { display: grid; gap: 16px; }
+.video-card {
+  background: var(--bg); border: 1px solid var(--border);
+  border-radius: 12px; padding: 14px; overflow: hidden;
+}
+.video-card h3 { font-size: .95rem; font-weight: 900; margin-bottom: 6px; }
+.video-card p { font-size: .82rem; color: var(--muted); margin-bottom: 10px; }
+.video-frame {
+  position: relative; width: 100%; aspect-ratio: 16 / 9;
+  border-radius: 10px; overflow: hidden; background: #000;
+  border: 1px solid var(--border);
+}
+.video-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.video-card .ext-links { margin-top: 8px; font-size: .78rem; }
+.video-card .ext-links a { margin-right: 12px; }
+
+.check-list { list-style: none; padding: 0; }
+.check-list li {
+  margin: 8px 0; padding: 8px 12px;
+  background: var(--bg); border: 1px solid var(--border); border-radius: 8px;
+  font-size: .9rem;
+}
+.check-list li::before { content: "☑ "; color: var(--accent); font-weight: 900; }
+.check-list a { font-weight: 800; }
+
+.mistake-list { padding-left: 1.2em; }
+.mistake-list li {
+  margin: 8px 0; font-size: .9rem; color: var(--danger);
+  font-weight: 600;
+}
+.mistake-list li span { color: var(--muted); font-weight: 500; }
+
+.tip-line {
+  margin-top: 12px;
+  font-size: .85rem; color: var(--warn);
+  padding: 10px 12px;
+  border-left: 3px solid var(--warn);
+  background: rgba(224,154,50,.08);
+  border-radius: 0 8px 8px 0;
+}
+
+details.sources {
+  margin-top: 28px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg2);
+  overflow: hidden;
+}
+details.sources > summary {
+  padding: 14px 18px; cursor: pointer;
+  font-weight: 700; list-style: none;
+  display: flex; align-items: center; justify-content: space-between;
+  color: var(--muted); font-size: .9rem;
+}
+details.sources > summary::-webkit-details-marker { display: none; }
+details.sources > summary::after { content: "＋展開"; font-size: .75rem; color: var(--accent); }
+details.sources[open] > summary::after { content: "－收起"; }
+.sources-body {
+  padding: 0 18px 16px;
+  font-size: .78rem; color: var(--muted);
+}
+.sources-body ol { padding-left: 1.3em; }
+.sources-body li { margin: 6px 0; }
+.sources-body a { word-break: break-all; }
+
+.site-footer {
+  text-align: center; padding: 24px 20px 40px;
+  font-size: .72rem; color: var(--muted);
+  border-top: 1px solid var(--border);
+}
+
+</style>
+<link rel="stylesheet" href="assets/vote-widget.css" />
+<link rel="stylesheet" href="assets/share-bar.css" />
+<link rel="stylesheet" href="assets/feedback-form.css" />
+<link rel="stylesheet" href="assets/art-banners.css" />
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <div class="brand">
+      <a class="back-home" href="index.html#sekiro">← 返回獵殺區</a>
+      <div class="brand-name" style="margin-top:8px">硬核祝福</div>
+      <div class="brand-slogan">別人改數值，你改規則。</div>
+    </div>
+    <div class="header-right">
+      <div class="page-title">隻狼 · <span>鬼形部正孝</span></div>
+      <nav class="nav-mini" aria-label="本頁錨點">
+
+        <a href="#boss">Boss</a>
+        <a href="#prep">戰前</a>
+        <a href="#phases">階段</a>
+        <a href="#moves">招式</a>
+        <a href="#strategy">打法</a>
+        <a href="#checklist">清單</a>
+        <a href="#videos">片源</a>
+        <a href="#mistakes">常見錯</a>
+      </nav>
+    </div>
+  </div>
+</header>
+<figure class="page-banner">
+  <img src="assets/art/sample-sekiro-banner-watercolor.jpg" alt="硃紅葉落，狼影對住鬼甲" width="1280" height="720" decoding="async" fetchpriority="high" />
+</figure>
+
+<main class="wrap">
+  <div data-boss-vote data-vote-slug="sekiro-gyoubu"></div>
+  <div data-boss-share></div>
+
+  <section class="hero" id="boss" aria-labelledby="boss-title">
+    <div>
+      <h1 id="boss-title">鬼形部正孝 · <em>Gyoubu Masataka Oniwa</em></h1>
+      <p class="hero-sub">葦名城外・城門戰場 · 第一場正式頭目 · 鬼形部正孝同埋馬 · 兩次忍殺</p>
+      <div class="slogan-box">馬會自己衝過嚟。彈槍、爆竹、見綠鈎就勾。</div>
+      
+    <div class="route-strip" aria-label="前期順序">
+      <span class="rs-step"><span class="rs-num">01</span><a href="sekiro-chained-ogre.html#boss">枷鎖鬼</a></span>
+      <span class="rs-arrow">→</span>
+      <span class="rs-step"><span class="rs-num">02</span><a href="sekiro-gyoubu.html#boss">鬼形部</a></span>
+      <span class="rs-arrow">→</span>
+      <span class="rs-step"><span class="rs-num">03</span><a href="sekiro-lady-butterfly.html#boss">蝴蝶夫人</a></span>
+      <span class="rs-arrow">→</span>
+      <span class="rs-step"><span class="rs-num">04</span><a href="sekiro-genichiro.html#boss">天守閣弦一郎</a></span>
+    </div>
+      <div class="meta-row">
+        <span class="chip red">正式頭目</span>
+        <span class="chip gold">城門</span>
+        <span class="chip info">爆竹嚇馬</span>
+        <span class="chip safe">綠鈎</span>
+        <span class="chip warn">兩次忍殺</span>
+      </div>
+      <div class="basics-grid">
+        <div class="basic-card">
+          <h3>點入</h3>
+          <p>城門要塞鬼佛。清天井雜兵，左邊屋頂鈎出去，落戰場。佢衝閘先講名，段時間可以白砍。</p>
+        </div>
+        <div class="basic-card">
+          <h3>馬同人</h3>
+          <p>打中馬同打中人都計。唔好追。佢跑開，你等。</p>
+        </div>
+        <div class="basic-card">
+          <h3>左定右</h3>
+          <p>槍喺佢右手。你面向佢嗰陣，<strong>你嘅右側</strong>（佢左側）少少安全。馬屁股會踢。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <figure class="page-banner page-banner--rule pos-field">
+  <img src="assets/art/theme-samurai-banner.jpg" alt="赤月山雨，背刀人影" width="1280" height="720" decoding="async" loading="lazy" />
+</figure>
+  <section class="section" id="prep" aria-labelledby="prep-title">
+    <div class="section-kicker">PREP · EARLY KIT</div>
+    <h2 id="prep-title">戰前<em>準備</em></h2>
+    <p class="section-lead">爆竹同鈎索攻擊係呢場嘅兩件工具。見切有就用，冇就紅字向後跑，一樣過。</p>
+    <div class="loadout-grid">
+      <div class="loadout-card">
+        <h3>義手</h3>
+        <ul>
+          <li><strong>爆竹</strong>：嚇馬，唔係嚇人。裝好，精神印留返。</li>
+          <li>手裏劍可有可無。呢場主角係爆竹。</li>
+        </ul>
+      </div>
+      <div class="loadout-card">
+        <h3>技能</h3>
+        <ul>
+          <li><strong>鈎索攻擊</strong>：三個義手之後，同佛師傾計開義手流，第一招就係。</li>
+          <li><strong>見切</strong>：平田忍殺獵人。突刺先用。拖地掃要跳或者跑，見切唔食掃。</li>
+        </ul>
+      </div>
+      <div class="loadout-card">
+        <h3>道具</h3>
+        <ul>
+          <li>葫蘆、丸藥。秋葉糖可選，食完先砍開場白。</li>
+          <li>快捷欄清走多餘義手，免得出錯爆竹。</li>
+        </ul>
+      </div>
+      <div class="loadout-card">
+        <h3>粵語 Tip</h3>
+        <ul>
+          <li>佢衝過嚟先至係你嘅回合。</li>
+          <li>彈唔切就格。格滿都死唔去，槍太慢。</li>
+          <li>二階段唔好換打法。</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="phases" aria-labelledby="phases-title">
+    <div class="section-kicker">PHASES</div>
+    <h2 id="phases-title">階段<em>短結</em></h2>
+    <div class="phase-grid">
+      <article class="phase-card p1">
+        <h3>第一條血 · 0:00–1:37</h3>
+        <ul>
+          <li>開場白白砍。之後槍連、槍插地、綠鈎。</li>
+          <li>爆竹窗鎖 0:00–0:37（嚇馬片一階段）。</li>
+          <li>紅字：突刺，或者槍插地拖過來。</li>
+        </ul>
+      </article>
+      <article class="phase-card p2">
+        <h3>第二條血 · 1:37 起</h3>
+        <ul>
+          <li>加馬跳砸。純彈片由 1:37 打到 3:24。</li>
+          <li>爆竹仍然有效，窗 0:37–1:23。</li>
+          <li>打法唔換。</li>
+        </ul>
+      </article>
+      <article class="phase-card p3">
+        <h3>核心理念</h3>
+        <ul>
+          <li><strong>馬會自己衝過嚟。彈槍、爆竹、見綠鈎就勾。</strong></li>
+          <li>兩段秒數都係 Kritical Slicer 片主章節，唔係估。</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <section class="section" id="moves" aria-labelledby="moves-title">
+    <div class="section-kicker">MOVES · LOCKED CLIPS</div>
+    <h2 id="moves-title">招式<em>卡</em></h2>
+    <p class="section-lead">一階段／二階段用片主章節切開。鈎索擊同招式合集用成條短片。開頁自動嵌 youtube-nocookie。</p>
+    <div class="move-cards">
+
+      <article class="move-card" id="move-p1-parry">
+        <div class="mc-head">
+          <span class="mc-name">一階段・槍連彈反</span>
+          <span class="mc-phase">P1 · 章節</span>
+        </div>
+        <p class="mc-tell"><strong>預兆：</strong>Kritical Slicer 章節：0:00 一階段，1:37 入二階段。純彈、無傷</p>
+        <p class="mc-counter">槍連彈到佢收。彈完唔追馬。馬會自己衝返嚟</p>
+        <div class="move-clip" data-yt-id="0DnhPyQ1R7o" data-yt-start="0" data-yt-end="97" data-clip-src="">
+          <span class="clip-placeholder">短片待嵌</span>
+        </div>
+        <p class="mc-chapter">0:00–1:37 · <a href="https://www.youtube.com/watch?v=0DnhPyQ1R7o&amp;t=0s" target="_blank" rel="noopener noreferrer">0DnhPyQ1R7o @ 0:00 →</a> · Kritical Slicer · 章節 VERIFIED</p>
+      </article>
+
+      <article class="move-card" id="move-p2-parry">
+        <div class="mc-head">
+          <span class="mc-name">二階段・跳砸都照彈</span>
+          <span class="mc-phase">P2 · 章節</span>
+        </div>
+        <p class="mc-tell"><strong>預兆：</strong>1:37 起。馬跳、槍更密，純彈片打到完</p>
+        <p class="mc-counter">同一套：彈、唔追、等綠鈎。跳砸唔好躲去馬屁股</p>
+        <div class="move-clip" data-yt-id="0DnhPyQ1R7o" data-yt-start="97" data-yt-end="204" data-clip-src="">
+          <span class="clip-placeholder">短片待嵌</span>
+        </div>
+        <p class="mc-chapter">1:37–3:24 · <a href="https://www.youtube.com/watch?v=0DnhPyQ1R7o&amp;t=97s" target="_blank" rel="noopener noreferrer">0DnhPyQ1R7o @ 1:37 →</a> · Kritical Slicer · 章節 VERIFIED</p>
+      </article>
+
+      <article class="move-card" id="move-fire-p1">
+        <div class="mc-head">
+          <span class="mc-name">爆竹嚇馬・一階段</span>
+          <span class="mc-phase">P1 · 章節</span>
+        </div>
+        <p class="mc-tell"><strong>預兆：</strong>爆竹片章節 0:00–0:37。馬驚，人會企定</p>
+        <p class="mc-counter">槍收招或者貼到身先爆。嚇完三至四刀，即刻格返</p>
+        <div class="move-clip" data-yt-id="xZvVk7EF4hQ" data-yt-start="0" data-yt-end="37" data-clip-src="">
+          <span class="clip-placeholder">短片待嵌</span>
+        </div>
+        <p class="mc-chapter">0:00–0:37 · <a href="https://www.youtube.com/watch?v=xZvVk7EF4hQ&amp;t=0s" target="_blank" rel="noopener noreferrer">xZvVk7EF4hQ @ 0:00 →</a> · Kritical Slicer · 章節 VERIFIED</p>
+      </article>
+
+      <article class="move-card" id="move-fire-p2">
+        <div class="mc-head">
+          <span class="mc-name">爆竹嚇馬・二階段</span>
+          <span class="mc-phase">P2 · 章節</span>
+        </div>
+        <p class="mc-tell"><strong>預兆：</strong>0:37 起仍然用爆竹。二階段冇免疫</p>
+        <p class="mc-counter">跳砸之後、或者佢收槍，再嚇一次。精神印不夠就留俾二階段</p>
+        <div class="move-clip" data-yt-id="xZvVk7EF4hQ" data-yt-start="37" data-yt-end="83" data-clip-src="">
+          <span class="clip-placeholder">短片待嵌</span>
+        </div>
+        <p class="mc-chapter">0:37–1:23 · <a href="https://www.youtube.com/watch?v=xZvVk7EF4hQ&amp;t=37s" target="_blank" rel="noopener noreferrer">xZvVk7EF4hQ @ 0:37 →</a> · Kritical Slicer · 章節 VERIFIED</p>
+      </article>
+
+      <article class="move-card" id="move-grapple">
+        <div class="mc-head">
+          <span class="mc-name">綠鈎・鈎索攻擊</span>
+          <span class="mc-phase">鈎</span>
+        </div>
+        <p class="mc-tell"><strong>預兆：</strong>馬跑開，頭上出綠點</p>
+        <p class="mc-counter">勾過去。有鈎索攻擊就落地前按攻擊，白斬一輪。冇技能就勾完即格，唔好企喺槍下發呆</p>
+        <div class="move-clip" data-yt-id="y-Dgt3PEt44" data-yt-start="0" data-yt-end="20" data-clip-src="">
+          <span class="clip-placeholder">短片待嵌</span>
+        </div>
+        <p class="mc-chapter">0:00–0:20 · <a href="https://www.youtube.com/watch?v=y-Dgt3PEt44&amp;t=0s" target="_blank" rel="noopener noreferrer">y-Dgt3PEt44 @ 0:00 →</a> · Flame of Ambition · 鈎索擊全片</p>
+      </article>
+
+      <article class="move-card" id="move-moveset">
+        <div class="mc-head">
+          <span class="mc-name">危・突刺／拖地掃／槍插地</span>
+          <span class="mc-phase">招式</span>
+        </div>
+        <p class="mc-tell"><strong>預兆：</strong>GameWith 招式片：突刺、槍拖地、插地硬直</p>
+        <p class="mc-counter">紅字最穩係向後跑。突刺先可以見切（平田忍殺獵人教過）。槍插地：三刀然後格</p>
+        <div class="move-clip" data-yt-id="QbeWiHNB9O4" data-yt-start="0" data-yt-end="92" data-clip-src="">
+          <span class="clip-placeholder">短片待嵌</span>
+        </div>
+        <p class="mc-chapter">0:00–1:32 · <a href="https://www.youtube.com/watch?v=QbeWiHNB9O4&amp;t=0s" target="_blank" rel="noopener noreferrer">QbeWiHNB9O4 @ 0:00 →</a> · GameWith · Tips &amp; Movesets 全片</p>
+      </article>
+
+      <article class="move-card" id="move-safe-loop">
+        <div class="mc-head">
+          <span class="mc-name">安全循環・格滿再三刀</span>
+          <span class="mc-phase">口播</span>
+        </div>
+        <p class="mc-tell"><strong>預兆：</strong>Tyrannicon：開場白免費刀、全程格、槍插地三刀、紅字後退、綠鈎、爆竹、二階段馬跳</p>
+        <p class="mc-counter">未熟彈就全程格。架勢條裂開都來得及，佢槍慢。三刀之後一定格返</p>
+        <div class="move-clip" data-yt-id="yBiWErimUqw" data-yt-start="0" data-yt-end="174" data-clip-src="">
+          <span class="clip-placeholder">短片待嵌</span>
+        </div>
+        <p class="mc-chapter">0:00–2:54 · <a href="https://www.youtube.com/watch?v=yBiWErimUqw&amp;t=0s" target="_blank" rel="noopener noreferrer">yBiWErimUqw @ 0:00 →</a> · Tyrannicon · 安全打法全片</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section" id="strategy" aria-labelledby="strategy-title">
+    <div class="section-kicker">STRATEGY</div>
+    <h2 id="strategy-title">打法<em>循環</em></h2>
+    <div class="cycle-box">
+      <h3>等佢嚟</h3>
+      <ol>
+        <li><strong>開場：</strong>佢報名嗰陣砍。秋葉有就食。</li>
+        <li><strong>槍連：</strong>彈。彈唔切就格。唔好追馬。</li>
+        <li><strong>槍插地：</strong>三刀，然後格返。呢個係最穩輸出。</li>
+        <li><strong>紅字：</strong>向後跑。突刺先可以見切。拖地掃唔好見切。</li>
+        <li><strong>綠點：</strong>勾。有技能就落地前出刀。</li>
+        <li><strong>爆竹：</strong>貼到先嚇。三至四刀。二階段留返印。</li>
+        <li><strong>位置：</strong>唔好企馬屁股。第二條血同一套。</li>
+      </ol>
+    </div>
+    <p class="tip-line">硬核祝福：純彈無傷睇 <a href="#move-p1-parry">一階段</a> 同 <a href="#move-p2-parry">二階段</a>。想穩就跟 <a href="#move-safe-loop">格滿三刀</a>。</p>
+  </section>
+
+  <section class="section" id="checklist" aria-labelledby="check-title">
+    <div class="section-kicker">CHECKLIST</div>
+    <h2 id="check-title">開打<em>清單</em></h2>
+    <ul class="check-list">
+      <li>爆竹裝好，精神印有貨 — <a href="#move-fire-p1">嚇馬片</a></li>
+      <li>鈎索攻擊點咗（未點就勾完即格）— <a href="#move-grapple">綠鈎片</a></li>
+      <li>見切有冇都知：冇就紅字跑 — <a href="#move-moveset">危技片</a></li>
+      <li>閘前雜兵清晒，由屋頂落</li>
+      <li>開場白砍完就等佢衝</li>
+      <li>兩次忍殺，二階段唔換打法 — <a href="#move-p2-parry">二階段</a></li>
+    </ul>
+  </section>
+
+  <section class="section" id="videos" aria-labelledby="videos-title">
+    <div class="section-kicker">VIDEOS</div>
+    <h2 id="videos-title">片源<em>總覽</em></h2>
+    <p class="section-lead">FightinCowboy 由買爆竹、講兩種危技，講到實戰。單招秒數喺上面卡片。</p>
+    <div class="video-list">
+      
+      <article class="video-card">
+        <h3>FightinCowboy · Git Gud：鬼形部</h3>
+        <p>爆竹商人路線、兩種危技、實戰。全片 4:37 · 鎖窗 0:00–4:37</p>
+        <div class="video-frame">
+          <iframe src="https://www.youtube-nocookie.com/embed/lJfLASKiCDc?start=0&amp;end=277&amp;rel=0" title="FightinCowboy · Git Gud：鬼形部" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <p class="ext-links"><a href="https://www.youtube.com/watch?v=lJfLASKiCDc&amp;t=0s" target="_blank" rel="noopener noreferrer">YouTube 外連 →</a></p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section" id="mistakes" aria-labelledby="mistakes-title">
+    <div class="section-kicker">MISTAKES</div>
+    <h2 id="mistakes-title">常見<em>死法</em></h2>
+    <ul class="mistake-list">
+      <li>追馬 → <span>槍拖到你。等佢衝返嚟</span></li>
+      <li>企馬屁股 → <span>後踢好傷。留喺側前</span></li>
+      <li>紅字硬格 → <span>突刺同拖地都穿擋</span></li>
+      <li>拖地掃用見切 → <span>見切只食突。掃要跳或者跑</span></li>
+      <li>勾上去發呆 → <span>落地前出刀，或者落地即格</span></li>
+      <li>當有第三階段 → <span>兩次忍殺就完。天守閣先至係弦一郎</span></li>
+    </ul>
+  </section>
+
+  <section class="section" id="related" aria-labelledby="related-title">
+    <div class="section-kicker">RELATED</div>
+    <h2 id="related-title">前期<em>下一站</em></h2>
+    <p class="section-lead">食咗鬼形部回憶先升攻擊力，再去平田打蝴蝶夫人會順好多。唔急就直接入城。</p>
+    
+    <div class="meta-row" style="margin-top:8px">
+      <a class="chip gold" href="sekiro-chained-ogre.html#boss" style="text-decoration:none">枷鎖鬼</a>
+      <a class="chip gold" href="sekiro-gyoubu.html#boss" style="text-decoration:none">鬼形部正孝</a>
+      <a class="chip gold" href="sekiro-lady-butterfly.html#boss" style="text-decoration:none">蝴蝶夫人</a>
+      <a class="chip gold" href="sekiro-genichiro.html#boss" style="text-decoration:none">葦名弦一郎・天台</a>
+      <a class="chip" href="sekiro-guardian-ape.html#boss" style="text-decoration:none">獅猿（後期）</a>
+      <a class="chip" href="sekiro-poison-pool.html#exit" style="text-decoration:none">毒沼鬼佛</a>
+    </div>
+  </section>
+
+
+  <details class="sources">
+    <summary>片源同鎖窗（公開片）</summary>
+    <div class="sources-body">
+      <ol>
+        <li><a href="https://www.youtube.com/watch?v=0DnhPyQ1R7o" target="_blank" rel="noopener noreferrer">0DnhPyQ1R7o</a> · Kritical Slicer 純彈 · 章節 0:00 一階段、1:37 二階段（片長 3:24）</li>
+        <li><a href="https://www.youtube.com/watch?v=xZvVk7EF4hQ" target="_blank" rel="noopener noreferrer">xZvVk7EF4hQ</a> · 爆竹 · 章節 0:00 一階段、0:37 二階段（片長 1:23）</li>
+        <li><a href="https://www.youtube.com/watch?v=y-Dgt3PEt44" target="_blank" rel="noopener noreferrer">y-Dgt3PEt44</a> · 鈎索擊 · 0:00–0:20</li>
+        <li><a href="https://www.youtube.com/watch?v=QbeWiHNB9O4" target="_blank" rel="noopener noreferrer">QbeWiHNB9O4</a> · GameWith 招式 · 0:00–1:32</li>
+        <li><a href="https://www.youtube.com/watch?v=yBiWErimUqw" target="_blank" rel="noopener noreferrer">yBiWErimUqw</a> · Tyrannicon 安全循環 · 0:00–2:54</li>
+        <li><a href="https://www.youtube.com/watch?v=lJfLASKiCDc" target="_blank" rel="noopener noreferrer">lJfLASKiCDc</a> · FightinCowboy Git Gud · 0:00–4:37</li>
+      </ol>
+      <p style="margin-top:10px">階段秒數跟 Kritical Slicer 描述入面嘅 Chapters，唔係估。危技未有獨立於合集之外嘅單招片，所以突刺同拖地掃鎖喺 GameWith 全片同 Tyrannicon 全片。</p>
+    </div>
+  </details>
+
+
+  <section class="feedback" id="feedback" data-netlify-feedback aria-labelledby="feedback-title">
+    <div class="feedback-head">
+      <h2 id="feedback-title">留下<em>意見</em>俾網主</h2>
+      <span class="feedback-badge">真係會送到</span>
+    </div>
+    <p class="feedback-lead">招式唔清楚、想加邊個 Boss、有錯漏——丢句說話。留言經 Netlify Forms 直達網主信箱／後台，唔再只係本機保存。</p>
+    <div class="feedback-thanks" data-feedback-thanks role="status" aria-live="polite" hidden>
+      <h3>收到，多謝硬核祝福！</h3>
+      <p>你嘅意見已送出俾網主。想再講可以繼續填。</p>
+      <button type="button" class="feedback-secondary" data-feedback-again>再留一句</button>
+    </div>
+    <form class="feedback-form" name="boss-hunt-feedback" method="POST" action="/" data-netlify="true" netlify netlify-honeypot="bot-field" data-boss-feedback>
+      <input type="hidden" name="form-name" value="boss-hunt-feedback" />
+      <input type="hidden" name="page" value="sekiro-gyoubu.html · 隻狼｜鬼形部正孝" />
+      <p class="feedback-honeypot" aria-hidden="true">
+        <label>唔好填呢格 <input type="text" name="bot-field" tabindex="-1" autocomplete="off" /></label>
+      </p>
+      <div class="feedback-field">
+        <label for="fb-name-sekiro-gyoubu">暱稱 <span class="opt">（可選）</span></label>
+        <input type="text" id="fb-name-sekiro-gyoubu" name="name" maxlength="80" placeholder="例如：狼忍新手" autocomplete="nickname" />
+      </div>
+      <div class="feedback-field">
+        <label for="fb-contact-sekiro-gyoubu">聯絡 <span class="opt">（可選）</span></label>
+        <input type="text" id="fb-contact-sekiro-gyoubu" name="contact" maxlength="120" placeholder="電郵／Discord（方便回覆）" autocomplete="email" />
+      </div>
+      <div class="feedback-field">
+        <label for="fb-msg-sekiro-gyoubu">意見 <span class="opt">（必填）</span></label>
+        <textarea id="fb-msg-sekiro-gyoubu" name="message" maxlength="4000" required rows="4" placeholder="想講咩就寫低…"></textarea>
+      </div>
+      <div class="feedback-actions">
+        <button type="submit" class="feedback-submit">送出意見</button>
+      </div>
+      <p class="feedback-note">送出後網主喺 Netlify → Forms 收到。唔填一樣睇晒全頁。</p>
+      <div class="feedback-status" data-feedback-status role="status" aria-live="polite"></div>
+    </form>
+  </section>
+</main>
+
+<footer class="site-footer">
+  硬核祝福 · BOSS 獵殺區 · 隻狼 · 鬼形部正孝 · 唔教修改器／外掛
+</footer>
+
+<script>
+(function () {
+  function hydrateMoveClips() {
+    document.querySelectorAll('.move-clip').forEach(function (slot) {
+      var clipSrc = (slot.getAttribute('data-clip-src') || '').trim();
+      var ytId = (slot.getAttribute('data-yt-id') || '').trim();
+      var ytStart = (slot.getAttribute('data-yt-start') || '').trim();
+      var ytEnd = (slot.getAttribute('data-yt-end') || '').trim();
+      if (!clipSrc && ytStart === '') return;
+      slot.classList.add('is-filled');
+      slot.innerHTML = '';
+      if (clipSrc) {
+        var v = document.createElement('video');
+        v.src = clipSrc;
+        v.controls = true;
+        v.playsInline = true;
+        v.preload = 'metadata';
+        slot.appendChild(v);
+        return;
+      }
+      if (!ytId) return;
+      var params = ['start=' + encodeURIComponent(ytStart)];
+      if (ytEnd) params.push('end=' + encodeURIComponent(ytEnd));
+      params.push('rel=0');
+      var ifr = document.createElement('iframe');
+      ifr.src = 'https://www.youtube-nocookie.com/embed/' + encodeURIComponent(ytId) + '?' + params.join('&');
+      ifr.title = '招式／步驟短片';
+      ifr.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+      ifr.allowFullscreen = true;
+      ifr.loading = 'lazy';
+      slot.appendChild(ifr);
+    });
+  }
+  hydrateMoveClips();
+})();
+</script>
+
+<script src="assets/vote-widget.js" defer></script>
+<script src="assets/share-bar.js" defer></script>
+<script src="assets/feedback-form.js" defer></script>
+<script src="assets/analytics.js" defer></script>
+</body>
+</html>
