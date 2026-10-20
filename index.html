@@ -97,7 +97,10 @@ a { color: inherit; text-decoration: none; }
 }
 @media (min-width: 560px) {
   .card-grid.games { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
-  .card-grid.cats { grid-template-columns: 1fr; }
+  .card-grid.cats { grid-template-columns: 1fr; gap: 11px; }
+}
+.card-grid.cats .pick {
+  padding: 18px 20px;
 }
 
 .pick {
@@ -150,15 +153,42 @@ a { color: inherit; text-decoration: none; }
 
 .pick.gold { border-color: #3a3010; }
 
+.hub-zone-jump {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin: -4px 0 16px;
+}
+.hub-zone-jump a {
+  display: inline-block;
+  padding: 7px 14px;
+  font-size: .72rem;
+  font-weight: 800;
+  letter-spacing: .1em;
+  color: var(--accent);
+  background: rgba(201, 162, 39, .08);
+  border: 1px solid rgba(201, 162, 39, .35);
+  border-radius: 999px;
+  transition: border-color .15s, background .15s, color .15s;
+}
+.hub-zone-jump a:hover,
+.hub-zone-jump a:focus-visible {
+  background: rgba(201, 162, 39, .16);
+  border-color: var(--accent);
+  outline: none;
+}
+
 .hub-subhead {
   grid-column: 1 / -1;
-  margin-top: 6px;
-  padding-top: 14px;
+  margin-top: 4px;
+  padding-top: 11px;
   border-top: 1px solid rgba(201, 162, 39, .22);
   font-size: .72rem;
   font-weight: 800;
   letter-spacing: .14em;
   color: var(--accent);
+  scroll-margin-top: 12px;
 }
 .card-grid.cats > .hub-subhead:first-child {
   margin-top: 0;
@@ -245,7 +275,7 @@ a { color: inherit; text-decoration: none; }
         <img class="pick-mark" src="assets/art/card-sekiro-square.jpg" alt="紅月前的狼影" width="720" height="720" decoding="async" />
         <div class="tag">SEKIRO</div>
         <h2>隻狼</h2>
-        <p>BOSS · 迷路專區 · 地圖資訊 · 智能解謎</p>
+        <p>BOSS · 迷路專區 · 智能解謎</p>
         <div class="go">進入 →</div>
       </button>
       <button type="button" class="pick gold pick-with-art" data-go="onimusha" aria-label="進入鬼武者 劍之道">
@@ -303,6 +333,11 @@ a { color: inherit; text-decoration: none; }
   <!-- Step 2 -->
   <section class="panel" id="panel-sekiro" hidden aria-labelledby="sekiro-label">
     <div class="step-label" id="sekiro-label">② 隻狼 · 揀專區</div>
+    <nav class="hub-zone-jump" aria-label="隻狼專區捷徑">
+      <a href="#sekiro-boss">BOSS</a>
+      <a href="#sekiro-lost-zone">迷路專區</a>
+      <a href="#sekiro-puzzle">智能解謎</a>
+    </nav>
     <div class="card-grid cats">
       <div class="hub-subhead" id="sekiro-boss">BOSS</div>
       <a class="pick gold" href="sekiro-chained-ogre.html#boss">
@@ -348,7 +383,6 @@ a { color: inherit; text-decoration: none; }
         <p>九郎點香 · 乘轎石洞 · 源之宮</p>
         <div class="go">進入 →</div>
       </a>
-      <div class="hub-subhead" id="sekiro-map-info">地圖資訊</div>
       <a class="pick info" href="sekiro-guardian-ape.html#lost-fool">
         <div class="tag">地圖資訊</div>
         <h2>地圖資訊（迷路）</h2>
