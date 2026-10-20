@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-HK">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>SelfBoost｜Java 闖關定級｜BOSS 獵殺區</title>
+<meta name="description" content="SelfBoost — 瀏覽器 Java 題庫：定級排位、休閒／硬核池，粵語題面，即開即玩。" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Orbitron:wght@600;800&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<link rel="stylesheet" href="../../assets/vote-widget.css" />
+<link rel="stylesheet" href="../../assets/share-bar.css" />
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <div class="brand-name">SELFBOOST · 線上遊戲區</div>
+    <a class="back-home" href="../../index.html#online-games">← 返回獵殺區</a>
+  </div>
+</header>
+
+<main class="app">
+  <div class="hero">
+    <h1>SelfBoost</h1>
+    <p>Java 闖關 · 定級排位 · 休閒／硬核題池</p>
+    <div id="rank-badge" class="rank-badge" hidden></div>
+  </div>
+
+  <p id="load-error" hidden style="color:var(--danger);text-align:center;margin-bottom:16px;">
+    題庫載入失敗，請重新整理頁面。
+  </p>
+
+  <div data-boss-vote data-vote-slug="selfboost"></div>
+  <div data-boss-share></div>
+
+  <section class="screen" id="screen-home">
+    <div class="mode-grid">
+      <button type="button" class="mode-btn mode-full" id="btn-placement">
+        <div class="tag">推薦</div>
+        <h2>定級排位</h2>
+        <p>約 10 題自適應難度 · 得出新手／入門／進階／高手／王者試練</p>
+      </button>
+      <button type="button" class="mode-btn" id="btn-casual">
+        <div class="tag">休閒池</div>
+        <h2>休閒練習</h2>
+        <p>casual 題庫 · 10 題一組 · 有解析</p>
+      </button>
+      <button type="button" class="mode-btn danger" id="btn-hardcore">
+        <div class="tag">硬核池</div>
+        <h2>硬核挑戰</h2>
+        <p>hardcore 題庫 · 陷阱同讀碼題多</p>
+      </button>
+    </div>
+  </section>
+
+  <section class="screen" id="screen-quiz" hidden>
+    <div class="quiz-head">
+      <span class="quiz-meta" id="quiz-mode">定級排位</span>
+      <div class="progress-bar" aria-hidden="true"><span id="progress-fill" style="width:0%"></span></div>
+      <span class="quiz-meta" id="quiz-progress">1 / 10</span>
+    </div>
+    <article class="card">
+      <div class="quiz-meta" id="q-topic"></div>
+      <p class="stem" id="q-stem"></p>
+      <pre class="code-block" id="q-code" hidden></pre>
+      <div class="options" id="q-options" hidden></div>
+      <div class="fill-row" id="q-fill" hidden>
+        <input type="text" id="fill-input" autocomplete="off" spellcheck="false" placeholder="輸入答案（以分號結尾）" enterkeyhint="done" />
+      </div>
+      <div class="feedback" id="q-feedback" hidden></div>
+      <div class="actions">
+        <button type="button" class="btn btn-primary" id="btn-submit">確認答案</button>
+        <button type="button" class="btn btn-primary" id="btn-next" hidden>下一題</button>
+        <button type="button" class="btn btn-ghost" id="btn-quit">退出</button>
+      </div>
+    </article>
+  </section>
+
+  <section class="screen" id="screen-result" hidden>
+    <div class="card result-tier">
+      <h2 id="result-title">進階</h2>
+      <p class="score" id="result-score">定級分數 72 / 100</p>
+      <p id="result-explain" style="margin-top:16px;text-align:left;color:var(--muted);"></p>
+      <div class="result-stats" id="result-stats"></div>
+      <div class="actions" style="justify-content:center;margin-top:24px;">
+        <button type="button" class="btn btn-primary" id="btn-redo-placement">重新定級</button>
+        <button type="button" class="btn" id="btn-result-home">返回主選單</button>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  硬核祝福 · SelfBoost 線上版 · 進度存喺本機瀏覽器
+</footer>
+
+<script type="module" src="app.js"></script>
+<script src="../../assets/vote-widget.js" defer></script>
+<script src="../../assets/share-bar.js" defer></script>
+</body>
+</html>
