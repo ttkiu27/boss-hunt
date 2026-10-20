@@ -1,0 +1,3044 @@
+{
+  "schemaVersion": 5,
+  "locale": "zh-HK",
+  "questions": [
+    {
+      "id": "q_bas_001",
+      "type": "mc",
+      "difficulty": 1,
+      "topic": "basics",
+      "locale": "zh-HK",
+      "stem": "以下邊個係合法嘅 Java 變數名？",
+      "code": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "2value"
+        },
+        {
+          "id": "B",
+          "text": "user_name"
+        },
+        {
+          "id": "C",
+          "text": "class"
+        },
+        {
+          "id": "D",
+          "text": "user-name"
+        }
+      ],
+      "correct": "B",
+      "accept": null,
+      "explain": "變數名可以有底線，唔可以數字開頭，唔可以係關鍵字，亦唔可以有連字號。",
+      "tags": [
+        "identifier"
+      ],
+      "xp": 10,
+      "version": 1,
+      "active": true,
+      "pool": "casual",
+      "rankMin": "iron_iv",
+      "rankMax": "challenger_i",
+      "idealRank": "iron_i",
+      "notes": "規則：Java 變數名可用英文字母、數字、底線 `_`、美元符 `$`；唔可以數字開頭，亦唔可以係關鍵字（例如 class、int）。連字號 `-` 唔屬於合法字元。"
+    },
+    {
+      "id": "q_bas_002",
+      "type": "fill",
+      "difficulty": 1,
+      "topic": "basics",
+      "locale": "zh-HK",
+      "stem": "宣告一個整數變數 x 並賦值 5（只寫嗰一行，以分號結尾）。",
+      "code": null,
+      "options": null,
+      "correct": "int x = 5;",
+      "accept": [
+        "int x=5;",
+        "int x =5;",
+        "int x= 5;"
+      ],
+      "explain": "型別＋名稱＋賦值；`=` 係賦值，唔係比較。",
+      "tags": [
+        "declaration",
+        "assignment"
+      ],
+      "xp": 12,
+      "version": 1,
+      "active": true,
+      "pool": "casual",
+      "rankMin": "iron_iv",
+      "rankMax": "challenger_i",
+      "idealRank": "iron_i",
+      "notes": "規則：宣告變數寫「型別 名稱 = 值;」。整數用 int；`=` 係賦值運算子，會把右邊數值存入左邊變數。記得以分號結尾。"
+    },
+    {
+      "id": "q_bas_003",
+      "type": "mc",
+      "difficulty": 1,
+      "topic": "basics",
+      "locale": "zh-HK",
+      "stem": "`int` 同 `double` 主要分別係？",
+      "code": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "int 存文字，double 存整數"
+        },
+        {
+          "id": "B",
+          "text": "int 存整數，double 存小數"
+        },
+        {
+          "id": "C",
+          "text": "兩者完全一樣"
+        },
+        {
+          "id": "D",
+          "text": "double 只能存 0 同 1"
+        }
+      ],
+      "correct": "B",
+      "accept": null,
+      "explain": "int 係整數型別；double 係浮點數，可以存小數。",
+      "tags": [
+        "types"
+      ],
+      "xp": 10,
+      "version": 1,
+      "active": true,
+      "pool": "casual",
+      "rankMin": "iron_iv",
+      "rankMax": "challenger_i",
+      "idealRank": "iron_i",
+      "notes": "規則：int 只存整數（冇小數部分）；double 係浮點型別，可以存帶小數嘅實數。揀型別時睇你需唔需要小數。"
+    },
+    {
+      "id": "q_bas_004",
+      "type": "read_code",
+      "difficulty": 2,
+      "topic": "basics",
+      "locale": "zh-HK",
+      "stem": "以下程式印出咩？",
+      "code": "int a = 7;\nint b = 2;\nSystem.out.print(a / b);",
+      "options": [
+        {
+          "id": "A",
+          "text": "3.5"
+        },
+        {
+          "id": "B",
+          "text": "3"
+        },
+        {
+          "id": "C",
+          "text": "4"
+        },
+        {
+          "id": "D",
+          "text": "編譯錯誤"
+        }
+      ],
+      "correct": "B",
+      "accept": null,
+      "explain": "兩個 int 相除係整數除法，7/2 得 3（小數部分丟掉）。",
+      "tags": [
+        "division",
+        "int"
+      ],
+      "xp": 15,
+      "version": 1,
+      "active": true,
+      "pool": "hardcore",
+      "rankMin": "bronze_iv",
+      "rankMax": "challenger_i",
+      "idealRank": "silver_ii",
+      "notes": "規則：兩個 int 做除法會係「整數除法」——商只保留整數部分，小數直接丟掉（唔係四捨五入）。其中一邊係 double 先會做浮點除法。"
+    },
+    {
+      "id": "q_bas_005",
+      "type": "mc",
+      "difficulty": 2,
+      "topic": "basics",
+      "locale": "zh-HK",
+      "stem": "`10 % 3` 嘅結果係？",
+      "code": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "0"
+        },
+        {
+          "id": "B",
+          "text": "1"
+        },
+        {
+          "id": "C",
+          "text": "3"
+        },
+        {
+          "id": "D",
+          "text": "10"
+        }
+      ],
+      "correct": "B",
+      "accept": null,
+      "explain": "`%` 係取餘數：10 除 3 餘 1。",
+      "tags": [
+        "modulo"
+      ],
+      "xp": 12,
+      "version": 1,
+      "active": true,
+      "pool": "casual",
+      "rankMin": "iron_iv",
+      "rankMax": "challenger_i",
+      "idealRank": "bronze_ii",
+      "notes": "規則：`%` 叫取餘（modulo）。a % b 等於 a 除以 b 之後剩低嘅餘數。例如 10 除 3 商 3 餘 1。"
+    },
+    {
+      "id": "q_bas_006",
+      "type": "fill",
+      "difficulty": 2,
+      "topic": "basics",
+      "locale": "zh-HK",
+      "stem": "寫出印出 Hello 嘅一行（用 System.out.println，字串用雙引號，以分號結尾）。",
+      "code": null,
+      "options": null,
+      "correct": "System.out.println(\"Hello\");",
+      "accept": [
+        "System.out.println(\"Hello\");",
+        "System.out.println( \"Hello\" );"
+      ],
+      "explain": "字串要用雙引號；`println` 會換行。",
+      "tags": [
+        "print"
+      ],
+      "xp": 12,
+      "version": 1,
+      "active": true,
+      "pool": "casual",
+      "rankMin": "iron_iv",
+      "rankMax": "challenger_i",
+      "idealRank": "bronze_ii",
+      "notes": "規則：用 System.out.println(...) 輸出並換行。字串字面量要用雙引號包住；陳述式以分號結尾。"
+    },
+    {
+      "id": "q_con_001",
+      "type": "mc",
+      "difficulty": 2,
+      "topic": "conditionals",
+      "locale": "zh-HK",
+      "stem": "`a = 5; b = 10;` 之後，邊個條件為 true？",
+      "code": "int a = 5;\nint b = 10;",
+      "options": [
+        {
+          "id": "A",
+          "text": "a == b"
+        },
+        {
+          "id": "B",
+          "text": "a > b"
+        },
+        {
+          "id": "C",
+          "text": "a < b"
+        },
+        {
+          "id": "D",
+          "text": "a = b"
+        }
+      ],
+      "correct": "C",
+      "accept": null,
+      "explain": "`==` 先係比較；`=` 係賦值。5 細過 10，所以 `a < b` 為 true。",
+      "tags": [
+        "==",
+        "compare"
+      ],
+      "xp": 12,
+      "version": 1,
+      "active": true,
+      "pool": "casual",
+      "rankMin": "iron_iv",
+      "rankMax": "challenger_i",
+      "idealRank": "bronze_ii",
+      "notes": "規則：比較大小用 `<` `>` `<=` `>=`；比較相等用 `==`。單一 `=` 只係賦值，唔會得出 true/false。條件表達式要寫成布林結果。"
+    },
+    {
+      "id": "q_con_002",
+      "type": "read_code",
+      "difficulty": 2,
+      "topic": "conditionals",
+      "locale": "zh-HK",
+      "stem": "以下程式印出咩？",
+      "code": "int n = 7;\nif (n % 2 == 0) {\n  System.out.print(\"even\");\n} else {\n  System.out.print(\"odd\");\n}",
+      "options": [
+        {
+          "id": "A",
+          "text": "even"
+        },
+        {
+          "id": "B",
+          "text": "odd"
+        },
+        {
+          "id": "C",
+          "text": "7"
+        },
+        {
+          "id": "D",
+          "text": "編譯錯誤"
+        }
+      ],
+      "correct": "B",
+      "accept": null,
+      "explain": "7 除 2 餘 1，唔係偶數，走 else 印 odd。",
+      "tags": [
+        "if",
+        "modulo"
+      ],
+      "xp": 15,
+      "version": 1,
+      "active": true,
+      "pool": "hardcore",
+      "rankMin": "bronze_iv",
+      "rankMax": "challenger_i",
+      "idealRank": "silver_ii",
+      "notes": "規則：if-else 會根據括號入面嘅布林條件揀一條分支走。常用 `n % 2 == 0` 判斷偶數；餘數唔係 0 就走 else。"
+    },
+    {
+      "id": "q_con_003",
+      "type": "mc",
+      "difficulty": 2,
+      "topic": "conditionals",
+      "locale": "zh-HK",
+      "stem": "`true && false` 嘅結果係？",
+      "code": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "true"
+        },
+        {
+          "id": "B",
+          "text": "false"
+        },
+        {
+          "id": "C",
+          "text": "1"
+        },
+        {
+          "id": "D",
+          "text": "編譯錯誤"
+        }
+      ],
+      "correct": "B",
+      "accept": null,
+      "explain": "`&&` 兩邊都要 true 先係 true；有一邊 false 就整體 false。",
+      "tags": [
+        "&&"
+      ],
+      "xp": 12,
+      "version": 1,
+      "active": true,
+      "pool": "casual",
+      "rankMin": "iron_iv",
+      "rankMax": "challenger_i",
+      "idealRank": "bronze_ii",
+      "notes": "規則：邏輯與 `&&`：左右兩邊都係 true，整體先係 true；任何一邊 false，結果就係 false。左邊 false 時會短路，唔再計右邊。"
+    },
+    {
+      "id": "q_con_004",
+      "type": "mc",
+      "difficulty": 2,
+      "topic": "conditionals",
+      "locale": "zh-HK",
+      "stem": "`false || true` 嘅結果係？",
+      "code": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "true"
+        },
+        {
+          "id": "B",
+          "text": "false"
+        },
+        {
+          "id": "C",
+          "text": "0"
+        },
+        {
+          "id": "D",
+          "text": "編譯錯誤"
+        }
+      ],
+      "correct": "A",
+      "accept": null,
+      "explain": "`||` 只要有一邊 true 就係 true。",
+      "tags": [
+        "||"
+      ],
+      "xp": 12,
+      "version": 1,
+      "active": true,
+      "pool": "casual",
+      "rankMin": "iron_iv",
+      "rankMax": "challenger_i",
+      "idealRank": "bronze_ii",
+      "notes": "規則：邏輯或 `||`：只要有一邊 true，整體就係 true；兩邊都 false 先係 false。左邊已 true 時會短路，唔再計右邊。"
+    },
+    {
+      "id": "q_con_005",
+      "type": "read_code",
+      "difficulty": 3,
+      "topic": "conditionals",
+      "locale": "zh-HK",
+      "stem": "以下程式印出咩？",
+      "code": "int x = 5;\nif (x > 0 && x < 3) {\n  System.out.print(\"A\");\n} else if (x >= 5) {\n  System.out.print(\"B\");\n} else {\n  System.out.print(\"C\");\n}",
+      "options": [
+        {
+          "id": "A",
+          "text": "A"
+        },
+        {
+          "id": "B",
+          "text": "B"
+        },
+        {
+          "id": "C",
+          "text": "C"
+        },
+        {
+          "id": "D",
+          "text": "AB"
+        }
+      ],
+      "correct": "B",
+      "accept": null,
+      "explain": "x>0 && x<3 係 false（5 唔細過 3）；x>=5 為 true，印 B。",
+      "tags": [
+        "else if",
+        "&&"
+      ],
+      "xp": 18,
+      "version": 1,
+      "active": true,
+      "pool": "hardcore",
+      "rankMin": "bronze_iv",
+      "rankMax": "challenger_i",
+      "idealRank": "gold_ii",
+      "notes": "規則：多個 if / else if 會由上而下檢查，命中第一個 true 就執行嗰段，其餘跳過。要睇清楚每個條件嘅範圍，避免重疊或漏網。"
+    },
+    {
+      "id": "q_con_006",
+      "type": "fill",
+      "difficulty": 2,
+      "topic": "conditionals",
+      "locale": "zh-HK",
+      "stem": "比較兩個 int 是否相等要用邊個運算子？（只填符號）",
+      "code": null,
+      "options": null,
+      "correct": "==",
+      "accept": [
+        "=="
+      ],
+      "explain": "`==` 比較相等；單一 `=` 係賦值。",
+      "tags": [
+        "=="
+      ],
+      "xp": 10,
+      "version": 1,
+      "active": true,
+      "pool": "casual",
+      "rankMin": "iron_iv",
+      "rankMax": "challenger_i",
+      "idealRank": "bronze_ii",
+      "notes": "規則：判斷兩個數「係咪相等」要用雙等號 `==`。寫單一 `=` 會變成賦值，多數情況唔係你想要嘅比較。"
+    },
+    {
+      "id": "q_loop_001",
+      "type": "mc",
+      "difficulty": 2,
+      "topic": "loops",
+      "locale": "zh-HK",
+      "stem": "`for (int i = 0; i < 3; i++)` 會跑幾次？",
+      "code": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "2"
+        },
+        {
+          "id": "B",
+          "text": "3"
+        },
+        {
+          "id": "C",
+          "text": "4"
+        },
+        {
+          "id": "D",
+          "text": "無限"
+        }
+      ],
+      "correct": "B",
+      "accept": null,
+      "explain": "i 由 0 到 2，共 3 次（0、1、2）。",
+      "tags": [
+        "for"
+      ],
+      "xp": 12,
+      "version": 1,
+      "active": true,
+      "pool": "casual",
+      "rankMin": "iron_iv",
+      "rankMax": "challenger_i",
+      "idealRank": "bronze_ii",
+      "notes": "規則：for (初始化; 條件; 更新) 會喺條件為 true 時重複執行。數次數時把「起始值、結束條件、每次加幾多」三樣一齊睇。"
+    },
+    {
+      "id": "q_loop_002",
+      "type": "read_code",
+      "difficulty": 2,
+      "topic": "loops",
+      "locale": "zh-HK",
+      "stem": "以下程式印出咩？（無空格）",
+      "code": "int i = 0;\nwhile (i < 2) {\n  System.out.print(i);\n  i++;\n}",
+      "options": [
+        {
+          "id": "A",
+          "text": "012"
+        },
+        {
+          "id": "B",
+          "text": "01"
+        },
+        {
+          "id": "C",
+          "text": "12"
+        },
+        {
+          "id": "D",
+          "text": "無限迴圈"
+        }
+      ],
+      "correct": "B",
+      "accept": null,
+      "explain": "先印 0 再 i++，再印 1 再 i++，之後 i=2 離開；輸出 01。",
+      "tags": [
+        "while"
+      ],
+      "xp": 15,
+      "version": 1,
+      "active": true,
+      "pool": "hardcore",
+      "rankMin": "bronze_iv",
+      "rankMax": "challenger_i",
+      "idealRank": "silver_ii",
+      "notes": "規則：while (條件) 先檢查再跑。循環變數要喺迴圈入面改變，否則可能無限迴圈。注意印出次序同遞增時機。"
+    },
+    {
+      "id": "q_loop_003",
+      "type": "mc",
+      "difficulty": 2,
+      "topic": "loops",
+      "locale": "zh-HK",
+      "stem": "邊個情況最容易造成無限迴圈？",
+      "code": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "for 裏面有 i++"
+        },
+        {
+          "id": "B",
+          "text": "while 條件永遠係 true 又唔改個變數"
+        },
+        {
+          "id": "C",
+          "text": "用咗 break"
+        },
+        {
+          "id": "D",
+          "text": "迴圈跑 0 次"
+        }
+      ],
+      "correct": "B",
+      "accept": null,
+      "explain": "條件唔會變假，迴圈就停唔到。",
+      "tags": [
+        "infinite"
+      ],
+      "xp": 12,
+      "version": 1,
+      "active": true,
+      "pool": "casual",
+      "rankMin": "iron_iv",
+      "rankMax": "challenger_i",
+      "idealRank": "bronze_ii",
+      "notes": "規則：迴圈要停，條件最終要變假。若循環變數唔更新、或條件永遠成立，就會變成無限迴圈，程式卡死。"
+    },
+    {
+      "id": "q_loop_004",
+      "type": "read_code",
+      "difficulty": 3,
+      "topic": "loops",
+      "locale": "zh-HK",
+      "stem": "以下程式印出咩？",
+      "code": "int sum = 0;\nfor (int i = 1; i <= 3; i++) {\n  sum += i;\n}\nSystem.out.print(sum);",
+      "options": [
+        {
+          "id": "A",
+          "text": "3"
+        },
+        {
+          "id": "B",
+          "text": "6"
+        },
+        {
+          "id": "C",
+          "text": "7"
+        },
+        {
+          "id": "D",
+          "text": "0"
+        }
+      ],
+      "correct": "B",
+      "accept": null,
+      "explain": "1+2+3=6。",
+      "tags": [
+        "for",
+        "sum"
+      ],
+      "xp": 15,
+      "version": 1,
+      "active": true,
+      "pool": "hardcore",
+      "rankMin": "bronze_iv",
+      "rankMax": "challenger_i",
+      "idealRank": "gold_ii",
+      "notes": "規則：用累加器（例如 sum += i）喺迴圈入面逐步加總。起點、終點同 inclusive／exclusive 會影響結果。"
+    },
+    {
+      "id": "q_loop_005",
+      "type": "mc",
+      "difficulty": 2,
+      "topic": "loops",
+      "locale": "zh-HK",
+      "stem": "`do { ... } while (條件);` 同 `while` 最大分別係？",
+      "code": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "do-while 一定至少執行一次"
+        },
+        {
+          "id": "B",
+          "text": "do-while 永遠唔執行"
+        },
+        {
+          "id": "C",
+          "text": "while 唔可以有條件"
+        },
+        {
+          "id": "D",
+          "text": "兩者完全冇分別"
+        }
+      ],
+      "correct": "A",
+      "accept": null,
+      "explain": "do-while 先做再檢查，所以至少跑一次。",
+      "tags": [
+        "do-while"
+      ],
+      "xp": 14,
+      "version": 1,
+      "active": true,
+      "pool": "casual",
+      "rankMin": "iron_iv",
+      "rankMax": "challenger_i",
+      "idealRank": "bronze_ii",
+      "notes": "規則：while 係「先檢查再做」；do-while 係「先做一次再檢查」。所以 do-while 無論條件點都會至少執行一次主體。"
+    },
+    {
+      "id": "q_loop_006",
+      "type": "fill",
+      "difficulty": 3,
+      "topic": "loops",
+      "locale": "zh-HK",
+      "stem": "令 for 迴圈由 0 跑到 4（共 5 次），條件應該寫成 i ？ 5（只填運算子同右邊，例如 `< 5`）",
+      "code": "for (int i = 0; i ___ ; i++)",
+      "options": null,
+      "correct": "< 5",
+      "accept": [
+        "<5",
+        "< 5",
+        "i < 5",
+        "i<5"
+      ],
+      "explain": "i 由 0 到 4 需要 `i < 5`（或 `i <= 4`）。標準寫法係 `< 5`。",
+      "tags": [
+        "for"
+      ],
+      "xp": 15,
+      "version": 1,
+      "active": true,
+      "pool": "hardcore",
+      "rankMin": "bronze_iv",
+      "rankMax": "challenger_i",
+      "idealRank": "gold_ii",
+      "notes": "規則：for 要跑 n 次（例如 0…n-1），條件通常寫 `i < n`。亦可用 `i <= n-1`，但慣例係 `< n`。"
+    },
+    {
+      "id": "q_arr_001",
+      "type": "mc",
+      "difficulty": 2,
+      "topic": "arrays",
+      "locale": "zh-HK",
+      "stem": "`int[] arr = new int[3];` 之後寫 `arr[3] = 5;` 會點？",
+      "code": "int[] arr = new int[3];\narr[3] = 5;",
+      "options": [
+        {
+          "id": "A",
+          "text": "編譯失敗"
+        },
+        {
+          "id": "B",
+          "text": "執行時 ArrayIndexOutOfBoundsException"
+        },
+        {
+          "id": "C",
+          "text": "正常，arr[3] 變成 5"
+        },
+        {
+          "id": "D",
+          "text": "正常，該格維持 0"
+        }
+      ],
+      "correct": "B",
+      "accept": null,
+      "explain": "長度 3 只有下標 0、1、2；`arr[3]` 越界，執行時拋例外。",
+      "tags": [
+        "index",
+        "bounds"
+      ],
+      "xp": 15,
+      "version": 1,
+      "active": true,
+      "pool": "hardcore",
+      "rankMin": "bronze_iv",
+      "rankMax": "challenger_i",
+      "idealRank": "silver_ii",
+      "notes": "規則：長度為 n 嘅陣列，合法下標係 0 到 n-1。用到 n 或更大就會拋 ArrayIndexOutOfBoundsException（執行時錯誤）。"
+    },
+    {
+      "id": "q_arr_002",
+      "type": "mc",
+      "difficulty": 1,
+      "topic": "arrays",
+      "locale": "zh-HK",
+      "stem": "`String[] names = {\"Alice\", \"Bob\", \"Carol\"};` 嘅 `names.length` 係幾多？",
+      "code": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "2"
+        },
+        {
+          "id": "B",
+          "text": "3"
+        },
+        {
+          "id": "C",
+          "text": "4"
+        },
+        {
+          "id": "D",
+          "text": "編譯錯誤"
+        }
+      ],
+      "correct": "B",
+      "accept": null,
+      "explain": "三個元素，`length` 係 3（唔係最後下標）。",
+      "tags": [
+        "length"
+      ],
+      "xp": 10,
+      "version": 1,
+      "active": true,
+      "pool": "casual",
+      "rankMin": "iron_iv",
+      "rankMax": "challenger_i",
+      "idealRank": "iron_i",
+      "notes": "規則：陣列嘅 `.length` 係元素個數，唔係最後一個下標。三個元素 → length 係 3，最後下標係 2。"
+    },
+    {
+      "id": "q_arr_003",
+      "type": "mc",
+      "difficulty": 1,
+      "topic": "arrays",
+      "locale": "zh-HK",
+      "stem": "陣列第一個元素嘅下標通常係？",
+      "code": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "0"
+        },
+        {
+          "id": "B",
+          "text": "1"
+        },
+        {
+          "id": "C",
+          "text": "-1"
+        },
+        {
+          "id": "D",
+          "text": "length"
+        }
+      ],
+      "correct": "A",
+      "accept": null,
+      "explain": "Java 陣列由 0 開始數。",
+      "tags": [
+        "index"
+      ],
+      "xp": 10,
+      "version": 1,
+      "active": true,
+      "pool": "casual",
+      "rankMin": "iron_iv",
+      "rankMax": "challenger_i",
+      "idealRank": "iron_i",
+      "notes": "規則：Java（同多數 C 系語言）陣列下標由 0 開始。第一個元素係 a[0]，唔係 a[1]。"
+    },
+    {
+      "id": "q_arr_004",
+      "type": "read_code",
+      "difficulty": 2,
+      "topic": "arrays",
+      "locale": "zh-HK",
+      "stem": "以下程式印出咩？",
+      "code": "int[] a = {10, 20, 30};\nSystem.out.print(a[1]);",
+      "options": [
+        {
+          "id": "A",
+          "text": "10"
+        },
+        {
+          "id": "B",
+          "text": "20"
+        },
+        {
+          "id": "C",
+          "text": "30"
+        },
+        {
+          "id": "D",
+          "text": "1"
+        }
+      ],
+      "correct": "B",
+      "accept": null,
+      "explain": "下標 0→10、1→20、2→30。",
+      "tags": [
+        "index"
+      ],
+      "xp": 12,
+      "version": 1,
+      "active": true,
+      "pool": "casual",
+      "rankMin": "iron_iv",
+      "rankMax": "challenger_i",
+      "idealRank": "bronze_ii",
+      "notes": "規則：用下標存取元素：a[i] 代表第 i 個（由 0 起）。用大括號初始化列表時，次序同下標一一對應。"
+    },
+    {
+      "id": "q_arr_005",
+      "type": "read_code",
+      "difficulty": 3,
+      "topic": "arrays",
+      "locale": "zh-HK",
+      "stem": "以下程式印出咩？",
+      "code": "int[] a = new int[2];\nSystem.out.print(a[0] + \",\" + a[1]);",
+      "options": [
+        {
+          "id": "A",
+          "text": "null,null"
+        },
+        {
+          "id": "B",
+          "text": "0,0"
+        },
+        {
+          "id": "C",
+          "text": "1,1"
+        },
+        {
+          "id": "D",
+          "text": "編譯錯誤"
+        }
+      ],
+      "correct": "B",
+      "accept": null,
+      "explain": "`new int[n]` 每個元素預設係 0。",
+      "tags": [
+        "default"
+      ],
+      "xp": 15,
+      "version": 1,
+      "active": true,
+      "pool": "hardcore",
+      "rankMin": "bronze_iv",
+      "rankMax": "challenger_i",
+      "idealRank": "gold_ii",
+      "notes": "規則：`new int[n]` 會開 n 格，每個 int 元素預設值係 0（boolean 預設 false，參考型別預設 null）。"
+    },
+    {
+      "id": "q_arr_006",
+      "type": "fill",
+      "difficulty": 2,
+      "topic": "arrays",
+      "locale": "zh-HK",
+      "stem": "宣告長度為 4 嘅 int 陣列 scores（只寫宣告嗰行，以分號結尾）。",
+      "code": null,
+      "options": null,
+      "correct": "int[] scores = new int[4];",
+      "accept": [
+        "int [] scores = new int[4];",
+        "int scores[] = new int[4];"
+      ],
+      "explain": "`new int[4]` 開出 4 格，下標 0–3。",
+      "tags": [
+        "declaration"
+      ],
+      "xp": 14,
+      "version": 1,
+      "active": true,
+      "pool": "hardcore",
+      "rankMin": "bronze_iv",
+      "rankMax": "challenger_i",
+      "idealRank": "silver_ii",
+      "notes": "規則：宣告並配置陣列寫「型別[] 名 = new 型別[長度];」。長度決定格數；下標範圍係 0 … 長度-1。"
+    },
+    {
+      "id": "q_met_001",
+      "type": "mc",
+      "difficulty": 2,
+      "topic": "methods",
+      "locale": "zh-HK",
+      "stem": "方法宣告 `public void greet()` 代表咩？",
+      "code": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "必須 return 一個 int"
+        },
+        {
+          "id": "B",
+          "text": "無回傳值"
+        },
+        {
+          "id": "C",
+          "text": "一定要有參數"
+        },
+        {
+          "id": "D",
+          "text": "唔可以俾其他 class 呼叫"
+        }
+      ],
+      "correct": "B",
+      "accept": null,
+      "explain": "`void` 代表無回傳值；`public` 反而可以俾外間呼叫。",
+      "tags": [
+        "void",
+        "signature"
+      ],
+      "xp": 12,
+      "version": 1,
+      "active": true,
+      "pool": "casual",
+      "rankMin": "iron_iv",
+      "rankMax": "challenger_i",
+      "idealRank": "bronze_ii",
+      "notes": "規則：方法簽名入面，回傳型別寫喺方法名前面。`void` 表示唔回傳值；`public` 係存取修飾，控制邊度可以呼叫。"
+    },
+    {
+      "id": "q_met_002",
+      "type": "read_code",
+      "difficulty": 2,
+      "topic": "methods",
+      "locale": "zh-HK",
+      "stem": "呼叫 `add(2, 3)` 之後 `r` 係幾多？",
+      "code": "static int add(int a, int b) {\n  return a + b;\n}\nint r = add(2, 3);",
+      "options": [
+        {
+          "id": "A",
+          "text": "2"
+        },
+        {
+          "id": "B",
+          "text": "3"
+        },
+        {
+          "id": "C",
+          "text": "5"
+        },
+        {
+          "id": "D",
+          "text": "編譯錯誤"
+        }
+      ],
+      "correct": "C",
+      "accept": null,
+      "explain": "方法回傳 a+b，即 5，賦畀 r。",
+      "tags": [
+        "return",
+        "call"
+      ],
+      "xp": 15,
+      "version": 1,
+      "active": true,
+      "pool": "hardcore",
+      "rankMin": "bronze_iv",
+      "rankMax": "challenger_i",
+      "idealRank": "silver_ii",
+      "notes": "規則：呼叫方法時傳入引數，方法計完用 return 交返結果；呼叫端可以用變數接收嗰個回傳值。"
+    },
+    {
+      "id": "q_met_003",
+      "type": "mc",
+      "difficulty": 2,
+      "topic": "methods",
+      "locale": "zh-HK",
+      "stem": "有回傳值嘅方法入面，通常一定要有？",
+      "code": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "System.exit"
+        },
+        {
+          "id": "B",
+          "text": "return 某啲值"
+        },
+        {
+          "id": "C",
+          "text": "main"
+        },
+        {
+          "id": "D",
+          "text": "new"
+        }
+      ],
+      "correct": "B",
+      "accept": null,
+      "explain": "非 void 方法要用 `return` 交返結果。",
+      "tags": [
+        "return"
+      ],
+      "xp": 12,
+      "version": 1,
+      "active": true,
+      "pool": "casual",
+      "rankMin": "iron_iv",
+      "rankMax": "challenger_i",
+      "idealRank": "bronze_ii",
+      "notes": "規則：回傳型別唔係 void 嘅方法，一定要有一條會執行到嘅 `return 值;`，型別要同宣告一致。"
+    },
+    {
+      "id": "q_met_004",
+      "type": "read_code",
+      "difficulty": 3,
+      "topic": "methods",
+      "locale": "zh-HK",
+      "stem": "以下程式印出咩？",
+      "code": "static void show(int n) {\n  System.out.print(n * 2);\n}\nshow(4);",
+      "options": [
+        {
+          "id": "A",
+          "text": "4"
+        },
+        {
+          "id": "B",
+          "text": "8"
+        },
+        {
+          "id": "C",
+          "text": "24"
+        },
+        {
+          "id": "D",
+          "text": "編譯錯誤"
+        }
+      ],
+      "correct": "B",
+      "accept": null,
+      "explain": "傳入 4，印 n*2＝8；void 唔使接收回傳值。",
+      "tags": [
+        "void",
+        "parameter"
+      ],
+      "xp": 15,
+      "version": 1,
+      "active": true,
+      "pool": "hardcore",
+      "rankMin": "bronze_iv",
+      "rankMax": "challenger_i",
+      "idealRank": "gold_ii",
+      "notes": "規則：void 方法可以做副作用（例如印嘢），但唔回傳值畀呼叫端。參數收到嘅係傳入嗰份值／參考。"
+    },
+    {
+      "id": "q_met_005",
+      "type": "mc",
+      "difficulty": 3,
+      "topic": "methods",
+      "locale": "zh-HK",
+      "stem": "方法參數（parameter）同引數（argument）分别係？",
+      "code": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "參數係定義時嘅變數；引數係呼叫時傳入嘅值"
+        },
+        {
+          "id": "B",
+          "text": "兩者完全一樣，只係翻譯不同"
+        },
+        {
+          "id": "C",
+          "text": "引數只可以係字串"
+        },
+        {
+          "id": "D",
+          "text": "參數唔可以有型別"
+        }
+      ],
+      "correct": "A",
+      "accept": null,
+      "explain": "定義 `add(int a)` 入面 a 係參數；呼叫 `add(3)` 嘅 3 係引數。",
+      "tags": [
+        "parameter"
+      ],
+      "xp": 16,
+      "version": 1,
+      "active": true,
+      "pool": "hardcore",
+      "rankMin": "bronze_iv",
+      "rankMax": "challenger_i",
+      "idealRank": "gold_ii",
+      "notes": "規則：定義方法時括號入面嘅叫參數（parameter）；真正呼叫時傳入嘅具體值叫引數（argument）。兩者係「形」同「實」嘅關係。"
+    },
+    {
+      "id": "q_met_006",
+      "type": "fill",
+      "difficulty": 2,
+      "topic": "methods",
+      "locale": "zh-HK",
+      "stem": "宣告一個無參數、回傳 int、名叫 getZero 嘅 static 方法開頭（只寫到大括號前，例如 `static int getZero()`）。",
+      "code": null,
+      "options": null,
+      "correct": "static int getZero()",
+      "accept": [
+        "static int getZero()",
+        "public static int getZero()"
+      ],
+      "explain": "回傳型別寫喺方法名前面；無參數就空括號。",
+      "tags": [
+        "signature"
+      ],
+      "xp": 14,
+      "version": 1,
+      "active": true,
+      "pool": "hardcore",
+      "rankMin": "bronze_iv",
+      "rankMax": "challenger_i",
+      "idealRank": "silver_ii",
+      "notes": "規則：方法宣告次序大致係：修飾符 → 回傳型別 → 方法名 → (參數列表)。無參數就寫空括號。"
+    },
+    {
+      "id": "q_oop_001",
+      "type": "mc",
+      "difficulty": 2,
+      "topic": "oop",
+      "locale": "zh-HK",
+      "stem": "建立物件時，邊句正確？",
+      "code": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "Dog d = Dog();"
+        },
+        {
+          "id": "B",
+          "text": "Dog d = new Dog();"
+        },
+        {
+          "id": "C",
+          "text": "new Dog d = Dog();"
+        },
+        {
+          "id": "D",
+          "text": "Dog d = create Dog;"
+        }
+      ],
+      "correct": "B",
+      "accept": null,
+      "explain": "要用 `new` 呼叫建構子先有實例。",
+      "tags": [
+        "new",
+        "constructor"
+      ],
+      "xp": 12,
+      "version": 1,
+      "active": true,
+      "pool": "casual",
+      "rankMin": "iron_iv",
+      "rankMax": "challenger_i",
+      "idealRank": "bronze_ii",
+      "notes": "規則：class 係藍圖；要用 `new 類名(...)` 呼叫建構子，先會喺記憶體造出物件實例。"
+    },
+    {
+      "id": "q_oop_002",
+      "type": "mc",
+      "difficulty": 2,
+      "topic": "oop",
+      "locale": "zh-HK",
+      "stem": "建構子同一般方法最大分別係？",
+      "code": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "建構子一定要有 return 型別"
+        },
+        {
+          "id": "B",
+          "text": "建構子名必須同 class 名，無 return 型別"
+        },
+        {
+          "id": "C",
+          "text": "建構子唔可以有參數"
+        },
+        {
+          "id": "D",
+          "text": "一個 class 只能有一個建構子"
+        }
+      ],
+      "correct": "B",
+      "accept": null,
+      "explain": "建構子名＝class 名，唔寫 return 型別；可以 overload 多個。",
+      "tags": [
+        "constructor"
+      ],
+      "xp": 15,
+      "version": 1,
+      "active": true,
+      "pool": "hardcore",
+      "rankMin": "bronze_iv",
+      "rankMax": "challenger_i",
+      "idealRank": "silver_ii",
+      "notes": "規則：建構子名必須同 class 名一樣，而且唔寫回傳型別（連 void 都唔寫）。用嚟初始化新物件。可以有多個不同參數列表（overload）。"
+    },
+    {
+      "id": "q_oop_003",
+      "type": "mc",
+      "difficulty": 2,
+      "topic": "oop",
+      "locale": "zh-HK",
+      "stem": "`private` 成員通常代表？",
+      "code": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "任何 class 都可以直接存取"
+        },
+        {
+          "id": "B",
+          "text": "只喺同一個 class 內可直接存取"
+        },
+        {
+          "id": "C",
+          "text": "唔可以喺建構子用"
+        },
+        {
+          "id": "D",
+          "text": "一定要係 static"
+        }
+      ],
+      "correct": "B",
+      "accept": null,
+      "explain": "封裝：private 隱藏細節，外面要用 getter／方法存取。",
+      "tags": [
+        "private",
+        "encapsulation"
+      ],
+      "xp": 14,
+      "version": 1,
+      "active": true,
+      "pool": "hardcore",
+      "rankMin": "bronze_iv",
+      "rankMax": "challenger_i",
+      "idealRank": "silver_ii",
+      "notes": "規則：封裝——`private` 成員只喺自己 class 入面用；外面要經 public 方法（例如 getter/setter）間接存取，保護內部狀態。"
+    },
+    {
+      "id": "q_oop_004",
+      "type": "read_code",
+      "difficulty": 3,
+      "topic": "oop",
+      "locale": "zh-HK",
+      "stem": "以下程式印出咩？",
+      "code": "class Counter {\n  int n;\n  Counter() { n = 1; }\n}\nCounter c = new Counter();\nSystem.out.print(c.n);",
+      "options": [
+        {
+          "id": "A",
+          "text": "0"
+        },
+        {
+          "id": "B",
+          "text": "1"
+        },
+        {
+          "id": "C",
+          "text": "null"
+        },
+        {
+          "id": "D",
+          "text": "編譯錯誤"
+        }
+      ],
+      "correct": "B",
+      "accept": null,
+      "explain": "建構子把 n 設成 1，所以印 1。",
+      "tags": [
+        "constructor",
+        "field"
+      ],
+      "xp": 16,
+      "version": 1,
+      "active": true,
+      "pool": "hardcore",
+      "rankMin": "bronze_iv",
+      "rankMax": "challenger_i",
+      "idealRank": "gold_ii",
+      "notes": "規則：`new` 時會跑建構子。建構子入面對欄位賦值，之後用物件嘅欄位／方法就會見到初始化後嘅狀態。"
+    },
+    {
+      "id": "q_oop_005",
+      "type": "mc",
+      "difficulty": 3,
+      "topic": "oop",
+      "locale": "zh-HK",
+      "stem": "`this` 關鍵字通常指？",
+      "code": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "父類別"
+        },
+        {
+          "id": "B",
+          "text": "而家呢個物件本身"
+        },
+        {
+          "id": "C",
+          "text": "任意靜態方法"
+        },
+        {
+          "id": "D",
+          "text": "main 方法"
+        }
+      ],
+      "correct": "B",
+      "accept": null,
+      "explain": "`this` 用來指當前實例，常見於區分欄位同參數同名。",
+      "tags": [
+        "this"
+      ],
+      "xp": 15,
+      "version": 1,
+      "active": true,
+      "pool": "hardcore",
+      "rankMin": "bronze_iv",
+      "rankMax": "challenger_i",
+      "idealRank": "gold_ii",
+      "notes": "規則：`this` 代表「而家呢個物件」。欄位同參數同名時，用 `this.欄位` 區分，避免只改到參數。"
+    },
+    {
+      "id": "q_oop_006",
+      "type": "fill",
+      "difficulty": 2,
+      "topic": "oop",
+      "locale": "zh-HK",
+      "stem": "建立 class Cat 嘅新物件並賦畀變數 c（只寫一行，以分號結尾）。",
+      "code": null,
+      "options": null,
+      "correct": "Cat c = new Cat();",
+      "accept": [
+        "Cat c=new Cat();",
+        "Cat c = new Cat();"
+      ],
+      "explain": "型別＋變數名＋`new`＋建構子呼叫。",
+      "tags": [
+        "new"
+      ],
+      "xp": 12,
+      "version": 1,
+      "active": true,
+      "pool": "casual",
+      "rankMin": "iron_iv",
+      "rankMax": "challenger_i",
+      "idealRank": "bronze_ii",
+      "notes": "規則：建立物件嘅典型寫法：類名 變數 = new 類名();。左邊係參考變數，右邊 new 造出實例。"
+    },
+    {
+      "id": "q_oop_007",
+      "type": "mc",
+      "difficulty": 4,
+      "topic": "oop",
+      "locale": "zh-HK",
+      "stem": "如果參數名同欄位名一樣，邊句可以正確把參數賦畀欄位？",
+      "code": "class P {\n  int x;\n  P(int x) { /* ? */ }\n}",
+      "options": [
+        {
+          "id": "A",
+          "text": "x = x;"
+        },
+        {
+          "id": "B",
+          "text": "this.x = x;"
+        },
+        {
+          "id": "C",
+          "text": "P.x = x;"
+        },
+        {
+          "id": "D",
+          "text": "x := x;"
+        }
+      ],
+      "correct": "B",
+      "accept": null,
+      "explain": "`this.x` 指欄位；光寫 `x = x` 只係參數賦畀自己，欄位唔變。",
+      "tags": [
+        "this",
+        "constructor"
+      ],
+      "xp": 20,
+      "version": 1,
+      "active": true,
+      "pool": "extreme",
+      "rankMin": "gold_iv",
+      "rankMax": "challenger_i",
+      "idealRank": "diamond_ii",
+      "notes": "規則：參數同欄位撞名時，單純 `x = x` 兩邊都係參數，欄位唔會變。要寫 `this.x = x` 先把參數賦畀欄位。"
+    },
+    {
+      "id": "q_con_007",
+      "type": "read_code",
+      "difficulty": 4,
+      "topic": "conditionals",
+      "locale": "zh-HK",
+      "stem": "以下程式印出咩？",
+      "code": "int a = 0;\nif (a == 0 || (10 / a > 1)) {\n  System.out.print(\"OK\");\n} else {\n  System.out.print(\"NO\");\n}",
+      "options": [
+        {
+          "id": "A",
+          "text": "OK"
+        },
+        {
+          "id": "B",
+          "text": "NO"
+        },
+        {
+          "id": "C",
+          "text": "ArithmeticException"
+        },
+        {
+          "id": "D",
+          "text": "編譯錯誤"
+        }
+      ],
+      "correct": "A",
+      "accept": null,
+      "explain": "`||` 短路：左邊 `a==0` 已 true，唔會再計右邊，所以唔會除零，印 OK。",
+      "tags": [
+        "||",
+        "short-circuit"
+      ],
+      "xp": 22,
+      "version": 1,
+      "active": true,
+      "pool": "extreme",
+      "rankMin": "gold_iv",
+      "rankMax": "challenger_i",
+      "idealRank": "diamond_ii",
+      "notes": "規則：`||`／`&&` 有短路求值：`||` 左邊已 true 就唔計右邊；`&&` 左邊已 false 就唔計右邊。可以避免右邊嘅危險運算（例如除零）。"
+    },
+    {
+      "id": "q_bas_x01",
+      "type": "read_code",
+      "difficulty": 4,
+      "topic": "basics",
+      "pool": "extreme",
+      "locale": "zh-HK",
+      "stem": "以下程式印出咩？",
+      "code": "System.out.print(5 + 3 + \"2\");",
+      "options": [
+        {
+          "id": "A",
+          "text": "10"
+        },
+        {
+          "id": "B",
+          "text": "532"
+        },
+        {
+          "id": "C",
+          "text": "82"
+        },
+        {
+          "id": "D",
+          "text": "編譯錯誤"
+        }
+      ],
+      "correct": "C",
+      "accept": null,
+      "explain": "由左至右：5+3 先變成 8，再同字串 \"2\" 拼接得 \"82\"。",
+      "tags": [
+        "string-concat",
+        "trap"
+      ],
+      "xp": 22,
+      "version": 1,
+      "active": true,
+      "rankMin": "gold_iv",
+      "rankMax": "challenger_i",
+      "idealRank": "diamond_ii",
+      "notes": "規則：字串用 `+` 會做拼接。若表達式由左至右，前面已經係字串，後面嘅數字會被轉成字串再接埋；純數字之間先加再同字串拼，結果就唔同。"
+    },
+    {
+      "id": "q_bas_x02",
+      "type": "mc",
+      "difficulty": 4,
+      "topic": "basics",
+      "pool": "extreme",
+      "locale": "zh-HK",
+      "stem": "`byte b = 127; b++;` 之後 b 大概係？",
+      "code": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "128"
+        },
+        {
+          "id": "B",
+          "text": "-128"
+        },
+        {
+          "id": "C",
+          "text": "0"
+        },
+        {
+          "id": "D",
+          "text": "編譯錯誤"
+        }
+      ],
+      "correct": "B",
+      "accept": null,
+      "explain": "byte 範圍 -128…127，127+1 溢位繞返 -128（二補數）。",
+      "tags": [
+        "overflow",
+        "trap"
+      ],
+      "xp": 22,
+      "version": 1,
+      "active": true,
+      "rankMin": "gold_iv",
+      "rankMax": "challenger_i",
+      "idealRank": "diamond_ii",
+      "notes": "規則：byte／short 等有固定範圍。超出最大值會「溢位」繞返最小值（二補數環繞），唔會自動變更大嘅型別。"
+    },
+    {
+      "id": "q_con_x01",
+      "type": "read_code",
+      "difficulty": 4,
+      "topic": "conditionals",
+      "pool": "extreme",
+      "locale": "zh-HK",
+      "stem": "以下程式印出咩？",
+      "code": "int x = 2;\nif (x = 3) {\n  System.out.print(\"T\");\n} else {\n  System.out.print(\"F\");\n}",
+      "options": [
+        {
+          "id": "A",
+          "text": "T"
+        },
+        {
+          "id": "B",
+          "text": "F"
+        },
+        {
+          "id": "C",
+          "text": "編譯錯誤"
+        },
+        {
+          "id": "D",
+          "text": "運行時例外"
+        }
+      ],
+      "correct": "C",
+      "accept": null,
+      "explain": "Java 嘅 if 條件一定要係 boolean；`x = 3` 係 int 賦值，編譯失敗（唔似 C／JS）。",
+      "tags": [
+        "assignment-trap"
+      ],
+      "xp": 22,
+      "version": 1,
+      "active": true,
+      "rankMin": "gold_iv",
+      "rankMax": "challenger_i",
+      "idealRank": "diamond_ii",
+      "notes": "規則：Java 嘅 if／while 條件必須係 boolean。唔可以好似 C／JS 咁用整數當 truthy；賦值表達式 `x = 3` 型別係 int，唔能當條件。"
+    },
+    {
+      "id": "q_loop_x01",
+      "type": "read_code",
+      "difficulty": 4,
+      "topic": "loops",
+      "pool": "extreme",
+      "locale": "zh-HK",
+      "stem": "以下程式印出咩？",
+      "code": "int i = 0;\nfor (; i < 3; i++) {\n  if (i == 1) continue;\n  System.out.print(i);\n}",
+      "options": [
+        {
+          "id": "A",
+          "text": "012"
+        },
+        {
+          "id": "B",
+          "text": "02"
+        },
+        {
+          "id": "C",
+          "text": "013"
+        },
+        {
+          "id": "D",
+          "text": "無限迴圈"
+        }
+      ],
+      "correct": "B",
+      "accept": null,
+      "explain": "`continue` 跳過今次後續；i==1 唔印，結果 02。",
+      "tags": [
+        "continue",
+        "trap"
+      ],
+      "xp": 20,
+      "version": 1,
+      "active": true,
+      "rankMin": "gold_iv",
+      "rankMax": "challenger_i",
+      "idealRank": "diamond_ii",
+      "notes": "規則：`continue` 會跳過今次迴圈剩餘語句，直接去下一次迭代；`break` 先係整個離開迴圈。用呢兩個可以控制流程。"
+    },
+    {
+      "id": "q_loop_x02",
+      "type": "mc",
+      "difficulty": 4,
+      "topic": "loops",
+      "pool": "extreme",
+      "locale": "zh-HK",
+      "stem": "以下邊段最可能編譯失敗？",
+      "code": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "for (int i=0; i<3; i++) {}"
+        },
+        {
+          "id": "B",
+          "text": "while (true) { break; }"
+        },
+        {
+          "id": "C",
+          "text": "for (int i=0; true; ) { i++; if(i>2) break; }"
+        },
+        {
+          "id": "D",
+          "text": "int i=0; while (i) { i++; }"
+        }
+      ],
+      "correct": "D",
+      "accept": null,
+      "explain": "Java while 條件必須 boolean；`i` 係 int，唔會自動當 truthy。",
+      "tags": [
+        "boolean-trap"
+      ],
+      "xp": 22,
+      "version": 1,
+      "active": true,
+      "rankMin": "gold_iv",
+      "rankMax": "challenger_i",
+      "idealRank": "diamond_ii",
+      "notes": "規則：while／if 條件一定要係 boolean 表達式。寫一個 int 變數本身唔係布林，編譯器會報錯（同動態語言唔同）。"
+    },
+    {
+      "id": "q_arr_x01",
+      "type": "read_code",
+      "difficulty": 4,
+      "topic": "arrays",
+      "pool": "extreme",
+      "locale": "zh-HK",
+      "stem": "以下程式印出咩？",
+      "code": "int[] a = {1,2,3};\nint[] b = a;\nb[0] = 9;\nSystem.out.print(a[0]);",
+      "options": [
+        {
+          "id": "A",
+          "text": "1"
+        },
+        {
+          "id": "B",
+          "text": "9"
+        },
+        {
+          "id": "C",
+          "text": "0"
+        },
+        {
+          "id": "D",
+          "text": "編譯錯誤"
+        }
+      ],
+      "correct": "B",
+      "accept": null,
+      "explain": "陣列係參考型別；`b = a` 指同一塊，改 b[0] 即改 a[0]。",
+      "tags": [
+        "reference",
+        "trap"
+      ],
+      "xp": 22,
+      "version": 1,
+      "active": true,
+      "rankMin": "gold_iv",
+      "rankMax": "challenger_i",
+      "idealRank": "diamond_ii",
+      "notes": "規則：陣列係參考型別。`b = a` 係令兩個變數指去同一塊陣列；改 b[i] 等於改 a[i]。要獨立副本要用 copyOf 之類。"
+    },
+    {
+      "id": "q_arr_x02",
+      "type": "mc",
+      "difficulty": 4,
+      "topic": "arrays",
+      "pool": "extreme",
+      "locale": "zh-HK",
+      "stem": "`int[][] m = new int[2][3];` 之後 `m.length` 同 `m[0].length` 分別係？",
+      "code": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "2 同 3"
+        },
+        {
+          "id": "B",
+          "text": "3 同 2"
+        },
+        {
+          "id": "C",
+          "text": "6 同 6"
+        },
+        {
+          "id": "D",
+          "text": "2 同 2"
+        }
+      ],
+      "correct": "A",
+      "accept": null,
+      "explain": "外層 2 行；每一行長度 3。",
+      "tags": [
+        "2d",
+        "trap"
+      ],
+      "xp": 20,
+      "version": 1,
+      "active": true,
+      "rankMin": "gold_iv",
+      "rankMax": "challenger_i",
+      "idealRank": "diamond_ii",
+      "notes": "規則：二維陣列 `new int[列][行]`：`m.length` 係外層（列數）；`m[i].length` 係嗰一列嘅長度（行數）。"
+    },
+    {
+      "id": "q_met_x01",
+      "type": "read_code",
+      "difficulty": 4,
+      "topic": "methods",
+      "pool": "extreme",
+      "locale": "zh-HK",
+      "stem": "以下程式印出咩？",
+      "code": "static void bump(int x) {\n  x = x + 1;\n}\nint n = 3;\nbump(n);\nSystem.out.print(n);",
+      "options": [
+        {
+          "id": "A",
+          "text": "3"
+        },
+        {
+          "id": "B",
+          "text": "4"
+        },
+        {
+          "id": "C",
+          "text": "0"
+        },
+        {
+          "id": "D",
+          "text": "編譯錯誤"
+        }
+      ],
+      "correct": "A",
+      "accept": null,
+      "explain": "基本型別 pass-by-value；方法入面改 x 唔影響外面嘅 n。",
+      "tags": [
+        "pass-by-value",
+        "trap"
+      ],
+      "xp": 22,
+      "version": 1,
+      "active": true,
+      "rankMin": "gold_iv",
+      "rankMax": "challenger_i",
+      "idealRank": "diamond_ii",
+      "notes": "規則：基本型別（int、double…）傳入方法係 pass-by-value——傳嘅係複本。方法入面改參數，唔會改到呼叫端原來嘅變數。"
+    },
+    {
+      "id": "q_met_x02",
+      "type": "mc",
+      "difficulty": 4,
+      "topic": "methods",
+      "pool": "extreme",
+      "locale": "zh-HK",
+      "stem": "兩個方法都叫 `add`，一個 `(int,int)` 一個 `(double,double)`，呢個叫？",
+      "code": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "Override"
+        },
+        {
+          "id": "B",
+          "text": "Overload"
+        },
+        {
+          "id": "C",
+          "text": "Inherit"
+        },
+        {
+          "id": "D",
+          "text": "Compile error 一定發生"
+        }
+      ],
+      "correct": "B",
+      "accept": null,
+      "explain": "同名唔同參數列表係 overload（多載），唔係 override。",
+      "tags": [
+        "overload",
+        "trap"
+      ],
+      "xp": 20,
+      "version": 1,
+      "active": true,
+      "rankMin": "gold_iv",
+      "rankMax": "challenger_i",
+      "idealRank": "diamond_ii",
+      "notes": "規則：同一個 class 入面，方法名相同但參數列表唔同（個數／型別），叫 overload（多載）。override 係子類覆寫父類同簽名方法。"
+    },
+    {
+      "id": "q_oop_x01",
+      "type": "read_code",
+      "difficulty": 4,
+      "topic": "oop",
+      "pool": "extreme",
+      "locale": "zh-HK",
+      "stem": "以下程式印出咩？",
+      "code": "class Box {\n  int v;\n}\nstatic void touch(Box b) {\n  b.v = 7;\n}\nBox box = new Box();\nbox.v = 1;\ntouch(box);\nSystem.out.print(box.v);",
+      "options": [
+        {
+          "id": "A",
+          "text": "1"
+        },
+        {
+          "id": "B",
+          "text": "7"
+        },
+        {
+          "id": "C",
+          "text": "0"
+        },
+        {
+          "id": "D",
+          "text": "編譯錯誤"
+        }
+      ],
+      "correct": "B",
+      "accept": null,
+      "explain": "傳入嘅係物件參考嘅複本，但仍指同一物件；改 b.v 會改到原本。",
+      "tags": [
+        "reference",
+        "trap"
+      ],
+      "xp": 22,
+      "version": 1,
+      "active": true,
+      "rankMin": "gold_iv",
+      "rankMax": "challenger_i",
+      "idealRank": "diamond_ii",
+      "notes": "規則：物件傳入方法時，傳嘅係參考嘅值（複本仍指同一個物件）。所以方法入面改物件欄位，呼叫端會見到改變；但若重新 new 賦畀參數，就唔影響外面參考。"
+    },
+    {
+      "id": "q_bas_c01",
+      "type": "mc",
+      "difficulty": 1,
+      "topic": "basics",
+      "pool": "casual",
+      "locale": "zh-HK",
+      "stem": "Java 程式通常由邊個方法開始跑？",
+      "code": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "start()"
+        },
+        {
+          "id": "B",
+          "text": "main"
+        },
+        {
+          "id": "C",
+          "text": "run()"
+        },
+        {
+          "id": "D",
+          "text": "init()"
+        }
+      ],
+      "correct": "B",
+      "accept": null,
+      "explain": "入口係 `public static void main(String[] args)`。",
+      "tags": [
+        "main"
+      ],
+      "xp": 10,
+      "version": 1,
+      "active": true,
+      "rankMin": "iron_iv",
+      "rankMax": "challenger_i",
+      "idealRank": "iron_i",
+      "notes": "規則：獨立 Java 應用程式嘅進入點係 `public static void main(String[] args)`。JVM 由呢度開始執行。"
+    },
+    {
+      "id": "q_con_c01",
+      "type": "mc",
+      "difficulty": 1,
+      "topic": "conditionals",
+      "pool": "casual",
+      "locale": "zh-HK",
+      "stem": "`if` 後面括號入面要係咩型別嘅表達式？",
+      "code": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "int"
+        },
+        {
+          "id": "B",
+          "text": "boolean"
+        },
+        {
+          "id": "C",
+          "text": "String"
+        },
+        {
+          "id": "D",
+          "text": "任意"
+        }
+      ],
+      "correct": "B",
+      "accept": null,
+      "explain": "條件一定要係 true／false。",
+      "tags": [
+        "if"
+      ],
+      "xp": 10,
+      "version": 1,
+      "active": true,
+      "rankMin": "iron_iv",
+      "rankMax": "challenger_i",
+      "idealRank": "iron_i",
+      "notes": "規則：`if` 括號入面一定要係布林（boolean）表達式，結果先係 true 或 false，先決定走邊條分支。"
+    },
+    {
+      "id": "q_loop_c01",
+      "type": "mc",
+      "difficulty": 1,
+      "topic": "loops",
+      "pool": "casual",
+      "locale": "zh-HK",
+      "stem": "想重複做某啲事，最常用邊種結構？",
+      "code": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "class"
+        },
+        {
+          "id": "B",
+          "text": "迴圈（for／while）"
+        },
+        {
+          "id": "C",
+          "text": "import"
+        },
+        {
+          "id": "D",
+          "text": "package"
+        }
+      ],
+      "correct": "B",
+      "accept": null,
+      "explain": "重複執行用迴圈。",
+      "tags": [
+        "loop"
+      ],
+      "xp": 10,
+      "version": 1,
+      "active": true,
+      "rankMin": "iron_iv",
+      "rankMax": "challenger_i",
+      "idealRank": "iron_i",
+      "notes": "規則：需要重複執行同一段邏輯時，用迴圈（for／while／do-while），唔好手動複製貼上好多遍。"
+    },
+    {
+      "id": "q_arr_c01",
+      "type": "mc",
+      "difficulty": 1,
+      "topic": "arrays",
+      "pool": "casual",
+      "locale": "zh-HK",
+      "stem": "陣列用嚟做咩最合適？",
+      "code": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "存一串同一型別嘅值"
+        },
+        {
+          "id": "B",
+          "text": "取代 main"
+        },
+        {
+          "id": "C",
+          "text": "自動連網"
+        },
+        {
+          "id": "D",
+          "text": "編譯 Java"
+        }
+      ],
+      "correct": "A",
+      "accept": null,
+      "explain": "陣列係固定長度、同型別元素嘅容器。",
+      "tags": [
+        "array"
+      ],
+      "xp": 10,
+      "version": 1,
+      "active": true,
+      "rankMin": "iron_iv",
+      "rankMax": "challenger_i",
+      "idealRank": "iron_i",
+      "notes": "規則：陣列適合存放「固定數量、同一型別」嘅一串資料，用下標快速存取。長度喺建立後唔可變（要變長可用 ArrayList）。"
+    },
+    {
+      "id": "q_met_c01",
+      "type": "mc",
+      "difficulty": 1,
+      "topic": "methods",
+      "pool": "casual",
+      "locale": "zh-HK",
+      "stem": "把一段可重用邏輯包起來，呢個叫？",
+      "code": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "方法（method）"
+        },
+        {
+          "id": "B",
+          "text": "分號"
+        },
+        {
+          "id": "C",
+          "text": "註解"
+        },
+        {
+          "id": "D",
+          "text": "套件名"
+        }
+      ],
+      "correct": "A",
+      "accept": null,
+      "explain": "方法用來封裝可重用嘅行為。",
+      "tags": [
+        "method"
+      ],
+      "xp": 10,
+      "version": 1,
+      "active": true,
+      "rankMin": "iron_iv",
+      "rankMax": "challenger_i",
+      "idealRank": "iron_i",
+      "notes": "規則：方法（method／函數）把一段可重用邏輯包起嚟，方便命名、傳參數、回傳結果，減少重複碼。"
+    },
+    {
+      "id": "q_oop_c01",
+      "type": "mc",
+      "difficulty": 1,
+      "topic": "oop",
+      "pool": "casual",
+      "locale": "zh-HK",
+      "stem": "class 比較似咩？",
+      "code": null,
+      "options": [
+        {
+          "id": "A",
+          "text": "物件嘅藍圖／模板"
+        },
+        {
+          "id": "B",
+          "text": "已經造好嘅唯一物件"
+        },
+        {
+          "id": "C",
+          "text": "編譯器"
+        },
+        {
+          "id": "D",
+          "text": "迴圈條件"
+        }
+      ],
+      "correct": "A",
+      "accept": null,
+      "explain": "class 係模板；用 `new` 先造出物件實例。",
+      "tags": [
+        "class"
+      ],
+      "xp": 10,
+      "version": 1,
+      "active": true,
+      "rankMin": "iron_iv",
+      "rankMax": "challenger_i",
+      "idealRank": "iron_i",
+      "notes": "規則：class 好似模具／藍圖，定義欄位同行為；用 `new` 先造出一個個獨立嘅物件（instance）。"
+    }
+  ],
+  "levels": [
+    {
+      "id": "lv_basics_01",
+      "title": "基礎入門",
+      "topic": "basics",
+      "questionIds": [
+        "q_bas_001",
+        "q_bas_002",
+        "q_bas_003",
+        "q_bas_004",
+        "q_bas_005"
+      ],
+      "rule": null,
+      "questionCount": 5,
+      "passScore": 0.6,
+      "unlockRank": "iron_iv",
+      "dailyEligible": true,
+      "pool": "hardcore",
+      "rankMin": "iron_iv",
+      "rankMax": "challenger_i"
+    },
+    {
+      "id": "lv_conditionals_01",
+      "title": "條件判斷",
+      "topic": "conditionals",
+      "questionIds": [
+        "q_con_001",
+        "q_con_002",
+        "q_con_003",
+        "q_con_004",
+        "q_con_005"
+      ],
+      "rule": null,
+      "questionCount": 5,
+      "passScore": 0.6,
+      "unlockRank": "iron_iv",
+      "dailyEligible": true,
+      "pool": "hardcore",
+      "rankMin": "iron_iv",
+      "rankMax": "challenger_i"
+    },
+    {
+      "id": "lv_loops_01",
+      "title": "迴圈入門",
+      "topic": "loops",
+      "questionIds": [
+        "q_loop_001",
+        "q_loop_002",
+        "q_loop_003",
+        "q_loop_004",
+        "q_loop_005"
+      ],
+      "rule": null,
+      "questionCount": 5,
+      "passScore": 0.6,
+      "unlockRank": "bronze_iv",
+      "dailyEligible": true,
+      "pool": "hardcore",
+      "rankMin": "bronze_iv",
+      "rankMax": "challenger_i"
+    },
+    {
+      "id": "lv_arrays_01",
+      "title": "陣列入門",
+      "topic": "arrays",
+      "questionIds": [
+        "q_arr_002",
+        "q_arr_003",
+        "q_arr_004",
+        "q_arr_001",
+        "q_arr_005"
+      ],
+      "rule": null,
+      "questionCount": 5,
+      "passScore": 0.6,
+      "unlockRank": "bronze_iv",
+      "dailyEligible": true,
+      "pool": "hardcore",
+      "rankMin": "bronze_iv",
+      "rankMax": "challenger_i"
+    },
+    {
+      "id": "lv_methods_01",
+      "title": "方法入門",
+      "topic": "methods",
+      "questionIds": [
+        "q_met_001",
+        "q_met_002",
+        "q_met_003",
+        "q_met_004",
+        "q_met_005"
+      ],
+      "rule": null,
+      "questionCount": 5,
+      "passScore": 0.6,
+      "unlockRank": "silver_iv",
+      "dailyEligible": true,
+      "pool": "hardcore",
+      "rankMin": "silver_iv",
+      "rankMax": "challenger_i"
+    },
+    {
+      "id": "lv_oop_01",
+      "title": "OOP 入門",
+      "topic": "oop",
+      "questionIds": [
+        "q_oop_001",
+        "q_oop_002",
+        "q_oop_003",
+        "q_oop_004",
+        "q_oop_005"
+      ],
+      "rule": null,
+      "questionCount": 5,
+      "passScore": 0.6,
+      "unlockRank": "silver_iv",
+      "dailyEligible": true,
+      "pool": "hardcore",
+      "rankMin": "silver_iv",
+      "rankMax": "challenger_i"
+    },
+    {
+      "id": "lv_daily_mix",
+      "title": "每日一關（三池混合）",
+      "topic": null,
+      "questionIds": [],
+      "rule": {
+        "topics": [
+          "basics",
+          "conditionals",
+          "loops",
+          "arrays",
+          "methods",
+          "oop"
+        ],
+        "difficulties": [
+          1,
+          2,
+          3
+        ],
+        "types": [
+          "mc",
+          "read_code",
+          "fill"
+        ],
+        "excludeRecentDays": 7,
+        "preferWrongBook": true,
+        "pools": [
+          "casual",
+          "hardcore",
+          "extreme"
+        ],
+        "respectPlayerRank": true,
+        "preferIdealRank": true
+      },
+      "questionCount": 6,
+      "passScore": 0.6,
+      "unlockRank": "iron_iv",
+      "dailyEligible": true,
+      "pool": null,
+      "rankMin": "iron_iv",
+      "rankMax": "challenger_i"
+    },
+    {
+      "id": "lv_daily_casual",
+      "title": "每日一關・休閒",
+      "topic": null,
+      "pool": "casual",
+      "questionIds": [],
+      "rule": {
+        "topics": [
+          "basics",
+          "conditionals",
+          "loops",
+          "arrays",
+          "methods",
+          "oop"
+        ],
+        "pools": [
+          "casual"
+        ],
+        "difficulties": [
+          1,
+          2
+        ],
+        "types": [
+          "mc",
+          "fill",
+          "read_code"
+        ],
+        "excludeRecentDays": 7,
+        "preferWrongBook": true,
+        "respectPlayerRank": true,
+        "preferIdealRank": true
+      },
+      "questionCount": 6,
+      "passScore": 0.5,
+      "unlockRank": "iron_iv",
+      "dailyEligible": true,
+      "rankMin": "iron_iv",
+      "rankMax": "challenger_i"
+    },
+    {
+      "id": "lv_daily_hardcore",
+      "title": "每日一關・硬核",
+      "topic": null,
+      "pool": "hardcore",
+      "questionIds": [],
+      "rule": {
+        "topics": [
+          "basics",
+          "conditionals",
+          "loops",
+          "arrays",
+          "methods",
+          "oop"
+        ],
+        "pools": [
+          "hardcore"
+        ],
+        "difficulties": [
+          2,
+          3
+        ],
+        "types": [
+          "mc",
+          "fill",
+          "read_code"
+        ],
+        "excludeRecentDays": 7,
+        "preferWrongBook": true,
+        "respectPlayerRank": true,
+        "preferIdealRank": true
+      },
+      "questionCount": 6,
+      "passScore": 0.6,
+      "unlockRank": "bronze_iv",
+      "dailyEligible": true,
+      "rankMin": "bronze_iv",
+      "rankMax": "challenger_i"
+    },
+    {
+      "id": "lv_daily_extreme",
+      "title": "每日一關・變態（陷阱）",
+      "topic": null,
+      "pool": "extreme",
+      "questionIds": [],
+      "rule": {
+        "topics": [
+          "basics",
+          "conditionals",
+          "loops",
+          "arrays",
+          "methods",
+          "oop"
+        ],
+        "pools": [
+          "extreme"
+        ],
+        "difficulties": [
+          3,
+          4,
+          5
+        ],
+        "types": [
+          "mc",
+          "read_code"
+        ],
+        "excludeRecentDays": 14,
+        "preferWrongBook": false,
+        "respectPlayerRank": true,
+        "preferIdealRank": true
+      },
+      "questionCount": 5,
+      "passScore": 0.4,
+      "unlockRank": "gold_iv",
+      "dailyEligible": true,
+      "rankMin": "gold_iv",
+      "rankMax": "challenger_i"
+    }
+  ],
+  "pools": {
+    "casual": {
+      "labelZh": "休閒",
+      "desc": "入門、輕鬆、短題"
+    },
+    "hardcore": {
+      "labelZh": "硬核",
+      "desc": "認真練、中高難度、讀碼／細節"
+    },
+    "extreme": {
+      "labelZh": "變態",
+      "desc": "陷阱／冷門／極刁鑽；好玩但 UI 要標清楚警告"
+    }
+  },
+  "rankOrder": [
+    "iron_iv",
+    "iron_iii",
+    "iron_ii",
+    "iron_i",
+    "bronze_iv",
+    "bronze_iii",
+    "bronze_ii",
+    "bronze_i",
+    "silver_iv",
+    "silver_iii",
+    "silver_ii",
+    "silver_i",
+    "gold_iv",
+    "gold_iii",
+    "gold_ii",
+    "gold_i",
+    "platinum_iv",
+    "platinum_iii",
+    "platinum_ii",
+    "platinum_i",
+    "emerald_iv",
+    "emerald_iii",
+    "emerald_ii",
+    "emerald_i",
+    "diamond_iv",
+    "diamond_iii",
+    "diamond_ii",
+    "diamond_i",
+    "master_iv",
+    "master_iii",
+    "master_ii",
+    "master_i",
+    "grandmaster_iv",
+    "grandmaster_iii",
+    "grandmaster_ii",
+    "grandmaster_i",
+    "challenger_iv",
+    "challenger_iii",
+    "challenger_ii",
+    "challenger_i"
+  ],
+  "drawRules": {
+    "eligibleQuestion": "active && pool∈requested && rankIndex(player)∈[rankMin,rankMax]",
+    "order": "stableShuffle(eligible, seed) 後可再按 abs(rankIndex(player)-rankIndex(idealRank)) 升序偏置，再取 questionCount",
+    "dailySeed": "hash(userId + '#' + yyyy-MM-dd + '#' + pool + '#' + rankId)",
+    "whyDifferentByRank": "種子含 rankId → 同時同池唔同段位題序不同；idealRank 偏置 → 低段多見入門題、高段多見難題／陷阱，即使 eligible 重疊亦唔會成套相同",
+    "poolUnlock": {
+      "casual": "iron_iv+",
+      "hardcore": "bronze_iv+",
+      "extreme": "gold_iv+（UI 必標警告）"
+    },
+    "rankedDefaultPool": {
+      "iron_*": "casual",
+      "bronze_*": "casual|hardcore",
+      "silver_*_to_platinum_*": "hardcore",
+      "gold_and_up": "hardcore|extreme"
+    },
+    "rankOrderNote": "十大階各有 IV→I 四個子級，共 40 段；見 rankOrder／tiers／ranks"
+  },
+  "ranks": {
+    "iron_iv": {
+      "id": "iron_iv",
+      "tier": "iron",
+      "tierIndex": 0,
+      "division": "iv",
+      "divisionIndex": 0,
+      "labelEn": "Iron IV",
+      "labelZh": "鐵牌 IV",
+      "globalScoreHint": 0
+    },
+    "iron_iii": {
+      "id": "iron_iii",
+      "tier": "iron",
+      "tierIndex": 0,
+      "division": "iii",
+      "divisionIndex": 1,
+      "labelEn": "Iron III",
+      "labelZh": "鐵牌 III",
+      "globalScoreHint": 25
+    },
+    "iron_ii": {
+      "id": "iron_ii",
+      "tier": "iron",
+      "tierIndex": 0,
+      "division": "ii",
+      "divisionIndex": 2,
+      "labelEn": "Iron II",
+      "labelZh": "鐵牌 II",
+      "globalScoreHint": 50
+    },
+    "iron_i": {
+      "id": "iron_i",
+      "tier": "iron",
+      "tierIndex": 0,
+      "division": "i",
+      "divisionIndex": 3,
+      "labelEn": "Iron I",
+      "labelZh": "鐵牌 I",
+      "globalScoreHint": 75
+    },
+    "bronze_iv": {
+      "id": "bronze_iv",
+      "tier": "bronze",
+      "tierIndex": 1,
+      "division": "iv",
+      "divisionIndex": 0,
+      "labelEn": "Bronze IV",
+      "labelZh": "銅牌 IV",
+      "globalScoreHint": 100
+    },
+    "bronze_iii": {
+      "id": "bronze_iii",
+      "tier": "bronze",
+      "tierIndex": 1,
+      "division": "iii",
+      "divisionIndex": 1,
+      "labelEn": "Bronze III",
+      "labelZh": "銅牌 III",
+      "globalScoreHint": 125
+    },
+    "bronze_ii": {
+      "id": "bronze_ii",
+      "tier": "bronze",
+      "tierIndex": 1,
+      "division": "ii",
+      "divisionIndex": 2,
+      "labelEn": "Bronze II",
+      "labelZh": "銅牌 II",
+      "globalScoreHint": 150
+    },
+    "bronze_i": {
+      "id": "bronze_i",
+      "tier": "bronze",
+      "tierIndex": 1,
+      "division": "i",
+      "divisionIndex": 3,
+      "labelEn": "Bronze I",
+      "labelZh": "銅牌 I",
+      "globalScoreHint": 175
+    },
+    "silver_iv": {
+      "id": "silver_iv",
+      "tier": "silver",
+      "tierIndex": 2,
+      "division": "iv",
+      "divisionIndex": 0,
+      "labelEn": "Silver IV",
+      "labelZh": "銀牌 IV",
+      "globalScoreHint": 200
+    },
+    "silver_iii": {
+      "id": "silver_iii",
+      "tier": "silver",
+      "tierIndex": 2,
+      "division": "iii",
+      "divisionIndex": 1,
+      "labelEn": "Silver III",
+      "labelZh": "銀牌 III",
+      "globalScoreHint": 225
+    },
+    "silver_ii": {
+      "id": "silver_ii",
+      "tier": "silver",
+      "tierIndex": 2,
+      "division": "ii",
+      "divisionIndex": 2,
+      "labelEn": "Silver II",
+      "labelZh": "銀牌 II",
+      "globalScoreHint": 250
+    },
+    "silver_i": {
+      "id": "silver_i",
+      "tier": "silver",
+      "tierIndex": 2,
+      "division": "i",
+      "divisionIndex": 3,
+      "labelEn": "Silver I",
+      "labelZh": "銀牌 I",
+      "globalScoreHint": 275
+    },
+    "gold_iv": {
+      "id": "gold_iv",
+      "tier": "gold",
+      "tierIndex": 3,
+      "division": "iv",
+      "divisionIndex": 0,
+      "labelEn": "Gold IV",
+      "labelZh": "金牌 IV",
+      "globalScoreHint": 300
+    },
+    "gold_iii": {
+      "id": "gold_iii",
+      "tier": "gold",
+      "tierIndex": 3,
+      "division": "iii",
+      "divisionIndex": 1,
+      "labelEn": "Gold III",
+      "labelZh": "金牌 III",
+      "globalScoreHint": 325
+    },
+    "gold_ii": {
+      "id": "gold_ii",
+      "tier": "gold",
+      "tierIndex": 3,
+      "division": "ii",
+      "divisionIndex": 2,
+      "labelEn": "Gold II",
+      "labelZh": "金牌 II",
+      "globalScoreHint": 350
+    },
+    "gold_i": {
+      "id": "gold_i",
+      "tier": "gold",
+      "tierIndex": 3,
+      "division": "i",
+      "divisionIndex": 3,
+      "labelEn": "Gold I",
+      "labelZh": "金牌 I",
+      "globalScoreHint": 375
+    },
+    "platinum_iv": {
+      "id": "platinum_iv",
+      "tier": "platinum",
+      "tierIndex": 4,
+      "division": "iv",
+      "divisionIndex": 0,
+      "labelEn": "Platinum IV",
+      "labelZh": "白金 IV",
+      "globalScoreHint": 400
+    },
+    "platinum_iii": {
+      "id": "platinum_iii",
+      "tier": "platinum",
+      "tierIndex": 4,
+      "division": "iii",
+      "divisionIndex": 1,
+      "labelEn": "Platinum III",
+      "labelZh": "白金 III",
+      "globalScoreHint": 425
+    },
+    "platinum_ii": {
+      "id": "platinum_ii",
+      "tier": "platinum",
+      "tierIndex": 4,
+      "division": "ii",
+      "divisionIndex": 2,
+      "labelEn": "Platinum II",
+      "labelZh": "白金 II",
+      "globalScoreHint": 450
+    },
+    "platinum_i": {
+      "id": "platinum_i",
+      "tier": "platinum",
+      "tierIndex": 4,
+      "division": "i",
+      "divisionIndex": 3,
+      "labelEn": "Platinum I",
+      "labelZh": "白金 I",
+      "globalScoreHint": 475
+    },
+    "emerald_iv": {
+      "id": "emerald_iv",
+      "tier": "emerald",
+      "tierIndex": 5,
+      "division": "iv",
+      "divisionIndex": 0,
+      "labelEn": "Emerald IV",
+      "labelZh": "翡翠 IV",
+      "globalScoreHint": 500
+    },
+    "emerald_iii": {
+      "id": "emerald_iii",
+      "tier": "emerald",
+      "tierIndex": 5,
+      "division": "iii",
+      "divisionIndex": 1,
+      "labelEn": "Emerald III",
+      "labelZh": "翡翠 III",
+      "globalScoreHint": 525
+    },
+    "emerald_ii": {
+      "id": "emerald_ii",
+      "tier": "emerald",
+      "tierIndex": 5,
+      "division": "ii",
+      "divisionIndex": 2,
+      "labelEn": "Emerald II",
+      "labelZh": "翡翠 II",
+      "globalScoreHint": 550
+    },
+    "emerald_i": {
+      "id": "emerald_i",
+      "tier": "emerald",
+      "tierIndex": 5,
+      "division": "i",
+      "divisionIndex": 3,
+      "labelEn": "Emerald I",
+      "labelZh": "翡翠 I",
+      "globalScoreHint": 575
+    },
+    "diamond_iv": {
+      "id": "diamond_iv",
+      "tier": "diamond",
+      "tierIndex": 6,
+      "division": "iv",
+      "divisionIndex": 0,
+      "labelEn": "Diamond IV",
+      "labelZh": "鑽石 IV",
+      "globalScoreHint": 600
+    },
+    "diamond_iii": {
+      "id": "diamond_iii",
+      "tier": "diamond",
+      "tierIndex": 6,
+      "division": "iii",
+      "divisionIndex": 1,
+      "labelEn": "Diamond III",
+      "labelZh": "鑽石 III",
+      "globalScoreHint": 625
+    },
+    "diamond_ii": {
+      "id": "diamond_ii",
+      "tier": "diamond",
+      "tierIndex": 6,
+      "division": "ii",
+      "divisionIndex": 2,
+      "labelEn": "Diamond II",
+      "labelZh": "鑽石 II",
+      "globalScoreHint": 650
+    },
+    "diamond_i": {
+      "id": "diamond_i",
+      "tier": "diamond",
+      "tierIndex": 6,
+      "division": "i",
+      "divisionIndex": 3,
+      "labelEn": "Diamond I",
+      "labelZh": "鑽石 I",
+      "globalScoreHint": 675
+    },
+    "master_iv": {
+      "id": "master_iv",
+      "tier": "master",
+      "tierIndex": 7,
+      "division": "iv",
+      "divisionIndex": 0,
+      "labelEn": "Master IV",
+      "labelZh": "大師 IV",
+      "globalScoreHint": 700
+    },
+    "master_iii": {
+      "id": "master_iii",
+      "tier": "master",
+      "tierIndex": 7,
+      "division": "iii",
+      "divisionIndex": 1,
+      "labelEn": "Master III",
+      "labelZh": "大師 III",
+      "globalScoreHint": 725
+    },
+    "master_ii": {
+      "id": "master_ii",
+      "tier": "master",
+      "tierIndex": 7,
+      "division": "ii",
+      "divisionIndex": 2,
+      "labelEn": "Master II",
+      "labelZh": "大師 II",
+      "globalScoreHint": 750
+    },
+    "master_i": {
+      "id": "master_i",
+      "tier": "master",
+      "tierIndex": 7,
+      "division": "i",
+      "divisionIndex": 3,
+      "labelEn": "Master I",
+      "labelZh": "大師 I",
+      "globalScoreHint": 775
+    },
+    "grandmaster_iv": {
+      "id": "grandmaster_iv",
+      "tier": "grandmaster",
+      "tierIndex": 8,
+      "division": "iv",
+      "divisionIndex": 0,
+      "labelEn": "Grandmaster IV",
+      "labelZh": "宗師 IV",
+      "globalScoreHint": 800
+    },
+    "grandmaster_iii": {
+      "id": "grandmaster_iii",
+      "tier": "grandmaster",
+      "tierIndex": 8,
+      "division": "iii",
+      "divisionIndex": 1,
+      "labelEn": "Grandmaster III",
+      "labelZh": "宗師 III",
+      "globalScoreHint": 825
+    },
+    "grandmaster_ii": {
+      "id": "grandmaster_ii",
+      "tier": "grandmaster",
+      "tierIndex": 8,
+      "division": "ii",
+      "divisionIndex": 2,
+      "labelEn": "Grandmaster II",
+      "labelZh": "宗師 II",
+      "globalScoreHint": 850
+    },
+    "grandmaster_i": {
+      "id": "grandmaster_i",
+      "tier": "grandmaster",
+      "tierIndex": 8,
+      "division": "i",
+      "divisionIndex": 3,
+      "labelEn": "Grandmaster I",
+      "labelZh": "宗師 I",
+      "globalScoreHint": 875
+    },
+    "challenger_iv": {
+      "id": "challenger_iv",
+      "tier": "challenger",
+      "tierIndex": 9,
+      "division": "iv",
+      "divisionIndex": 0,
+      "labelEn": "Challenger IV",
+      "labelZh": "王者 IV",
+      "globalScoreHint": 900
+    },
+    "challenger_iii": {
+      "id": "challenger_iii",
+      "tier": "challenger",
+      "tierIndex": 9,
+      "division": "iii",
+      "divisionIndex": 1,
+      "labelEn": "Challenger III",
+      "labelZh": "王者 III",
+      "globalScoreHint": 925
+    },
+    "challenger_ii": {
+      "id": "challenger_ii",
+      "tier": "challenger",
+      "tierIndex": 9,
+      "division": "ii",
+      "divisionIndex": 2,
+      "labelEn": "Challenger II",
+      "labelZh": "王者 II",
+      "globalScoreHint": 950
+    },
+    "challenger_i": {
+      "id": "challenger_i",
+      "tier": "challenger",
+      "tierIndex": 9,
+      "division": "i",
+      "divisionIndex": 3,
+      "labelEn": "Challenger I",
+      "labelZh": "王者 I",
+      "globalScoreHint": 975
+    }
+  },
+  "tiers": [
+    {
+      "id": "iron",
+      "labelEn": "Iron",
+      "labelZh": "鐵牌",
+      "divisions": [
+        "iron_iv",
+        "iron_iii",
+        "iron_ii",
+        "iron_i"
+      ]
+    },
+    {
+      "id": "bronze",
+      "labelEn": "Bronze",
+      "labelZh": "銅牌",
+      "divisions": [
+        "bronze_iv",
+        "bronze_iii",
+        "bronze_ii",
+        "bronze_i"
+      ]
+    },
+    {
+      "id": "silver",
+      "labelEn": "Silver",
+      "labelZh": "銀牌",
+      "divisions": [
+        "silver_iv",
+        "silver_iii",
+        "silver_ii",
+        "silver_i"
+      ]
+    },
+    {
+      "id": "gold",
+      "labelEn": "Gold",
+      "labelZh": "金牌",
+      "divisions": [
+        "gold_iv",
+        "gold_iii",
+        "gold_ii",
+        "gold_i"
+      ]
+    },
+    {
+      "id": "platinum",
+      "labelEn": "Platinum",
+      "labelZh": "白金",
+      "divisions": [
+        "platinum_iv",
+        "platinum_iii",
+        "platinum_ii",
+        "platinum_i"
+      ]
+    },
+    {
+      "id": "emerald",
+      "labelEn": "Emerald",
+      "labelZh": "翡翠",
+      "divisions": [
+        "emerald_iv",
+        "emerald_iii",
+        "emerald_ii",
+        "emerald_i"
+      ]
+    },
+    {
+      "id": "diamond",
+      "labelEn": "Diamond",
+      "labelZh": "鑽石",
+      "divisions": [
+        "diamond_iv",
+        "diamond_iii",
+        "diamond_ii",
+        "diamond_i"
+      ]
+    },
+    {
+      "id": "master",
+      "labelEn": "Master",
+      "labelZh": "大師",
+      "divisions": [
+        "master_iv",
+        "master_iii",
+        "master_ii",
+        "master_i"
+      ]
+    },
+    {
+      "id": "grandmaster",
+      "labelEn": "Grandmaster",
+      "labelZh": "宗師",
+      "divisions": [
+        "grandmaster_iv",
+        "grandmaster_iii",
+        "grandmaster_ii",
+        "grandmaster_i"
+      ]
+    },
+    {
+      "id": "challenger",
+      "labelEn": "Challenger",
+      "labelZh": "王者",
+      "divisions": [
+        "challenger_iv",
+        "challenger_iii",
+        "challenger_ii",
+        "challenger_i"
+      ]
+    }
+  ],
+  "ladderRules": {
+    "lpMin": 0,
+    "lpMax": 99,
+    "lpPerDivision": 100,
+    "promoteAtLp": 100,
+    "demoteBelowLp": 0,
+    "floorRank": "iron_iv",
+    "ceilingRank": "challenger_i",
+    "onWin": {
+      "lpDeltaBase": 15,
+      "bonusByStreak": [
+        0,
+        2,
+        4,
+        6
+      ],
+      "note": "完關達 passScore 先算勝；可按正確率微調 ±5"
+    },
+    "onLose": {
+      "lpDeltaBase": -10,
+      "iron_iv_protected": true,
+      "note": "鐵牌 IV 唔掉段、LP 唔低過 0"
+    },
+    "promote": "LP>=100 → 升上一子級（同階 IV→III→II→I；I 再升＝下一階 IV），新段 LP=LP-100",
+    "demote": "LP<0 → 掉下一子級（I→II→III→IV；IV 再掉＝上一階 I），新段 LP=100+LP（通常 90）",
+    "tierGate": "大階之間無額外 RP；子級走完先換大階",
+    "display": "UI 顯示 labelZh＋LP／100；段位卡同現有鐵牌→王者一致"
+  }
+}
