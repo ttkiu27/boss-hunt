@@ -85,6 +85,24 @@ Suggested mapping (verify against live page card ids):
 | Codec | h264 / aac, 854×480 @ 30fps |
 | Playable | yes |
 
+## Per-card short clips (`clips/`)
+
+Cut 2026-10 for `dawnwalker-brencis.html` path steps + move cards (local `<video>`; YT attrs are tight backup only).
+
+| File | Source | In-point | Length | Wired to |
+|------|--------|----------|--------|----------|
+| `clips/step-01-read-marks.mp4` | `p1-knyaz.mp4` | 0s | 22s | STEP 01 · READ MARKS |
+| `clips/step-02-clear-wraiths.mp4` | `wraiths-full-battle.mp4` | 25s | 28s | STEP 02 |
+| `clips/step-03-p1-punish.mp4` | `patricide-open.mp4` | 45s | 25s | STEP 03 |
+| `clips/step-04-p2-ascendant.mp4` | `p2-ascendant.mp4` | 0s | 32s | STEP 04 |
+| `clips/step-05-defeat.mp4` | `defeat.mp4` | 0s | 22s | STEP 05 |
+| `clips/move-p1-phase.mp4` | `p1-knyaz.mp4` | 30s | 48s | move P1 card |
+| `clips/move-p2-phase.mp4` | `p2-ascendant.mp4` | 40s | 48s | move P2 card |
+| `clips/move-full-battle.mp4` | `wraiths-full-battle.mp4` | 55s | 42s | full battle card |
+| `clips/move-lacra-confront.mp4` | `patricide-open.mp4` | 8s | 38s | Lacra confront card |
+
+**Still YT-only (~48s embed window, no local file):** `move-lacra-fight`, `move-lacra-short`, `move-emmie`, `move-early-p1`, `move-early-p2`, all `move-ending-*`, `move-lacra-full` (yt-dlp blocked in CI; add local cuts when a source mp4 is available).
+
 ## Summary
 
 | Clip | Status | Size | Duration | Under 14 MB |
