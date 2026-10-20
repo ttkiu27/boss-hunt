@@ -196,6 +196,53 @@ a { color: inherit; text-decoration: none; }
   border-top: none;
 }
 
+details.hub-zone {
+  grid-column: 1 / -1;
+  margin-top: 4px;
+  padding-top: 11px;
+  border-top: 1px solid rgba(201, 162, 39, .22);
+  scroll-margin-top: 12px;
+}
+.card-grid.cats > details.hub-zone:first-child {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: none;
+}
+details.hub-zone > summary {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  font-size: .72rem;
+  font-weight: 800;
+  letter-spacing: .14em;
+  color: var(--accent);
+  cursor: pointer;
+  user-select: none;
+}
+details.hub-zone > summary::-webkit-details-marker { display: none; }
+details.hub-zone > summary::after {
+  content: "展開 ▾";
+  font-size: .65rem;
+  font-weight: 700;
+  letter-spacing: .06em;
+  color: var(--muted);
+  flex-shrink: 0;
+}
+details.hub-zone[open] > summary::after { content: "收起 ▴"; }
+details.hub-zone > summary:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+.hub-zone-picks {
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+  margin-top: 12px;
+}
+
 .back-row {
   text-align: center;
   margin-top: 8px;
@@ -339,63 +386,84 @@ a { color: inherit; text-decoration: none; }
       <a href="#sekiro-puzzle">智能解謎</a>
     </nav>
     <div class="card-grid cats">
-      <div class="hub-subhead" id="sekiro-boss">BOSS</div>
-      <a class="pick gold" href="sekiro-chained-ogre.html#boss">
+      <details class="hub-zone" id="sekiro-boss">
+        <summary>BOSS</summary>
+        <div class="hub-zone-picks">
+      <a class="pick gold pick-with-art" href="sekiro-chained-ogre.html#boss">
+        <img class="pick-mark" src="assets/art/theme-demon-banner.jpg" alt="枷鎖鬼戰場" width="1280" height="720" decoding="async" loading="lazy" style="object-position:center 55%" />
         <div class="tag">BOSS · 迷你頭目</div>
         <h2>枷鎖鬼</h2>
         <p>城外第一隻 · 紅字抓要閃 · 爆竹／火</p>
         <div class="go">進入 →</div>
       </a>
-      <a class="pick gold" href="sekiro-gyoubu.html#boss">
+      <a class="pick gold pick-with-art" href="sekiro-gyoubu.html#boss">
+        <img class="pick-mark" src="assets/art/theme-samurai-banner.jpg" alt="鬼形部正孝" width="1280" height="720" decoding="async" loading="lazy" style="object-position:center 45%" />
         <div class="tag">BOSS</div>
         <h2>鬼形部正孝</h2>
         <p>第一場正式頭目 · 爆竹嚇馬 · 綠鈎</p>
         <div class="go">進入 →</div>
       </a>
-      <a class="pick gold" href="sekiro-lady-butterfly.html#boss">
+      <a class="pick gold pick-with-art" href="sekiro-lady-butterfly.html#boss">
+        <img class="pick-mark" src="assets/art/type-epic-sky-demon.jpg" alt="蝴蝶夫人" width="1280" height="720" decoding="async" loading="lazy" style="object-position:58% 40%" />
         <div class="tag">BOSS · 可選</div>
         <h2>蝴蝶夫人</h2>
         <p>平田屋敷 · 手裏劍打落 · 二段幻影</p>
         <div class="go">進入 →</div>
       </a>
-      <a class="pick gold" href="sekiro-genichiro.html#boss">
+      <a class="pick gold pick-with-art" href="sekiro-genichiro.html#boss">
+        <img class="pick-mark" src="assets/art/theme-darkness-banner.jpg" alt="葦名弦一郎" width="1280" height="720" decoding="async" loading="lazy" style="object-position:center 42%" />
         <div class="tag">BOSS · 天守閣</div>
         <h2>葦名弦一郎</h2>
         <p>天台初戰三段 · 見切／跳掃 · 雷返</p>
         <div class="go">進入 →</div>
       </a>
-      <a class="pick gold" href="sekiro-guardian-ape.html#boss">
+      <a class="pick gold pick-with-art" href="sekiro-guardian-ape.html#boss">
+        <img class="pick-mark" src="assets/clips/10_phase1_live_excerpt.png" alt="獅猿一階實機" width="480" height="270" decoding="async" loading="lazy" />
         <div class="tag">BOSS</div>
         <h2>獅猿</h2>
         <p>獅猿招式卡 · 短片 · 時機軸</p>
         <div class="go">進入 →</div>
       </a>
-      <div class="hub-subhead" id="sekiro-lost-zone">迷路專區</div>
-      <a class="pick gold" href="sekiro-poison-pool.html#exit">
+        </div>
+      </details>
+      <details class="hub-zone" id="sekiro-lost-zone" open>
+        <summary>迷路專區</summary>
+        <div class="hub-zone-picks">
+      <a class="pick gold pick-with-art" href="sekiro-poison-pool.html#exit">
+        <img class="pick-mark" src="assets/path-imgs/02_valley_floor_poison.png" alt="毒沼谷底" width="480" height="270" decoding="async" loading="lazy" />
         <div class="tag">迷路專區</div>
         <h2>毒沼鬼佛</h2>
         <p>干柿神廟望上勾出 · 白萩 · 出口迷路</p>
         <div class="go">進入 →</div>
       </a>
-      <a class="pick gold" href="sekiro-after-owl-lost.html#immediate">
+      <a class="pick gold pick-with-art" href="sekiro-after-owl-lost.html#immediate">
+        <img class="pick-mark" src="assets/path-imgs/01_bodhisattva_idol.png" alt="鬼佛與路線" width="480" height="270" decoding="async" loading="lazy" />
         <div class="tag">迷路專區</div>
         <h2>打完貓頭鷹之後</h2>
         <p>九郎點香 · 乘轎石洞 · 源之宮</p>
         <div class="go">進入 →</div>
       </a>
-      <a class="pick info" href="sekiro-guardian-ape.html#lost-fool">
+      <a class="pick info pick-with-art" href="sekiro-guardian-ape.html#lost-fool">
+        <img class="pick-mark" src="assets/path-imgs/06_serpent_temple.png" alt="落谷路線" width="480" height="270" decoding="async" loading="lazy" />
         <div class="tag">地圖資訊</div>
         <h2>地圖資訊（迷路）</h2>
         <p>路線圖為主 · 宮之蓮／葦名之底</p>
         <div class="go">進入 →</div>
       </a>
-      <div class="hub-subhead" id="sekiro-puzzle">智能解謎</div>
-      <a class="pick danger" href="sekiro-guardian-ape.html#force-guide-serpent">
+        </div>
+      </details>
+      <details class="hub-zone" id="sekiro-puzzle" open>
+        <summary>智能解謎</summary>
+        <div class="hub-zone-picks">
+      <a class="pick danger pick-with-art" href="sekiro-guardian-ape.html#force-guide-serpent">
+        <img class="pick-mark" src="assets/force-guide/white-snake/frames/f02.webp" alt="大白蛇擋路" width="480" height="270" decoding="async" loading="lazy" />
         <div class="tag">智能解謎</div>
         <h2>白蛇智能解謎</h2>
         <p>白蛇擋路 · 實機片 · 步驟圖（唔使答題）</p>
         <div class="go">進入 →</div>
       </a>
+        </div>
+      </details>
     </div>
     <div class="back-row">
       <button type="button" data-back="games">← 返回揀遊戲</button>
@@ -406,97 +474,116 @@ a { color: inherit; text-decoration: none; }
   <section class="panel" id="panel-onimusha" hidden aria-labelledby="onimusha-label">
     <div class="step-label" id="onimusha-label">② 鬼武者 劍之道 · 揀專區</div>
     <div class="card-grid cats">
-      <div class="hub-subhead" id="onimusha-boss">BOSS</div>
-      <a class="pick danger" href="onimusha-sasaki-ganryu.html#boss">
+      <details class="hub-zone" id="onimusha-boss">
+        <summary>BOSS</summary>
+        <div class="hub-zone-picks">
+      <a class="pick danger pick-with-art" href="onimusha-sasaki-ganryu.html#boss">
+        <img class="pick-mark" src="assets/art/card-onimusha-square.jpg" alt="鬼武者" width="720" height="720" decoding="async" loading="lazy" />
         <div class="tag">BOSS · P1</div>
         <h2>佐佐木岩流（本體）</h2>
         <p>清水寺初見 · 快刺／波浪斬 · 藍抓反</p>
         <div class="go">進入 →</div>
       </a>
-      <a class="pick danger" href="onimusha-daidara.html#boss">
+      <a class="pick danger pick-with-art" href="onimusha-daidara.html#boss">
+        <img class="pick-mark" src="assets/art/banner-onimusha-watercolor.jpg" alt="鬼武者" width="1280" height="720" decoding="async" loading="lazy" style="object-position:42% 38%" />
         <div class="tag">BOSS</div>
         <h2>大唾拉</h2>
         <p>巨錘彈反天堂 · 搶藍魂 · 破腿甲</p>
         <div class="go">進入 →</div>
       </a>
-      <a class="pick danger" href="onimusha-rasho-gan.html#boss">
+      <a class="pick danger pick-with-art" href="onimusha-rasho-gan.html#boss">
+        <img class="pick-mark" src="assets/art/card-onimusha-square.jpg" alt="鬼武者" width="720" height="720" decoding="async" loading="lazy" style="object-position:62% 40%" />
         <div class="tag">BOSS</div>
         <h2>羅掌願</h2>
         <p>斷線弱化 · 大氣泡射爆 · P2 閃樹</p>
         <div class="go">進入 →</div>
       </a>
-      <a class="pick danger" href="onimusha-byakue.html#boss">
+      <a class="pick danger pick-with-art" href="onimusha-byakue.html#boss">
+        <img class="pick-mark" src="assets/art/card-onimusha-square.jpg" alt="鬼武者" width="720" height="720" decoding="async" loading="lazy" />
         <div class="tag">BOSS · Demo</div>
         <h2>百穢（白衣）</h2>
         <p>斧揮彈 · 衝撞閃 · 強化禍氣跳砸</p>
         <div class="go">進入 →</div>
       </a>
-      <a class="pick danger" href="onimusha-ifuu.html#boss">
+      <a class="pick danger pick-with-art" href="onimusha-ifuu.html#boss">
+        <img class="pick-mark" src="assets/art/card-onimusha-square.jpg" alt="鬼武者" width="720" height="720" decoding="async" loading="lazy" />
         <div class="tag">BOSS</div>
         <h2>畏風</h2>
         <p>風刃彈返 · P2 弓射背囊</p>
         <div class="go">進入 →</div>
       </a>
-      <a class="pick danger" href="onimusha-nue-blue-red.html#boss">
+      <a class="pick danger pick-with-art" href="onimusha-nue-blue-red.html#boss">
+        <img class="pick-mark" src="assets/art/card-onimusha-square.jpg" alt="鬼武者" width="720" height="720" decoding="async" loading="lazy" />
         <div class="tag">BOSS · 雙體</div>
         <h2>鵺（青＋赤）</h2>
         <p>解鎖鏡頭 · 閃避為主 · 彈電球</p>
         <div class="go">進入 →</div>
       </a>
-      <a class="pick danger" href="onimusha-greater-nue.html#boss">
+      <a class="pick danger pick-with-art" href="onimusha-greater-nue.html#boss">
+        <img class="pick-mark" src="assets/art/card-onimusha-square.jpg" alt="鬼武者" width="720" height="720" decoding="async" loading="lazy" />
         <div class="tag">BOSS</div>
         <h2>大鵺</h2>
         <p>白光尾必擋 · 落雷跑 · 藍抓反</p>
         <div class="go">進入 →</div>
       </a>
-      <a class="pick danger" href="onimusha-dohatsu-ten.html#boss">
+      <a class="pick danger pick-with-art" href="onimusha-dohatsu-ten.html#boss">
+        <img class="pick-mark" src="assets/art/card-onimusha-square.jpg" alt="鬼武者" width="720" height="720" decoding="async" loading="lazy" />
         <div class="tag">BOSS</div>
         <h2>怒伐天</h2>
         <p>白光擋 · 飛斬彈返 · 強化轉移預擋</p>
         <div class="go">進入 →</div>
       </a>
-      <a class="pick danger" href="onimusha-benkei.html#boss">
+      <a class="pick danger pick-with-art" href="onimusha-benkei.html#boss">
+        <img class="pick-mark" src="assets/art/card-onimusha-square.jpg" alt="鬼武者" width="720" height="720" decoding="async" loading="lazy" />
         <div class="tag">BOSS · 破甲</div>
         <h2>弁慶</h2>
         <p>彈反削力動 · 紅點破甲 · 完全武裝摺入</p>
         <div class="go">進入 →</div>
       </a>
-      <a class="pick danger" href="onimusha-burai.html#boss">
+      <a class="pick danger pick-with-art" href="onimusha-burai.html#boss">
+        <img class="pick-mark" src="assets/art/card-onimusha-square.jpg" alt="鬼武者" width="720" height="720" decoding="async" loading="lazy" />
         <div class="tag">BOSS</div>
         <h2>撫雷</h2>
         <p>穿雷球打眼 · P2 跳雷砸</p>
         <div class="go">進入 →</div>
       </a>
-      <a class="pick danger" href="onimusha-ifuu-burai.html#boss">
+      <a class="pick danger pick-with-art" href="onimusha-ifuu-burai.html#boss">
+        <img class="pick-mark" src="assets/art/card-onimusha-square.jpg" alt="鬼武者" width="720" height="720" decoding="async" loading="lazy" />
         <div class="tag">BOSS · 雙人</div>
         <h2>畏風＋撫雷</h2>
         <p>同步突進彈 · 嵐技末段必擋</p>
         <div class="go">進入 →</div>
       </a>
-      <a class="pick danger" href="onimusha-sasaki-ganryu-altered.html#boss">
+      <a class="pick danger pick-with-art" href="onimusha-sasaki-ganryu-altered.html#boss">
+        <img class="pick-mark" src="assets/art/card-onimusha-square.jpg" alt="鬼武者" width="720" height="720" decoding="async" loading="lazy" />
         <div class="tag">BOSS · 異形</div>
         <h2>佐佐木岩流（異形）</h2>
         <p>副標：佐佐木小次郎 · 嵐山・渡月橋 · 攻略已上</p>
         <div class="go">進入 →</div>
       </a>
-      <a class="pick danger" href="onimusha-shuten-doji.html#boss">
+      <a class="pick danger pick-with-art" href="onimusha-shuten-doji.html#boss">
+        <img class="pick-mark" src="assets/art/card-onimusha-square.jpg" alt="鬼武者" width="720" height="720" decoding="async" loading="lazy" />
         <div class="tag">BOSS</div>
         <h2>酒吞童子</h2>
         <p>唔俾飲 · 噴火射斷 · P2 鬼化收尾</p>
         <div class="go">進入 →</div>
       </a>
-      <a class="pick danger" href="onimusha-dokyo.html#boss">
+      <a class="pick danger pick-with-art" href="onimusha-dokyo.html#boss">
+        <img class="pick-mark" src="assets/art/card-onimusha-square.jpg" alt="鬼武者" width="720" height="720" decoding="async" loading="lazy" />
         <div class="tag">BOSS · 機制</div>
         <h2>道狂</h2>
         <p>追跑解謎 · 分身找金 · 碎石躲完好石</p>
         <div class="go">進入 →</div>
       </a>
-      <a class="pick danger" href="onimusha-yoshitsune.html#boss">
+      <a class="pick danger pick-with-art" href="onimusha-yoshitsune.html#boss">
+        <img class="pick-mark" src="assets/art/card-onimusha-square.jpg" alt="鬼武者" width="720" height="720" decoding="async" loading="lazy" />
         <div class="tag">BOSS · 最終</div>
         <h2>源義經</h2>
         <p>Minamoto no Yoshitsune · 三階連打 · 抓取必閃 · 覺醒留三階</p>
         <div class="go">進入 →</div>
       </a>
+        </div>
+      </details>
     </div>
     <div class="back-row">
       <button type="button" data-back="games">← 返回揀遊戲</button>
@@ -693,14 +780,34 @@ a { color: inherit; text-decoration: none; }
     "online-games": document.getElementById("panel-online-games")
   };
 
-  function show(step) {
-    var known = step === "sekiro" || step === "onimusha" || step === "arc-raiders" || step === "dawnwalker" || step === "cs2" || step === "hellraiser" || step === "qigong" || step === "online-games";
+  var panelSteps = ["sekiro", "onimusha", "arc-raiders", "dawnwalker", "cs2", "hellraiser", "qigong", "online-games"];
+  var zoneAnchors = {
+    "sekiro-boss": "sekiro",
+    "sekiro-lost-zone": "sekiro",
+    "sekiro-puzzle": "sekiro",
+    "onimusha-boss": "onimusha"
+  };
+
+  function openHubZone(id) {
+    var zone = document.getElementById(id);
+    if (!zone || !zone.classList.contains("hub-zone")) return null;
+    zone.open = true;
+    return zone;
+  }
+
+  function show(step, zoneId) {
+    var known = panelSteps.indexOf(step) >= 0;
     var target = known ? step : "games";
     Object.keys(panels).forEach(function (key) {
       if (panels[key]) panels[key].hidden = key !== target;
     });
     if (target === "games") history.replaceState(null, "", "#");
+    else if (zoneId) history.replaceState(null, "", "#" + zoneId);
     else history.replaceState(null, "", "#" + target);
+    if (zoneId) {
+      var zone = openHubZone(zoneId);
+      if (zone) requestAnimationFrame(function () { zone.scrollIntoView({ behavior: "smooth", block: "start" }); });
+    }
   }
 
   document.querySelectorAll("[data-go]").forEach(function (btn) {
@@ -714,9 +821,30 @@ a { color: inherit; text-decoration: none; }
     });
   });
 
-  var hash = (location.hash || "").replace(/^#/, "");
-  if (hash === "sekiro" || hash === "onimusha" || hash === "arc-raiders" || hash === "dawnwalker" || hash === "cs2" || hash === "hellraiser" || hash === "qigong" || hash === "online-games") show(hash);
-  else show("games");
+  document.querySelectorAll(".hub-zone-jump a[href^='#']").forEach(function (link) {
+    link.addEventListener("click", function (e) {
+      var id = (link.getAttribute("href") || "").replace(/^#/, "");
+      var zone = document.getElementById(id);
+      if (!zone || !zone.classList.contains("hub-zone")) return;
+      e.preventDefault();
+      var panelStep = zoneAnchors[id];
+      if (panelStep) show(panelStep, id);
+      else {
+        openHubZone(id);
+        zone.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    });
+  });
+
+  function routeFromHash() {
+    var hash = (location.hash || "").replace(/^#/, "");
+    if (zoneAnchors[hash]) show(zoneAnchors[hash], hash);
+    else if (panelSteps.indexOf(hash) >= 0) show(hash);
+    else show("games");
+  }
+
+  window.addEventListener("hashchange", routeFromHash);
+  routeFromHash();
 })();
 </script>
 <script src="assets/vote-widget.js" defer></script>
