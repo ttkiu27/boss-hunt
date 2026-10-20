@@ -150,6 +150,22 @@ a { color: inherit; text-decoration: none; }
 
 .pick.gold { border-color: #3a3010; }
 
+.hub-subhead {
+  grid-column: 1 / -1;
+  margin-top: 6px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(201, 162, 39, .22);
+  font-size: .72rem;
+  font-weight: 800;
+  letter-spacing: .14em;
+  color: var(--accent);
+}
+.card-grid.cats > .hub-subhead:first-child {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: none;
+}
+
 .back-row {
   text-align: center;
   margin-top: 8px;
@@ -229,7 +245,7 @@ a { color: inherit; text-decoration: none; }
         <img class="pick-mark" src="assets/art/card-sekiro-square.jpg" alt="紅月前的狼影" width="720" height="720" decoding="async" />
         <div class="tag">SEKIRO</div>
         <h2>隻狼</h2>
-        <p>BOSS · 地圖資訊 · 智能解謎</p>
+        <p>BOSS · 迷路專區 · 地圖資訊 · 智能解謎</p>
         <div class="go">進入 →</div>
       </button>
       <button type="button" class="pick gold pick-with-art" data-go="onimusha" aria-label="進入鬼武者 劍之道">
@@ -288,57 +304,61 @@ a { color: inherit; text-decoration: none; }
   <section class="panel" id="panel-sekiro" hidden aria-labelledby="sekiro-label">
     <div class="step-label" id="sekiro-label">② 隻狼 · 揀專區</div>
     <div class="card-grid cats">
+      <div class="hub-subhead" id="sekiro-boss">BOSS</div>
       <a class="pick gold" href="sekiro-chained-ogre.html#boss">
-        <div class="tag">前期 · 迷你頭目</div>
+        <div class="tag">BOSS · 迷你頭目</div>
         <h2>枷鎖鬼</h2>
         <p>城外第一隻 · 紅字抓要閃 · 爆竹／火</p>
         <div class="go">進入 →</div>
       </a>
       <a class="pick gold" href="sekiro-gyoubu.html#boss">
-        <div class="tag">前期 · BOSS</div>
+        <div class="tag">BOSS</div>
         <h2>鬼形部正孝</h2>
         <p>第一場正式頭目 · 爆竹嚇馬 · 綠鈎</p>
         <div class="go">進入 →</div>
       </a>
       <a class="pick gold" href="sekiro-lady-butterfly.html#boss">
-        <div class="tag">前期 · 可選</div>
+        <div class="tag">BOSS · 可選</div>
         <h2>蝴蝶夫人</h2>
         <p>平田屋敷 · 手裏劍打落 · 二段幻影</p>
         <div class="go">進入 →</div>
       </a>
       <a class="pick gold" href="sekiro-genichiro.html#boss">
-        <div class="tag">前期 · 天守閣</div>
+        <div class="tag">BOSS · 天守閣</div>
         <h2>葦名弦一郎</h2>
         <p>天台初戰三段 · 見切／跳掃 · 雷返</p>
         <div class="go">進入 →</div>
       </a>
       <a class="pick gold" href="sekiro-guardian-ape.html#boss">
         <div class="tag">BOSS</div>
-        <h2>BOSS</h2>
+        <h2>獅猿</h2>
         <p>獅猿招式卡 · 短片 · 時機軸</p>
         <div class="go">進入 →</div>
       </a>
+      <div class="hub-subhead" id="sekiro-lost-zone">迷路專區</div>
       <a class="pick gold" href="sekiro-poison-pool.html#exit">
-        <div class="tag">BOSS · 地圖</div>
+        <div class="tag">迷路專區</div>
         <h2>毒沼鬼佛</h2>
         <p>干柿神廟望上勾出 · 白萩 · 出口迷路</p>
         <div class="go">進入 →</div>
       </a>
       <a class="pick gold" href="sekiro-after-owl-lost.html#immediate">
-        <div class="tag">地圖 · 迷路</div>
+        <div class="tag">迷路專區</div>
         <h2>打完貓頭鷹之後</h2>
         <p>九郎點香 · 乘轎石洞 · 源之宮</p>
         <div class="go">進入 →</div>
       </a>
+      <div class="hub-subhead" id="sekiro-map-info">地圖資訊</div>
       <a class="pick info" href="sekiro-guardian-ape.html#lost-fool">
         <div class="tag">地圖資訊</div>
         <h2>地圖資訊（迷路）</h2>
         <p>路線圖為主 · 宮之蓮／葦名之底</p>
         <div class="go">進入 →</div>
       </a>
+      <div class="hub-subhead" id="sekiro-puzzle">智能解謎</div>
       <a class="pick danger" href="sekiro-guardian-ape.html#force-guide-serpent">
         <div class="tag">智能解謎</div>
-        <h2>智能解謎</h2>
+        <h2>白蛇智能解謎</h2>
         <p>白蛇擋路 · 實機片 · 步驟圖（唔使答題）</p>
         <div class="go">進入 →</div>
       </a>
@@ -352,6 +372,7 @@ a { color: inherit; text-decoration: none; }
   <section class="panel" id="panel-onimusha" hidden aria-labelledby="onimusha-label">
     <div class="step-label" id="onimusha-label">② 鬼武者 劍之道 · 揀專區</div>
     <div class="card-grid cats">
+      <div class="hub-subhead" id="onimusha-boss">BOSS</div>
       <a class="pick danger" href="onimusha-sasaki-ganryu.html#boss">
         <div class="tag">BOSS · P1</div>
         <h2>佐佐木岩流（本體）</h2>
@@ -419,7 +440,7 @@ a { color: inherit; text-decoration: none; }
         <div class="go">進入 →</div>
       </a>
       <a class="pick danger" href="onimusha-sasaki-ganryu-altered.html#boss">
-        <div class="tag">BOSS 太難打</div>
+        <div class="tag">BOSS · 異形</div>
         <h2>佐佐木岩流（異形）</h2>
         <p>副標：佐佐木小次郎 · 嵐山・渡月橋 · 攻略已上</p>
         <div class="go">進入 →</div>
@@ -437,7 +458,7 @@ a { color: inherit; text-decoration: none; }
         <div class="go">進入 →</div>
       </a>
       <a class="pick danger" href="onimusha-yoshitsune.html#boss">
-        <div class="tag">最終 BOSS</div>
+        <div class="tag">BOSS · 最終</div>
         <h2>源義經</h2>
         <p>Minamoto no Yoshitsune · 三階連打 · 抓取必閃 · 覺醒留三階</p>
         <div class="go">進入 →</div>
@@ -486,14 +507,15 @@ a { color: inherit; text-decoration: none; }
   <section class="panel" id="panel-cs2" hidden aria-labelledby="cs2-label">
     <div class="step-label" id="cs2-label">② CS2 · 揀專區</div>
     <div class="card-grid cats">
+      <div class="hub-subhead" id="cs2-modes">模式／套路</div>
       <a class="pick info" href="cs2-dust2-solo.html#overview">
-        <div class="tag">地圖 · 獨狼</div>
+        <div class="tag">模式／套路</div>
         <h2>沙2獨狼套路</h2>
         <p>Dust2 · 自己丟煙閃 · T／CT Default · Eco 快擠</p>
         <div class="go">進入 →</div>
       </a>
       <a class="pick info" href="cs2-rush-3v3.html#overview">
-        <div class="tag">模式 · 3v3</div>
+        <div class="tag">模式／套路</div>
         <h2>Rush 3v3（衝鋒時刻）</h2>
         <p>Complex 塔控 · 全滅都要點塔 · Castle／Convoy</p>
         <div class="go">進入 →</div>
@@ -525,14 +547,15 @@ a { color: inherit; text-decoration: none; }
   <section class="panel" id="panel-online-games" hidden aria-labelledby="online-games-label">
     <div class="step-label" id="online-games-label">② 線上遊戲區</div>
     <div class="card-grid cats">
+      <div class="hub-subhead" id="online-play">線上即玩</div>
       <a class="pick gold" href="games/selfboost-app/">
-        <div class="tag">JAVA · Compose · WASM</div>
+        <div class="tag">線上即玩</div>
         <h2>SelfBoost</h2>
         <p>官方 Compose 網頁版 · 定級排位 · 休閒／硬核題池 · 選擇／填空／讀碼</p>
         <div class="go">開始玩 →</div>
       </a>
       <a class="pick info" href="games/selfboost/">
-        <div class="tag">輕量網頁版</div>
+        <div class="tag">線上即玩</div>
         <h2>SelfBoost（HTML）</h2>
         <p>純 HTML／JS 備用版 · 無 WASM · 同題庫定級體驗</p>
         <div class="go">備用入口 →</div>
@@ -546,6 +569,7 @@ a { color: inherit; text-decoration: none; }
   <section class="panel" id="panel-qigong" hidden aria-labelledby="qigong-label">
     <div class="step-label" id="qigong-label">② 氣功大全 · 揀專區</div>
     <div class="card-grid cats">
+      <div class="hub-subhead" id="qigong-kb">知識庫</div>
       <a class="pick info" href="qigong-encyclopedia.html#truth">
         <div class="tag">影片</div>
         <h2>影片真相庫</h2>
