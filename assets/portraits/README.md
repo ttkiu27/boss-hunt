@@ -3,6 +3,6 @@
 | Game | Path | Notes |
 |------|------|--------|
 | Sekiro | `assets/portraits/sekiro/` | Official hub crops + `SOURCES.md` |
-| Onimusha | `assets/portraits/onimusha-*-portrait.webp` | **TEMP** — replace with game portraits when collected |
+| Onimusha | `assets/portraits/onimusha/` | Official Capcom + wiki fallbacks; see `SOURCES.md` |
 
-Hub boss cards use `*-portrait-square.jpg` for Sekiro thumbs; drop-in replacements keep the same filename.
+Hub boss cards use `assets/portraits/<game>/*-portrait-square.jpg` for thumbs.
