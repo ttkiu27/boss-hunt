@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>BOSS 獵殺區｜硬核祝福</title>
-<meta name="description" content="BOSS 獵殺區 — 揀遊戲、揀卡關類型。別人改數值，你改規則。" />
+<title>BOSS 獵殺區｜快速查 BOSS 攻略導覽｜硬核祝福</title>
+<meta name="description" content="秒開鬼武者、隻狼等 BOSS 攻略頁：招式短片、鎖定時間戳，方便邊打邊睇。玩家社群整理導覽，非遊戲官方。" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Orbitron:wght@600;800&display=swap" rel="stylesheet" />
@@ -234,6 +234,36 @@ a { color: inherit; text-decoration: none; }
   padding: 16px 24px 28px;
   font-size: .72rem; color: var(--muted);
 }
+
+.hub-hot-bosses {
+  max-width: 720px;
+  width: calc(100% - 48px);
+  margin: 18px auto 0;
+}
+.hub-hot-bosses .step-label {
+  margin-bottom: 12px;
+  font-size: .78rem;
+}
+.hot-boss-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+.hot-boss-grid .pick.hot-boss-pick {
+  padding: 20px 22px;
+  min-height: 4.5rem;
+}
+.hot-boss-grid .pick.hot-boss-pick h2 {
+  font-size: clamp(1.28rem, 4.2vw, 1.5rem);
+}
+.hot-boss-grid .pick.hot-boss-pick .pick-mark {
+  width: 88px;
+  height: 88px;
+}
+@media (max-width: 520px) {
+  .hot-boss-grid .pick.hot-boss-pick { grid-template-columns: 72px 1fr; }
+  .hot-boss-grid .pick.hot-boss-pick .pick-mark { width: 72px; height: 72px; }
+}
 </style>
 <link rel="stylesheet" href="assets/vote-widget.css" />
 <link rel="stylesheet" href="assets/share-bar.css" />
@@ -260,6 +290,33 @@ a { color: inherit; text-decoration: none; }
     <p>揀遊戲 → 再入專區。短入口，唔堆內容。</p>
   </figcaption>
 </figure>
+
+<section class="hub-hot-bosses" aria-labelledby="hot-bosses-label">
+  <h2 class="step-label" id="hot-bosses-label">熱門 BOSS｜3 秒揀</h2>
+  <div class="hot-boss-grid">
+    <a class="pick danger pick-with-art hot-boss-pick" href="onimusha-yoshitsune.html#boss">
+      <img class="pick-mark pick-portrait" src="assets/portraits/onimusha-yoshitsune-portrait.webp" alt="源義經" width="256" height="256" decoding="async" fetchpriority="high" />
+      <div class="tag">鬼武者 · 最終 BOSS</div>
+      <h2>源義經</h2>
+      <p>三階連打 · 短片時間戳 · 邊打邊查</p>
+      <div class="go">睇攻略 →</div>
+    </a>
+    <a class="pick danger pick-with-art hot-boss-pick" href="onimusha-shuten-doji.html#boss">
+      <img class="pick-mark pick-portrait" src="assets/portraits/onimusha-shuten-doji-portrait.webp" alt="酒吞童子" width="256" height="256" decoding="async" />
+      <div class="tag">鬼武者 · BOSS</div>
+      <h2>酒吞童子</h2>
+      <p>唔俾飲 · 噴火射斷 · P2 鬼化</p>
+      <div class="go">睇攻略 →</div>
+    </a>
+    <a class="pick danger pick-with-art hot-boss-pick" href="onimusha-sasaki-ganryu-altered.html#boss">
+      <img class="pick-mark pick-portrait" src="assets/portraits/onimusha-sasaki-ganryu-altered-portrait.webp" alt="佐佐木岩流異形" width="256" height="256" decoding="async" />
+      <div class="tag">鬼武者 · 異形</div>
+      <h2>佐佐木岩流（異形）</h2>
+      <p>嵐山渡月橋 · 招式卡同短片</p>
+      <div class="go">睇攻略 →</div>
+    </a>
+  </div>
+</section>
 
 <section class="hub-intro" lang="en" aria-labelledby="hub-intro-title">
   <div class="hub-intro-copy">
