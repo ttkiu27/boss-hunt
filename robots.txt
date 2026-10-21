@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ttkiu27.github.io/boss-hunt/sitemap.xml
