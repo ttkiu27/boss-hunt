@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>氣功大全｜影片真相庫｜BOSS 獵殺區｜硬核祝福</title>
-<meta name="description" content="BOSS 獵殺區 — 氣功大全。22 條公開片真相、14 位人物編輯等第、中港台日歐地區榜。別人改數值，你改規則。" />
+<meta name="description" content="BOSS 獵殺區 — 氣功大全。35 條主證片庫、怪賽約戰 15 條、九區地區榜、14 位人物編輯等第。別人改數值，你改規則。" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Orbitron:wght@600;800&display=swap" rel="stylesheet" />
@@ -361,6 +361,23 @@ tr:hover td { background: rgba(255,255,255,.02); }
 }
 .hl-subhead em { font-style: normal; color: var(--danger); }
 
+
+.truth-filter {
+  display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 14px;
+}
+.truth-filter button {
+  font-size: .72rem; font-weight: 800; letter-spacing: .04em;
+  padding: 6px 10px; border-radius: 999px;
+  border: 1px solid var(--border); background: var(--bg);
+  color: var(--muted); cursor: pointer;
+}
+.truth-filter button[aria-pressed="true"] {
+  border-color: var(--accent); color: var(--accent);
+  background: rgba(201,162,39,.12);
+}
+.vid-card[data-truth-hidden="true"] { display: none; }
+.vid-card--priority { border-color: rgba(201,162,39,.45); }
+
 .site-footer {
   text-align: center; padding: 24px 20px 40px;
   font-size: .72rem; color: var(--muted);
@@ -435,7 +452,8 @@ tr:hover td { background: rgba(255,255,255,.02); }
         <a href="#internet">網路奇人／待核</a>
         <a href="#ranks">三六九等／ranks</a>
         <a href="#heroes">英雄傳</a>
-        <a href="#truth">影片真相庫</a>
+                <a href="#weird-fights">怪賽／約戰</a>
+<a href="#truth">影片真相庫</a>
         <a href="#regions">地區榜</a>
       </nav>
     </div>
@@ -459,7 +477,8 @@ tr:hover td { background: rgba(255,255,255,.02); }
     <a href="#internet">網路奇人／待核</a>
     <a href="#ranks">三六九等／ranks</a>
     <a href="#heroes">英雄傳</a>
-    <a href="#truth">影片真相庫</a>
+            <a href="#weird-fights">怪賽／約戰</a>
+<a href="#truth">影片真相庫</a>
     <a href="#regions">地區榜</a>
   </nav>
 
@@ -469,20 +488,20 @@ tr:hover td { background: rgba(255,255,255,.02); }
   <section class="hero" aria-labelledby="hero-title">
     <div>
       <h1 id="hero-title">氣功大全 · <em>公開真料庫</em></h1>
-      <p class="hero-sub">影片真相庫 · 人物三六九等 · 網路奇人／待核 · 中／港／台／日／歐。採集日期 2026-10-18（香港）。</p>
+      <p class="hero-sub">影片真相庫 · 怪賽／約戰 · 人物三六九等 · 網路奇人／待核 · 九區地區榜。採集基準 2026-10-18；Phase4／4b 2026-10-24（香港）。</p>
       <div class="slogan-box">真＝睇得見嘅訓練、對打、官方賽事、可信紀錄片。無接觸吹牛當實戰，呢度不收。</div>
       <div class="meta-row">
         <span class="chip gold">硬核祝福</span>
-        <span class="chip safe">主清單 22 片 · 真</span>
+        <span class="chip safe">主清單 35 片 · 真</span>
         <span class="chip warn">另 1 片待證</span>
-        <span class="chip info">14 人 · 奇人 10 · 5 區</span>
+        <span class="chip info">14 人 · 奇人 10 · 9 區 · WF 15</span>
         <span class="chip gold">戰鬥力 1＝普通男 · 泰臣 3</span>
         <span class="chip red">編輯意見 · 非官方</span>
       </div>
       <div class="basics-grid">
         <div class="basic-card">
           <h3>影片真相庫</h3>
-          <p>22 條主證，加 1 條待證唔入主證。<a href="#truth">去片庫 →</a></p>
+          <p>35 條主證（V23–35 共 13 新片），加 1 條待證唔入主證。<a href="#truth">去片庫 →</a></p>
         </div>
         <div class="basic-card">
           <h3>人物三六九等</h3>
@@ -493,8 +512,12 @@ tr:hover td { background: rgba(255,255,255,.02); }
           <p>第二批 10 人。有片先嵌，神功唔當事實。<a href="#internet">去奇人 →</a></p>
         </div>
         <div class="basic-card">
+          <h3>怪賽／約戰</h3>
+          <p>WF-01…15 怪規則賽與約戰對照；假對照分色。<a href="#weird-fights">去怪賽 →</a></p>
+        </div>
+        <div class="basic-card">
           <h3>地區排行榜</h3>
-          <p>中國、香港、台灣、日本、歐洲。戰鬥力見人物表。<a href="#regions">去地區 →</a></p>
+          <p>九區：中港台日歐＋美巴韓東南亞。戰鬥力見人物表。<a href="#regions">去地區 →</a></p>
         </div>
       </div>
     </div>
@@ -518,15 +541,26 @@ tr:hover td { background: rgba(255,255,255,.02); }
       <li><strong>等第性質</strong> — 純編輯建議。每列都標「硬核祝福編輯意見｜非官方」。證據弱嘅項另標「待核」。</li>
       <li><strong>戰鬥力</strong> — 1＝一個普通成年男子（冇特殊訓練）。泰臣（Mike Tyson）＝3，呢個 3 係《刃牙》漫畫設定錨點，唔係現實科學測量。可以小數或者區間。一句依據只引用公開片、可見接觸訓練、賽績、公開約戰結果。吹水同無接觸神功唔加分。人物表標「編輯意見｜暫估｜非官方」；奇人欄跟第二批建議值，標「編輯意見｜非官方」。詳見 <a href="#power">標尺</a>。</li>
     </ul>
-    <p class="section-lead" style="margin-top:12px;margin-bottom:0">主清單 22 片 ID 跟真料庫（2026-10-18）。Phase3（2026-10-24）起 8 條 verified 時間碼（YouTube 章節／短片全片規則核實）；其餘 14 條 未標，頁面唔加假時間碼。</p>
+    <p class="section-lead" style="margin-top:12px;margin-bottom:0">主清單 V01–V22 跟真料庫（2026-10-18）；Phase3 起 8 條 verified。Phase4b（2026-10-24）追加 V23–35 共 13 條（verified 9／未標 4：V23、V29、V32、V34），頁面唔估時間碼。</p>
   </section>
 
   <section class="section" id="truth" aria-labelledby="truth-title">
     <div class="section-kicker">TRUTH</div>
     <h2 id="truth-title">影片<em>真相庫</em></h2>
-    <p class="section-lead">主清單 22 條，狀態全部係「真」。每張卡有聲稱、註、時間碼（verified 才填 start；未標唔估）、片 ID、YouTube 連結，同 youtube-nocookie 嵌入。跳到最底有 1 條待證，唔算主證。</p>
+    <p class="section-lead">主清單 <strong>35</strong> 條，狀態全部係「真」。每張卡有聲稱、註、時間碼（verified 才填 <code>?start=</code>；未標唔估）、片 ID 同嵌入。風格篩選支援泰拳／跆拳道／ADCC／IBJJF／JKD／Eskrima。怪賽約戰見 <a href="#weird-fights">#weird-fights</a>。最底 1 條待證唔算主證。</p>
+        <div class="truth-filter" role="group" aria-label="真相庫風格篩選" data-truth-filter-bar>
+      <button type="button" data-truth-filter="all" aria-pressed="true">全部</button>
+      <button type="button" data-truth-filter="泰拳" aria-pressed="false">泰拳</button>
+      <button type="button" data-truth-filter="跆拳道" aria-pressed="false">跆拳道</button>
+      <button type="button" data-truth-filter="ADCC" aria-pressed="false">ADCC</button>
+      <button type="button" data-truth-filter="IBJJF" aria-pressed="false">IBJJF</button>
+      <button type="button" data-truth-filter="JKD" aria-pressed="false">JKD</button>
+      <button type="button" data-truth-filter="Eskrima" aria-pressed="false">Eskrima</button>
+      <button type="button" data-truth-filter="散打" aria-pressed="false">散打</button>
+      <button type="button" data-truth-filter="HEMA" aria-pressed="false">HEMA</button>
+    </div>
     <div class="jump-row" aria-label="片庫跳轉">
-      <a href="#v01">V01</a><a href="#v02">V02</a><a href="#v03">V03</a><a href="#v04">V04</a><a href="#v05">V05</a><a href="#v06">V06</a><a href="#v07">V07</a><a href="#v08">V08</a><a href="#v09">V09</a><a href="#v10">V10</a><a href="#v11">V11</a><a href="#v12">V12</a><a href="#v13">V13</a><a href="#v14">V14</a><a href="#v15">V15</a><a href="#v16">V16</a><a href="#v17">V17</a><a href="#v18">V18</a><a href="#v19">V19</a><a href="#v20">V20</a><a href="#v21">V21</a><a href="#v22">V22</a>
+      <a href="#v01">V01</a><a href="#v02">V02</a><a href="#v03">V03</a><a href="#v04">V04</a><a href="#v05">V05</a><a href="#v06">V06</a><a href="#v07">V07</a><a href="#v08">V08</a><a href="#v09">V09</a><a href="#v10">V10</a><a href="#v11">V11</a><a href="#v12">V12</a><a href="#v13">V13</a><a href="#v14">V14</a><a href="#v15">V15</a><a href="#v16">V16</a><a href="#v17">V17</a><a href="#v18">V18</a><a href="#v19">V19</a><a href="#v20">V20</a><a href="#v21">V21</a><a href="#v22">V22</a><a href="#v23">V23</a><a href="#v24">V24</a><a href="#v25">V25</a><a href="#v26">V26</a><a href="#v27">V27</a><a href="#v28">V28</a><a href="#v29">V29</a><a href="#v30">V30</a><a href="#v31">V31</a><a href="#v32">V32</a><a href="#v33">V33</a><a href="#v34">V34</a><a href="#v35">V35</a>
       <a href="#v-pending">待證</a>
     </div>
     
@@ -882,6 +916,202 @@ tr:hover td { background: rgba(255,255,255,.02); }
         <iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/h-mhPtqQ_mY" title="V22 Cai Li Fo  The best demonstrations from Choy Lee Fut International Exchange Meeting" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
       </div>
     </article>
+    <article class="vid-card" id="v23" data-truth-style="泰拳">
+      <div class="meta-row">
+        <span class="chip safe">真</span>
+        <span class="chip gold">V23</span>
+        <span class="chip info">東南亞</span>
+      </div>
+      <h3>Biggest Fight In Muay Thai History — Rodtang vs Superlek | Full Fight</h3>
+      <p class="vid-claim"><strong>聲稱</strong>　ONE 官方泰拳全場接觸</p>
+      <p class="vid-note"><strong>註</strong>　肘膝腿拳全接觸；無 chapters。頻道：ONE Championship。</p>
+      <p class="vid-time"><strong>時間碼</strong>　未標 · 硬核祝福編輯意見｜非官方</p>
+      <p class="vid-id">片 ID <code>0ooviOPrbDg</code> · <a href="https://www.youtube.com/watch?v=0ooviOPrbDg" target="_blank" rel="noopener noreferrer">YouTube 連結</a></p>
+      <div class="embed">
+        <iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/0ooviOPrbDg" title="V23 Biggest Fight In Muay Thai History — Rodtang vs Superlek | Full Fight" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+    </article>
+    <article class="vid-card vid-card--priority" id="v24" data-truth-style="泰拳">
+      <div class="meta-row">
+        <span class="chip safe">真</span>
+        <span class="chip gold">V24</span>
+        <span class="chip info">東南亞</span>
+      </div>
+      <h3>Tawanchai vs Superbon | Muay Thai Full Fight</h3>
+      <p class="vid-claim"><strong>聲稱</strong>　ONE 官方泰拳全場</p>
+      <p class="vid-note"><strong>註</strong>　推薦章節 Intense first round。頻道：ONE Championship。</p>
+      <p class="vid-time"><strong>時間碼</strong>　<code>1:00</code> · verified（YouTube 章節／描述核實） · 硬核祝福編輯意見｜非官方</p>
+      <p class="vid-id">片 ID <code>vixtWfPMHeo</code> · <a href="https://www.youtube.com/watch?v=vixtWfPMHeo&t=60" target="_blank" rel="noopener noreferrer">YouTube 連結</a></p>
+      <div class="embed">
+        <iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/vixtWfPMHeo?start=60" title="V24 Tawanchai vs Superbon | Muay Thai Full Fight" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+    </article>
+    <article class="vid-card vid-card--priority" id="v25" data-truth-style="泰拳">
+      <div class="meta-row">
+        <span class="chip safe">真</span>
+        <span class="chip gold">V25</span>
+        <span class="chip info">東南亞</span>
+      </div>
+      <h3>Rodtang vs Jacob Smith II | Muay Thai Full Fight</h3>
+      <p class="vid-claim"><strong>聲稱</strong>　ONE 官方泰拳全場</p>
+      <p class="vid-note"><strong>註</strong>　推薦章節 Rodtang damages Smith。頻道：ONE Championship。</p>
+      <p class="vid-time"><strong>時間碼</strong>　<code>6:12</code> · verified（YouTube 章節／描述核實） · 硬核祝福編輯意見｜非官方</p>
+      <p class="vid-id">片 ID <code>JEbXbdpZLD0</code> · <a href="https://www.youtube.com/watch?v=JEbXbdpZLD0&t=372" target="_blank" rel="noopener noreferrer">YouTube 連結</a></p>
+      <div class="embed">
+        <iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/JEbXbdpZLD0?start=372" title="V25 Rodtang vs Jacob Smith II | Muay Thai Full Fight" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+    </article>
+    <article class="vid-card vid-card--priority" id="v26" data-truth-style="跆拳道">
+      <div class="meta-row">
+        <span class="chip safe">真</span>
+        <span class="chip gold">V26</span>
+        <span class="chip info">韓國體系</span>
+      </div>
+      <h3>WT Grand Slam Champions Series Wuxi 2017 Highlights</h3>
+      <p class="vid-claim"><strong>聲稱</strong>　World Taekwondo 官方大獎賽集錦</p>
+      <p class="vid-note"><strong>註</strong>　電子護具計分對打可見。頻道：World Taekwondo。</p>
+      <p class="vid-time"><strong>時間碼</strong>　<code>4:43</code> · verified（YouTube 章節／描述核實） · 硬核祝福編輯意見｜非官方</p>
+      <p class="vid-id">片 ID <code>z4McHJ_TG0o</code> · <a href="https://www.youtube.com/watch?v=z4McHJ_TG0o&t=283" target="_blank" rel="noopener noreferrer">YouTube 連結</a></p>
+      <div class="embed">
+        <iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/z4McHJ_TG0o?start=283" title="V26 WT Grand Slam Champions Series Wuxi 2017 Highlights" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+    </article>
+    <article class="vid-card vid-card--priority" id="v27" data-truth-style="跆拳道">
+      <div class="meta-row">
+        <span class="chip safe">真</span>
+        <span class="chip gold">V27</span>
+        <span class="chip info">韓國／國際</span>
+      </div>
+      <h3>Top Taekwondo Headkicks | Top Moments</h3>
+      <p class="vid-claim"><strong>聲稱</strong>　奧運官方跆拳道頭踢集錦</p>
+      <p class="vid-note"><strong>註</strong>　首個具名對打章 CRYSTAL WEEKES vs JACKIE GALLOWAY。頻道：Olympic Games。</p>
+      <p class="vid-time"><strong>時間碼</strong>　<code>0:06</code> · verified（YouTube 章節／描述核實） · 硬核祝福編輯意見｜非官方</p>
+      <p class="vid-id">片 ID <code>PWkqM7sRK6s</code> · <a href="https://www.youtube.com/watch?v=PWkqM7sRK6s&t=6" target="_blank" rel="noopener noreferrer">YouTube 連結</a></p>
+      <div class="embed">
+        <iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/PWkqM7sRK6s?start=6" title="V27 Top Taekwondo Headkicks | Top Moments" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+    </article>
+    <article class="vid-card vid-card--priority" id="v28" data-truth-style="ADCC">
+      <div class="meta-row">
+        <span class="chip safe">真</span>
+        <span class="chip gold">V28</span>
+        <span class="chip info">美國／國際</span>
+      </div>
+      <h3>2022 ADCC World Championship Finals Replay</h3>
+      <p class="vid-claim"><strong>聲稱</strong>　ADCC 決賽日合輯</p>
+      <p class="vid-note"><strong>註</strong>　Gordon Ryan vs Nick Rodriguez 等決賽提交／控制可見。頻道：FloGrappling。</p>
+      <p class="vid-time"><strong>時間碼</strong>　<code>0:00</code> · verified（YouTube 章節／描述核實） · 硬核祝福編輯意見｜非官方</p>
+      <p class="vid-id">片 ID <code>RZ1UPMN7FNQ</code> · <a href="https://www.youtube.com/watch?v=RZ1UPMN7FNQ&t=0" target="_blank" rel="noopener noreferrer">YouTube 連結</a></p>
+      <div class="embed">
+        <iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/RZ1UPMN7FNQ?start=0" title="V28 2022 ADCC World Championship Finals Replay" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+    </article>
+    <article class="vid-card" id="v29" data-truth-style="IBJJF">
+      <div class="meta-row">
+        <span class="chip safe">真</span>
+        <span class="chip gold">V29</span>
+        <span class="chip info">美國／巴西</span>
+      </div>
+      <h3>Top 25 SUBMISSIONS From The 2024 IBJJF World Championship</h3>
+      <p class="vid-claim"><strong>聲稱</strong>　IBJJF 世界賽提交集錦</p>
+      <p class="vid-note"><strong>註</strong>　道服賽最高規格之一；無逐條 chapters。頻道：FloGrappling。</p>
+      <p class="vid-time"><strong>時間碼</strong>　未標 · 硬核祝福編輯意見｜非官方</p>
+      <p class="vid-id">片 ID <code>m6V48jZq7vM</code> · <a href="https://www.youtube.com/watch?v=m6V48jZq7vM" target="_blank" rel="noopener noreferrer">YouTube 連結</a></p>
+      <div class="embed">
+        <iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/m6V48jZq7vM" title="V29 Top 25 SUBMISSIONS From The 2024 IBJJF World Championship" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+    </article>
+    <article class="vid-card" id="v30" data-truth-style="JKD">
+      <div class="meta-row">
+        <span class="chip safe">真</span>
+        <span class="chip gold">V30</span>
+        <span class="chip info">美國系</span>
+      </div>
+      <h3>BRUCE LEE'S FIGHTING METHOD: BASIC TRAINING BY TED WONG & RICHARD BUSTILLO</h3>
+      <p class="vid-claim"><strong>聲稱</strong>　截拳道基本訓練史料</p>
+      <p class="vid-note"><strong>註</strong>　戒備勢／步法接觸訓練結構可見；非無接觸吹牛。頻道：Jeet Kune Do Athens Greece est.1981。</p>
+      <p class="vid-time"><strong>時間碼</strong>　<code>10:57</code> · verified（YouTube 章節／描述核實） · 硬核祝福編輯意見｜非官方</p>
+      <p class="vid-id">片 ID <code>Wsjnsx6Y8NE</code> · <a href="https://www.youtube.com/watch?v=Wsjnsx6Y8NE&t=657" target="_blank" rel="noopener noreferrer">YouTube 連結</a></p>
+      <div class="embed">
+        <iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/Wsjnsx6Y8NE?start=657" title="V30 BRUCE LEE'S FIGHTING METHOD: BASIC TRAINING BY TED WONG & RICHARD BUSTILLO" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+    </article>
+    <article class="vid-card vid-card--priority" id="v31" data-truth-style="散打">
+      <div class="meta-row">
+        <span class="chip safe">真</span>
+        <span class="chip gold">V31</span>
+        <span class="chip info">中國／國際</span>
+      </div>
+      <h3>17th World Wushu Championships Sanda Men's 65kg Final</h3>
+      <p class="vid-claim"><strong>聲稱</strong>　IWUF 世錦賽散打決賽</p>
+      <p class="vid-note"><strong>註</strong>　護具對打＋裁判；官方單場決賽。頻道：WUSHU TV (IWUF WUSHU OFFICIAL)。</p>
+      <p class="vid-time"><strong>時間碼</strong>　<code>0:00</code> · verified（YouTube 章節／描述核實） · 硬核祝福編輯意見｜非官方</p>
+      <p class="vid-id">片 ID <code>J-LRmeV0pIY</code> · <a href="https://www.youtube.com/watch?v=J-LRmeV0pIY&t=0" target="_blank" rel="noopener noreferrer">YouTube 連結</a></p>
+      <div class="embed">
+        <iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/J-LRmeV0pIY?start=0" title="V31 17th World Wushu Championships Sanda Men's 65kg Final" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+    </article>
+    <article class="vid-card" id="v32" data-truth-style="極真">
+      <div class="meta-row">
+        <span class="chip safe">真</span>
+        <span class="chip gold">V32</span>
+        <span class="chip info">日本體系</span>
+      </div>
+      <h3>IFK World Kyokushin HW FINAL 2005 — Travers vs Gateshev</h3>
+      <p class="vid-claim"><strong>聲稱</strong>　極真世界重量級決賽</p>
+      <p class="vid-note"><strong>註</strong>　公開全接觸決賽紀錄。頻道：bigjkw。</p>
+      <p class="vid-time"><strong>時間碼</strong>　未標 · 硬核祝福編輯意見｜非官方</p>
+      <p class="vid-id">片 ID <code>qNfXJLizqUs</code> · <a href="https://www.youtube.com/watch?v=qNfXJLizqUs" target="_blank" rel="noopener noreferrer">YouTube 連結</a></p>
+      <div class="embed">
+        <iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/qNfXJLizqUs" title="V32 IFK World Kyokushin HW FINAL 2005 — Travers vs Gateshev" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+    </article>
+    <article class="vid-card" id="v33" data-truth-style="HEMA">
+      <div class="meta-row">
+        <span class="chip safe">真</span>
+        <span class="chip gold">V33</span>
+        <span class="chip info">歐洲</span>
+      </div>
+      <h3>Berlin Hema Cup 2025 — Gold Medal Match — Longsword Open</h3>
+      <p class="vid-claim"><strong>聲稱</strong>　HEMA 長劍金牌賽</p>
+      <p class="vid-note"><strong>註</strong>　短片全片示範護具錦標對打。頻道：Bjarne | Twerchhau Berlin。</p>
+      <p class="vid-time"><strong>時間碼</strong>　<code>0:00</code> · verified（YouTube 章節／描述核實） · 硬核祝福編輯意見｜非官方</p>
+      <p class="vid-id">片 ID <code>iYaxgcLdFE4</code> · <a href="https://www.youtube.com/watch?v=iYaxgcLdFE4&t=0" target="_blank" rel="noopener noreferrer">YouTube 連結</a></p>
+      <div class="embed">
+        <iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/iYaxgcLdFE4?start=0" title="V33 Berlin Hema Cup 2025 — Gold Medal Match — Longsword Open" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+    </article>
+    <article class="vid-card" id="v34" data-truth-style="JKD">
+      <div class="meta-row">
+        <span class="chip safe">真</span>
+        <span class="chip gold">V34</span>
+        <span class="chip info">美國／菲武</span>
+      </div>
+      <h3>Sifu Dan Inosanto and JKD — Way of the Warrior</h3>
+      <p class="vid-claim"><strong>聲稱</strong>　JKD／菲武影響紀錄片節選</p>
+      <p class="vid-note"><strong>註</strong>　公開紀錄片級訪談與示範；不作新人物卡。頻道：FightingHQ。</p>
+      <p class="vid-time"><strong>時間碼</strong>　未標 · 硬核祝福編輯意見｜非官方</p>
+      <p class="vid-id">片 ID <code>QcqIF06L1uU</code> · <a href="https://www.youtube.com/watch?v=QcqIF06L1uU" target="_blank" rel="noopener noreferrer">YouTube 連結</a></p>
+      <div class="embed">
+        <iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/QcqIF06L1uU" title="V34 Sifu Dan Inosanto and JKD — Way of the Warrior" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+    </article>
+    <article class="vid-card" id="v35" data-truth-style="Eskrima">
+      <div class="meta-row">
+        <span class="chip safe">真</span>
+        <span class="chip gold">V35</span>
+        <span class="chip info">東南亞</span>
+      </div>
+      <h3>Master Moves of Eskrima Stickfighting Human Weapons</h3>
+      <p class="vid-claim"><strong>聲稱</strong>　Eskrima 棍術公開示範</p>
+      <p class="vid-note"><strong>註</strong>　可見兵器結構；示範級，非錦標賽決賽。頻道：arnis(kali/escrima)。</p>
+      <p class="vid-time"><strong>時間碼</strong>　<code>0:00</code> · verified（YouTube 章節／描述核實） · 硬核祝福編輯意見｜非官方</p>
+      <p class="vid-id">片 ID <code>gXUEIWs8c40</code> · <a href="https://www.youtube.com/watch?v=gXUEIWs8c40&t=0" target="_blank" rel="noopener noreferrer">YouTube 連結</a></p>
+      <div class="embed">
+        <iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/gXUEIWs8c40?start=0" title="V35 Master Moves of Eskrima Stickfighting Human Weapons" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+    </article>
+
     <h3 style="margin:18px 0 8px">待證／不入主清單</h3>
     <p class="section-lead">呢條片存在，但爭議大，只掛出對照，唔當實戰主證。</p>
     
@@ -902,6 +1132,261 @@ tr:hover td { background: rgba(255,255,255,.02); }
     </article>
     <p class="section-lead" style="margin-top:8px;margin-bottom:0">不列入：<code>xpkXZzitWs4</code>（Adam Chan）核實 404，唔嵌假片。</p>
   </section>
+
+  <section class="section" id="weird-fights" aria-labelledby="weird-fights-title">
+    <div class="section-kicker">WEIRD FIGHTS</div>
+    <h2 id="weird-fights-title">怪賽／<em>約戰</em></h2>
+    <p class="section-lead">Phase4（2026-10-24）擴庫 <strong>15</strong> 條賽事／約戰（WF-01…WF-15）。全部片 ID 經 oEmbed 核實；有 chapters 才寫 <code>?start=</code>，其餘標「未標」。標籤：<span class="chip">怪賽</span><span class="chip">約戰</span><span class="chip">娛樂</span><span class="chip warn">待核</span><span class="chip red">假對照</span>。唔開新人物卡，只交叉 <a href="#internet">奇人</a>／<a href="#ranks">ranks</a>。</p>
+    <div class="jump-row" aria-label="怪賽跳轉">
+      <a href="#wf-01">WF-01</a><a href="#wf-02">WF-02</a><a href="#wf-03">WF-03</a><a href="#wf-04">WF-04</a><a href="#wf-05">WF-05</a><a href="#wf-06">WF-06</a><a href="#wf-07">WF-07</a><a href="#wf-08">WF-08</a><a href="#wf-09">WF-09</a><a href="#wf-10">WF-10</a><a href="#wf-11">WF-11</a><a href="#wf-12">WF-12</a><a href="#wf-13">WF-13</a><a href="#wf-14">WF-14</a><a href="#wf-15">WF-15</a>
+    </div>
+    <article class="vid-card wf-card" id="wf-01" data-wf-tag="怪賽">
+      <div class="meta-row">
+        <span class="chip gold">WF-01</span>
+        <span class="chip">怪賽</span>
+      </div>
+      <h3>Chessboxing | GM Simon Williams vs The Minotaur | ChoxCon 2024</h3>
+      <p class="vid-claim"><strong>聲稱</strong>　棋拳混合正式怪規則賽</p>
+      <p class="vid-note"><strong>規則／怪點</strong>　回合交替下棋與拳擊；將死或 KO 即勝。</p>
+      <p class="vid-note"><strong>結果</strong>　可核（全場片可見）</p>
+      <p class="vid-note"><strong>註</strong>　推薦章節：3:11 棋 R1、8:20 拳 R1 等。頻道：Chessboxing Nation。</p>
+
+      <p class="vid-time"><strong>時間碼</strong>　<code>3:11</code> · verified（YouTube 章節） · 硬核祝福編輯意見｜非官方</p>
+      <p class="vid-id">片 ID <code>2LYxP2dRCxo</code> · <a href="https://www.youtube.com/watch?v=2LYxP2dRCxo&t=191" target="_blank" rel="noopener noreferrer">YouTube 連結</a></p>
+      <div class="embed">
+        <iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/2LYxP2dRCxo?start=191" title="WF-01 Chessboxing | GM Simon Williams vs The Minotaur | ChoxCon 2024" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+    </article>
+    <article class="vid-card wf-card" id="wf-02" data-wf-tag="怪賽/娛樂">
+      <div class="meta-row">
+        <span class="chip gold">WF-02</span>
+        <span class="chip">怪賽</span>
+        <span class="chip">娛樂</span>
+      </div>
+      <h3>MOGUL CHESSBOXING CHAMPIONSHIP（Ludwig 直播）</h3>
+      <p class="vid-claim"><strong>聲稱</strong>　秀場級棋拳混合</p>
+      <p class="vid-note"><strong>規則／怪點</strong>　棋＋拳秀場；含網絡名人卡，有真接觸拳段。</p>
+      <p class="vid-note"><strong>結果</strong>　娛樂／可核畫面</p>
+      <p class="vid-note"><strong>註</strong>　長片 5h+；嵌入建議單卡段落（例 5:48 起）。頻道：Ludwig。</p>
+
+      <p class="vid-time"><strong>時間碼</strong>　未標 · 硬核祝福編輯意見｜非官方</p>
+      <p class="vid-id">片 ID <code>tg9CH4KlKMc</code> · <a href="https://www.youtube.com/watch?v=tg9CH4KlKMc" target="_blank" rel="noopener noreferrer">YouTube 連結</a></p>
+
+    </article>
+    <article class="vid-card wf-card" id="wf-03" data-wf-tag="怪賽">
+      <div class="meta-row">
+        <span class="chip gold">WF-03</span>
+        <span class="chip">怪賽</span>
+      </div>
+      <h3>Edirne Kirkpinar 2014 Oil Wrestling</h3>
+      <p class="vid-claim"><strong>聲稱</strong>　Kırkpınar 油摔樣本</p>
+      <p class="vid-note"><strong>規則／怪點</strong>　全身抹油、穿 kispet；極端打滑傳統賽。</p>
+      <p class="vid-note"><strong>結果</strong>　可核</p>
+      <p class="vid-note"><strong>註</strong>　無 chapters。頻道：Pehlivan Arena。備援 YrMVQgV_yeg 未標。</p>
+
+      <p class="vid-time"><strong>時間碼</strong>　未標 · 硬核祝福編輯意見｜非官方</p>
+      <p class="vid-id">片 ID <code>g1GGCeWLInU</code> · <a href="https://www.youtube.com/watch?v=g1GGCeWLInU" target="_blank" rel="noopener noreferrer">YouTube 連結</a></p>
+      <div class="embed">
+        <iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/g1GGCeWLInU" title="WF-03 Edirne Kirkpinar 2014 Oil Wrestling" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+    </article>
+    <article class="vid-card wf-card" id="wf-04" data-wf-tag="怪賽">
+      <div class="meta-row">
+        <span class="chip gold">WF-04</span>
+        <span class="chip">怪賽</span>
+      </div>
+      <h3>Aquathlon — underwater wrestling</h3>
+      <p class="vid-claim"><strong>聲稱</strong>　CMAS 水下對抗樣本</p>
+      <p class="vid-note"><strong>規則／怪點</strong>　泳池底搶色帶；缺氧＋纏鬥規則怪。</p>
+      <p class="vid-note"><strong>結果</strong>　可核（規則演示）</p>
+      <p class="vid-note"><strong>註</strong>　短片全段自看。頻道：Oleksandr Kurakin。</p>
+
+      <p class="vid-time"><strong>時間碼</strong>　未標 · 硬核祝福編輯意見｜非官方</p>
+      <p class="vid-id">片 ID <code>89usUkdc004</code> · <a href="https://www.youtube.com/watch?v=89usUkdc004" target="_blank" rel="noopener noreferrer">YouTube 連結</a></p>
+
+    </article>
+    <article class="vid-card wf-card" id="wf-05" data-wf-tag="約戰">
+      <div class="meta-row">
+        <span class="chip gold">WF-05</span>
+        <span class="chip">約戰</span>
+      </div>
+      <h3>雷公太極雷雷 vs 徐曉冬</h3>
+      <p class="vid-claim"><strong>聲稱</strong>　2017 里程碑約戰</p>
+      <p class="vid-note"><strong>規則／怪點</strong>　太極／氣功敘事 vs 格鬥教練公開約戰。</p>
+      <p class="vid-note"><strong>結果</strong>　可核（極短局結束）</p>
+      <p class="vid-note"><strong>註</strong>　短片；唔升格 scrub 建議為 chapters。頻道：道新网。</p>
+      <p class="vid-note"><strong>交叉引用</strong>　<a href="qigong-bios/qigong-bio-lei-lei-taiji.html">雷雷</a> · <a href="qigong-bios/qigong-bio-xu-xiaodong.html">徐曉冬</a> · <a href="#net-p05">#net-p05</a> · <a href="#net-r01">#net-r01</a></p>
+      <p class="vid-time"><strong>時間碼</strong>　未標 · 硬核祝福編輯意見｜非官方</p>
+      <p class="vid-id">片 ID <code>oh_zX4M8Jho</code> · <a href="https://www.youtube.com/watch?v=oh_zX4M8Jho" target="_blank" rel="noopener noreferrer">YouTube 連結</a></p>
+      <div class="embed">
+        <iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/oh_zX4M8Jho" title="WF-05 雷公太極雷雷 vs 徐曉冬" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+    </article>
+    <article class="vid-card wf-card" id="wf-06" data-wf-tag="約戰">
+      <div class="meta-row">
+        <span class="chip gold">WF-06</span>
+        <span class="chip">約戰</span>
+      </div>
+      <h3>馬保國 vs 王慶民｜江湖十六</h3>
+      <p class="vid-claim"><strong>聲稱</strong>　網絡迷因擂台翻車</p>
+      <p class="vid-note"><strong>規則／怪點</strong>　「閃電五連鞭」敘事 vs 業餘搏擊同台。</p>
+      <p class="vid-note"><strong>結果</strong>　可核（約 30 秒內多次倒地）</p>
+      <p class="vid-note"><strong>註</strong>　短片未標。頻道：purported land。</p>
+      <p class="vid-note"><strong>交叉引用</strong>　<a href="qigong-bios/qigong-bio-ma-baoguo.html">馬保國</a> · <a href="qigong-bios/qigong-bio-wang-qingmin.html">王慶民</a> · <a href="#net-p06">#net-p06</a> · <a href="#net-r03">#net-r03</a></p>
+      <p class="vid-time"><strong>時間碼</strong>　未標 · 硬核祝福編輯意見｜非官方</p>
+      <p class="vid-id">片 ID <code>94aQsvctFoI</code> · <a href="https://www.youtube.com/watch?v=94aQsvctFoI" target="_blank" rel="noopener noreferrer">YouTube 連結</a></p>
+      <div class="embed">
+        <iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/94aQsvctFoI" title="WF-06 馬保國 vs 王慶民｜江湖十六" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+    </article>
+    <article class="vid-card wf-card" id="wf-07" data-wf-tag="約戰/待核">
+      <div class="meta-row">
+        <span class="chip gold">WF-07</span>
+        <span class="chip">約戰</span>
+        <span class="chip warn">待核</span>
+      </div>
+      <h3>徐曉冬 vs 丁浩（詠春）未剪輯版</h3>
+      <p class="vid-claim"><strong>聲稱</strong>　2018 承德約戰</p>
+      <p class="vid-note"><strong>規則／怪點</strong>　詠春「大師」vs MMA；平局宣判與剪輯爭議。</p>
+      <p class="vid-note"><strong>結果</strong>　待核（敘事有爭議）</p>
+      <p class="vid-note"><strong>註</strong>　畫面可見摔壓；主持人「平局」與網傳敘事並存。頻道：徐晓冬北京格斗狂人。</p>
+      <p class="vid-note"><strong>交叉引用</strong>　<a href="qigong-bios/qigong-bio-xu-xiaodong.html">徐曉冬</a> · <a href="#net-r01">#net-r01</a></p>
+      <p class="vid-time"><strong>時間碼</strong>　未標 · 硬核祝福編輯意見｜非官方</p>
+      <p class="vid-id">片 ID <code>EuusqWtgak0</code> · <a href="https://www.youtube.com/watch?v=EuusqWtgak0" target="_blank" rel="noopener noreferrer">YouTube 連結</a></p>
+
+    </article>
+    <article class="vid-card wf-card" id="wf-08" data-wf-tag="娛樂/待核">
+      <div class="meta-row">
+        <span class="chip gold">WF-08</span>
+        <span class="chip">娛樂</span>
+        <span class="chip warn">待核</span>
+      </div>
+      <h3>培生擂台杯 2023｜龍心雙戰</h3>
+      <p class="vid-claim"><strong>聲稱</strong>　娛樂定位真接觸敗仗</p>
+      <p class="vid-note"><strong>規則／怪點</strong>　網紅上真擂台；對手缺席後連打兩場。</p>
+      <p class="vid-note"><strong>結果</strong>　可核畫面／待核能力評價</p>
+      <p class="vid-note"><strong>註</strong>　長片 3.5h+；賽段時間碼未標，頁面自 scrub。頻道：國派: 龍心。</p>
+      <p class="vid-note"><strong>交叉引用</strong>　<a href="qigong-bios/qigong-bio-long-sum.html">龍心</a> · <a href="#net-p02">#net-p02</a></p>
+      <p class="vid-time"><strong>時間碼</strong>　未標 · 硬核祝福編輯意見｜非官方</p>
+      <p class="vid-id">片 ID <code>Mw_C2aC0oro</code> · <a href="https://www.youtube.com/watch?v=Mw_C2aC0oro" target="_blank" rel="noopener noreferrer">YouTube 連結</a></p>
+
+    </article>
+    <article class="vid-card wf-card" id="wf-09" data-wf-tag="約戰">
+      <div class="meta-row">
+        <span class="chip gold">WF-09</span>
+        <span class="chip">約戰</span>
+      </div>
+      <h3>修道船 vs Nobody-here</h3>
+      <p class="vid-claim"><strong>聲稱</strong>　「沉船之戰」</p>
+      <p class="vid-note"><strong>規則／怪點</strong>　自稱神功 vs 地面技；短時間鎖技結束。</p>
+      <p class="vid-note"><strong>結果</strong>　可核（翻車真接觸）</p>
+      <p class="vid-note"><strong>註</strong>　短片全段。頻道：elasticfatguy。</p>
+      <p class="vid-note"><strong>交叉引用</strong>　<a href="qigong-bios/qigong-bio-sau-dou-syun.html">修道船</a> · <a href="qigong-bios/qigong-bio-nobody-here.html">Nobody-here</a> · <a href="#net-p03">#net-p03</a></p>
+      <p class="vid-time"><strong>時間碼</strong>　未標 · 硬核祝福編輯意見｜非官方</p>
+      <p class="vid-id">片 ID <code>Yv8FsLmfKsE</code> · <a href="https://www.youtube.com/watch?v=Yv8FsLmfKsE" target="_blank" rel="noopener noreferrer">YouTube 連結</a></p>
+
+    </article>
+    <article class="vid-card wf-card" id="wf-10" data-wf-tag="假對照">
+      <div class="meta-row">
+        <span class="chip gold">WF-10</span>
+        <span class="chip red">假對照</span>
+        <span class="chip red">假（當實戰）</span>
+        <span class="chip warn">對照</span>
+      </div>
+      <h3>柳龍拳無接觸 vs MMA（證偽）</h3>
+      <p class="vid-claim"><strong>聲稱</strong>　無接觸表演當場失效</p>
+      <p class="vid-note"><strong>規則／怪點</strong>　宣稱無接觸擊倒；對非門生失效並被真實擊打。</p>
+      <p class="vid-note"><strong>結果</strong>　可核（證偽）</p>
+      <p class="vid-note"><strong>註</strong>　唔開新人物卡；唔當實戰神功教學。頻道：Orange Army。</p>
+
+      <p class="vid-time"><strong>時間碼</strong>　未標 · 硬核祝福編輯意見｜非官方</p>
+      <p class="vid-id">片 ID <code>13hT1fuFic0</code> · <a href="https://www.youtube.com/watch?v=13hT1fuFic0" target="_blank" rel="noopener noreferrer">YouTube 連結</a></p>
+      <div class="embed">
+        <iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/13hT1fuFic0" title="WF-10 柳龍拳無接觸 vs MMA（證偽）" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+    </article>
+    <article class="vid-card wf-card" id="wf-11" data-wf-tag="假對照">
+      <div class="meta-row">
+        <span class="chip gold">WF-11</span>
+        <span class="chip red">假對照</span>
+        <span class="chip red">假（當實戰）</span>
+        <span class="chip warn">對照</span>
+      </div>
+      <h3>George Dillman 無接觸 KO 證偽（NatGeo 系）</h3>
+      <p class="vid-claim"><strong>聲稱</strong>　西方「氣／壓力點」對照</p>
+      <p class="vid-note"><strong>規則／怪點</strong>　門生示範 vs 懷疑者測試失效。</p>
+      <p class="vid-note"><strong>結果</strong>　可核（證偽敘事）</p>
+      <p class="vid-note"><strong>註</strong>　推薦章節 2:13 起。頻道：Robren。</p>
+
+      <p class="vid-time"><strong>時間碼</strong>　<code>2:13</code> · verified（YouTube 章節） · 硬核祝福編輯意見｜非官方</p>
+      <p class="vid-id">片 ID <code>kIL5nD2PQ0Y</code> · <a href="https://www.youtube.com/watch?v=kIL5nD2PQ0Y&t=133" target="_blank" rel="noopener noreferrer">YouTube 連結</a></p>
+      <div class="embed">
+        <iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/kIL5nD2PQ0Y?start=133" title="WF-11 George Dillman 無接觸 KO 證偽（NatGeo 系）" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+    </article>
+    <article class="vid-card wf-card" id="wf-12" data-wf-tag="怪賽">
+      <div class="meta-row">
+        <span class="chip gold">WF-12</span>
+        <span class="chip">怪賽</span>
+      </div>
+      <h3>DWT4｜相撲 vs 職業拳手 MMA Highlight</h3>
+      <p class="vid-claim"><strong>聲稱</strong>　2026-05 異種怪賽</p>
+      <p class="vid-note"><strong>規則／怪點</strong>　極端體重差異種對決。</p>
+      <p class="vid-note"><strong>結果</strong>　可核畫面</p>
+      <p class="vid-note"><strong>註</strong>　短 Highlight 全段；完整英流 35F02hxk3XY 備援未標。頻道：Delinquent MMA。</p>
+
+      <p class="vid-time"><strong>時間碼</strong>　未標 · 硬核祝福編輯意見｜非官方</p>
+      <p class="vid-id">片 ID <code>DDnDnRrnp_8</code> · <a href="https://www.youtube.com/watch?v=DDnDnRrnp_8" target="_blank" rel="noopener noreferrer">YouTube 連結</a></p>
+
+    </article>
+    <article class="vid-card wf-card" id="wf-13" data-wf-tag="約戰">
+      <div class="meta-row">
+        <span class="chip gold">WF-13</span>
+        <span class="chip">約戰</span>
+      </div>
+      <h3>徐曉冬 vs 武氏太極陳勇全程</h3>
+      <p class="vid-claim"><strong>聲稱</strong>　2020 公開比武</p>
+      <p class="vid-note"><strong>規則／怪點</strong>　門派名片 vs 格鬥教練短局。</p>
+      <p class="vid-note"><strong>結果</strong>　可核（短時間結束）</p>
+      <p class="vid-note"><strong>註</strong>　無 chapters。頻道：徐晓冬北京格斗狂人。</p>
+      <p class="vid-note"><strong>交叉引用</strong>　<a href="qigong-bios/qigong-bio-xu-xiaodong.html">徐曉冬</a> · <a href="#net-r01">#net-r01</a></p>
+      <p class="vid-time"><strong>時間碼</strong>　未標 · 硬核祝福編輯意見｜非官方</p>
+      <p class="vid-id">片 ID <code>KIXcTlJr3n4</code> · <a href="https://www.youtube.com/watch?v=KIXcTlJr3n4" target="_blank" rel="noopener noreferrer">YouTube 連結</a></p>
+
+    </article>
+    <article class="vid-card wf-card" id="wf-14" data-wf-tag="怪賽">
+      <div class="meta-row">
+        <span class="chip gold">WF-14</span>
+        <span class="chip">怪賽</span>
+      </div>
+      <h3>WLC: Karen Spirit Full Event | Lethwei</h3>
+      <p class="vid-claim"><strong>聲稱</strong>　緬甸 lethwei 怪規則</p>
+      <p class="vid-note"><strong>規則／怪點</strong>　赤拳＋頭撞合法；平手可加時。</p>
+      <p class="vid-note"><strong>結果</strong>　可核（官方全場）</p>
+      <p class="vid-note"><strong>註</strong>　長片無 chapters。頻道：World Lethwei Championship。</p>
+
+      <p class="vid-time"><strong>時間碼</strong>　未標 · 硬核祝福編輯意見｜非官方</p>
+      <p class="vid-id">片 ID <code>ckWZMp4zbyw</code> · <a href="https://www.youtube.com/watch?v=ckWZMp4zbyw" target="_blank" rel="noopener noreferrer">YouTube 連結</a></p>
+
+    </article>
+    <article class="vid-card wf-card" id="wf-15" data-wf-tag="怪賽">
+      <div class="meta-row">
+        <span class="chip gold">WF-15</span>
+        <span class="chip">怪賽</span>
+      </div>
+      <h3>Laamb — Xool Sed vs Boy Gueye 全場</h3>
+      <p class="vid-claim"><strong>聲稱</strong>　西非 Laamb 樣本</p>
+      <p class="vid-note"><strong>規則／怪點</strong>　傳統摔角可合法出拳；儀式敘事與接觸並存。</p>
+      <p class="vid-note"><strong>結果</strong>　可核畫面</p>
+      <p class="vid-note"><strong>註</strong>　唔吹超自然。頻道：Djiby Dia Laazanba。</p>
+
+      <p class="vid-time"><strong>時間碼</strong>　未標 · 硬核祝福編輯意見｜非官方</p>
+      <p class="vid-id">片 ID <code>JUBG3U9NQEo</code> · <a href="https://www.youtube.com/watch?v=JUBG3U9NQEo" target="_blank" rel="noopener noreferrer">YouTube 連結</a></p>
+
+    </article>
+    <p class="section-lead" style="margin-top:8px;margin-bottom:0">統計：15 條；verified chapters 嵌入 3 條（WF-01、WF-11；其餘 WF 未標或只鏈不嵌長片）。</p>
+  </section>
+
 
 <figure class="page-banner page-banner--rule pos-low">
   <img src="assets/art/sample-qigong-ink-watercolor.jpg" alt="墨山再起，青氣作分隔" width="1280" height="720" decoding="async" loading="lazy" />
@@ -936,7 +1421,7 @@ tr:hover td { background: rgba(255,255,255,.02); }
         <div class="card-page" id="ranks-p1">
           <div class="char-grid char-grid--ranks">
       <div class="char-card-shell"><a class="char-card char-card--rank" data-slug="bio-ip-man" href="qigong-bios/qigong-bio-ip-man.html"><div class="char-avatar char-avatar--poster"><img src="assets/qigong-avatars/bio-ip-man.jpg" data-fallback-src="https://upload.wikimedia.org/wikipedia/commons/5/50/Ip_Man_Wing_Chun_Association.jpg" alt="彩色公開照加TCG框" width="108" height="151" loading="lazy" decoding="async" /><svg class="char-silhouette" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><circle cx="32" cy="22" r="10"></circle><path d="M12 56c2-14 10-20 20-20s18 6 20 20"></path></svg><span class="char-initials" aria-hidden="true">葉</span></div><div class="char-main"><p class="char-kicker">一等 · 香港</p><h3 class="char-name">葉問</h3><p class="char-power"><span class="char-power-k">戰鬥力</span> <strong>1.6–2.2</strong><span class="char-power-note">歷史估計｜編輯意見｜非官方 · 影視唔當實戰</span></p><ul class="char-moves" aria-label="絕招"><li class="char-move" data-kind="ok"><span class="move-tag">傳承可核</span><span class="move-name">詠春木人樁體系</span><span class="move-note">公開傳承標準訓練。影視改編唔加分。</span></li><li class="char-move" data-kind="ok"><span class="move-tag">傳承可核</span><span class="move-name">黏手（Chi Sao）</span><span class="move-note">葉問系接觸訓練。弟子系教學可見，唔等於本人賽績。</span></li><li class="char-move" data-kind="weak"><span class="move-tag">門派基本</span><span class="move-name">小念頭／尋橋結構</span><span class="move-note">公開教學生態可核。影視改編當娛樂，唔當實戰。</span></li></ul></div></a><p class="char-credit">彩色公開照＋TCG 框。來源 <a href="https://commons.wikimedia.org/wiki/File:Yip_Man.jpg" target="_blank" rel="noopener">Wikimedia Commons File:Yip_Man.jpg</a>（Public domain）。卡面字係草圖，戰鬥力以呢頁為準。載入失敗先用 Commons 團體照 Ip_Man_Wing_Chun_Association.jpg 作備援。</p></div>
-      <a class="char-card char-card--rank" data-slug="bio-bruce-lee" href="qigong-bios/qigong-bio-bruce-lee.html"><div class="char-avatar"><img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/Bruce_Lee_1973.jpg" alt="" width="104" height="104" loading="lazy" decoding="async" referrerpolicy="no-referrer" /><svg class="char-silhouette" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><circle cx="32" cy="22" r="10"></circle><path d="M12 56c2-14 10-20 20-20s18 6 20 20"></path></svg><span class="char-initials" aria-hidden="true">李</span><span class="char-badge">劇照</span></div><div class="char-main"><p class="char-kicker">一等 · 香港／美國</p><h3 class="char-name">李小龍</h3><p class="char-power"><span class="char-power-k">戰鬥力</span> <strong>2.0–2.6</strong><span class="char-power-note">歷史估計｜編輯意見｜非官方 · 唔單片定論，唔超泰臣＝3</span></p><ul class="char-moves" aria-label="絕招"><li class="char-move" data-kind="ok"><span class="move-tag">方法論可核</span><span class="move-name">截拳直拳／非古典組合</span><span class="move-note">公開訓練史同方法論。唔靠一條街頭剪輯定論。</span></li><li class="char-move" data-kind="fun"><span class="move-tag">史料／影視娛樂</span><span class="move-name">踢擊／敏捷體能展示</span><span class="move-note">訓練史料可核。電影武打係娛樂，唔直接等於擂台戰績。</span></li><li class="char-move" data-kind="weak"><span class="move-tag">示範｜勿吹神功</span><span class="move-name">一寸拳</span><span class="move-note">公開示範存在。實戰效力勿神話，唔當高戰力神功。</span></li></ul><p class="char-credit">頭像：Wikimedia Commons 劇照 Bruce_Lee_1973.jpg。授權見 Commons 頁，上站再核。</p></div></a>
+      <a class="char-card char-card--rank" data-slug="bio-bruce-lee" href="qigong-bios/qigong-bio-bruce-lee.html"><div class="char-avatar"><img src="https://upload.wikimedia.org/wikipedia/commons/f/f1/Bruce_Lee_1973_%28cropped%29.jpg" alt="" width="104" height="104" loading="lazy" decoding="async" referrerpolicy="no-referrer" /><svg class="char-silhouette" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><circle cx="32" cy="22" r="10"></circle><path d="M12 56c2-14 10-20 20-20s18 6 20 20"></path></svg><span class="char-initials" aria-hidden="true">李</span><span class="char-badge">劇照</span></div><div class="char-main"><p class="char-kicker">一等 · 香港／美國</p><h3 class="char-name">李小龍</h3><p class="char-power"><span class="char-power-k">戰鬥力</span> <strong>2.0–2.6</strong><span class="char-power-note">歷史估計｜編輯意見｜非官方 · 唔單片定論，唔超泰臣＝3</span></p><ul class="char-moves" aria-label="絕招"><li class="char-move" data-kind="ok"><span class="move-tag">方法論可核</span><span class="move-name">截拳直拳／非古典組合</span><span class="move-note">公開訓練史同方法論。唔靠一條街頭剪輯定論。</span></li><li class="char-move" data-kind="fun"><span class="move-tag">史料／影視娛樂</span><span class="move-name">踢擊／敏捷體能展示</span><span class="move-note">訓練史料可核。電影武打係娛樂，唔直接等於擂台戰績。</span></li><li class="char-move" data-kind="weak"><span class="move-tag">示範｜勿吹神功</span><span class="move-name">一寸拳</span><span class="move-note">公開示範存在。實戰效力勿神話，唔當高戰力神功。</span></li></ul><p class="char-credit">頭像：Wikimedia Commons Bruce_Lee_1973_(cropped).jpg（PD）。授權見 Commons 頁，上站再核。</p></div></a>
       <a class="char-card char-card--rank" data-slug="bio-mas-oyama" href="qigong-bios/qigong-bio-mas-oyama.html"><div class="char-avatar"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6f/Masutatsu_Oyama_karate.jpg" alt="" width="104" height="104" loading="lazy" decoding="async" referrerpolicy="no-referrer" /><svg class="char-silhouette" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><circle cx="32" cy="22" r="10"></circle><path d="M12 56c2-14 10-20 20-20s18 6 20 20"></path></svg><span class="char-initials" aria-hidden="true">大</span></div><div class="char-main"><p class="char-kicker">一等 · 日本</p><h3 class="char-name">大山倍達</h3><p class="char-power"><span class="char-power-k">戰鬥力</span> <strong>2.2–2.8</strong><span class="char-power-note">歷史估計｜編輯意見｜非官方 · 傳說唔自動超泰臣＝3</span></p><ul class="char-moves" aria-label="絕招"><li class="char-move" data-kind="ok"><span class="move-tag">體系可核</span><span class="move-name">極真全接觸組手</span><span class="move-note">無護手套錦標賽規則可核。個人傳奇要分開睇。</span></li><li class="char-move" data-kind="ok"><span class="move-tag">賽事可證</span><span class="move-name">中段踢／重擊傳統</span><span class="move-note">體系全接觸賽事可見。唔把傳說加進戰鬥力。</span></li><li class="char-move" data-kind="pending"><span class="move-tag">待核／傳說</span><span class="move-name">山籠訓練敘事</span><span class="move-note">個人傳奇同非賽事敘事混埋。狀態待核，唔當已證絕招。</span></li></ul><p class="char-credit">頭像：Wikimedia Commons 1954 報道照片 Masutatsu_Oyama_karate.jpg。授權見 Commons 頁，上站再核。</p></div></a>
       <div class="char-card-shell"><a class="char-card char-card--rank" data-slug="bio-gordon-ryan" href="qigong-bios/qigong-bio-gordon-ryan.html"><div class="char-avatar char-avatar--poster"><img src="assets/qigong-avatars/bio-gordon-ryan.jpg" data-fallback-src="https://i.ytimg.com/vi/Cwp2Q0angjc/hqdefault.jpg" alt="彩色公開照加TCG框" width="108" height="151" loading="lazy" decoding="async" /><svg class="char-silhouette" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><circle cx="32" cy="22" r="10"></circle><path d="M12 56c2-14 10-20 20-20s18 6 20 20"></path></svg><span class="char-initials" aria-hidden="true">G</span></div><div class="char-main"><p class="char-kicker">一等 · 美國</p><h3 class="char-name">Gordon Ryan</h3><p class="char-power"><span class="char-power-k">戰鬥力</span> <strong>2.4–2.9</strong><span class="char-power-note">編輯意見｜非官方 · 貼近上限，唔寫超泰臣＝3</span></p><ul class="char-moves" aria-label="絕招"><li class="char-move" data-kind="ok"><span class="move-tag">可證教學</span><span class="move-name">站立防摔基本</span><span class="move-note">公開站立防摔拆解。</span></li><li class="char-move" data-kind="ok"><span class="move-tag">賽績可核</span><span class="move-name">無道服上層／腿鎖體系</span><span class="move-note">ADCC 級公開賽果。專項係寢技，唔漫畫化。</span></li><li class="char-move" data-kind="ok"><span class="move-tag">可證競技</span><span class="move-name">身體鎖／體位壓制</span><span class="move-note">公開賽可見結束技術。</span></li></ul></div></a><p class="char-credit">彩色公開照＋TCG 框。來源 <a href="https://commons.wikimedia.org/wiki/File:ADCC_King_Gordon_Ryan_Gritty_Path_To_Glory_-_YouTube_-_10_12_(cropped).jpg" target="_blank" rel="noopener">Wikimedia Commons File:ADCC_King_Gordon_Ryan_Gritty_Path_To_Glory_-_YouTube_-_10_12_(cropped).jpg</a>（CC BY 3.0，Artist: Derek Moneyberg；Commons 上載嘅 YouTube 靜幀）。卡面字係草圖，戰鬥力以呢頁為準。載入失敗先用 YouTube 縮圖（跟 ToS，唔係 Wikimedia）。</p></div>
       <div class="char-card-shell"><a class="char-card char-card--rank" data-slug="bio-chen-xiaowang" href="qigong-bios/qigong-bio-chen-xiaowang.html"><div class="char-avatar char-avatar--poster"><img src="assets/qigong-avatars/bio-chen-xiaowang.jpg" data-fallback-src="https://i.ytimg.com/vi/bUmE_1L4vdo/hqdefault.jpg" alt="彩色公開照加TCG框" width="108" height="151" loading="lazy" decoding="async" /><svg class="char-silhouette" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><circle cx="32" cy="22" r="10"></circle><path d="M12 56c2-14 10-20 20-20s18 6 20 20"></path></svg><span class="char-initials" aria-hidden="true">陳</span></div><div class="char-main"><p class="char-kicker">二等 · 中國</p><h3 class="char-name">陳小旺</h3><p class="char-power"><span class="char-power-k">戰鬥力</span> <strong>1.4–2.0</strong><span class="char-power-note">編輯意見｜非官方 · 示範可核，無全接觸職業賽績</span></p><ul class="char-moves" aria-label="絕招"><li class="char-move" data-kind="ok"><span class="move-tag">可證示範</span><span class="move-name">纏絲功</span><span class="move-note">螺旋結構、全身協調可見。唔當全接觸賽績。</span></li><li class="char-move" data-kind="ok"><span class="move-tag">可證</span><span class="move-name">定式發力／纏絲續</span><span class="move-note">續練公開可見。</span></li><li class="char-move" data-kind="ok"><span class="move-tag">可證接觸教學</span><span class="move-name">陳氏推手協調</span><span class="move-note">推手結構。唔當擂台戰績。</span></li></ul></div></a><p class="char-credit">彩色公開照＋TCG 框。來源 <a href="https://commons.wikimedia.org/wiki/File:Cxwrio.jpg" target="_blank" rel="noopener">Wikimedia Commons File:Cxwrio.jpg</a>（Public domain）。卡面字係草圖，戰鬥力以呢頁為準。載入失敗先用 YouTube 縮圖（跟 ToS，唔係 Wikimedia）。</p></div>
@@ -1064,7 +1549,7 @@ tr:hover td { background: rgba(255,255,255,.02); }
         </div>
       </div>
       <p class="hl-stance"><strong>站立場</strong>　方法論影響可核；唔單片定論；影視唔抬戰力；區間遠低／貼近泰臣錨下沿，唔超 3。片 <code>rPAoNPJ2Mas</code>：待證，<strong>不入主證</strong>。</p>
-      <p class="hl-sources">來源：<a href="https://en.wikipedia.org/wiki/Bruce_Lee" target="_blank" rel="noopener noreferrer">Wikipedia</a> · <a href="https://commons.wikimedia.org/wiki/File:Bruce_Lee_1973.jpg" target="_blank" rel="noopener noreferrer">Commons</a> · <span class="chip warn" style="display:inline;padding:2px 6px;font-size:.72rem">待證・不入主證</span> <a href="https://www.youtube.com/watch?v=rPAoNPJ2Mas" target="_blank" rel="noopener noreferrer">rPAoNPJ2Mas</a> · <a href="https://www.youtube.com/watch?v=r4RkhTyfrZE" target="_blank" rel="noopener noreferrer">r4RkhTyfrZE</a></p>
+      <p class="hl-sources">來源：<a href="https://en.wikipedia.org/wiki/Bruce_Lee" target="_blank" rel="noopener noreferrer">Wikipedia</a> · <a href="https://commons.wikimedia.org/wiki/File:Bruce_Lee_1973_(cropped).jpg" target="_blank" rel="noopener noreferrer">Commons</a> · <span class="chip warn" style="display:inline;padding:2px 6px;font-size:.72rem">待證・不入主證</span> <a href="https://www.youtube.com/watch?v=rPAoNPJ2Mas" target="_blank" rel="noopener noreferrer">rPAoNPJ2Mas</a> · <a href="https://www.youtube.com/watch?v=r4RkhTyfrZE" target="_blank" rel="noopener noreferrer">r4RkhTyfrZE</a></p>
     </article>
 
     <article class="hl-card hl-card--priority" id="hl-03">
@@ -1480,49 +1965,131 @@ tr:hover td { background: rgba(255,255,255,.02); }
   <section class="section" id="regions" aria-labelledby="regions-title">
     <div class="section-kicker">REGIONS</div>
     <h2 id="regions-title">地區<em>排行榜</em></h2>
-    <p class="section-lead">五區：中國、香港、台灣、日本、歐洲。每列都係硬核祝福編輯意見｜非官方。人物等第同 <a href="#ranks">人物節</a>對得上；下面「戰鬥力」列跟 <a href="#rank-cards">#ranks 角色卡</a>（卡為準），人名鏈傳記。奇人另見 <a href="#internet">奇人欄</a>。賽事／群像行唔評個人戰力，只標「真」同片號。</p>
+    <p class="section-lead">九區：中國、香港、台灣、日本、歐洲、<strong>美國</strong>、<strong>巴西</strong>、<strong>韓國</strong>、<strong>東南亞</strong>（Phase4 加深五區＋新四區，2026-10-24）。每列標 <strong>可核／待核</strong>。人物等第同 <a href="#ranks">人物節</a>；戰鬥力跟 <a href="#rank-cards">#ranks 角色卡</a>。</p>
+    <div class="jump-row" aria-label="地區跳轉">
+      <a href="#region-cn">中國</a><a href="#region-hk">香港</a><a href="#region-tw">台灣</a><a href="#region-jp">日本</a><a href="#region-eu">歐洲</a>
+      <a href="#region-us">美國</a><a href="#region-br">巴西</a><a href="#region-kr">韓國</a><a href="#region-sea">東南亞</a>
+    </div>
 
     <h3 id="region-cn">中國</h3>
+    <p class="section-lead">公開可核主軸：太極／內家傳承示範＋<strong>武術散打</strong>競賽（IWUF 世界盃／世錦賽護具全接觸）。民間氣功表演若無接觸證據標待核或拒收當實戰。</p>
     <div class="table-wrap"><table>
-        <thead><tr><th>人物／節點</th><th>門派</th><th>建議等</th><th>戰鬥力</th><th>註</th></tr></thead>
+        <thead><tr><th>人物／節點</th><th>門派</th><th>建議等</th><th>狀態</th><th>戰鬥力</th><th>註</th></tr></thead>
         <tbody>
-          <tr><td><strong><a href="qigong-bios/qigong-bio-chen-xiaowang.html">陳小旺</a></strong><br><a href="#rank-cards">角色卡</a></td><td>陳氏太極</td><td><strong>二等</strong></td><td><strong>1.4–2.0</strong><br>卡為準｜編輯意見｜非官方</td><td>硬核祝福編輯意見｜非官方<br>嫡系公開傳承。chenxiaowang.com；片 V01／V02。</td></tr><tr><td><strong><a href="qigong-bios/qigong-bio-yang-jun.html">楊軍</a></strong><br><a href="#rank-cards">角色卡</a></td><td>楊氏太極</td><td><strong>三等</strong></td><td><strong>1.2–1.7</strong><br>卡為準｜編輯意見｜非官方</td><td>硬核祝福編輯意見｜非官方<br>楊家國際協會。yangfamilytaichi.com。</td></tr><tr><td><strong><a href="qigong-bios/qigong-bio-zhang-hongmei.html">張洪梅</a></strong><br><a href="#rank-cards">角色卡</a></td><td>八卦掌</td><td><strong>六等</strong></td><td><strong>1.0–1.4</strong><br>卡為準｜編輯意見｜非官方</td><td>硬核祝福編輯意見｜非官方 <span class="chip warn">待核</span><br>公開演示可核，師承簡歷待核。附片 3NHEOU88TaY。</td></tr><tr><td><strong><a href="qigong-bios/qigong-bio-yang-xiaojun-sanda.html">Yang Xiaojun</a></strong><br><a href="#rank-cards">角色卡</a></td><td>散打</td><td><strong>五等</strong></td><td><strong>1.4–1.9</strong><br>卡為準｜編輯意見｜非官方</td><td>硬核祝福編輯意見｜非官方 <span class="chip warn">待核</span><br>摔法教學可核，職銜同賽績待核。附片 UCuwGnPR9Jk。</td></tr><tr><td><strong>IWUF 散打選手群</strong></td><td>散打</td><td><strong>賽事級</strong></td><td>—<br>賽事／群像｜唔評個人戰力</td><td>硬核祝福編輯意見｜非官方<br>官方世界盃接觸。片 V13，Lyf4Yl7XpR8。狀態：真。</td></tr>
+<tr><td><strong><a href="qigong-bios/qigong-bio-chen-xiaowang.html">陳小旺</a></strong><br><a href="#rank-cards">角色卡</a></td><td>陳氏太極</td><td><strong>二等</strong></td><td><span class="chip safe">可核</span></td><td><strong>1.4–2.0</strong><br>卡為準</td><td>硬核祝福編輯意見｜非官方<br>嫡系公開傳承。V01／V02。</td></tr>
+<tr><td><strong><a href="qigong-bios/qigong-bio-yang-jun.html">楊軍</a></strong><br><a href="#rank-cards">角色卡</a></td><td>楊氏太極</td><td><strong>三等</strong></td><td><span class="chip safe">可核</span></td><td><strong>1.2–1.7</strong><br>卡為準</td><td>硬核祝福編輯意見｜非官方<br>楊家國際協會。</td></tr>
+<tr><td><strong><a href="qigong-bios/qigong-bio-zhang-hongmei.html">張洪梅</a></strong><br><a href="#rank-cards">角色卡</a></td><td>八卦掌</td><td><strong>六等</strong></td><td><span class="chip warn">待核師承</span></td><td><strong>1.0–1.4</strong><br>卡為準</td><td>硬核祝福編輯意見｜非官方<br>演示可核；師承簡歷待核。3NHEOU88TaY。</td></tr>
+<tr><td><strong><a href="qigong-bios/qigong-bio-yang-xiaojun-sanda.html">Yang Xiaojun</a></strong><br><a href="#rank-cards">角色卡</a></td><td>散打</td><td><strong>五等</strong></td><td><span class="chip warn">待核職銜</span></td><td><strong>1.4–1.9</strong><br>卡為準</td><td>硬核祝福編輯意見｜非官方<br>摔法教學可核。UCuwGnPR9Jk。</td></tr>
+<tr><td><strong>IWUF 散打世界盃</strong></td><td>散打</td><td><strong>賽事級</strong></td><td><span class="chip safe">可核</span></td><td>—<br>賽事／群像｜唔評個人戰力</td><td>硬核祝福編輯意見｜非官方<br>官方銅牌對打。V13 <code>Lyf4Yl7XpR8</code>。</td></tr>
+<tr><td><strong>世錦賽散打 65kg 決賽</strong></td><td>散打</td><td><strong>賽事級</strong></td><td><span class="chip safe">可核</span></td><td>—<br>賽事／群像｜唔評個人戰力</td><td>硬核祝福編輯意見｜非官方<br>IWUF 官方單場決賽。V31 <a href="#v31">J-LRmeV0pIY</a> <code>0:00</code> verified。</td></tr>
+<tr><td><strong>散打世界盃決賽日合輯（備）</strong></td><td>散打</td><td><strong>賽事級</strong></td><td><span class="chip safe">可核</span></td><td>—<br>賽事／群像｜唔評個人戰力</td><td>硬核祝福編輯意見｜非官方<br>長合輯；女 48kg 決賽章 <code>22:53</code> verified。備選 <code>vkGnRAQzHEg</code>。</td></tr>
         </tbody>
       </table></div>
 
     <h3 id="region-hk" style="margin-top:22px">香港</h3>
+    <p class="section-lead">公開敘事集中詠春傳承（葉問系）與截拳道文化輸出；養生站樁經 Channel 4 進入英語世界。比武場次多屬口述 → <strong>待核</strong>；影視改編唔當擂台證據。</p>
     <div class="table-wrap"><table>
-        <thead><tr><th>人物／節點</th><th>門派</th><th>建議等</th><th>戰鬥力</th><th>註</th></tr></thead>
+        <thead><tr><th>人物／節點</th><th>門派</th><th>建議等</th><th>狀態</th><th>戰鬥力</th><th>註</th></tr></thead>
         <tbody>
-          <tr><td><strong><a href="qigong-bios/qigong-bio-ip-man.html">葉問</a></strong><br><a href="#rank-cards">角色卡</a></td><td>詠春</td><td><strong>一等</strong></td><td><strong>1.6–2.2</strong><br>卡為準｜編輯意見｜非官方</td><td>硬核祝福編輯意見｜非官方<br>傳承樞紐。歷史人物，影視改編勿當實戰。</td></tr><tr><td><strong><a href="qigong-bios/qigong-bio-wong-shun-leung.html">黃淳樑</a></strong><br><a href="#rank-cards">角色卡</a></td><td>詠春</td><td><strong>二等</strong></td><td><strong>1.7–2.3</strong><br>卡為準｜編輯意見｜非官方</td><td>硬核祝福編輯意見｜非官方 <span class="chip warn">待核</span><br>講手王紀錄片 V05、研討會 V06。比武場次口述待核。</td></tr><tr><td><strong><a href="qigong-bios/qigong-bio-bruce-lee.html">李小龍</a></strong><br><a href="#rank-cards">角色卡</a></td><td>詠春／截拳道</td><td><strong>一等</strong></td><td><strong>2.0–2.6</strong><br>卡為準｜編輯意見｜非官方</td><td>硬核祝福編輯意見｜非官方 <span class="chip warn">待核</span><br>方法論影響可核。個別街頭片（如 rPAoNPJ2Mas）待證。</td></tr><tr><td><strong><a href="qigong-bios/qigong-bio-lam-kam-chuen.html">林金泉</a></strong><br><a href="#rank-cards">角色卡</a></td><td>站樁氣功</td><td><strong>四等</strong></td><td><strong>0.9–1.2</strong><br>卡為準｜編輯意見｜非官方</td><td>硬核祝福編輯意見｜非官方<br>Channel 4 養生站樁 V03／V04。唔當格鬥等級。</td></tr>
+<tr><td><strong><a href="qigong-bios/qigong-bio-ip-man.html">葉問</a></strong></td><td>詠春</td><td><strong>一等</strong></td><td><span class="chip warn">可核傳承</span></td><td><strong>1.6–2.2</strong><br>卡為準</td><td>硬核祝福編輯意見｜非官方<br>傳承樞紐；影視勿當實戰。</td></tr>
+<tr><td><strong><a href="qigong-bios/qigong-bio-wong-shun-leung.html">黃淳樑</a></strong></td><td>詠春</td><td><strong>二等</strong></td><td><span class="chip warn">待核比武數</span></td><td><strong>1.7–2.3</strong><br>卡為準</td><td>硬核祝福編輯意見｜非官方<br>V05／V06；場次數字口述待核。</td></tr>
+<tr><td><strong><a href="qigong-bios/qigong-bio-bruce-lee.html">李小龍</a></strong></td><td>詠春／截拳道</td><td><strong>一等</strong></td><td><span class="chip warn">待核街頭片</span></td><td><strong>2.0–2.6</strong><br>卡為準</td><td>硬核祝福編輯意見｜非官方<br>方法論可核；街頭片待證。</td></tr>
+<tr><td><strong><a href="qigong-bios/qigong-bio-lam-kam-chuen.html">林金泉</a></strong></td><td>站樁氣功</td><td><strong>四等</strong></td><td><span class="chip safe">可核</span></td><td><strong>0.9–1.2</strong><br>卡為準</td><td>硬核祝福編輯意見｜非官方<br>V03 Channel 4 養生。</td></tr>
+<tr><td><strong>Ted Wong 系 JKD 教學史料</strong></td><td>截拳道</td><td><strong>教學級</strong></td><td><span class="chip warn">可核片</span></td><td>—<br>教學節點</td><td>硬核祝福編輯意見｜非官方<br>V30 <a href="#v30">Wsjnsx6Y8NE</a>；人物等第未開新卡。</td></tr>
+<tr><td><strong>Dan Inosanto／JKD 紀錄片</strong></td><td>截拳道／菲武</td><td><strong>教學級</strong></td><td><span class="chip warn">可核片</span></td><td>—<br>教學節點</td><td>硬核祝福編輯意見｜非官方<br>V34 <a href="#v34">QcqIF06L1uU</a> 未標；紀錄片語境。</td></tr>
         </tbody>
       </table></div>
 
     <h3 id="region-tw" style="margin-top:22px">台灣</h3>
+    <p class="section-lead">內家公開點以高氏八卦／形意（意宗系）與地區紀錄片為主；早年全接觸背景有期刊記述但細節常待核。訓練偏走圈、應用拆手＋公開研討。</p>
     <div class="table-wrap"><table>
-        <thead><tr><th>人物／節點</th><th>門派</th><th>建議等</th><th>戰鬥力</th><th>註</th></tr></thead>
+        <thead><tr><th>人物／節點</th><th>門派</th><th>建議等</th><th>狀態</th><th>戰鬥力</th><th>註</th></tr></thead>
         <tbody>
-          <tr><td><strong><a href="qigong-bios/qigong-bio-luo-dexiu.html">羅德修</a></strong><br><a href="#rank-cards">角色卡</a></td><td>高氏八卦／形意</td><td><strong>三等</strong></td><td><strong>1.5–2.1</strong><br>卡為準｜編輯意見｜非官方</td><td>硬核祝福編輯意見｜非官方 <span class="chip warn">待核</span><br>意宗公開傳承。片 V09。早期賽績細節部分待核。</td></tr><tr><td><strong>台灣八卦紀錄片諸師</strong></td><td>八卦掌</td><td><strong>地區群像</strong></td><td>—<br>賽事／群像｜唔評個人戰力</td><td>硬核祝福編輯意見｜非官方<br>地區傳承紀錄片 V08，z7v2WHbIHzs。狀態：真。</td></tr><tr><td><strong>洪懿祥系（師承背景）</strong></td><td>唐手道／內家</td><td><strong>歷史背景</strong></td><td>—<br>賽事／群像｜唔評個人戰力</td><td>硬核祝福編輯意見｜非官方 <span class="chip warn">待核</span><br>羅德修師承節點。具體賽事細節待核。</td></tr>
+<tr><td><strong><a href="qigong-bios/qigong-bio-luo-dexiu.html">羅德修</a></strong></td><td>高氏八卦／形意</td><td><strong>三等</strong></td><td><span class="chip warn">可核傳承</span></td><td><strong>1.5–2.1</strong><br>卡為準</td><td>硬核祝福編輯意見｜非官方<br>意宗公開；V09 加深。</td></tr>
+<tr><td><strong>台灣八卦紀錄片諸師</strong></td><td>八卦掌</td><td><strong>地區群像</strong></td><td><span class="chip safe">可核</span></td><td>—<br>賽事／群像｜唔評個人戰力</td><td>硬核祝福編輯意見｜非官方<br>V08 <code>z7v2WHbIHzs</code> 未標。</td></tr>
+<tr><td><strong>洪懿祥系</strong></td><td>唐手道／內家</td><td><strong>歷史背景</strong></td><td><span class="chip warn">待核</span></td><td>—<br>賽事／群像｜唔評個人戰力</td><td>硬核祝福編輯意見｜非官方<br>師承節點；賽事細節待核。</td></tr>
+<tr><td><strong>高氏八卦應用長片</strong></td><td>高氏八卦</td><td><strong>教學級</strong></td><td><span class="chip safe">可核</span></td><td>—<br>見羅德修</td><td>硬核祝福編輯意見｜非官方<br>V09 轉身走圈與應用接觸可見。</td></tr>
         </tbody>
       </table></div>
 
     <h3 id="region-jp" style="margin-top:22px">日本</h3>
+    <p class="section-lead">可核主軸：<strong>極真空手</strong>全接觸賽事與<strong>柔道</strong>世錦／奧運體系。個人「打牛」類傳奇要與賽事片分開標。</p>
     <div class="table-wrap"><table>
-        <thead><tr><th>人物／節點</th><th>門派</th><th>建議等</th><th>戰鬥力</th><th>註</th></tr></thead>
+        <thead><tr><th>人物／節點</th><th>門派</th><th>建議等</th><th>狀態</th><th>戰鬥力</th><th>註</th></tr></thead>
         <tbody>
-          <tr><td><strong><a href="qigong-bios/qigong-bio-mas-oyama.html">大山倍達</a></strong><br><a href="#rank-cards">角色卡</a></td><td>極真</td><td><strong>一等</strong></td><td><strong>2.2–2.8</strong><br>卡為準｜編輯意見｜非官方</td><td>硬核祝福編輯意見｜非官方 <span class="chip warn">待核</span><br>全接觸體系。極真會館源流頁可核。個人傳奇非賽事部分待核。</td></tr><tr><td><strong><a href="qigong-bios/qigong-bio-eduardo-tanaka.html">Eduardo Tanaka（賽場）</a></strong><br><a href="#rank-cards">角色卡</a></td><td>極真</td><td><strong>五等</strong></td><td><strong>1.6–2.1</strong><br>卡為準｜編輯意見｜非官方</td><td>硬核祝福編輯意見｜非官方 <span class="chip warn">待核</span><br>可核對戰 V15。完整生涯戰績待核。</td></tr><tr><td><strong>柔道世錦賽選手群</strong></td><td>柔道</td><td><strong>賽事級</strong></td><td>—<br>賽事／群像｜唔評個人戰力</td><td>硬核祝福編輯意見｜非官方<br>一本接觸。片 V16，rfYhFXJh0Ig。狀態：真。</td></tr><tr><td><strong>1985 全日本極真選手群</strong></td><td>極真</td><td><strong>賽事級</strong></td><td>—<br>賽事／群像｜唔評個人戰力</td><td>硬核祝福編輯意見｜非官方<br>全接觸賽。片 V14，X4rOzP4dpS4。狀態：真。</td></tr>
+<tr><td><strong><a href="qigong-bios/qigong-bio-mas-oyama.html">大山倍達</a></strong></td><td>極真</td><td><strong>一等</strong></td><td><span class="chip warn">待核傳奇部分</span></td><td><strong>2.2–2.8</strong><br>卡為準</td><td>硬核祝福編輯意見｜非官方<br>體系可核；非賽事傳奇待核。</td></tr>
+<tr><td><strong><a href="qigong-bios/qigong-bio-eduardo-tanaka.html">Eduardo Tanaka</a></strong></td><td>極真</td><td><strong>五等</strong></td><td><span class="chip safe">可核</span></td><td><strong>1.6–2.1</strong><br>卡為準</td><td>硬核祝福編輯意見｜非官方<br>V15 單場。</td></tr>
+<tr><td><strong>柔道世錦賽東京節點</strong></td><td>柔道</td><td><strong>賽事級</strong></td><td><span class="chip safe">可核</span></td><td>—<br>賽事／群像｜唔評個人戰力</td><td>硬核祝福編輯意見｜非官方<br>V16 <code>rfYhFXJh0Ig</code> 未標。</td></tr>
+<tr><td><strong>1985 全日本極真</strong></td><td>極真</td><td><strong>賽事級</strong></td><td><span class="chip safe">可核</span></td><td>—<br>賽事／群像｜唔評個人戰力</td><td>硬核祝福編輯意見｜非官方<br>V14 <code>X4rOzP4dpS4</code>。</td></tr>
+<tr><td><strong>IFK 世界極真重量決賽 2005</strong></td><td>極真</td><td><strong>賽事級</strong></td><td><span class="chip safe">可核</span></td><td>—<br>賽事／群像｜唔評個人戰力</td><td>硬核祝福編輯意見｜非官方<br>V32 <a href="#v32">qNfXJLizqUs</a> 未標。</td></tr>
         </tbody>
       </table></div>
 
     <h3 id="region-eu" style="margin-top:22px">歐洲</h3>
-    <p class="section-lead">歐洲主場係 HEMA 同布達佩斯柔道世錦。Danaher、Gordon Ryan 本體喺紐西蘭／美國，真料庫將佢哋放喺歐美教練同國際賽影響圈，等第跟 <a href="#ranks">人物節</a>。</p>
+    <p class="section-lead">可核點偏 <strong>HEMA</strong> 護具冷兵器對打與柔道世界大賽主辦節點；BJJ 教練影響圈橫跨歐美。唔把復原劍術吹成古代戰場一比一。</p>
     <div class="table-wrap"><table>
-        <thead><tr><th>人物／節點</th><th>門派</th><th>建議等</th><th>戰鬥力</th><th>註</th></tr></thead>
+        <thead><tr><th>人物／節點</th><th>門派</th><th>建議等</th><th>狀態</th><th>戰鬥力</th><th>註</th></tr></thead>
         <tbody>
-          <tr><td><strong><a href="qigong-bios/qigong-bio-federico-malagutti.html">Federico Malagutti</a></strong><br><a href="#rank-cards">角色卡</a></td><td>HEMA 長劍</td><td><strong>四等</strong></td><td><strong>1.3–1.8</strong><br>卡為準｜編輯意見｜非官方</td><td>硬核祝福編輯意見｜非官方<br>公開 Sparring。片 V20。</td></tr><tr><td><strong>Blood and Iron HEMA</strong></td><td>HEMA</td><td><strong>團體</strong></td><td>—<br>賽事／群像｜唔評個人戰力</td><td>硬核祝福編輯意見｜非官方<br>對打交換。片 V21，xruM1DylSZE。狀態：真。</td></tr><tr><td><strong>柔道世錦賽布達佩斯節點</strong></td><td>柔道</td><td><strong>賽事級</strong></td><td>—<br>賽事／群像｜唔評個人戰力</td><td>硬核祝福編輯意見｜非官方<br>歐洲主辦世界賽。片 V17，f5mvKWZysNs。狀態：真。</td></tr><tr><td><strong><a href="qigong-bios/qigong-bio-john-danaher.html">John Danaher</a></strong><br><a href="#rank-cards">角色卡</a></td><td>巴西柔術</td><td><strong>二等</strong></td><td><strong>1.5–2.0</strong><br>卡為準｜編輯意見｜非官方</td><td>硬核祝福編輯意見｜非官方<br>紐西蘭→美國，歐美教練影響圈。系統化教練。</td></tr><tr><td><strong><a href="qigong-bios/qigong-bio-gordon-ryan.html">Gordon Ryan</a></strong><br><a href="#rank-cards">角色卡</a></td><td>巴西柔術</td><td><strong>一等</strong></td><td><strong>2.4–2.9</strong><br>卡為準｜編輯意見｜非官方</td><td>硬核祝福編輯意見｜非官方<br>美國／國際賽。ADCC 可核；片 V19。</td></tr>
+<tr><td><strong><a href="qigong-bios/qigong-bio-federico-malagutti.html">Federico Malagutti</a></strong></td><td>HEMA</td><td><strong>四等</strong></td><td><span class="chip safe">可核</span></td><td><strong>1.3–1.8</strong><br>卡為準</td><td>硬核祝福編輯意見｜非官方<br>V20 護具 sparring。</td></tr>
+<tr><td><strong>Blood and Iron HEMA</strong></td><td>HEMA</td><td><strong>團體</strong></td><td><span class="chip safe">可核</span></td><td>—<br>賽事／群像｜唔評個人戰力</td><td>硬核祝福編輯意見｜非官方<br>V21 交換對打。</td></tr>
+<tr><td><strong>布達佩斯柔道世錦賽</strong></td><td>柔道</td><td><strong>賽事級</strong></td><td><span class="chip safe">可核</span></td><td>—<br>賽事／群像｜唔評個人戰力</td><td>硬核祝福編輯意見｜非官方<br>V17 <code>f5mvKWZysNs</code>。</td></tr>
+<tr><td><strong>Berlin HEMA Cup 2025 長劍金牌</strong></td><td>HEMA</td><td><strong>賽事級</strong></td><td><span class="chip safe">可核</span></td><td>—<br>賽事／群像｜唔評個人戰力</td><td>硬核祝福編輯意見｜非官方<br>V33 <a href="#v33">iYaxgcLdFE4</a> 全片短。</td></tr>
+<tr><td><strong><a href="qigong-bios/qigong-bio-john-danaher.html">John Danaher</a></strong></td><td>BJJ</td><td><strong>二等</strong></td><td><span class="chip safe">可核</span></td><td><strong>1.5–2.0</strong><br>卡為準</td><td>硬核祝福編輯意見｜非官方<br>歐美教練影響圈。</td></tr>
+<tr><td><strong><a href="qigong-bios/qigong-bio-gordon-ryan.html">Gordon Ryan</a></strong></td><td>BJJ</td><td><strong>一等</strong></td><td><span class="chip safe">可核</span></td><td><strong>2.4–2.9</strong><br>卡為準</td><td>硬核祝福編輯意見｜非官方<br>ADCC；V19／V28。</td></tr>
+        </tbody>
+      </table></div>
+
+    <h3 id="region-us" style="margin-top:22px">美國</h3>
+    <p class="section-lead">可核生態：<strong>BJJ／ADCC</strong>、<strong>IBJJF</strong> 公開賽績；MMA 產業；楊氏太極等華人傳承協會據點。俱樂部＋付費教學片＋大型公開賽；不收無接觸氣功挑戰當實戰。</p>
+    <div class="table-wrap"><table>
+        <thead><tr><th>人物／節點</th><th>門派</th><th>建議等</th><th>狀態</th><th>戰鬥力</th><th>註</th></tr></thead>
+        <tbody>
+<tr><td><strong><a href="qigong-bios/qigong-bio-john-danaher.html">John Danaher</a></strong></td><td>BJJ</td><td><strong>二等</strong></td><td><span class="chip safe">可核</span></td><td><strong>1.5–2.0</strong><br>卡為準</td><td>硬核祝福編輯意見｜非官方<br>系統化教練＋學員 ADCC 級賽績。</td></tr>
+<tr><td><strong><a href="qigong-bios/qigong-bio-gordon-ryan.html">Gordon Ryan</a></strong></td><td>BJJ 無道服</td><td><strong>一等</strong></td><td><span class="chip safe">可核</span></td><td><strong>2.4–2.9</strong><br>卡為準</td><td>硬核祝福編輯意見｜非官方<br>V19／V28。</td></tr>
+<tr><td><strong><a href="qigong-bios/qigong-bio-yang-jun.html">楊軍</a></strong></td><td>楊氏太極</td><td><strong>三等</strong></td><td><span class="chip safe">可核</span></td><td><strong>1.2–1.7</strong><br>卡為準</td><td>硬核祝福編輯意見｜非官方<br>美國據點＋國際協會。</td></tr>
+<tr><td><strong>ADCC 2022 決賽日合輯</strong></td><td>BJJ</td><td><strong>賽事級</strong></td><td><span class="chip safe">可核</span></td><td>—<br>賽事／群像｜唔評個人戰力</td><td>硬核祝福編輯意見｜非官方<br>V28 <a href="#v28">RZ1UPMN7FNQ</a> Ryan vs Rodriguez。</td></tr>
+<tr><td><strong>IBJJF 2024 世界賽提交集錦</strong></td><td>BJJ</td><td><strong>賽事級</strong></td><td><span class="chip safe">可核</span></td><td>—<br>賽事／群像｜唔評個人戰力</td><td>硬核祝福編輯意見｜非官方<br>V29 <a href="#v29">m6V48jZq7vM</a> 未標。</td></tr>
+<tr><td><strong>ADCC Official 2024 精華（備）</strong></td><td>BJJ</td><td><strong>賽事級</strong></td><td><span class="chip safe">可核</span></td><td>—<br>賽事／群像｜唔評個人戰力</td><td>硬核祝福編輯意見｜非官方<br>備選 <code>BXbo_azqi3Q</code> 全片短。</td></tr>
+        </tbody>
+      </table></div>
+
+    <h3 id="region-br" style="margin-top:22px">巴西</h3>
+    <p class="section-lead"><strong>巴西柔術</strong>現代競技發源與家族／聯盟擴散；ADCC、IBJJF 大量巴西選手可核。道館日課＋對練＋積分賽；唔把開創神話當無證據實戰吹噓。</p>
+    <div class="table-wrap"><table>
+        <thead><tr><th>人物／節點</th><th>門派</th><th>建議等</th><th>狀態</th><th>戰鬥力</th><th>註</th></tr></thead>
+        <tbody>
+<tr><td><strong>Gracie／BJJ 發源敘事</strong></td><td>BJJ</td><td><strong>歷史體系</strong></td><td><span class="chip warn">公開史可核</span></td><td>—<br>體系</td><td>硬核祝福編輯意見｜非官方<br>Wiki 公開史；個別挑戰待核。</td></tr>
+<tr><td><strong><a href="qigong-bios/qigong-bio-eduardo-tanaka.html">Eduardo Tanaka</a></strong></td><td>極真</td><td><strong>五等</strong></td><td><span class="chip safe">可核</span></td><td><strong>1.6–2.1</strong><br>卡為準</td><td>硬核祝福編輯意見｜非官方<br>巴／日賽場 V15。</td></tr>
+<tr><td><strong>ADCC 決賽生態</strong></td><td>BJJ</td><td><strong>賽事級</strong></td><td><span class="chip safe">可核</span></td><td>—<br>賽事／群像｜唔評個人戰力</td><td>硬核祝福編輯意見｜非官方<br>V28 多章巴西選手場次。</td></tr>
+<tr><td><strong>IBJJF 世界賽提交</strong></td><td>BJJ</td><td><strong>賽事級</strong></td><td><span class="chip safe">可核</span></td><td>—<br>賽事／群像｜唔評個人戰力</td><td>硬核祝福編輯意見｜非官方<br>V29 未標。</td></tr>
+        </tbody>
+      </table></div>
+
+    <h3 id="region-kr" style="margin-top:22px">韓國</h3>
+    <p class="section-lead">可核主軸 <strong>World Taekwondo（WT）</strong> 護具電子計分對打（奧運項目）。示範團表演≠護具對打；優先官方賽／奧運集錦。</p>
+    <div class="table-wrap"><table>
+        <thead><tr><th>人物／節點</th><th>門派</th><th>建議等</th><th>狀態</th><th>戰鬥力</th><th>註</th></tr></thead>
+        <tbody>
+<tr><td><strong>WT 無錫大獎賽 4D 集錦</strong></td><td>跆拳道 WT</td><td><strong>賽事級</strong></td><td><span class="chip safe">可核</span></td><td>—<br>賽事／群像｜唔評個人戰力</td><td>硬核祝福編輯意見｜非官方<br>V26 <a href="#v26">z4McHJ_TG0o</a> <code>4:43</code> verified。</td></tr>
+<tr><td><strong>奧運跆拳道頭踢經典</strong></td><td>跆拳道</td><td><strong>賽事級</strong></td><td><span class="chip safe">可核</span></td><td>—<br>賽事／群像｜唔評個人戰力</td><td>硬核祝福編輯意見｜非官方<br>V27 <a href="#v27">PWkqM7sRK6s</a> <code>0:06</code> verified。</td></tr>
+<tr><td><strong>WT 公開單場 Huang vs Nickolas（備）</strong></td><td>跆拳道 WT</td><td><strong>賽事級</strong></td><td><span class="chip safe">可核</span></td><td>—<br>賽事／群像｜唔評個人戰力</td><td>硬核祝福編輯意見｜非官方<br>備選 <code>MAWzXNVM9cY</code> 未標。</td></tr>
+<tr><td><strong>MUJU 2025 GP 決賽轉載（參考）</strong></td><td>跆拳道</td><td><strong>賽事級</strong></td><td><span class="chip warn">真・頻道非官方</span></td><td>—<br>賽事／群像｜唔評個人戰力</td><td>硬核祝福編輯意見｜非官方<br>畫面可核；嵌入優先 WT 官方頻道。</td></tr>
+        </tbody>
+      </table></div>
+
+    <h3 id="region-sea" style="margin-top:22px">東南亞</h3>
+    <p class="section-lead">合併兩線：<strong>泰拳 Muay Thai</strong>（ONE 等公開全場）與<strong>菲律賓武術 Eskrima／Arnis</strong>（紀錄片／教學可見兵器結構）。拒收一指碎石／隔空發勁當本區實戰代表。</p>
+    <div class="table-wrap"><table>
+        <thead><tr><th>人物／節點</th><th>門派</th><th>建議等</th><th>狀態</th><th>戰鬥力</th><th>註</th></tr></thead>
+        <tbody>
+<tr><td><strong>Rodtang vs Superlek 全場</strong></td><td>泰拳</td><td><strong>賽事級</strong></td><td><span class="chip safe">可核</span></td><td>—<br>賽事／群像｜唔評個人戰力</td><td>硬核祝福編輯意見｜非官方<br>V23 <a href="#v23">0ooviOPrbDg</a> 未標。</td></tr>
+<tr><td><strong>Tawanchai vs Superbon 全場</strong></td><td>泰拳</td><td><strong>賽事級</strong></td><td><span class="chip safe">可核</span></td><td>—<br>賽事／群像｜唔評個人戰力</td><td>硬核祝福編輯意見｜非官方<br>V24 <a href="#v24">vixtWfPMHeo</a> <code>1:00</code> verified。</td></tr>
+<tr><td><strong>Rodtang vs Jacob Smith II</strong></td><td>泰拳</td><td><strong>賽事級</strong></td><td><span class="chip safe">可核</span></td><td>—<br>賽事／群像｜唔評個人戰力</td><td>硬核祝福編輯意見｜非官方<br>V25 <a href="#v25">JEbXbdpZLD0</a> <code>6:12</code> verified。</td></tr>
+<tr><td><strong>Eskrima 棍術公開示範</strong></td><td>菲律賓武術</td><td><strong>示範級</strong></td><td><span class="chip safe">可核</span></td><td>—<br>賽事／群像｜唔評個人戰力</td><td>硬核祝福編輯意見｜非官方<br>V35 <a href="#v35">gXUEIWs8c40</a>；非錦標賽決賽。</td></tr>
         </tbody>
       </table></div>
   </section>
+
 
   <section class="feedback" id="feedback" data-netlify-feedback aria-labelledby="feedback-title">
     <div class="feedback-head">
@@ -1572,5 +2139,29 @@ tr:hover td { background: rgba(255,255,255,.02); }
 <script src="assets/vote-widget.js" defer></script>
 <script src="assets/share-bar.js" defer></script>
 <script src="assets/feedback-form.js" defer></script><script src="assets/analytics.js" defer></script>
+
+<script>
+(function () {
+  var bar = document.querySelector("[data-truth-filter-bar]");
+  if (!bar) return;
+  var cards = Array.prototype.slice.call(document.querySelectorAll("#truth .vid-card[data-truth-style]"));
+  function apply(filter) {
+    cards.forEach(function (card) {
+      var styles = (card.getAttribute("data-truth-style") || "").split(",");
+      var show = filter === "all" || styles.indexOf(filter) !== -1;
+      card.setAttribute("data-truth-hidden", show ? "false" : "true");
+    });
+    bar.querySelectorAll("button[data-truth-filter]").forEach(function (btn) {
+      btn.setAttribute("aria-pressed", btn.getAttribute("data-truth-filter") === filter ? "true" : "false");
+    });
+  }
+  bar.addEventListener("click", function (e) {
+    var btn = e.target.closest("button[data-truth-filter]");
+    if (!btn) return;
+    apply(btn.getAttribute("data-truth-filter"));
+  });
+})();
+</script>
+
 </body>
 </html>
