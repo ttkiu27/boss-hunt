@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://ttkiu27.github.io/boss-hunt/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
   <url><loc>https://ttkiu27.github.io/boss-hunt/arc-raiders-rocketeer.html</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://ttkiu27.github.io/boss-hunt/cs2-dust2-solo.html</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://ttkiu27.github.io/boss-hunt/cs2-rush-3v3.html</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
@@ -7,7 +8,6 @@
   <url><loc>https://ttkiu27.github.io/boss-hunt/games/selfboost-app/index.html</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://ttkiu27.github.io/boss-hunt/games/selfboost/index.html</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://ttkiu27.github.io/boss-hunt/hellraiser-marlowe.html</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://ttkiu27.github.io/boss-hunt/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
   <url><loc>https://ttkiu27.github.io/boss-hunt/onimusha-benkei.html</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://ttkiu27.github.io/boss-hunt/onimusha-burai.html</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://ttkiu27.github.io/boss-hunt/onimusha-byakue.html</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
@@ -23,22 +23,42 @@
   <url><loc>https://ttkiu27.github.io/boss-hunt/onimusha-sasaki-ganryu.html</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://ttkiu27.github.io/boss-hunt/onimusha-shuten-doji.html</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
   <url><loc>https://ttkiu27.github.io/boss-hunt/onimusha-yoshitsune.html</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ttkiu27.github.io/boss-hunt/qigong-bios/qigong-bio-bruce-lee.html</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://ttkiu27.github.io/boss-hunt/qigong-bios/qigong-bio-carriage-lau.html</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://ttkiu27.github.io/boss-hunt/qigong-bios/qigong-bio-chen-xiaowang.html</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://ttkiu27.github.io/boss-hunt/qigong-bios/qigong-bio-eduardo-tanaka.html</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://ttkiu27.github.io/boss-hunt/qigong-bios/qigong-bio-federico-malagutti.html</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://ttkiu27.github.io/boss-hunt/qigong-bios/qigong-bio-gordon-ryan.html</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://ttkiu27.github.io/boss-hunt/qigong-bios/qigong-bio-guanzhang-chen-zhihan.html</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://ttkiu27.github.io/boss-hunt/qigong-bios/qigong-bio-ip-man.html</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://ttkiu27.github.io/boss-hunt/qigong-bios/qigong-bio-john-danaher.html</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://ttkiu27.github.io/boss-hunt/qigong-bios/qigong-bio-lam-kam-chuen.html</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://ttkiu27.github.io/boss-hunt/qigong-bios/qigong-bio-lei-lei-taiji.html</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://ttkiu27.github.io/boss-hunt/qigong-bios/qigong-bio-long-sum.html</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://ttkiu27.github.io/boss-hunt/qigong-bios/qigong-bio-luo-dexiu.html</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://ttkiu27.github.io/boss-hunt/qigong-bios/qigong-bio-ma-baoguo.html</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://ttkiu27.github.io/boss-hunt/qigong-bios/qigong-bio-mas-oyama.html</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://ttkiu27.github.io/boss-hunt/qigong-bios/qigong-bio-nobody-here.html</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://ttkiu27.github.io/boss-hunt/qigong-bios/qigong-bio-sau-dou-syun.html</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://ttkiu27.github.io/boss-hunt/qigong-bios/qigong-bio-shanshenbu-huagudeng.html</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://ttkiu27.github.io/boss-hunt/qigong-bios/qigong-bio-wang-qingmin.html</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://ttkiu27.github.io/boss-hunt/qigong-bios/qigong-bio-wong-shun-leung.html</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://ttkiu27.github.io/boss-hunt/qigong-bios/qigong-bio-xu-xiaodong.html</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://ttkiu27.github.io/boss-hunt/qigong-bios/qigong-bio-yang-jun.html</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://ttkiu27.github.io/boss-hunt/qigong-bios/qigong-bio-yang-xiaojun-sanda.html</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://ttkiu27.github.io/boss-hunt/qigong-bios/qigong-bio-zhang-hongmei.html</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://ttkiu27.github.io/boss-hunt/qigong-encyclopedia.html</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://ttkiu27.github.io/boss-hunt/sekiro-after-owl-lost.html</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://ttkiu27.github.io/boss-hunt/sekiro-chained-ogre.html</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://ttkiu27.github.io/boss-hunt/sekiro-corrupted-monk.html</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://ttkiu27.github.io/boss-hunt/sekiro-demon-of-hatred.html</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://ttkiu27.github.io/boss-hunt/sekiro-divine-dragon.html</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://ttkiu27.github.io/boss-hunt/sekiro-genichiro.html</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://ttkiu27.github.io/boss-hunt/sekiro-great-shinobi-owl.html</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://ttkiu27.github.io/boss-hunt/sekiro-guardian-ape.html</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://ttkiu27.github.io/boss-hunt/sekiro-gyoubu.html</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://ttkiu27.github.io/boss-hunt/sekiro-isshin.html</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://ttkiu27.github.io/boss-hunt/sekiro-lady-butterfly.html</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://ttkiu27.github.io/boss-hunt/sekiro-poison-pool.html</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://ttkiu27.github.io/boss-hunt/thanks.html</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
 </urlset>
