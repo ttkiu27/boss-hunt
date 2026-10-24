@@ -1,3 +1,4 @@
+/* Opt-in: include age-gate.css + age-gate.js on restricted boss guides only (not hub/qigong). */
 (function () {
   var KEY = "boss-hunt-age-ok";
   var DENY = "boss-hunt-age-deny";
