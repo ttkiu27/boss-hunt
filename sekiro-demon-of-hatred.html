@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-HK">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>怨恨之鬼・怨嗟の鬼｜BOSS 獵殺區｜硬核祝福</title>
+<meta name="description" content="BOSS 獵殺區 — 隻狼 · 葦名城下・怨恨之鬼（怨嗟の鬼／鬼仏）。GameWith 四窗＋ussu 安定六窗章節已核；逐招獨立秒等 scrub。別人改數值，你改規則。" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Orbitron:wght@600;800&display=swap" rel="stylesheet" />
+<style>
+
+
+:root {
+  --bg: #0a0b0e;
+  --bg2: #12141a;
+  --bg3: #1a1d26;
+  --border: #2a2f3c;
+  --text: #e8e6e1;
+  --muted: #9a968c;
+  --accent: #c9a227;
+  --accent-dim: #8a7018;
+  --danger: #e04545;
+  --danger-dim: #8b2222;
+  --safe: #3dbf7a;
+  --warn: #e09a32;
+  --info: #4a9eff;
+  --phase-b: #9b6bff;
+  --radius: 12px;
+  --shadow: 0 8px 32px rgba(0,0,0,.45);
+  --font: "Noto Sans TC", "PingFang HK", "Microsoft JhengHei", sans-serif;
+  --display: "Orbitron", "Noto Sans TC", sans-serif;
+  /* sticky .site-header（八 chip；手機兩行 ≈221px — 錨點 scroll-margin 用） */
+  --site-header-offset: 132px;
+  --anchor-scroll-margin: calc(var(--site-header-offset) + 12px);
+}
+@media (max-width: 900px) {
+  :root { --site-header-offset: 152px; }
+}
+@media (max-width: 640px) {
+  :root { --site-header-offset: 188px; }
+}
+@media (max-width: 468px) {
+  :root { --site-header-offset: 221px; }
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--anchor-scroll-margin);
+}
+body {
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.55;
+  min-height: 100vh;
+  background-image:
+    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(201,162,39,.12), transparent),
+    radial-gradient(ellipse 40% 30% at 100% 50%, rgba(224,69,45,.09), transparent),
+    linear-gradient(180deg, #0a0b0e 0%, #0d0f14 100%);
+}
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+img, iframe, video { max-width: 100%; }
+
+.site-header {
+  position: sticky; top: 0; z-index: 100;
+  backdrop-filter: blur(14px);
+  background: rgba(10,11,14,.85);
+  border-bottom: 1px solid var(--border);
+}
+.header-inner {
+  max-width: 1100px; margin: 0 auto;
+  padding: 12px 20px;
+  display: flex; flex-wrap: wrap; align-items: center; gap: 12px 24px;
+  justify-content: space-between;
+}
+.brand { display: flex; flex-direction: column; gap: 2px; }
+.brand-name {
+  font-family: var(--display);
+  font-weight: 800; font-size: .85rem;
+  letter-spacing: .12em; color: var(--accent);
+  text-transform: uppercase;
+}
+.brand-slogan { font-size: .75rem; color: var(--muted); }
+.back-home {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: .9rem; font-weight: 800;
+  padding: 8px 14px;
+  border: 1px solid var(--accent-dim);
+  border-radius: 999px;
+  color: var(--accent);
+  background: rgba(201,162,39,.08);
+  text-decoration: none;
+  letter-spacing: .04em;
+}
+.back-home:hover { background: rgba(201,162,39,.16); text-decoration: none; border-color: var(--accent); }
+.header-right { display: flex; flex-direction: column; align-items: flex-end; gap: 6px; }
+.page-title { font-size: 1rem; font-weight: 900; letter-spacing: .06em; }
+.page-title span { color: var(--accent); }
+.nav-mini { display: flex; gap: 6px; flex-wrap: wrap; justify-content: flex-end; }
+.nav-mini a {
+  font-size: .72rem; padding: 4px 10px;
+  border: 1px solid var(--border); border-radius: 999px;
+  color: var(--muted); text-decoration: none;
+  transition: .15s;
+}
+.nav-mini a:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
+
+.wrap { max-width: 1100px; margin: 0 auto; padding: 24px 20px 80px; }
+
+.hero {
+  display: grid; gap: 20px;
+  margin-bottom: 28px;
+  padding: 24px;
+  background: linear-gradient(135deg, var(--bg2), var(--bg3));
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  position: relative; overflow: hidden;
+  scroll-margin-top: var(--anchor-scroll-margin);
+}
+.hero::before {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(90deg, transparent 60%, rgba(224,69,45,.1));
+  pointer-events: none;
+}
+.hero h1 {
+  font-size: clamp(1.5rem, 4vw, 2.2rem);
+  font-weight: 900; letter-spacing: .06em;
+}
+.hero h1 em { font-style: normal; color: var(--accent); }
+.hero-sub { margin-top: 8px; font-size: .95rem; color: var(--muted); }
+.slogan-box {
+  margin-top: 14px;
+  padding: 12px 16px;
+  border-radius: 10px;
+  border: 1px solid rgba(224,69,69,.4);
+  background: rgba(224,69,69,.08);
+  font-size: 1rem; font-weight: 800;
+  color: var(--danger);
+  letter-spacing: .02em;
+}
+.meta-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+.chip {
+  font-size: .72rem; font-weight: 700;
+  padding: 4px 10px; border-radius: 6px;
+  background: var(--bg); border: 1px solid var(--border);
+  color: var(--muted); letter-spacing: .04em;
+}
+.chip.gold { color: var(--accent); border-color: var(--accent-dim); }
+.chip.red { color: var(--danger); border-color: var(--danger-dim); }
+.chip.warn { color: var(--warn); border-color: #8a5a18; }
+.chip.info { color: var(--info); border-color: #1a4a7a; }
+.chip.safe { color: var(--safe); border-color: #1a6a45; }
+.chip.purple { color: var(--phase-b); border-color: #5a3a99; }
+
+.basics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px; margin-top: 16px;
+}
+.basic-card {
+  background: var(--bg); border: 1px solid var(--border);
+  border-radius: 10px; padding: 14px 16px;
+}
+.basic-card h3 {
+  font-size: .72rem; color: var(--accent);
+  letter-spacing: .1em; margin-bottom: 6px; font-weight: 700;
+}
+.basic-card p, .basic-card ul { font-size: .88rem; color: var(--text); }
+.basic-card ul { padding-left: 1.1em; }
+.basic-card li { margin: 4px 0; color: var(--muted); }
+.basic-card li strong { color: var(--text); }
+
+.section {
+  margin: 28px 0;
+  padding: 22px;
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  scroll-margin-top: var(--anchor-scroll-margin);
+}
+.section-kicker {
+  font-size: .7rem; font-weight: 800;
+  letter-spacing: .14em; color: var(--accent);
+  text-transform: uppercase; margin-bottom: 6px;
+}
+.section h2 {
+  font-size: 1.25rem; font-weight: 900;
+  letter-spacing: .04em; margin-bottom: 8px;
+}
+.section h2 em { font-style: normal; color: var(--accent); }
+.section-lead { font-size: .9rem; color: var(--muted); margin-bottom: 16px; }
+
+.phase-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 14px;
+}
+.phase-card {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px;
+}
+.phase-card.p1 { border-color: rgba(201,162,39,.35); }
+.phase-card.p2 { border-color: rgba(224,100,120,.4); }
+.phase-card h3 {
+  font-size: 1rem; font-weight: 900; margin-bottom: 10px;
+  letter-spacing: .03em;
+}
+.phase-card.p1 h3 { color: var(--accent); }
+.phase-card.p2 h3 { color: #e8a0b0; }
+.phase-card ul { padding-left: 1.15em; }
+.phase-card li { margin: 6px 0; font-size: .88rem; color: var(--muted); }
+.phase-card li strong { color: var(--text); }
+
+.route-strip {
+  display: flex; flex-wrap: wrap; gap: 8px; align-items: center;
+  margin: 0 0 18px; padding: 12px 14px;
+  background: var(--bg); border: 1px dashed var(--border);
+  border-radius: 10px; font-size: .82rem; color: var(--muted);
+}
+.route-strip .rs-step {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-weight: 700; color: var(--text);
+}
+.route-strip .rs-num {
+  font-family: var(--display); font-size: .65rem;
+  letter-spacing: .08em; color: var(--accent);
+  border: 1px solid var(--accent-dim); border-radius: 999px;
+  padding: 2px 8px;
+}
+.route-strip .rs-arrow { color: var(--accent-dim); font-weight: 900; }
+
+.move-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 14px;
+  margin: 16px 0 12px;
+}
+.move-card {
+  display: flex; flex-direction: column; gap: 8px;
+  padding: 14px; background: var(--bg);
+  border: 1px solid var(--border); border-radius: 12px;
+  scroll-margin-top: var(--anchor-scroll-margin);
+}
+.move-card:target {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 1px rgba(201,162,39,.35);
+}
+.move-card .mc-head {
+  display: flex; flex-wrap: wrap; gap: 8px;
+  align-items: baseline; justify-content: space-between;
+}
+.move-card .mc-name {
+  font-weight: 900; font-size: .95rem;
+  letter-spacing: .02em; color: var(--text);
+}
+.move-card .mc-phase {
+  font-size: .66rem; font-weight: 800;
+  letter-spacing: .06em; text-transform: uppercase;
+  color: var(--muted); border: 1px solid var(--border);
+  border-radius: 999px; padding: 2px 8px;
+}
+.move-card .mc-tell { font-size: .8rem; color: var(--muted); line-height: 1.45; }
+.move-card .mc-tell strong { color: var(--accent); font-weight: 800; margin-right: 4px; }
+.move-card .mc-counter {
+  font-size: .86rem; font-weight: 700; color: var(--safe);
+  line-height: 1.45; padding: 8px 10px;
+  background: rgba(61,191,122,.08);
+  border-left: 3px solid var(--safe);
+  border-radius: 0 8px 8px 0;
+}
+.move-card .mc-counter::before {
+  content: "破招："; color: var(--muted); font-weight: 800;
+  font-size: .72rem; letter-spacing: .06em; margin-right: 4px;
+}
+.move-clip {
+  position: relative; width: 100%; aspect-ratio: 16 / 9;
+  border-radius: 10px; overflow: hidden;
+  border: 1px dashed #3a4050; background: #0d0f14;
+  display: flex; align-items: center; justify-content: center;
+}
+.move-clip.is-filled {
+  border-style: solid; border-color: var(--border); background: #000;
+}
+.move-clip .clip-placeholder {
+  font-size: .78rem; font-weight: 700; color: var(--muted);
+  letter-spacing: .04em; text-align: center; padding: 12px;
+}
+.move-clip iframe, .move-clip video {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  border: 0; object-fit: contain; background: #000;
+}
+.move-card .mc-chapter { font-size: .72rem; color: var(--muted); line-height: 1.4; }
+.move-card .mc-chapter a { color: var(--accent); font-weight: 700; }
+
+.video-list { display: grid; gap: 16px; }
+.video-card {
+  background: var(--bg); border: 1px solid var(--border);
+  border-radius: 12px; padding: 14px; overflow: hidden;
+}
+.video-card h3 { font-size: .95rem; font-weight: 900; margin-bottom: 6px; }
+.video-card p { font-size: .82rem; color: var(--muted); margin-bottom: 10px; }
+.video-frame {
+  position: relative; width: 100%; aspect-ratio: 16 / 9;
+  border-radius: 10px; overflow: hidden; background: #000;
+  border: 1px solid var(--border);
+}
+.video-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.video-card .ext-links { margin-top: 8px; font-size: .78rem; }
+.video-card .ext-links a { margin-right: 12px; }
+
+details.sources {
+  margin-top: 28px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg2);
+  overflow: hidden;
+}
+details.sources > summary {
+  padding: 14px 18px; cursor: pointer;
+  font-weight: 700; list-style: none;
+  display: flex; align-items: center; justify-content: space-between;
+  color: var(--muted); font-size: .9rem;
+}
+details.sources > summary::-webkit-details-marker { display: none; }
+details.sources > summary::after { content: "＋展開"; font-size: .75rem; color: var(--accent); }
+details.sources[open] > summary::after { content: "－收起"; }
+.sources-body {
+  padding: 0 18px 16px;
+  font-size: .78rem; color: var(--muted);
+}
+.sources-body ol { padding-left: 1.3em; }
+.sources-body li { margin: 6px 0; }
+.sources-body a { word-break: break-all; }
+
+.site-footer {
+  text-align: center; padding: 24px 20px 40px;
+  font-size: .72rem; color: var(--muted);
+  border-top: 1px solid var(--border);
+}
+
+
+</style>
+<link rel="stylesheet" href="assets/vote-widget.css" />
+<link rel="stylesheet" href="assets/share-bar.css" />
+<link rel="stylesheet" href="assets/feedback-form.css" />
+<link rel="stylesheet" href="assets/art-banners.css" />
+<link rel="stylesheet" href="assets/age-gate.css" />
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <div class="brand">
+      <a class="back-home" href="index.html#sekiro">← 返回獵殺區</a>
+      <div class="brand-name" style="margin-top:8px">硬核祝福</div>
+      <div class="brand-slogan">別人改數值，你改規則。</div>
+    </div>
+    <div class="header-right">
+      <div class="page-title">隻狼 · <span>怨恨之鬼</span></div>
+      <nav class="nav-mini" aria-label="本頁錨點">
+        <a href="#boss">Boss</a>
+        <a href="#demon-of-hatred">主段</a>
+        <a href="#phases">章節</a>
+        <a href="#moves-cmtd">Tips窗</a>
+        <a href="#moves-ussu">安定窗</a>
+        <a href="#moves-empty">逐招</a>
+        <a href="#videos">片源</a>
+        <a href="#related">相關</a>
+      </nav>
+    </div>
+  </div>
+</header>
+<figure class="page-banner">
+  <img src="assets/art/theme-demon-banner.jpg" alt="火光映城，鬼影矗立" width="1280" height="720" decoding="async" fetchpriority="high" />
+</figure>
+
+<main class="wrap">
+  <div data-boss-vote data-vote-slug="sekiro-demon-of-hatred"></div>
+  <div data-boss-share></div>
+
+  <section class="hero" id="boss" aria-labelledby="boss-title">
+    <div>
+      <h1 id="boss-title">怨恨之鬼 · <em>怨嗟の鬼</em></h1>
+      <p class="hero-sub">葦名城下／火渡後 Memory · 單主段（鬼仏） · GameWith 四窗＋ussu 安定六窗章節已核；逐招獨立秒等 scrub · 唔納一心／神龍／柔剣エマ</p>
+      <div class="slogan-box">紙人、傘同站位先定——章節窗先睇，逐招獨立窗後補。</div>
+
+      <div class="route-strip" aria-label="前期順序">
+        <span class="rs-step"><span class="rs-num">01</span><a href="sekiro-genichiro.html#boss">葦名弦一郎</a></span>
+        <span class="rs-arrow">→</span>
+        <span class="rs-step"><span class="rs-num">02</span><a href="sekiro-great-shinobi-owl.html#boss">大忍之梟</a></span>
+        <span class="rs-arrow">→</span>
+        <span class="rs-step"><span class="rs-num">03</span><a href="sekiro-divine-dragon.html#boss">神龍</a>（主線）</span>
+        <span class="rs-arrow">→</span>
+        <span class="rs-step"><span class="rs-num">04</span><a href="sekiro-demon-of-hatred.html#demon-of-hatred">怨恨之鬼</a></span>
+      </div>
+      <div class="meta-row">
+        <span class="chip red">Memory Boss</span>
+        <span class="chip gold">十窗已核</span>
+        <span class="chip warn">逐招待 scrub</span>
+        <span class="chip info">葦名城下</span>
+        <span class="chip purple">cMtd＋N2x</span>
+      </div>
+      <div class="basics-grid">
+        <div class="basic-card">
+          <h3>GameWith Tips</h3>
+          <p>主片 <strong>cMtdG59p9yU</strong>（340s）四窗 8–340 已鎖；Intro 0–8 有章節但跳過。</p>
+        </div>
+        <div class="basic-card">
+          <h3>ussu 安定攻略</h3>
+          <p>輔片 <strong>N2xovf2yrU8</strong>（515s）六窗 0–515 已鎖；接近／忍具／忍殺後型＋實戰。</p>
+        </div>
+        <div class="basic-card">
+          <h3>鎖窗規則</h3>
+          <p>只 bake 上表十窗；逐招卡 EMPTY。<strong>PAS4FJ1aWRw</strong>／<strong>Y4LjAT_QlBc</strong> 等只作片源區外連核對，唔嵌卡秒、唔混 cMtd 秒。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <figure class="page-banner page-banner--rule pos-low">
+    <img src="assets/art/theme-darkness-banner.jpg" alt="夜色金屑，披風對住巨影" width="1280" height="720" decoding="async" loading="lazy" />
+  </figure>
+
+  <section class="section" id="demon-of-hatred" aria-labelledby="demon-of-hatred-title">
+    <div class="section-kicker">ASHINA OUTSKIRTS · MEMORY</div>
+    <h2 id="demon-of-hatred-title">主段・<em>怨恨之鬼</em></h2>
+    <p class="section-lead">單主段 Memory（怨嗟の鬼／鬼仏）。一／二／三階＝①內章節窗，唔開三頁；卡名跟章節通稱，唔擅自改火焰招名直至 scrub。</p>
+  </section>
+
+  <section class="section" id="phases" aria-labelledby="phases-title">
+    <div class="section-kicker">CHAPTERS · VERIFIED</div>
+    <h2 id="phases-title">主片<em>章節</em>對照</h2>
+    <p class="section-lead">十窗已核；end 唔超片長（cMtd dur 340 · N2x dur 515）。CHAPTERS-VERIFY 2026-10-24。</p>
+    <div class="phase-grid">
+      <article class="phase-card p1">
+        <h3>Tips · cMtdG59p9yU</h3>
+        <ul>
+          <li>8–153 · 戰鬥要點 → <a href="#move-cmtd-tips">戰鬥要點</a></li>
+          <li>153–230 · 一階 → <a href="#move-cmtd-p1">一階</a></li>
+          <li>230–286 · 二階 → <a href="#move-cmtd-p2">二階</a></li>
+          <li>286–340 · 三階 → <a href="#move-cmtd-p3">三階</a> · CAP≤340</li>
+        </ul>
+      </article>
+      <article class="phase-card p2">
+        <h3>安定 · N2xovf2yrU8</h3>
+        <ul>
+          <li>0–71 · 接近戰 → <a href="#move-ussu-near">接近戰解說</a></li>
+          <li>71–101 · 泣き虫 → <a href="#move-ussu-naki">義手忍具</a></li>
+          <li>101–140／140–162 · 忍殺後型</li>
+          <li>162–208 · 遠距離 → <a href="#move-ussu-far">遠距離戰</a></li>
+          <li>208–515 · 實戰 → <a href="#move-ussu-practice">實戰</a> · CAP≤515</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <section class="section" id="moves-cmtd" aria-labelledby="moves-cmtd-title">
+    <div class="section-kicker">MOVES · GAMEWITH</div>
+    <h2 id="moves-cmtd-title">Tips・<em>招式卡</em></h2>
+    <p class="section-lead">四窗已核（cMtd）。卡名跟 Tip／Phase 通稱，唔擅自改火焰腳等招名。</p>
+    <div class="move-cards">
+
+      <article class="move-card" id="move-cmtd-tips">
+        <div class="mc-head">
+          <span class="mc-name">戰鬥要點</span>
+          <span class="mc-phase">P1–P3</span>
+        </div>
+        <p class="mc-tell"><strong>預兆：</strong>片內 Boss Fight Tips</p>
+        <p class="mc-counter">開場至三階前總覽；逐招睇下面 EMPTY 卡</p>
+        <div class="move-clip" data-yt-id="cMtdG59p9yU" data-yt-start="8" data-yt-end="153" data-clip-src="">
+          <span class="clip-placeholder" aria-hidden="true"></span>
+        </div>
+        <p class="mc-chapter">8–153s（0:08–2:33）· <a href="https://www.youtube.com/watch?v=cMtdG59p9yU&amp;t=8s" target="_blank" rel="noopener noreferrer">cMtdG59p9yU @ 0:08 →</a> · YT chapter「Boss Fight Tips」· VERIFIED</p>
+      </article>
+
+      <article class="move-card" id="move-cmtd-p1">
+        <div class="mc-head">
+          <span class="mc-name">一階</span>
+          <span class="mc-phase">P1</span>
+        </div>
+        <p class="mc-tell"><strong>預兆：</strong>1st Phase 章節窗</p>
+        <p class="mc-counter">近壓節奏參考</p>
+        <div class="move-clip" data-yt-id="cMtdG59p9yU" data-yt-start="153" data-yt-end="230" data-clip-src="">
+          <span class="clip-placeholder" aria-hidden="true"></span>
+        </div>
+        <p class="mc-chapter">153–230s（2:33–3:50）· <a href="https://www.youtube.com/watch?v=cMtdG59p9yU&amp;t=153s" target="_blank" rel="noopener noreferrer">cMtdG59p9yU @ 2:33 →</a> · YT chapter「1st Phase )」· VERIFIED</p>
+      </article>
+
+      <article class="move-card" id="move-cmtd-p2">
+        <div class="mc-head">
+          <span class="mc-name">二階</span>
+          <span class="mc-phase">P2</span>
+        </div>
+        <p class="mc-tell"><strong>預兆：</strong>2nd Phase 章節窗</p>
+        <p class="mc-counter">火場／點地壓力段</p>
+        <div class="move-clip" data-yt-id="cMtdG59p9yU" data-yt-start="230" data-yt-end="286" data-clip-src="">
+          <span class="clip-placeholder" aria-hidden="true"></span>
+        </div>
+        <p class="mc-chapter">230–286s（3:50–4:46）· <a href="https://www.youtube.com/watch?v=cMtdG59p9yU&amp;t=230s" target="_blank" rel="noopener noreferrer">cMtdG59p9yU @ 3:50 →</a> · YT chapter「2nd Phase )」· VERIFIED</p>
+      </article>
+
+      <article class="move-card" id="move-cmtd-p3">
+        <div class="mc-head">
+          <span class="mc-name">三階</span>
+          <span class="mc-phase">P3</span>
+        </div>
+        <p class="mc-tell"><strong>預兆：</strong>3rd Phase 章節窗</p>
+        <p class="mc-counter">飛天／遠壓收尾參考</p>
+        <div class="move-clip" data-yt-id="cMtdG59p9yU" data-yt-start="286" data-yt-end="340" data-clip-src="">
+          <span class="clip-placeholder" aria-hidden="true"></span>
+        </div>
+        <p class="mc-chapter">286–340s（4:46–5:40）· <a href="https://www.youtube.com/watch?v=cMtdG59p9yU&amp;t=286s" target="_blank" rel="noopener noreferrer">cMtdG59p9yU @ 4:46 →</a> · YT chapter「3rd Phase )」· VERIFIED · CAP≤340</p>
+      </article>
+
+    </div>
+  </section>
+
+  <section class="section" id="moves-ussu" aria-labelledby="moves-ussu-title">
+    <div class="section-kicker">MOVES · USSU</div>
+    <h2 id="moves-ussu-title">安定・<em>站位窗</em></h2>
+    <p class="section-lead">六窗已核（N2x）；必 bake，作接近／忍具／忍殺後型與實戰標。</p>
+    <div class="move-cards">
+
+      <article class="move-card" id="move-ussu-near">
+        <div class="mc-head">
+          <span class="mc-name">接近戰解說</span>
+          <span class="mc-phase">站位</span>
+        </div>
+        <p class="mc-tell"><strong>預兆：</strong>ussu 接近戦の解説</p>
+        <p class="mc-counter">貼身站位同節奏</p>
+        <div class="move-clip" data-yt-id="N2xovf2yrU8" data-yt-start="0" data-yt-end="71" data-clip-src="">
+          <span class="clip-placeholder" aria-hidden="true"></span>
+        </div>
+        <p class="mc-chapter">0–71s（0:00–1:11）· <a href="https://www.youtube.com/watch?v=N2xovf2yrU8&amp;t=0s" target="_blank" rel="noopener noreferrer">N2xovf2yrU8 @ 0:00 →</a> · YT chapter「接近戦の解説」· VERIFIED</p>
+      </article>
+
+      <article class="move-card" id="move-ussu-naki">
+        <div class="mc-head">
+          <span class="mc-name">義手忍具・泣き虫</span>
+          <span class="mc-phase">忍具</span>
+        </div>
+        <p class="mc-tell"><strong>預兆：</strong>泣き虫章節</p>
+        <p class="mc-counter">忍具對策參考</p>
+        <div class="move-clip" data-yt-id="N2xovf2yrU8" data-yt-start="71" data-yt-end="101" data-clip-src="">
+          <span class="clip-placeholder" aria-hidden="true"></span>
+        </div>
+        <p class="mc-chapter">71–101s（1:11–1:41）· <a href="https://www.youtube.com/watch?v=N2xovf2yrU8&amp;t=71s" target="_blank" rel="noopener noreferrer">N2xovf2yrU8 @ 1:11 →</a> · YT chapter「義手忍具「泣き虫」」· VERIFIED</p>
+      </article>
+
+      <article class="move-card" id="move-ussu-db1">
+        <div class="mc-head">
+          <span class="mc-name">忍殺1後攻擊型</span>
+          <span class="mc-phase">階間</span>
+        </div>
+        <p class="mc-tell"><strong>預兆：</strong>忍殺1回目後パターン</p>
+        <p class="mc-counter">第一管破後型變</p>
+        <div class="move-clip" data-yt-id="N2xovf2yrU8" data-yt-start="101" data-yt-end="140" data-clip-src="">
+          <span class="clip-placeholder" aria-hidden="true"></span>
+        </div>
+        <p class="mc-chapter">101–140s（1:41–2:20）· <a href="https://www.youtube.com/watch?v=N2xovf2yrU8&amp;t=101s" target="_blank" rel="noopener noreferrer">N2xovf2yrU8 @ 1:41 →</a> · YT chapter「忍殺1回目後の攻撃パターン」· VERIFIED</p>
+      </article>
+
+      <article class="move-card" id="move-ussu-db2">
+        <div class="mc-head">
+          <span class="mc-name">忍殺2後攻擊型</span>
+          <span class="mc-phase">階間</span>
+        </div>
+        <p class="mc-tell"><strong>預兆：</strong>忍殺2回目後パターン</p>
+        <p class="mc-counter">第二管破後型變</p>
+        <div class="move-clip" data-yt-id="N2xovf2yrU8" data-yt-start="140" data-yt-end="162" data-clip-src="">
+          <span class="clip-placeholder" aria-hidden="true"></span>
+        </div>
+        <p class="mc-chapter">140–162s（2:20–2:42）· <a href="https://www.youtube.com/watch?v=N2xovf2yrU8&amp;t=140s" target="_blank" rel="noopener noreferrer">N2xovf2yrU8 @ 2:20 →</a> · YT chapter「忍殺2回目後の攻撃パターン」· VERIFIED</p>
+      </article>
+
+      <article class="move-card" id="move-ussu-far">
+        <div class="mc-head">
+          <span class="mc-name">遠距離戰解說</span>
+          <span class="mc-phase">站位</span>
+        </div>
+        <p class="mc-tell"><strong>預兆：</strong>遠距離戦の解説</p>
+        <p class="mc-counter">拉開距離時處理</p>
+        <div class="move-clip" data-yt-id="N2xovf2yrU8" data-yt-start="162" data-yt-end="208" data-clip-src="">
+          <span class="clip-placeholder" aria-hidden="true"></span>
+        </div>
+        <p class="mc-chapter">162–208s（2:42–3:28）· <a href="https://www.youtube.com/watch?v=N2xovf2yrU8&amp;t=162s" target="_blank" rel="noopener noreferrer">N2xovf2yrU8 @ 2:42 →</a> · YT chapter「遠距離戦の解説」· VERIFIED</p>
+      </article>
+
+      <article class="move-card" id="move-ussu-practice">
+        <div class="mc-head">
+          <span class="mc-name">實戰</span>
+          <span class="mc-phase">全階</span>
+        </div>
+        <p class="mc-tell"><strong>預兆：</strong>実践全段</p>
+        <p class="mc-counter">安定打法實戰參考</p>
+        <div class="move-clip" data-yt-id="N2xovf2yrU8" data-yt-start="208" data-yt-end="515" data-clip-src="">
+          <span class="clip-placeholder" aria-hidden="true"></span>
+        </div>
+        <p class="mc-chapter">208–515s（3:28–8:35）· <a href="https://www.youtube.com/watch?v=N2xovf2yrU8&amp;t=208s" target="_blank" rel="noopener noreferrer">N2xovf2yrU8 @ 3:28 →</a> · YT chapter「実践」· VERIFIED · CAP≤515</p>
+      </article>
+
+    </div>
+  </section>
+
+  <section class="section" id="moves-empty" aria-labelledby="moves-empty-title">
+    <div class="section-kicker">MOVES · PER-ATTACK</div>
+    <h2 id="moves-empty-title">逐招・<em>招式卡</em></h2>
+    <p class="section-lead">逐招 EMPTY；placeholder「未鎖獨立示範窗・外連主片」。唔顯示「短片待嵌」。</p>
+    <div class="move-cards">
+
+      <article class="move-card" id="move-flame-charge">
+        <div class="mc-head">
+          <span class="mc-name">火焰腳／衝撞</span>
+          <span class="mc-phase">P1–P2</span>
+        </div>
+        <p class="mc-tell"><strong>預兆：</strong>橫移／衝刺閃</p>
+        <p class="mc-counter">章節窗有 charge 標但未 scrub</p>
+        <div class="move-clip" data-yt-id="" data-yt-start="" data-yt-end="" data-clip-src="">
+          <span class="clip-placeholder">未鎖獨立示範窗・外連主片</span>
+        </div>
+        <p class="mc-chapter">主片外連：<a href="https://www.youtube.com/watch?v=cMtdG59p9yU" target="_blank" rel="noopener noreferrer">cMtdG59p9yU →</a> · 未窗內 frame scrub</p>
+      </article>
+
+      <article class="move-card" id="move-peril-sweep">
+        <div class="mc-head">
+          <span class="mc-name">危・下段掃</span>
+          <span class="mc-phase">P1–P3</span>
+        </div>
+        <p class="mc-tell"><strong>預兆：</strong>危紅低→跳</p>
+        <p class="mc-counter">危紅低掃→跳</p>
+        <div class="move-clip" data-yt-id="" data-yt-start="" data-yt-end="" data-clip-src="">
+          <span class="clip-placeholder">未鎖獨立示範窗・外連主片</span>
+        </div>
+        <p class="mc-chapter">主片外連：<a href="https://www.youtube.com/watch?v=cMtdG59p9yU" target="_blank" rel="noopener noreferrer">cMtdG59p9yU →</a> · 未窗內 frame scrub</p>
+      </article>
+
+      <article class="move-card" id="move-peril-slam">
+        <div class="mc-head">
+          <span class="mc-name">危・砸地／落地壓</span>
+          <span class="mc-phase">P1–P3</span>
+        </div>
+        <p class="mc-tell"><strong>預兆：</strong>危紅砸→跳或拉開</p>
+        <p class="mc-counter">危紅砸地／落地壓</p>
+        <div class="move-clip" data-yt-id="" data-yt-start="" data-yt-end="" data-clip-src="">
+          <span class="clip-placeholder">未鎖獨立示範窗・外連主片</span>
+        </div>
+        <p class="mc-chapter">主片外連：<a href="https://www.youtube.com/watch?v=cMtdG59p9yU" target="_blank" rel="noopener noreferrer">cMtdG59p9yU →</a> · 未窗內 frame scrub</p>
+      </article>
+
+      <article class="move-card" id="move-fireball">
+        <div class="mc-head">
+          <span class="mc-name">火球／單臂火爆</span>
+          <span class="mc-phase">P1–P2</span>
+        </div>
+        <p class="mc-tell"><strong>預兆：</strong>橫移／傘</p>
+        <p class="mc-counter">章節字樣未 scrub</p>
+        <div class="move-clip" data-yt-id="" data-yt-start="" data-yt-end="" data-clip-src="">
+          <span class="clip-placeholder">未鎖獨立示範窗・外連主片</span>
+        </div>
+        <p class="mc-chapter">主片外連：<a href="https://www.youtube.com/watch?v=cMtdG59p9yU" target="_blank" rel="noopener noreferrer">cMtdG59p9yU →</a> · 未窗內 frame scrub</p>
+      </article>
+
+      <article class="move-card" id="move-p2-floor">
+        <div class="mc-head">
+          <span class="mc-name">二階火焰場／點地</span>
+          <span class="mc-phase">P2</span>
+        </div>
+        <p class="mc-tell"><strong>預兆：</strong>跳離火牆／朱雀傘</p>
+        <p class="mc-counter">二階場控</p>
+        <div class="move-clip" data-yt-id="" data-yt-start="" data-yt-end="" data-clip-src="">
+          <span class="clip-placeholder">未鎖獨立示範窗・外連主片</span>
+        </div>
+        <p class="mc-chapter">主片外連：<a href="https://www.youtube.com/watch?v=cMtdG59p9yU" target="_blank" rel="noopener noreferrer">cMtdG59p9yU →</a> · 未窗內 frame scrub</p>
+      </article>
+
+      <article class="move-card" id="move-p3-rain">
+        <div class="mc-head">
+          <span class="mc-name">三階飛天／火焰雨</span>
+          <span class="mc-phase">P3</span>
+        </div>
+        <p class="mc-tell"><strong>預兆：</strong>走位／傘</p>
+        <p class="mc-counter">未穩核名稱＝唔估</p>
+        <div class="move-clip" data-yt-id="" data-yt-start="" data-yt-end="" data-clip-src="">
+          <span class="clip-placeholder">未鎖獨立示範窗・外連主片</span>
+        </div>
+        <p class="mc-chapter">主片外連：<a href="https://www.youtube.com/watch?v=cMtdG59p9yU" target="_blank" rel="noopener noreferrer">cMtdG59p9yU →</a> · 未窗內 frame scrub</p>
+      </article>
+
+      <article class="move-card" id="move-head">
+        <div class="mc-head">
+          <span class="mc-name">頭部弱點／打頭窗</span>
+          <span class="mc-phase">各階</span>
+        </div>
+        <p class="mc-tell"><strong>預兆：</strong>姿勢／硬直打頭</p>
+        <p class="mc-counter">打頭窗待 scrub</p>
+        <div class="move-clip" data-yt-id="" data-yt-start="" data-yt-end="" data-clip-src="">
+          <span class="clip-placeholder">未鎖獨立示範窗・外連主片</span>
+        </div>
+        <p class="mc-chapter">主片外連：<a href="https://www.youtube.com/watch?v=cMtdG59p9yU" target="_blank" rel="noopener noreferrer">cMtdG59p9yU →</a> · 未窗內 frame scrub</p>
+      </article>
+
+      <article class="move-card" id="move-db">
+        <div class="mc-head">
+          <span class="mc-name">忍殺窗（1・2）</span>
+          <span class="mc-phase">階間</span>
+        </div>
+        <p class="mc-tell"><strong>預兆：</strong>姿勢破後忍殺</p>
+        <p class="mc-counter">後段型變；ussu 有章但招秒 EMPTY</p>
+        <div class="move-clip" data-yt-id="" data-yt-start="" data-yt-end="" data-clip-src="">
+          <span class="clip-placeholder">未鎖獨立示範窗・外連主片</span>
+        </div>
+        <p class="mc-chapter">主片外連：<a href="https://www.youtube.com/watch?v=N2xovf2yrU8" target="_blank" rel="noopener noreferrer">N2xovf2yrU8 →</a> · 未窗內 frame scrub</p>
+      </article>
+
+      <article class="move-card" id="move-suzaku">
+        <div class="mc-head">
+          <span class="mc-name">泣き虫／朱雀傘運用</span>
+          <span class="mc-phase">—</span>
+        </div>
+        <p class="mc-tell"><strong>預兆：</strong>忍具對策</p>
+        <p class="mc-counter">ussu 有章但招秒 EMPTY</p>
+        <div class="move-clip" data-yt-id="" data-yt-start="" data-yt-end="" data-clip-src="">
+          <span class="clip-placeholder">未鎖獨立示範窗・外連主片</span>
+        </div>
+        <p class="mc-chapter">主片外連：<a href="https://www.youtube.com/watch?v=N2xovf2yrU8" target="_blank" rel="noopener noreferrer">N2xovf2yrU8 →</a> · 未窗內 frame scrub</p>
+      </article>
+
+      <article class="move-card" id="move-phase-diff">
+        <div class="mc-head">
+          <span class="mc-name">階段差異（近壓→火場→飛天）</span>
+          <span class="mc-phase">P1→P3</span>
+        </div>
+        <p class="mc-tell"><strong>預兆：</strong>後段加遠壓與場控</p>
+        <p class="mc-counter">先睇章節窗再拆招</p>
+        <div class="move-clip" data-yt-id="" data-yt-start="" data-yt-end="" data-clip-src="">
+          <span class="clip-placeholder">未鎖獨立示範窗・外連主片</span>
+        </div>
+        <p class="mc-chapter">主片外連：<a href="https://www.youtube.com/watch?v=cMtdG59p9yU" target="_blank" rel="noopener noreferrer">cMtdG59p9yU →</a> · 未窗內 frame scrub</p>
+      </article>
+
+      <article class="move-card" id="move-perilous">
+        <div class="mc-head">
+          <span class="mc-name">危技合集（若有）</span>
+          <span class="mc-phase">—</span>
+        </div>
+        <p class="mc-tell"><strong>預兆：</strong>危紅招</p>
+        <p class="mc-counter">無傷片未穩核＝唔估</p>
+        <div class="move-clip" data-yt-id="" data-yt-start="" data-yt-end="" data-clip-src="">
+          <span class="clip-placeholder">未鎖獨立示範窗・外連主片</span>
+        </div>
+        <p class="mc-chapter">主片外連：<a href="https://www.youtube.com/watch?v=cMtdG59p9yU" target="_blank" rel="noopener noreferrer">cMtdG59p9yU →</a> · 未窗內 frame scrub</p>
+      </article>
+
+    </div>
+  </section>
+
+  <section class="section" id="videos" aria-labelledby="videos-title">
+    <div class="section-kicker">VIDEOS</div>
+    <h2 id="videos-title">片源<em>總覽</em></h2>
+    <p class="section-lead">主片全片嵌入作對照。十窗已喺招式卡鎖秒；備選片只外連核對，唔 bake 卡秒。</p>
+    <div class="video-list">
+      <article class="video-card">
+        <h3>Tips · Demon of Hatred（cMtdG59p9yU）</h3>
+        <p>片長 340s（5:40）· 四窗 8–340 · Intro 0–8 跳過</p>
+        <div class="video-frame">
+          <iframe src="https://www.youtube-nocookie.com/embed/cMtdG59p9yU?start=0&amp;end=340&amp;rel=0" title="Demon of Hatred tips" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <p class="ext-links"><a href="https://www.youtube.com/watch?v=cMtdG59p9yU" target="_blank" rel="noopener noreferrer">YouTube 外連 →</a></p>
+      </article>
+      <article class="video-card">
+        <h3>安定攻略 · ussu（N2xovf2yrU8）</h3>
+        <p>片長 515s（8:35）· 六窗 0–515</p>
+        <div class="video-frame">
+          <iframe src="https://www.youtube-nocookie.com/embed/N2xovf2yrU8?start=0&amp;end=515&amp;rel=0" title="Demon of Hatred ussu guide" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <p class="ext-links"><a href="https://www.youtube.com/watch?v=N2xovf2yrU8" target="_blank" rel="noopener noreferrer">YouTube 外連 →</a></p>
+      </article>
+      <article class="video-card">
+        <h3>核對用 · 備選片（唔 bake 卡秒）</h3>
+        <p>PAS4FJ1aWRw dur 346 · pziT6HSZEcs dur 485 · W07Fb5LK4jY dur 622 · jjoqJtQWilc · Y4LjAT_QlBc — 只外連章節對照，唔混 cMtd／N2x 秒。</p>
+        <p class="ext-links">
+          <a href="https://www.youtube.com/watch?v=PAS4FJ1aWRw" target="_blank" rel="noopener noreferrer">PAS4FJ1aWRw（JP Tips）→</a>
+          <a href="https://www.youtube.com/watch?v=pziT6HSZEcs" target="_blank" rel="noopener noreferrer">pziT6HSZEcs（Fextralife）→</a>
+          <a href="https://www.youtube.com/watch?v=W07Fb5LK4jY" target="_blank" rel="noopener noreferrer">W07Fb5LK4jY（Cowboy）→</a>
+          <a href="https://www.youtube.com/watch?v=Y4LjAT_QlBc" target="_blank" rel="noopener noreferrer">Y4LjAT_QlBc（JP 微講解）→</a>
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section" id="related" aria-labelledby="related-title">
+    <div class="section-kicker">RELATED</div>
+    <h2 id="related-title">前後<em>關聯</em></h2>
+    <p class="section-lead">火渡後葦名城下鬼仏；可選 Memory，唔影響主線結局分支。</p>
+    <div class="meta-row" style="margin-top:8px">
+      <a class="chip gold" href="sekiro-genichiro.html#boss" style="text-decoration:none">葦名弦一郎</a>
+      <a class="chip gold" href="sekiro-divine-dragon.html#boss" style="text-decoration:none">神龍</a>
+      <a class="chip gold" href="sekiro-demon-of-hatred.html#boss" style="text-decoration:none">怨恨之鬼（本頁）</a>
+      <a class="chip gold" href="sekiro-isshin.html#boss" style="text-decoration:none">剣聖一心</a>
+    </div>
+  </section>
+
+  <details class="sources">
+    <summary>片源同鎖窗（公開片）</summary>
+    <div class="sources-body">
+      <ol>
+        <li><a href="https://www.youtube.com/watch?v=cMtdG59p9yU" target="_blank" rel="noopener noreferrer">cMtdG59p9yU</a> · GameWith Tips · 章節 8–340（dur 340）· 四窗 VERIFIED</li>
+        <li><a href="https://www.youtube.com/watch?v=N2xovf2yrU8" target="_blank" rel="noopener noreferrer">N2xovf2yrU8</a> · ussu 安定 · 章節 0–515（dur 515）· 六窗 VERIFIED</li>
+        <li><a href="https://www.youtube.com/watch?v=PAS4FJ1aWRw" target="_blank" rel="noopener noreferrer">PAS4FJ1aWRw</a> · JP 鏡 Tips；唔 bake 卡秒（dur 346）</li>
+        <li><a href="https://www.youtube.com/watch?v=pziT6HSZEcs" target="_blank" rel="noopener noreferrer">pziT6HSZEcs</a> · 英階段備選；唔 bake 卡秒（dur 485）</li>
+        <li><a href="https://www.youtube.com/watch?v=W07Fb5LK4jY" target="_blank" rel="noopener noreferrer">W07Fb5LK4jY</a> · 英 Git Gud；唔 bake 卡秒（dur 622）</li>
+        <li><a href="https://www.youtube.com/watch?v=r1biob5jiW0" target="_blank" rel="noopener noreferrer">r1biob5jiW0</a> · 無 chapters＝唔 bake</li>
+        <li><a href="https://www.youtube.com/watch?v=XExRAt23HYo" target="_blank" rel="noopener noreferrer">XExRAt23HYo</a> · 無 chapters＝唔 bake</li>
+      </ol>
+      <p style="margin-top:10px">招式卡只 bake cMtd 四窗＋N2x 六窗（共十窗）。逐招 EMPTY 等 frame scrub。</p>
+    </div>
+  </details>
+
+  <section class="bh-feedback feedback" id="feedback" data-netlify-feedback aria-labelledby="feedback-title">
+    <div class="bh-feedback-head">
+      <h2 id="feedback-title">留下<em>意見</em>俾網主</h2>
+      <span class="bh-feedback-chip">真係會送到</span>
+    </div>
+    <p class="bh-feedback-lead">招式唔清楚、想加邊個 Boss、有錯漏——丢句說話。留言經 Netlify Forms 直達網主信箱／後台，唔再只係本機保存。</p>
+    <div class="feedback-thanks" data-feedback-thanks role="status" aria-live="polite" hidden>
+      <h3>收到，多謝硬核祝福！</h3>
+      <p>你嘅意見已送出俾網主。想再講可以繼續填。</p>
+      <button type="button" class="feedback-secondary" data-feedback-again>再留一句</button>
+    </div>
+    <form class="bh-feedback-form" name="boss-hunt-feedback" method="POST" action="/" data-netlify="true" netlify netlify-honeypot="bot-field" data-boss-feedback>
+      <input type="hidden" name="form-name" value="boss-hunt-feedback" />
+      <input type="hidden" name="page" value="sekiro-demon-of-hatred.html · 隻狼｜怨恨之鬼・怨嗟の鬼" />
+      <p class="bh-feedback-honeypot" aria-hidden="true">
+        <label>唔好填呢格 <input type="text" name="bot-field" tabindex="-1" autocomplete="off" /></label>
+      </p>
+      <div class="bh-feedback-field">
+        <label for="fb-name-sekiro-demon-of-hatred">暱稱 <span class="opt">（可選）</span></label>
+        <input type="text" id="fb-name-sekiro-demon-of-hatred" name="name" maxlength="80" placeholder="例如：狼忍新手" autocomplete="nickname" />
+      </div>
+      <div class="bh-feedback-field">
+        <label for="fb-contact-sekiro-demon-of-hatred">聯絡 <span class="opt">（可選）</span></label>
+        <input type="text" id="fb-contact-sekiro-demon-of-hatred" name="contact" maxlength="120" placeholder="電郵／Discord（方便回覆）" autocomplete="email" />
+      </div>
+      <div class="bh-feedback-field">
+        <label for="fb-msg-sekiro-demon-of-hatred">意見 <span class="opt">（必填）</span></label>
+        <textarea id="fb-msg-sekiro-demon-of-hatred" name="message" maxlength="4000" required rows="4" placeholder="想講咩就寫低…"></textarea>
+      </div>
+      <div class="bh-feedback-actions">
+        <button type="submit" class="bh-feedback-submit feedback-submit">送出意見</button>
+      </div>
+      <p class="bh-feedback-note">送出後網主喺 Netlify → Forms 收到。唔填一樣睇晒全頁。</p>
+      <div class="feedback-status" data-feedback-status role="status" aria-live="polite"></div>
+    </form>
+  </section>
+</main>
+
+<footer class="site-footer">
+  硬核祝福 · BOSS 獵殺區 · 隻狼 · 怨恨之鬼・怨嗟の鬼 · 唔教修改器／外掛
+</footer>
+
+<script>
+(function () {
+  function hydrateMoveClips() {
+    document.querySelectorAll('.move-clip').forEach(function (slot) {
+      var clipSrc = (slot.getAttribute('data-clip-src') || '').trim();
+      var ytId = (slot.getAttribute('data-yt-id') || '').trim();
+      var ytStart = (slot.getAttribute('data-yt-start') || '').trim();
+      var ytEnd = (slot.getAttribute('data-yt-end') || '').trim();
+      if (!clipSrc && ytStart === '') return;
+      slot.classList.add('is-filled');
+      slot.innerHTML = '';
+      if (clipSrc) {
+        var v = document.createElement('video');
+        v.src = clipSrc;
+        v.controls = true;
+        v.playsInline = true;
+        v.preload = 'metadata';
+        slot.appendChild(v);
+        return;
+      }
+      if (!ytId) return;
+      var params = ['start=' + encodeURIComponent(ytStart)];
+      if (ytEnd) params.push('end=' + encodeURIComponent(ytEnd));
+      params.push('rel=0');
+      var ifr = document.createElement('iframe');
+      ifr.src = 'https://www.youtube-nocookie.com/embed/' + encodeURIComponent(ytId) + '?' + params.join('&');
+      ifr.title = '招式／步驟短片';
+      ifr.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+      ifr.allowFullscreen = true;
+      ifr.loading = 'lazy';
+      slot.appendChild(ifr);
+    });
+  }
+  hydrateMoveClips();
+})();
+</script>
+
+<script src="assets/vote-widget.js" defer></script>
+<script src="assets/share-bar.js" defer></script>
+<script src="assets/feedback-form.js" defer></script>
+<script src="assets/analytics.js" defer></script>
+<script src="assets/age-gate.js" defer></script>
+</body>
+</html>
