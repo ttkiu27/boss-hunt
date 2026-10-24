@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-HK">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>大忍之梟・義父之梟｜BOSS 獵殺區｜硬核祝福</title>
+<meta name="description" content="BOSS 獵殺區 — 隻狼 · 天守大忍之梟同平田義父之梟。招式卡骨架，示範秒待採集。別人改數值，你改規則。" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Orbitron:wght@600;800&display=swap" rel="stylesheet" />
+<style>
+
+:root {
+  --bg: #0a0b0e;
+  --bg2: #12141a;
+  --bg3: #1a1d26;
+  --border: #2a2f3c;
+  --text: #e8e6e1;
+  --muted: #9a968c;
+  --accent: #c9a227;
+  --accent-dim: #8a7018;
+  --danger: #e04545;
+  --danger-dim: #8b2222;
+  --safe: #3dbf7a;
+  --warn: #e09a32;
+  --info: #4a9eff;
+  --phase-b: #9b6bff;
+  --radius: 12px;
+  --shadow: 0 8px 32px rgba(0,0,0,.45);
+  --font: "Noto Sans TC", "PingFang HK", "Microsoft JhengHei", sans-serif;
+  --display: "Orbitron", "Noto Sans TC", sans-serif;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.55;
+  min-height: 100vh;
+  background-image:
+    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(201,162,39,.12), transparent),
+    radial-gradient(ellipse 40% 30% at 100% 50%, rgba(224,69,69,.06), transparent),
+    linear-gradient(180deg, #0a0b0e 0%, #0d0f14 100%);
+}
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+img, iframe, video { max-width: 100%; }
+
+.site-header {
+  position: sticky; top: 0; z-index: 100;
+  backdrop-filter: blur(14px);
+  background: rgba(10,11,14,.85);
+  border-bottom: 1px solid var(--border);
+}
+.header-inner {
+  max-width: 1100px; margin: 0 auto;
+  padding: 12px 20px;
+  display: flex; flex-wrap: wrap; align-items: center; gap: 12px 24px;
+  justify-content: space-between;
+}
+.brand { display: flex; flex-direction: column; gap: 2px; }
+.brand-name {
+  font-family: var(--display);
+  font-weight: 800; font-size: .85rem;
+  letter-spacing: .12em; color: var(--accent);
+  text-transform: uppercase;
+}
+.brand-slogan { font-size: .75rem; color: var(--muted); }
+.back-home {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: .9rem; font-weight: 800;
+  padding: 8px 14px;
+  border: 1px solid var(--accent-dim);
+  border-radius: 999px;
+  color: var(--accent);
+  background: rgba(201,162,39,.08);
+  text-decoration: none;
+  letter-spacing: .04em;
+}
+.back-home:hover { background: rgba(201,162,39,.16); text-decoration: none; border-color: var(--accent); }
+.header-right { display: flex; flex-direction: column; align-items: flex-end; gap: 6px; }
+.page-title { font-size: 1rem; font-weight: 900; letter-spacing: .06em; }
+.page-title span { color: var(--accent); }
+.nav-mini { display: flex; gap: 6px; flex-wrap: wrap; justify-content: flex-end; }
+.nav-mini a {
+  font-size: .72rem; padding: 4px 10px;
+  border: 1px solid var(--border); border-radius: 999px;
+  color: var(--muted); text-decoration: none;
+  transition: .15s;
+}
+.nav-mini a:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
+
+.wrap { max-width: 1100px; margin: 0 auto; padding: 24px 20px 80px; }
+
+.hero {
+  display: grid; gap: 20px;
+  margin-bottom: 28px;
+  padding: 24px;
+  background: linear-gradient(135deg, var(--bg2), var(--bg3));
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  position: relative; overflow: hidden;
+}
+.hero::before {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(90deg, transparent 60%, rgba(224,69,69,.07));
+  pointer-events: none;
+}
+.hero h1 {
+  font-size: clamp(1.5rem, 4vw, 2.2rem);
+  font-weight: 900; letter-spacing: .06em;
+}
+.hero h1 em { font-style: normal; color: var(--accent); }
+.hero-sub { margin-top: 8px; font-size: .95rem; color: var(--muted); }
+.slogan-box {
+  margin-top: 14px;
+  padding: 12px 16px;
+  border-radius: 10px;
+  border: 1px solid rgba(224,69,69,.4);
+  background: rgba(224,69,69,.08);
+  font-size: 1rem; font-weight: 800;
+  color: var(--danger);
+  letter-spacing: .02em;
+}
+.meta-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+.chip {
+  font-size: .72rem; font-weight: 700;
+  padding: 4px 10px; border-radius: 6px;
+  background: var(--bg); border: 1px solid var(--border);
+  color: var(--muted); letter-spacing: .04em;
+}
+.chip.gold { color: var(--accent); border-color: var(--accent-dim); }
+.chip.red { color: var(--danger); border-color: var(--danger-dim); }
+.chip.warn { color: var(--warn); border-color: #8a5a18; }
+.chip.info { color: var(--info); border-color: #1a4a7a; }
+.chip.safe { color: var(--safe); border-color: #1a6a45; }
+.chip.purple { color: var(--phase-b); border-color: #5a3a99; }
+
+.basics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px; margin-top: 16px;
+}
+.basic-card {
+  background: var(--bg); border: 1px solid var(--border);
+  border-radius: 10px; padding: 14px 16px;
+}
+.basic-card h3 {
+  font-size: .72rem; color: var(--accent);
+  letter-spacing: .1em; margin-bottom: 6px; font-weight: 700;
+}
+.basic-card p, .basic-card ul { font-size: .88rem; color: var(--text); }
+.basic-card ul { padding-left: 1.1em; }
+.basic-card li { margin: 4px 0; color: var(--muted); }
+.basic-card li strong { color: var(--text); }
+
+.section {
+  margin: 28px 0;
+  padding: 22px;
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  scroll-margin-top: 72px;
+}
+.section-kicker {
+  font-size: .7rem; font-weight: 800;
+  letter-spacing: .14em; color: var(--accent);
+  text-transform: uppercase; margin-bottom: 6px;
+}
+.section h2 {
+  font-size: 1.25rem; font-weight: 900;
+  letter-spacing: .04em; margin-bottom: 8px;
+}
+.section h2 em { font-style: normal; color: var(--accent); }
+.section-lead { font-size: .9rem; color: var(--muted); margin-bottom: 16px; }
+
+.phase-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 14px;
+}
+.phase-card {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px;
+}
+.phase-card.p1 { border-color: rgba(201,162,39,.35); }
+.phase-card.p2 { border-color: rgba(155,107,255,.4); }
+.phase-card.p3 { border-color: rgba(224,69,69,.45); }
+.phase-card h3 {
+  font-size: 1rem; font-weight: 900; margin-bottom: 10px;
+  letter-spacing: .03em;
+}
+.phase-card.p1 h3 { color: var(--accent); }
+.phase-card.p2 h3 { color: #b794f6; }
+.phase-card.p3 h3 { color: var(--danger); }
+.phase-card ul { padding-left: 1.15em; }
+.phase-card li { margin: 6px 0; font-size: .88rem; color: var(--muted); }
+.phase-card li strong { color: var(--text); }
+
+.loadout-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px;
+}
+.loadout-card {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 14px 16px;
+}
+.loadout-card h3 {
+  font-size: .72rem; color: var(--accent);
+  letter-spacing: .1em; margin-bottom: 8px; font-weight: 700;
+}
+.loadout-card p, .loadout-card ul { font-size: .88rem; color: var(--muted); }
+.loadout-card ul { padding-left: 1.1em; }
+.loadout-card li { margin: 4px 0; }
+.loadout-card li strong { color: var(--text); }
+
+.cycle-box {
+  margin-top: 8px;
+  padding: 14px 16px;
+  border-radius: 10px;
+  background: var(--bg);
+  border: 1px solid rgba(224,69,69,.35);
+}
+.cycle-box h3 {
+  font-size: .8rem; color: var(--danger);
+  letter-spacing: .08em; margin-bottom: 10px; font-weight: 800;
+}
+.cycle-box ol { padding-left: 1.2em; }
+.cycle-box li { margin: 8px 0; font-size: .9rem; color: var(--muted); }
+.cycle-box li strong { color: var(--text); }
+
+.route-strip {
+  display: flex; flex-wrap: wrap; gap: 8px; align-items: center;
+  margin: 0 0 18px; padding: 12px 14px;
+  background: var(--bg); border: 1px dashed var(--border);
+  border-radius: 10px; font-size: .82rem; color: var(--muted);
+}
+.route-strip .rs-step {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-weight: 700; color: var(--text);
+}
+.route-strip .rs-num {
+  font-family: var(--display); font-size: .65rem;
+  letter-spacing: .08em; color: var(--accent);
+  border: 1px solid var(--accent-dim); border-radius: 999px;
+  padding: 2px 8px;
+}
+.route-strip .rs-arrow { color: var(--accent-dim); font-weight: 900; }
+
+.move-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 14px;
+  margin: 16px 0 12px;
+}
+.move-card {
+  display: flex; flex-direction: column; gap: 8px;
+  padding: 14px; background: var(--bg);
+  border: 1px solid var(--border); border-radius: 12px;
+  scroll-margin-top: 88px;
+}
+.move-card:target {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 1px rgba(201,162,39,.35);
+}
+.move-card .mc-head {
+  display: flex; flex-wrap: wrap; gap: 8px;
+  align-items: baseline; justify-content: space-between;
+}
+.move-card .mc-name {
+  font-weight: 900; font-size: .95rem;
+  letter-spacing: .02em; color: var(--text);
+}
+.move-card .mc-phase {
+  font-size: .66rem; font-weight: 800;
+  letter-spacing: .06em; text-transform: uppercase;
+  color: var(--muted); border: 1px solid var(--border);
+  border-radius: 999px; padding: 2px 8px;
+}
+.move-card .mc-tell { font-size: .8rem; color: var(--muted); line-height: 1.45; }
+.move-card .mc-tell strong { color: var(--accent); font-weight: 800; margin-right: 4px; }
+.move-card .mc-counter {
+  font-size: .86rem; font-weight: 700; color: var(--safe);
+  line-height: 1.45; padding: 8px 10px;
+  background: rgba(61,191,122,.08);
+  border-left: 3px solid var(--safe);
+  border-radius: 0 8px 8px 0;
+}
+.move-card .mc-counter::before {
+  content: "破招："; color: var(--muted); font-weight: 800;
+  font-size: .72rem; letter-spacing: .06em; margin-right: 4px;
+}
+.move-clip {
+  position: relative; width: 100%; aspect-ratio: 16 / 9;
+  border-radius: 10px; overflow: hidden;
+  border: 1px dashed #3a4050; background: #0d0f14;
+  display: flex; align-items: center; justify-content: center;
+}
+.move-clip.is-filled {
+  border-style: solid; border-color: var(--border); background: #000;
+}
+.move-clip .clip-placeholder {
+  font-size: .78rem; font-weight: 700; color: var(--muted);
+  letter-spacing: .04em; text-align: center; padding: 12px;
+}
+.move-clip iframe, .move-clip video {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  border: 0; object-fit: contain; background: #000;
+}
+.move-card .mc-chapter { font-size: .72rem; color: var(--muted); line-height: 1.4; }
+.move-card .mc-chapter a { color: var(--accent); font-weight: 700; }
+
+.video-list { display: grid; gap: 16px; }
+.video-card {
+  background: var(--bg); border: 1px solid var(--border);
+  border-radius: 12px; padding: 14px; overflow: hidden;
+}
+.video-card h3 { font-size: .95rem; font-weight: 900; margin-bottom: 6px; }
+.video-card p { font-size: .82rem; color: var(--muted); margin-bottom: 10px; }
+.video-frame {
+  position: relative; width: 100%; aspect-ratio: 16 / 9;
+  border-radius: 10px; overflow: hidden; background: #000;
+  border: 1px solid var(--border);
+}
+.video-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.video-card .ext-links { margin-top: 8px; font-size: .78rem; }
+.video-card .ext-links a { margin-right: 12px; }
+
+.check-list { list-style: none; padding: 0; }
+.check-list li {
+  margin: 8px 0; padding: 8px 12px;
+  background: var(--bg); border: 1px solid var(--border); border-radius: 8px;
+  font-size: .9rem;
+}
+.check-list li::before { content: "☑ "; color: var(--accent); font-weight: 900; }
+.check-list a { font-weight: 800; }
+
+.mistake-list { padding-left: 1.2em; }
+.mistake-list li {
+  margin: 8px 0; font-size: .9rem; color: var(--danger);
+  font-weight: 600;
+}
+.mistake-list li span { color: var(--muted); font-weight: 500; }
+
+.tip-line {
+  margin-top: 12px;
+  font-size: .85rem; color: var(--warn);
+  padding: 10px 12px;
+  border-left: 3px solid var(--warn);
+  background: rgba(224,154,50,.08);
+  border-radius: 0 8px 8px 0;
+}
+
+details.sources {
+  margin-top: 28px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg2);
+  overflow: hidden;
+}
+details.sources > summary {
+  padding: 14px 18px; cursor: pointer;
+  font-weight: 700; list-style: none;
+  display: flex; align-items: center; justify-content: space-between;
+  color: var(--muted); font-size: .9rem;
+}
+details.sources > summary::-webkit-details-marker { display: none; }
+details.sources > summary::after { content: "＋展開"; font-size: .75rem; color: var(--accent); }
+details.sources[open] > summary::after { content: "－收起"; }
+.sources-body {
+  padding: 0 18px 16px;
+  font-size: .78rem; color: var(--muted);
+}
+.sources-body ol { padding-left: 1.3em; }
+.sources-body li { margin: 6px 0; }
+.sources-body a { word-break: break-all; }
+
+.site-footer {
+  text-align: center; padding: 24px 20px 40px;
+  font-size: .72rem; color: var(--muted);
+  border-top: 1px solid var(--border);
+}
+
+</style>
+<link rel="stylesheet" href="assets/vote-widget.css" />
+<link rel="stylesheet" href="assets/share-bar.css" />
+<link rel="stylesheet" href="assets/feedback-form.css" />
+<link rel="stylesheet" href="assets/art-banners.css" />
+<link rel="stylesheet" href="assets/age-gate.css" />
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <div class="brand">
+      <a class="back-home" href="index.html#sekiro">← 返回獵殺區</a>
+      <div class="brand-name" style="margin-top:8px">硬核祝福</div>
+      <div class="brand-slogan">別人改數值，你改規則。</div>
+    </div>
+    <div class="header-right">
+      <div class="page-title">隻狼 · <span>大忍之梟</span></div>
+      <nav class="nav-mini" aria-label="本頁錨點">
+        <a href="#boss">Boss</a>
+        <a href="#owl-ashina">天守梟</a>
+        <a href="#owl-father">義父梟</a>
+        <a href="#phases">相位</a>
+        <a href="#moves-ashina">招式</a>
+        <a href="#videos">片源</a>
+        <a href="#related">相關</a>
+      </nav>
+    </div>
+  </div>
+</header>
+<figure class="page-banner">
+  <img src="assets/art/sample-sekiro-banner-watercolor.jpg" alt="硃紅葉落，狼影對住鬼甲" width="1280" height="720" decoding="async" fetchpriority="high" />
+</figure>
+
+<main class="wrap">
+  <div data-boss-vote data-vote-slug="sekiro-great-shinobi-owl"></div>
+  <div data-boss-share></div>
+
+  <section class="hero" id="boss" aria-labelledby="boss-title">
+    <div>
+      <h1 id="boss-title">大忍之梟 · <em>天守＋平田義父</em></h1>
+      <p class="hero-sub">同頁兩段：葦名城天守・大忍之梟（主線）＋平田屋敷・義父之梟（回憶可選） · 六窗章節已核；逐招獨立秒等 DA2 scrub</p>
+      <div class="slogan-box">城頂梟同義父梟唔係同一場——合集先睇，逐招獨立窗後補。</div>
+
+    <div class="route-strip" aria-label="前期順序">
+      <span class="rs-step"><span class="rs-num">01</span><a href="sekiro-chained-ogre.html#boss">枷鎖鬼</a></span>
+      <span class="rs-arrow">→</span>
+      <span class="rs-step"><span class="rs-num">02</span><a href="sekiro-gyoubu.html#boss">鬼形部</a></span>
+      <span class="rs-arrow">→</span>
+      <span class="rs-step"><span class="rs-num">03</span><a href="sekiro-lady-butterfly.html#boss">蝴蝶夫人</a></span>
+      <span class="rs-arrow">→</span>
+      <span class="rs-step"><span class="rs-num">04</span><a href="sekiro-genichiro.html#boss">天守閣弦一郎</a></span>
+      <span class="rs-arrow">→</span>
+      <span class="rs-step"><span class="rs-num">05</span><a href="sekiro-great-shinobi-owl.html#boss">大忍之梟</a></span>
+    </div>
+      <div class="meta-row">
+        <span class="chip red">雙 Boss</span>
+        <span class="chip gold">主片已核 id</span>
+        <span class="chip warn">逐招待 scrub</span>
+        <span class="chip info">雙段同頁</span>
+        <span class="chip purple">六窗已 bake</span>
+      </div>
+      <div class="basics-grid">
+        <div class="basic-card">
+          <h3>天守・大忍之梟</h3>
+          <p>弦一郎後主線必打。掉落常櫻香木等進度道具。段總覽同 P1／P2 合集已鎖窗。</p>
+        </div>
+        <div class="basic-card">
+          <h3>平田・義父之梟</h3>
+          <p>回憶線可選頭目，同「城頂大忍」共用招式名但節奏唔同。只留可核差異卡殼。</p>
+        </div>
+        <div class="basic-card">
+          <h3>主片編輯</h3>
+          <p>合輯 <strong>BMWTfc_3__g</strong>（455s）章節 0–230／230–455 已核；Tips <strong>DX0uBJcfp4o</strong>；義父 <strong>MkEknpQ5Hac</strong>。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <figure class="page-banner page-banner--rule pos-low">
+  <img src="assets/art/theme-darkness-banner.jpg" alt="夜色金屑，披風對住巨影" width="1280" height="720" decoding="async" loading="lazy" />
+</figure>
+
+  <section class="section" id="owl-ashina" aria-labelledby="owl-ashina-title">
+    <div class="section-kicker">ASHINA · GREAT SHINOBI OWL</div>
+    <h2 id="owl-ashina-title">天守・<em>大忍之梟</em></h2>
+    <p class="section-lead">葦名城天守閣屋頂主線戰。段總覽同兩段注目攻擊合集已 bake；逐招獨立卡仍 EMPTY。</p>
+  </section>
+
+  <section class="section" id="owl-father" aria-labelledby="owl-father-title">
+    <div class="section-kicker">HIRATA · OWL FATHER</div>
+    <h2 id="owl-father-title">平田・<em>義父之梟</em></h2>
+    <p class="section-lead">平田屋敷回憶可選。段總覽、危技合集、二階段已 bake；微塵粉等差異卡仍 EMPTY。</p>
+  </section>
+
+  <section class="section" id="phases" aria-labelledby="phases-title">
+    <div class="section-kicker">CHAPTERS · VERIFIED</div>
+    <h2 id="phases-title">合輯主片<em>章節</em></h2>
+    <p class="section-lead">BMWTfc_3__g 章節已核（yt-dlp duration 455s）。已 bake 到段總覽卡；逐招獨立秒仍等 DA2xwYdMlXc scrub。</p>
+    <div class="phase-grid">
+      <article class="phase-card p1">
+        <h3>段 A · 天守大忍之梟 · 0–230s</h3>
+        <ul>
+          <li>YT chapter「1 Great Shinobi Owl」</li>
+          <li>約 0:00–3:50 · 對應 <a href="#move-ashina-overview">段總覽卡</a></li>
+        </ul>
+      </article>
+      <article class="phase-card p2">
+        <h3>段 B · 平田義父之梟 · 230–455s</h3>
+        <ul>
+          <li>YT chapter「2 Owl Father」</li>
+          <li>約 3:50–7:35 · 對應 <a href="#move-father-overview">段總覽卡</a></li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <section class="section" id="moves-ashina" aria-labelledby="moves-ashina-title">
+    <div class="section-kicker">MOVES · ASHINA</div>
+    <h2 id="moves-ashina-title">天守梟・<em>招式卡</em></h2>
+    <p class="section-lead">三窗已核（合輯段總覽＋ DX0 P1／P2 合集）。其餘逐招卡 EMPTY，placeholder 跟毒沼小刀風格。</p>
+    <div class="move-cards">
+      <article class="move-card" id="move-ashina-overview">
+        <div class="mc-head">
+          <span class="mc-name">段總覽／實戰節錄</span>
+          <span class="mc-phase">P1–P2</span>
+        </div>
+        <p class="mc-tell"><strong>預兆：</strong>合輯天守戰全段</p>
+        <p class="mc-counter">全場節奏參考；逐招睇下面 EMPTY 卡</p>
+        <div class="move-clip" data-yt-id="BMWTfc_3__g" data-yt-start="0" data-yt-end="230" data-clip-src="">
+          <span class="clip-placeholder" aria-hidden="true"></span>
+        </div>
+        <p class="mc-chapter">0–230s（0:00–3:50）· <a href="https://www.youtube.com/watch?v=BMWTfc_3__g&amp;t=0s" target="_blank" rel="noopener noreferrer">BMWTfc_3__g @ 0:00 →</a> · YT chapter「1 Great Shinobi Owl」· VERIFIED</p>
+      </article>
+
+      <article class="move-card" id="move-ashina-p1-notable">
+        <div class="mc-head">
+          <span class="mc-name">一階段・注目攻擊合集</span>
+          <span class="mc-phase">P1</span>
+        </div>
+        <p class="mc-tell"><strong>預兆：</strong>多招合集示範</p>
+        <p class="mc-counter">見各危技原則：跳／見切／貼身彈</p>
+        <div class="move-clip" data-yt-id="DX0uBJcfp4o" data-yt-start="48" data-yt-end="96" data-clip-src="">
+          <span class="clip-placeholder" aria-hidden="true"></span>
+        </div>
+        <p class="mc-chapter">48–96s（0:48–1:36）· <a href="https://www.youtube.com/watch?v=DX0uBJcfp4o&amp;t=48s" target="_blank" rel="noopener noreferrer">DX0uBJcfp4o @ 0:48 →</a> · YT chapter「Notable Attacks (1st Phase)」· VERIFIED</p>
+      </article>
+
+      <article class="move-card" id="move-ashina-p2-notable">
+        <div class="mc-head">
+          <span class="mc-name">二階段・注目攻擊合集</span>
+          <span class="mc-phase">P2</span>
+        </div>
+        <p class="mc-tell"><strong>預兆：</strong>P2 多招合集</p>
+        <p class="mc-counter">壓更緊；同 P1 危技分辨原則</p>
+        <div class="move-clip" data-yt-id="DX0uBJcfp4o" data-yt-start="96" data-yt-end="139" data-clip-src="">
+          <span class="clip-placeholder" aria-hidden="true"></span>
+        </div>
+        <p class="mc-chapter">96–139s（1:36–2:19）· <a href="https://www.youtube.com/watch?v=DX0uBJcfp4o&amp;t=96s" target="_blank" rel="noopener noreferrer">DX0uBJcfp4o @ 1:36 →</a> · YT chapter「Notable Attacks (2nd Phase)」· VERIFIED · CAP≤139</p>
+      </article>
+
+      <article class="move-card" id="move-ashina-combo">
+        <div class="mc-head">
+          <span class="mc-name">普通連刀／架反</span>
+          <span class="mc-phase">P1</span>
+        </div>
+        <p class="mc-tell"><strong>預兆：</strong>貼身快刀同彈刀節奏</p>
+        <p class="mc-counter">貼住彈，唔好俾佢拉開距離</p>
+        <div class="move-clip" data-yt-id="" data-yt-start="" data-yt-end="" data-clip-src="">
+          <span class="clip-placeholder">未鎖獨立示範窗・外連主片</span>
+        </div>
+        <p class="mc-chapter">主片外連：<a href="https://www.youtube.com/watch?v=BMWTfc_3__g" target="_blank" rel="noopener noreferrer">BMWTfc_3__g →</a> · 等 DA2xwYdMlXc frame scrub</p>
+      </article>
+
+      <article class="move-card" id="move-ashina-low">
+        <div class="mc-head">
+          <span class="mc-name">危・下段掃（跳）</span>
+          <span class="mc-phase">P1–P2</span>
+        </div>
+        <p class="mc-tell"><strong>預兆：</strong>危紅＋低掃</p>
+        <p class="mc-counter">跳，唔好格</p>
+        <div class="move-clip" data-yt-id="" data-yt-start="" data-yt-end="" data-clip-src="">
+          <span class="clip-placeholder">未鎖獨立示範窗・外連主片</span>
+        </div>
+        <p class="mc-chapter">主片外連：<a href="https://www.youtube.com/watch?v=BMWTfc_3__g" target="_blank" rel="noopener noreferrer">BMWTfc_3__g →</a> · 等 DA2xwYdMlXc frame scrub</p>
+      </article>
+
+      <article class="move-card" id="move-ashina-thrust">
+        <div class="mc-head">
+          <span class="mc-name">危・突刺</span>
+          <span class="mc-phase">P1–P2</span>
+        </div>
+        <p class="mc-tell"><strong>預兆：</strong>危紅＋突</p>
+        <p class="mc-counter">見切；唔好同掃搞亂</p>
+        <div class="move-clip" data-yt-id="" data-yt-start="" data-yt-end="" data-clip-src="">
+          <span class="clip-placeholder">未鎖獨立示範窗・外連主片</span>
+        </div>
+        <p class="mc-chapter">主片外連：<a href="https://www.youtube.com/watch?v=BMWTfc_3__g" target="_blank" rel="noopener noreferrer">BMWTfc_3__g →</a> · 等 DA2xwYdMlXc frame scrub</p>
+      </article>
+
+      <article class="move-card" id="move-ashina-tools">
+        <div class="mc-head">
+          <span class="mc-name">手裏劍／煙霧／隱身</span>
+          <span class="mc-phase">P1–P2</span>
+        </div>
+        <p class="mc-tell"><strong>預兆：</strong>遠投／煙／隱身拉開</p>
+        <p class="mc-counter">煙後追打；隱身段唔好亂衝</p>
+        <div class="move-clip" data-yt-id="" data-yt-start="" data-yt-end="" data-clip-src="">
+          <span class="clip-placeholder">未鎖獨立示範窗・外連主片</span>
+        </div>
+        <p class="mc-chapter">主片外連：<a href="https://www.youtube.com/watch?v=BMWTfc_3__g" target="_blank" rel="noopener noreferrer">BMWTfc_3__g →</a> · 等 DA2xwYdMlXc frame scrub</p>
+      </article>
+
+      <article class="move-card" id="move-ashina-hawk">
+        <div class="mc-head">
+          <span class="mc-name">一手鷹／反打窗</span>
+          <span class="mc-phase">P1–P2</span>
+        </div>
+        <p class="mc-tell"><strong>預兆：</strong>鷹襲落下</p>
+        <p class="mc-counter">有反打窗先貼身；獨立秒待核</p>
+        <div class="move-clip" data-yt-id="" data-yt-start="" data-yt-end="" data-clip-src="">
+          <span class="clip-placeholder">未鎖獨立示範窗・外連主片</span>
+        </div>
+        <p class="mc-chapter">主片外連：<a href="https://www.youtube.com/watch?v=BMWTfc_3__g" target="_blank" rel="noopener noreferrer">BMWTfc_3__g →</a> · 等 DA2xwYdMlXc frame scrub</p>
+      </article>
+
+      <article class="move-card" id="move-ashina-p2-diff">
+        <div class="mc-head">
+          <span class="mc-name">二階段差異（逐招）</span>
+          <span class="mc-phase">P2</span>
+        </div>
+        <p class="mc-tell"><strong>預兆：</strong>血線後壓更緊</p>
+        <p class="mc-counter">逐招秒未核；可先睇上面 P2 合集卡</p>
+        <div class="move-clip" data-yt-id="" data-yt-start="" data-yt-end="" data-clip-src="">
+          <span class="clip-placeholder">未鎖獨立示範窗・外連主片</span>
+        </div>
+        <p class="mc-chapter">主片外連：<a href="https://www.youtube.com/watch?v=BMWTfc_3__g" target="_blank" rel="noopener noreferrer">BMWTfc_3__g →</a> · 等 DA2xwYdMlXc frame scrub</p>
+      </article>
+
+    </div>
+  </section>
+
+  <section class="section" id="moves-father" aria-labelledby="moves-father-title">
+    <div class="section-kicker">MOVES · FATHER</div>
+    <h2 id="moves-father-title">義父梟・<em>招式卡</em></h2>
+    <p class="section-lead">三窗已核（合輯段總覽＋ MkE 危技／P2）。微塵粉、鷹頻、空間獨立卡仍 EMPTY。</p>
+    <div class="move-cards">
+      <article class="move-card" id="move-father-overview">
+        <div class="mc-head">
+          <span class="mc-name">段總覽／實戰節錄</span>
+          <span class="mc-phase">P1–P2</span>
+        </div>
+        <p class="mc-tell"><strong>預兆：</strong>合輯平田義父全段</p>
+        <p class="mc-counter">平田空間同節奏參考</p>
+        <div class="move-clip" data-yt-id="BMWTfc_3__g" data-yt-start="230" data-yt-end="455" data-clip-src="">
+          <span class="clip-placeholder" aria-hidden="true"></span>
+        </div>
+        <p class="mc-chapter">230–455s（3:50–7:35）· <a href="https://www.youtube.com/watch?v=BMWTfc_3__g&amp;t=230s" target="_blank" rel="noopener noreferrer">BMWTfc_3__g @ 3:50 →</a> · YT chapter「2 Owl Father」· VERIFIED · CAP≤455</p>
+      </article>
+
+      <article class="move-card" id="move-father-perilous">
+        <div class="mc-head">
+          <span class="mc-name">危技合集</span>
+          <span class="mc-phase">P1</span>
+        </div>
+        <p class="mc-tell"><strong>預兆：</strong>義父危招段落</p>
+        <p class="mc-counter">按招跳／見切；細節跟片內解說</p>
+        <div class="move-clip" data-yt-id="MkEknpQ5Hac" data-yt-start="45" data-yt-end="241" data-clip-src="">
+          <span class="clip-placeholder" aria-hidden="true"></span>
+        </div>
+        <p class="mc-chapter">45–241s（0:45–4:01）· <a href="https://www.youtube.com/watch?v=MkEknpQ5Hac&amp;t=45s" target="_blank" rel="noopener noreferrer">MkEknpQ5Hac @ 0:45 →</a> · YT chapter「Perilous Attacks」· VERIFIED</p>
+      </article>
+
+      <article class="move-card" id="move-father-p2">
+        <div class="mc-head">
+          <span class="mc-name">二階段</span>
+          <span class="mc-phase">P2</span>
+        </div>
+        <p class="mc-tell"><strong>預兆：</strong>P2 段落</p>
+        <p class="mc-counter">同危技原則；留意壓力變化</p>
+        <div class="move-clip" data-yt-id="MkEknpQ5Hac" data-yt-start="241" data-yt-end="439" data-clip-src="">
+          <span class="clip-placeholder" aria-hidden="true"></span>
+        </div>
+        <p class="mc-chapter">241–439s（4:01–7:19）· <a href="https://www.youtube.com/watch?v=MkEknpQ5Hac&amp;t=241s" target="_blank" rel="noopener noreferrer">MkEknpQ5Hac @ 4:01 →</a> · YT chapter「Phase Two」· VERIFIED · CAP≤439</p>
+      </article>
+
+      <article class="move-card" id="move-father-dust">
+        <div class="mc-head">
+          <span class="mc-name">微塵粉（差異）</span>
+          <span class="mc-phase">P1–P2</span>
+        </div>
+        <p class="mc-tell"><strong>預兆：</strong>粉致盲／打斷節奏</p>
+        <p class="mc-counter">拉開或等粉散</p>
+        <div class="move-clip" data-yt-id="" data-yt-start="" data-yt-end="" data-clip-src="">
+          <span class="clip-placeholder">未鎖獨立示範窗・外連主片</span>
+        </div>
+        <p class="mc-chapter">主片外連：<a href="https://www.youtube.com/watch?v=MkEknpQ5Hac" target="_blank" rel="noopener noreferrer">MkEknpQ5Hac →</a> · 等 DA2xwYdMlXc frame scrub</p>
+      </article>
+
+      <article class="move-card" id="move-father-hawk">
+        <div class="mc-head">
+          <span class="mc-name">一手鷹頻度／差異</span>
+          <span class="mc-phase">P1–P2</span>
+        </div>
+        <p class="mc-tell"><strong>預兆：</strong>鷹出手更密或變招</p>
+        <p class="mc-counter">同大忍原則；節奏唔同</p>
+        <div class="move-clip" data-yt-id="" data-yt-start="" data-yt-end="" data-clip-src="">
+          <span class="clip-placeholder">未鎖獨立示範窗・外連主片</span>
+        </div>
+        <p class="mc-chapter">主片外連：<a href="https://www.youtube.com/watch?v=MkEknpQ5Hac" target="_blank" rel="noopener noreferrer">MkEknpQ5Hac →</a> · 等 DA2xwYdMlXc frame scrub</p>
+      </article>
+
+      <article class="move-card" id="move-father-space">
+        <div class="mc-head">
+          <span class="mc-name">空間差異（柱／平田）</span>
+          <span class="mc-phase">—</span>
+        </div>
+        <p class="mc-tell"><strong>預兆：</strong>柱擋視線、場地較窄</p>
+        <p class="mc-counter">唔好被逼入角；走位靠實戰</p>
+        <div class="move-clip" data-yt-id="" data-yt-start="" data-yt-end="" data-clip-src="">
+          <span class="clip-placeholder">未鎖獨立示範窗・外連主片</span>
+        </div>
+        <p class="mc-chapter">主片外連：<a href="https://www.youtube.com/watch?v=MkEknpQ5Hac" target="_blank" rel="noopener noreferrer">MkEknpQ5Hac →</a> · 等 DA2xwYdMlXc frame scrub</p>
+      </article>
+
+    </div>
+  </section>
+
+  <section class="section" id="videos" aria-labelledby="videos-title">
+    <div class="section-kicker">VIDEOS</div>
+    <h2 id="videos-title">片源<em>總覽</em></h2>
+    <p class="section-lead">合輯主片（兩場無傷 4K）全片嵌入作對照。段總覽已喺招式卡鎖 0–230／230–455。</p>
+    <div class="video-list">
+      <article class="video-card">
+        <h3>合輯 · Great Shinobi Owl &amp; Owl Father（無傷）</h3>
+        <p>片長 455s（7:35）· id BMWTfc_3__g · 全片嵌入</p>
+        <div class="video-frame">
+          <iframe src="https://www.youtube-nocookie.com/embed/BMWTfc_3__g?start=0&amp;end=455&amp;rel=0" title="Great Shinobi Owl and Owl Father compilation" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <p class="ext-links"><a href="https://www.youtube.com/watch?v=BMWTfc_3__g" target="_blank" rel="noopener noreferrer">YouTube 外連 →</a></p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section" id="related" aria-labelledby="related-title">
+    <div class="section-kicker">RELATED</div>
+    <h2 id="related-title">前後<em>關聯</em></h2>
+    <p class="section-lead">打贏天守大忍之梟之後迷路，可以睇「大忍貓頭鷹後」迷路頁；義父可喺回憶線另開。</p>
+    <div class="meta-row" style="margin-top:8px">
+      <a class="chip gold" href="sekiro-genichiro.html#boss" style="text-decoration:none">弦一郎・天台</a>
+      <a class="chip gold" href="sekiro-great-shinobi-owl.html#boss" style="text-decoration:none">大忍之梟（本頁）</a>
+      <a class="chip gold" href="sekiro-after-owl-lost.html#immediate" style="text-decoration:none">大忍後・迷路</a>
+      <a class="chip" href="sekiro-lady-butterfly.html#boss" style="text-decoration:none">蝴蝶夫人（平田）</a>
+      <a class="chip" href="sekiro-guardian-ape.html#boss" style="text-decoration:none">獅猿（之後）</a>
+    </div>
+  </section>
+
+
+
+  <details class="sources">
+    <summary>片源同鎖窗（公開片）</summary>
+    <div class="sources-body">
+      <ol>
+        <li><a href="https://www.youtube.com/watch?v=BMWTfc_3__g" target="_blank" rel="noopener noreferrer">BMWTfc_3__g</a> · 合輯 ND 4K · 章節 0–230 大忍／230–455 義父（dur 455）</li>
+        <li><a href="https://www.youtube.com/watch?v=DX0uBJcfp4o" target="_blank" rel="noopener noreferrer">DX0uBJcfp4o</a> · Tips &amp; Movesets · 48–96 P1 注目／96–139 P2 注目（dur 139）</li>
+        <li><a href="https://www.youtube.com/watch?v=MkEknpQ5Hac" target="_blank" rel="noopener noreferrer">MkEknpQ5Hac</a> · Git Gud Owl Father · 45–241 危技／241–439 P2（dur 439）</li>
+        <li><a href="https://www.youtube.com/watch?v=DA2xwYdMlXc" target="_blank" rel="noopener noreferrer">DA2xwYdMlXc</a> · All Moves · 逐招 scrub 進行中（EMPTY 卡候補）</li>
+      </ol>
+      <p style="margin-top:10px">六窗秒數跟 YT chapters／on-screen 核實。Inner Father（rWI89gdYUTk）唔用作義父主卡。</p>
+    </div>
+  </details>
+
+
+  <section class="feedback" id="feedback" data-netlify-feedback aria-labelledby="feedback-title">
+    <div class="feedback-head">
+      <h2 id="feedback-title">留下<em>意見</em>俾網主</h2>
+      <span class="feedback-badge">真係會送到</span>
+    </div>
+    <p class="feedback-lead">招式唔清楚、想加邊個 Boss、有錯漏——丢句說話。留言經 Netlify Forms 直達網主信箱／後台，唔再只係本機保存。</p>
+    <div class="feedback-thanks" data-feedback-thanks role="status" aria-live="polite" hidden>
+      <h3>收到，多謝硬核祝福！</h3>
+      <p>你嘅意見已送出俾網主。想再講可以繼續填。</p>
+      <button type="button" class="feedback-secondary" data-feedback-again>再留一句</button>
+    </div>
+    <form class="feedback-form" name="boss-hunt-feedback" method="POST" action="/" data-netlify="true" netlify netlify-honeypot="bot-field" data-boss-feedback>
+      <input type="hidden" name="form-name" value="boss-hunt-feedback" />
+      <input type="hidden" name="page" value="sekiro-great-shinobi-owl.html · 隻狼｜大忍之梟・義父之梟" />
+      <p class="feedback-honeypot" aria-hidden="true">
+        <label>唔好填呢格 <input type="text" name="bot-field" tabindex="-1" autocomplete="off" /></label>
+      </p>
+      <div class="feedback-field">
+        <label for="fb-name-sekiro-great-shinobi-owl">暱稱 <span class="opt">（可選）</span></label>
+        <input type="text" id="fb-name-sekiro-great-shinobi-owl" name="name" maxlength="80" placeholder="例如：狼忍新手" autocomplete="nickname" />
+      </div>
+      <div class="feedback-field">
+        <label for="fb-contact-sekiro-great-shinobi-owl">聯絡 <span class="opt">（可選）</span></label>
+        <input type="text" id="fb-contact-sekiro-great-shinobi-owl" name="contact" maxlength="120" placeholder="電郵／Discord（方便回覆）" autocomplete="email" />
+      </div>
+      <div class="feedback-field">
+        <label for="fb-msg-sekiro-great-shinobi-owl">意見 <span class="opt">（必填）</span></label>
+        <textarea id="fb-msg-sekiro-great-shinobi-owl" name="message" maxlength="4000" required rows="4" placeholder="想講咩就寫低…"></textarea>
+      </div>
+      <div class="feedback-actions">
+        <button type="submit" class="feedback-submit">送出意見</button>
+      </div>
+      <p class="feedback-note">送出後網主喺 Netlify → Forms 收到。唔填一樣睇晒全頁。</p>
+      <div class="feedback-status" data-feedback-status role="status" aria-live="polite"></div>
+    </form>
+  </section>
+</main>
+
+<footer class="site-footer">
+  硬核祝福 · BOSS 獵殺區 · 隻狼 · 大忍之梟・義父之梟 · 唔教修改器／外掛
+</footer>
+
+<script>
+(function () {
+  function hydrateMoveClips() {
+    document.querySelectorAll('.move-clip').forEach(function (slot) {
+      var clipSrc = (slot.getAttribute('data-clip-src') || '').trim();
+      var ytId = (slot.getAttribute('data-yt-id') || '').trim();
+      var ytStart = (slot.getAttribute('data-yt-start') || '').trim();
+      var ytEnd = (slot.getAttribute('data-yt-end') || '').trim();
+      if (!clipSrc && ytStart === '') return;
+      slot.classList.add('is-filled');
+      slot.innerHTML = '';
+      if (clipSrc) {
+        var v = document.createElement('video');
+        v.src = clipSrc;
+        v.controls = true;
+        v.playsInline = true;
+        v.preload = 'metadata';
+        slot.appendChild(v);
+        return;
+      }
+      if (!ytId) return;
+      var params = ['start=' + encodeURIComponent(ytStart)];
+      if (ytEnd) params.push('end=' + encodeURIComponent(ytEnd));
+      params.push('rel=0');
+      var ifr = document.createElement('iframe');
+      ifr.src = 'https://www.youtube-nocookie.com/embed/' + encodeURIComponent(ytId) + '?' + params.join('&');
+      ifr.title = '招式／步驟短片';
+      ifr.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+      ifr.allowFullscreen = true;
+      ifr.loading = 'lazy';
+      slot.appendChild(ifr);
+    });
+  }
+  hydrateMoveClips();
+})();
+</script>
+
+<script src="assets/vote-widget.js" defer></script>
+<script src="assets/share-bar.js" defer></script>
+<script src="assets/feedback-form.js" defer></script>
+<script src="assets/analytics.js" defer></script>
+<script src="assets/age-gate.js" defer></script>
+</body>
+</html>
