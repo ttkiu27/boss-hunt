@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-HK">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Yang Xiaojun｜人物傳｜氣功大全｜硬核祝福</title>
+<meta name="description" content="Yang Xiaojun人物傳。戰鬥力 1.4–1.9 跟 #ranks 角色卡。硬核祝福編輯意見｜非官方。" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Orbitron:wght@600;800&display=swap" rel="stylesheet" />
+<style>
+
+:root {
+  --bg: #0a0b0e;
+  --bg2: #12141a;
+  --bg3: #1a1d26;
+  --border: #2a2f3c;
+  --text: #e8e6e1;
+  --muted: #9a968c;
+  --accent: #c9a227;
+  --accent-dim: #8a7018;
+  --danger: #e04545;
+  --danger-dim: #8b2222;
+  --safe: #3dbf7a;
+  --warn: #e09a32;
+  --info: #4a9eff;
+  --radius: 12px;
+  --shadow: 0 8px 32px rgba(0,0,0,.45);
+  --font: "Noto Sans TC", "PingFang HK", "Microsoft JhengHei", sans-serif;
+  --display: "Orbitron", "Noto Sans TC", sans-serif;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.55;
+  min-height: 100vh;
+  background-image:
+    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(201,162,39,.12), transparent),
+    radial-gradient(ellipse 40% 30% at 100% 50%, rgba(61,191,122,.05), transparent),
+    linear-gradient(180deg, #0a0b0e 0%, #0d0f14 100%);
+}
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+code {
+  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  font-size: .82em; color: var(--text);
+}
+.site-header {
+  position: sticky; top: 0; z-index: 100;
+  backdrop-filter: blur(14px);
+  background: rgba(10,11,14,.85);
+  border-bottom: 1px solid var(--border);
+}
+.header-inner {
+  max-width: 1100px; margin: 0 auto;
+  padding: 12px 20px;
+  display: flex; flex-wrap: wrap; align-items: center; gap: 12px 24px;
+  justify-content: space-between;
+}
+.brand { display: flex; flex-direction: column; gap: 2px; }
+.brand-name {
+  font-family: var(--display);
+  font-weight: 800; font-size: .85rem;
+  letter-spacing: .12em; color: var(--accent);
+  text-transform: uppercase;
+}
+.brand-slogan { font-size: .75rem; color: var(--muted); }
+.back-home {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: .9rem; font-weight: 800;
+  padding: 8px 14px;
+  border: 1px solid var(--accent-dim);
+  border-radius: 999px;
+  color: var(--accent);
+  background: rgba(201,162,39,.08);
+  text-decoration: none;
+  letter-spacing: .04em;
+}
+.back-home:hover { background: rgba(201,162,39,.16); text-decoration: none; border-color: var(--accent); }
+.header-links { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+.header-right { display: flex; flex-direction: column; align-items: flex-end; gap: 6px; }
+.page-title { font-size: 1rem; font-weight: 900; letter-spacing: .06em; }
+.page-title span { color: var(--accent); }
+.nav-mini { display: flex; gap: 6px; flex-wrap: wrap; justify-content: flex-end; }
+.nav-mini a {
+  font-size: .72rem; padding: 4px 10px;
+  border: 1px solid var(--border); border-radius: 999px;
+  color: var(--muted); text-decoration: none;
+  transition: .15s;
+}
+.nav-mini a:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
+.wrap { max-width: 1100px; margin: 0 auto; padding: 24px 20px 80px; }
+.hero {
+  display: grid; gap: 20px;
+  margin-bottom: 28px;
+  padding: 24px;
+  background: linear-gradient(135deg, var(--bg2), var(--bg3));
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  position: relative; overflow: hidden;
+}
+.hero h1 {
+  font-size: clamp(1.5rem, 4vw, 2.2rem);
+  font-weight: 900; letter-spacing: .06em;
+}
+.hero h1 em { font-style: normal; color: var(--accent); }
+.hero-sub { margin-top: 8px; font-size: .95rem; color: var(--muted); }
+.slogan-box {
+  margin-top: 14px;
+  padding: 12px 16px;
+  border-radius: 10px;
+  border: 1px solid rgba(224,69,69,.4);
+  background: rgba(224,69,69,.08);
+  font-size: 1rem; font-weight: 800;
+  color: var(--danger);
+  letter-spacing: .02em;
+}
+.meta-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+.chip {
+  font-size: .72rem; font-weight: 700;
+  padding: 4px 10px; border-radius: 6px;
+  background: var(--bg); border: 1px solid var(--border);
+  color: var(--muted); letter-spacing: .04em;
+}
+.chip.gold { color: var(--accent); border-color: var(--accent-dim); }
+.chip.red { color: var(--danger); border-color: var(--danger-dim); }
+.chip.warn { color: var(--warn); border-color: #8a5a18; }
+.chip.info { color: var(--info); border-color: #1a4a7a; }
+.chip.safe { color: var(--safe); border-color: #1a6a45; }
+.section {
+  margin: 28px 0;
+  padding: 22px;
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  scroll-margin-top: 88px;
+}
+.section-kicker {
+  font-size: .7rem; font-weight: 800;
+  letter-spacing: .14em; color: var(--accent);
+  text-transform: uppercase; margin-bottom: 6px;
+}
+.section h2 {
+  font-size: 1.25rem; font-weight: 900;
+  letter-spacing: .04em; margin-bottom: 8px;
+}
+.section h2 em { font-style: normal; color: var(--accent); }
+.section h3 {
+  font-size: 1.02rem; font-weight: 900; margin: 0 0 8px;
+  letter-spacing: .02em; line-height: 1.4;
+}
+.section-lead { font-size: .9rem; color: var(--muted); margin-bottom: 16px; }
+.prose p { font-size: .95rem; color: var(--text); margin: 0 0 12px; }
+.prose p:last-child { margin-bottom: 0; }
+.vid-card {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 14px 16px 16px;
+  margin: 0 0 14px;
+}
+.vid-note, .vid-id { font-size: .88rem; color: var(--muted); margin-top: 6px; }
+.vid-note strong, .vid-id strong { color: var(--text); }
+.embed {
+  position: relative;
+  margin-top: 12px;
+  padding-top: 56.25%;
+  background: #000;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+.embed iframe {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%; border: 0;
+}
+.tips-list { padding-left: 1.2em; }
+.tips-list li { margin: 8px 0; font-size: .9rem; color: var(--muted); }
+.tips-list li strong { color: var(--text); }
+.summary-box {
+  margin-top: 12px; padding: 14px 16px; border-radius: 10px;
+  border: 1px solid rgba(201,162,39,.45);
+  background: rgba(201,162,39,.08);
+  font-size: .95rem; font-weight: 800; color: var(--text);
+  line-height: 1.5;
+}
+.summary-box em { font-style: normal; color: var(--accent); }
+.site-footer {
+  text-align: center; padding: 24px 20px 40px;
+  font-size: .72rem; color: var(--muted);
+}
+
+</style>
+<link rel="stylesheet" href="../assets/vote-widget.css" />
+<link rel="stylesheet" href="../assets/share-bar.css" />
+<link rel="stylesheet" href="../assets/feedback-form.css" />
+<link rel="stylesheet" href="../assets/age-gate.css" />
+<link rel="stylesheet" href="../assets/art-banners.css" />
+<link rel="stylesheet" href="../assets/qigong-char-card.css" />
+<script src="../assets/qigong-char-card.js" defer></script>
+</head>
+
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <div class="brand">
+      <a class="back-home" href="../qigong-encyclopedia.html#ranks">← 返回三六九等</a>
+      <div class="header-links">
+        <a class="back-home" href="../index.html#qigong">← 氣功大全</a>
+      </div>
+      <div class="brand-name" style="margin-top:8px">硬核祝福</div>
+      <div class="brand-slogan">別人改數值，你改規則。</div>
+    </div>
+    <div class="header-right">
+      <div class="page-title">人物傳 · <span>Yang Xiaojun</span></div>
+      <nav class="nav-mini" aria-label="本頁錨點">
+        <a href="#bio">生平</a>
+        <a href="#school">門派</a>
+        <a href="#power">戰鬥力</a>
+        <a href="#verdict">真假</a>
+        <a href="#clips">代表片</a>
+        <a href="#sources">來源</a>
+      </nav>
+    </div>
+  </div>
+</header>
+<figure class="page-banner page-banner--slim pos-low">
+  <img src="../assets/art/sample-qigong-ink-watercolor.jpg" alt="墨山骨白，坐看一縷青氣" width="1280" height="720" decoding="async" fetchpriority="high" />
+</figure>
+
+
+<main class="wrap">
+
+  <div data-boss-vote data-vote-slug="qigong-bio-yang-xiaojun-sanda"></div>
+  <div data-boss-share></div>
+
+  <section class="hero" aria-labelledby="hero-title">
+    <article class="char-card" data-slug="bio-yang-xiaojun-sanda" aria-label="Yang Xiaojun角色卡">
+      <div class="char-avatar char-avatar--poster"><img src="../assets/qigong-avatars/bio-yang-xiaojun-sanda.jpg" data-fallback-src="https://i.ytimg.com/vi/UCuwGnPR9Jk/hqdefault.jpg" alt="彩色公開照加TCG框" width="168" height="235" loading="lazy" decoding="async" /><svg class="char-silhouette" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><circle cx="32" cy="22" r="10"></circle><path d="M12 56c2-14 10-20 20-20s18 6 20 20"></path></svg><span class="char-initials" aria-hidden="true">Y</span></div>
+      <div class="char-main">
+        <p class="char-kicker">角色卡 · 五等 · 中國</p>
+        <h1 id="hero-title">Yang Xiaojun · <em>人物傳</em></h1>
+        <p class="hero-sub">武術散打 · 中國 · Phase2 採集 2026-10-24</p>
+        <p class="char-power"><span class="char-power-k">戰鬥力</span> <strong>1.4–1.9</strong><span class="char-power-note">編輯意見｜非官方 · 教學接觸可核，職銜待核</span></p>
+        <p class="char-moves-label">絕招 <span>跟 #ranks 角色卡 · 吹水／表演／傳說唔當高戰力 · 編輯意見</span></p>
+        <ul class="char-moves"><li class="char-move" data-kind="ok"><span class="move-tag">可證教學接觸</span><span class="move-name">散打抱摔／過背類</span><span class="move-note">教學片見摔法。職銜未核，唔抬英雄傳。</span></li><li class="char-move" data-kind="ok"><span class="move-tag">可證教學</span><span class="move-name">散打摔法連接拳腿</span><span class="move-note">訓練結構可見。</span></li></ul>
+        <div class="meta-row">
+        <span class="chip info">地區｜</span>
+        <span class="chip gold">門派｜</span>
+        <span class="chip warn">等第｜—</span>
+        <span class="chip safe">真假｜</span>
+        <span class="chip info">戰鬥力｜1.4–1.9</span>
+        <span class="chip gold">硬核祝福編輯意見｜非官方</span>
+      </div>
+        <p class="char-oneline"><span>一句註</span></p>
+        <p class="char-credit"></p>
+      </div>
+    </article>
+    <div class="slogan-box">戰鬥力 1＝普通成年男子，泰臣＝3（《刃牙》錨，唔係科學測量）。神功、無接觸吹噓、影視傳說唔當高戰力。</div>
+  </section>
+
+  <section class="section" id="bio" aria-labelledby="bio-title">
+    <div class="section-kicker">BIO</div>
+    <h2 id="bio-title"><em>生平</em></h2>
+    <p class="section-lead">只寫公開片、公開網站與可核文獻。在世人物用中性表述。戰鬥力同真假判斷另標編輯意見。</p>
+    <div class="prose">
+
+    </div>
+  </section>
+
+  <section class="section" id="school" aria-labelledby="school-title">
+    <div class="section-kicker">SCHOOL</div>
+    <h2 id="school-title"><em>門派</em></h2>
+    <div class="prose">
+      <p>門派欄：。地區：。</p>
+      <p>英雄傳：。</p>
+
+    </div>
+  </section>
+
+  <section class="section" id="power" aria-labelledby="power-title">
+    <div class="section-kicker">POWER</div>
+    <h2 id="power-title">戰鬥力 · <em>1.4–1.9</em></h2>
+    <p class="section-lead">硬核祝福編輯意見｜非官方。唔係官方排名，亦唔係科學測量。數字跟 #ranks 角色卡，唔跟人物表舊暫估。</p>
+    <div class="prose">
+      <p>建議戰鬥力 1.4–1.9。硬核祝福編輯意見｜非官方。數字跟氣功大全 #ranks 角色卡。</p>
+      <p>一句點解：</p>
+      <p>相對標尺，高過 1，仍然低過泰臣＝3。</p>
+
+    </div>
+    <div class="summary-box">標尺提醒：<em>1＝普通成年男子</em>。泰臣（Mike Tyson）＝3，呢個 3 係《刃牙》漫畫設定錨點。呢頁數字相對呢兩點估，吹水、表演、影視傳說唔加分。</div>
+  </section>
+
+  <section class="section" id="verdict" aria-labelledby="verdict-title">
+    <div class="section-kicker">VERDICT</div>
+    <h2 id="verdict-title">真假／<em>真</em></h2>
+    <div class="prose">
+      <p>站標：三六九等人物傳。真假／站標：。</p>
+      <p>英雄傳：。</p>
+
+    </div>
+    <div class="summary-box">一句註：<em></em> 以上係硬核祝福編輯意見｜非官方。</div>
+  </section>
+
+  <section class="section" id="clips" aria-labelledby="clips-title">
+    <div class="section-kicker">CLIPS</div>
+    <h2 id="clips-title">代表<em>片</em></h2>
+    <p class="section-lead">片 ID 跟 Phase2 採集檔（2026-10-24）已核清單。嵌入用 youtube-nocookie。</p>
+
+  </section>
+
+  <section class="section" id="sources" aria-labelledby="sources-title">
+    <div class="section-kicker">SOURCES</div>
+    <h2 id="sources-title"><em>來源</em></h2>
+    <ul class="tips-list">
+
+      <li><a href="../qigong-encyclopedia.html#ranks" rel="noopener noreferrer">氣功大全｜三六九等 #ranks 角色卡</a></li>
+    </ul>
+    <p class="section-lead" style="margin-top:12px;margin-bottom:0">核對日期：2026-10-24（香港）。slug：<code>bio-yang-xiaojun-sanda</code> · Phase2 採集</p>
+  </section>
+  <section class="feedback" id="feedback" data-netlify-feedback aria-labelledby="feedback-title">
+    <div class="feedback-head">
+      <h2 id="feedback-title">留下<em>意見</em>俾網主</h2>
+      <span class="feedback-badge">真係會送到</span>
+    </div>
+    <p class="feedback-lead">片狀態唔啱、事實要補、戰力一句唔妥——丢句說話。留言經 Netlify Forms 直達網主（Credits 用完時可能暫收唔到，仍可留低）。</p>
+
+    <div class="feedback-thanks" data-feedback-thanks role="status" aria-live="polite" hidden>
+      <h3>收到，多謝硬核祝福！</h3>
+      <p>你嘅意見已送出俾網主。想再講可以繼續填。</p>
+      <button type="button" class="feedback-secondary" data-feedback-again>再留一句</button>
+    </div>
+
+    <form class="feedback-form" name="boss-hunt-feedback" method="POST" action="/" data-netlify="true" netlify netlify-honeypot="bot-field" data-boss-feedback>
+      <input type="hidden" name="form-name" value="boss-hunt-feedback" />
+      <input type="hidden" name="page" value="qigong-bios/qigong-bio-yang-xiaojun-sanda.html · Yang Xiaojun｜人物傳" />
+      <p class="feedback-honeypot" aria-hidden="true">
+        <label>唔好填呢格 <input type="text" name="bot-field" tabindex="-1" autocomplete="off" /></label>
+      </p>
+      <div class="feedback-field">
+        <label for="fb-name-bio-yang-xiaojun-sanda">暱稱 <span class="opt">（可選）</span></label>
+        <input type="text" id="fb-name-bio-yang-xiaojun-sanda" name="name" maxlength="80" placeholder="例如：採集同路人" autocomplete="nickname" />
+      </div>
+      <div class="feedback-field">
+        <label for="fb-contact-bio-yang-xiaojun-sanda">聯絡 <span class="opt">（可選）</span></label>
+        <input type="text" id="fb-contact-bio-yang-xiaojun-sanda" name="contact" maxlength="120" placeholder="電郵／Discord（方便回覆）" autocomplete="email" />
+      </div>
+      <div class="feedback-field">
+        <label for="fb-msg-bio-yang-xiaojun-sanda">意見 <span class="opt">（必填）</span></label>
+        <textarea id="fb-msg-bio-yang-xiaojun-sanda" name="message" maxlength="4000" required rows="4" placeholder="想講咩就寫低…"></textarea>
+      </div>
+      <div class="feedback-actions">
+        <button type="submit" class="feedback-submit">送出意見</button>
+      </div>
+      <p class="feedback-note">唔填一樣睇晒全頁。</p>
+      <div class="feedback-status" data-feedback-status role="status" aria-live="polite"></div>
+    </form>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  硬核祝福 · BOSS 獵殺區 · 氣功大全 · Yang Xiaojun · 唔教修改器／外掛
+</footer>
+
+<script src="../assets/vote-widget.js" defer></script>
+<script src="../assets/share-bar.js" defer></script>
+<script src="../assets/feedback-form.js" defer></script>
+<script src="../assets/age-gate.js" defer></script>
+<script src="../assets/analytics.js" defer></script>
+</body>
+</html>
