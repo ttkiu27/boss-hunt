@@ -29,9 +29,24 @@
   --shadow: 0 8px 32px rgba(0,0,0,.45);
   --font: "Noto Sans TC", "PingFang HK", "Microsoft JhengHei", sans-serif;
   --display: "Orbitron", "Noto Sans TC", sans-serif;
+  /* sticky .site-header（八 chip；手機兩行 ≈221px — 錨點 scroll-margin 用） */
+  --site-header-offset: 132px;
+  --anchor-scroll-margin: calc(var(--site-header-offset) + 12px);
+}
+@media (max-width: 900px) {
+  :root { --site-header-offset: 152px; }
+}
+@media (max-width: 640px) {
+  :root { --site-header-offset: 188px; }
+}
+@media (max-width: 468px) {
+  :root { --site-header-offset: 221px; }
 }
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--anchor-scroll-margin);
+}
 body {
   font-family: var(--font);
   background: var(--bg);
@@ -102,6 +117,7 @@ img, iframe, video { max-width: 100%; }
   border-radius: var(--radius);
   box-shadow: var(--shadow);
   position: relative; overflow: hidden;
+  scroll-margin-top: var(--anchor-scroll-margin);
 }
 .hero::before {
   content: ""; position: absolute; inset: 0;
@@ -163,7 +179,7 @@ img, iframe, video { max-width: 100%; }
   border: 1px solid var(--border);
   border-radius: var(--radius);
   box-shadow: var(--shadow);
-  scroll-margin-top: 72px;
+  scroll-margin-top: var(--anchor-scroll-margin);
 }
 .section-kicker {
   font-size: .7rem; font-weight: 800;
@@ -228,7 +244,7 @@ img, iframe, video { max-width: 100%; }
   display: flex; flex-direction: column; gap: 8px;
   padding: 14px; background: var(--bg);
   border: 1px solid var(--border); border-radius: 12px;
-  scroll-margin-top: 88px;
+  scroll-margin-top: var(--anchor-scroll-margin);
 }
 .move-card:target {
   border-color: var(--accent);
@@ -768,39 +784,39 @@ details.sources[open] > summary::after { content: "－收起"; }
     </div>
   </details>
 
-  <section class="feedback" id="feedback" data-netlify-feedback aria-labelledby="feedback-title">
-    <div class="feedback-head">
+  <section class="bh-feedback feedback" id="feedback" data-netlify-feedback aria-labelledby="feedback-title">
+    <div class="bh-feedback-head">
       <h2 id="feedback-title">留下<em>意見</em>俾網主</h2>
-      <span class="feedback-badge">真係會送到</span>
+      <span class="bh-feedback-chip">真係會送到</span>
     </div>
-    <p class="feedback-lead">招式唔清楚、想加邊個 Boss、有錯漏——丢句說話。留言經 Netlify Forms 直達網主信箱／後台，唔再只係本機保存。</p>
+    <p class="bh-feedback-lead">招式唔清楚、想加邊個 Boss、有錯漏——丢句說話。留言經 Netlify Forms 直達網主信箱／後台，唔再只係本機保存。</p>
     <div class="feedback-thanks" data-feedback-thanks role="status" aria-live="polite" hidden>
       <h3>收到，多謝硬核祝福！</h3>
       <p>你嘅意見已送出俾網主。想再講可以繼續填。</p>
       <button type="button" class="feedback-secondary" data-feedback-again>再留一句</button>
     </div>
-    <form class="feedback-form" name="boss-hunt-feedback" method="POST" action="/" data-netlify="true" netlify netlify-honeypot="bot-field" data-boss-feedback>
+    <form class="bh-feedback-form" name="boss-hunt-feedback" method="POST" action="/" data-netlify="true" netlify netlify-honeypot="bot-field" data-boss-feedback>
       <input type="hidden" name="form-name" value="boss-hunt-feedback" />
       <input type="hidden" name="page" value="sekiro-divine-dragon.html · 隻狼｜神龍・桜竜" />
-      <p class="feedback-honeypot" aria-hidden="true">
+      <p class="bh-feedback-honeypot" aria-hidden="true">
         <label>唔好填呢格 <input type="text" name="bot-field" tabindex="-1" autocomplete="off" /></label>
       </p>
-      <div class="feedback-field">
+      <div class="bh-feedback-field">
         <label for="fb-name-sekiro-divine-dragon">暱稱 <span class="opt">（可選）</span></label>
         <input type="text" id="fb-name-sekiro-divine-dragon" name="name" maxlength="80" placeholder="例如：狼忍新手" autocomplete="nickname" />
       </div>
-      <div class="feedback-field">
+      <div class="bh-feedback-field">
         <label for="fb-contact-sekiro-divine-dragon">聯絡 <span class="opt">（可選）</span></label>
         <input type="text" id="fb-contact-sekiro-divine-dragon" name="contact" maxlength="120" placeholder="電郵／Discord（方便回覆）" autocomplete="email" />
       </div>
-      <div class="feedback-field">
+      <div class="bh-feedback-field">
         <label for="fb-msg-sekiro-divine-dragon">意見 <span class="opt">（必填）</span></label>
         <textarea id="fb-msg-sekiro-divine-dragon" name="message" maxlength="4000" required rows="4" placeholder="想講咩就寫低…"></textarea>
       </div>
-      <div class="feedback-actions">
-        <button type="submit" class="feedback-submit">送出意見</button>
+      <div class="bh-feedback-actions">
+        <button type="submit" class="bh-feedback-submit feedback-submit">送出意見</button>
       </div>
-      <p class="feedback-note">送出後網主喺 Netlify → Forms 收到。唔填一樣睇晒全頁。</p>
+      <p class="bh-feedback-note">送出後網主喺 Netlify → Forms 收到。唔填一樣睇晒全頁。</p>
       <div class="feedback-status" data-feedback-status role="status" aria-live="polite"></div>
     </form>
   </section>
