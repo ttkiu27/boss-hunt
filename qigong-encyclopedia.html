@@ -283,6 +283,68 @@ tr:hover td { background: rgba(255,255,255,.02); }
 }
 .summary-box em { font-style: normal; color: var(--accent); }
 
+.hl-legend-key {
+  display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 14px;
+}
+.hl-grid { display: grid; gap: 14px; }
+.hl-card {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 14px 16px 16px;
+  scroll-margin-top: 88px;
+}
+.hl-card:target { border-color: var(--accent); box-shadow: 0 0 0 1px rgba(201,162,39,.35); }
+.hl-card--priority { border-color: rgba(201,162,39,.55); background: linear-gradient(135deg, var(--bg), rgba(201,162,39,.06)); }
+.hl-card--debunk {
+  border-color: rgba(224,69,69,.55);
+  box-shadow: inset 0 0 0 1px rgba(224,69,69,.15);
+}
+.hl-card h3 { font-size: 1rem; font-weight: 900; margin: 8px 0 6px; line-height: 1.4; }
+.hl-meta { font-size: .82rem; color: var(--muted); margin-top: 4px; }
+.hl-meta strong { color: var(--text); }
+.hl-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin: 10px 0;
+}
+@media (max-width: 720px) { .hl-split { grid-template-columns: 1fr; } }
+.hl-col {
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  font-size: .86rem;
+  color: var(--muted);
+  line-height: 1.5;
+}
+.hl-col--legend { border-color: rgba(154,150,140,.45); background: rgba(255,255,255,.02); }
+.hl-col--ok { border-color: rgba(61,191,122,.35); background: rgba(61,191,122,.06); }
+.hl-col-k {
+  display: block;
+  font-size: .68rem; font-weight: 800;
+  letter-spacing: .1em; margin-bottom: 6px;
+}
+.hl-col--legend .hl-col-k { color: var(--muted); }
+.hl-col--ok .hl-col-k { color: var(--safe); }
+.hl-stance {
+  font-size: .88rem; color: var(--text);
+  margin: 8px 0 6px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px dashed var(--border);
+}
+.hl-stance strong { color: var(--accent); }
+.hl-sources { font-size: .8rem; color: var(--muted); margin-top: 6px; line-height: 1.55; }
+.hl-sources a { font-weight: 700; }
+.hl-subhead {
+  font-size: .95rem; font-weight: 900;
+  margin: 22px 0 10px;
+  letter-spacing: .04em;
+  color: var(--text);
+}
+.hl-subhead em { font-style: normal; color: var(--danger); }
+
 .site-footer {
   text-align: center; padding: 24px 20px 40px;
   font-size: .72rem; color: var(--muted);
@@ -310,6 +372,7 @@ tr:hover td { background: rgba(255,255,255,.02); }
       <nav class="nav-mini" aria-label="分類跳轉">
         <a href="#internet">網路奇人／待核</a>
         <a href="#ranks">三六九等／ranks</a>
+        <a href="#heroes">英雄傳</a>
         <a href="#truth">影片真相庫</a>
         <a href="#regions">地區榜</a>
       </nav>
@@ -324,6 +387,7 @@ tr:hover td { background: rgba(255,255,255,.02); }
 <aside class="cat-rail" aria-label="分類側欄">
   <a href="#internet">網路奇人／待核</a>
   <a href="#ranks">三六九等／ranks</a>
+  <a href="#heroes">英雄傳</a>
   <a href="#truth">影片真相庫</a>
   <a href="#regions">地區榜</a>
 </aside>
@@ -332,6 +396,7 @@ tr:hover td { background: rgba(255,255,255,.02); }
   <nav class="cat-bar" aria-label="分類跳轉">
     <a href="#internet">網路奇人／待核</a>
     <a href="#ranks">三六九等／ranks</a>
+    <a href="#heroes">英雄傳</a>
     <a href="#truth">影片真相庫</a>
     <a href="#regions">地區榜</a>
   </nav>
@@ -866,6 +931,250 @@ tr:hover td { background: rgba(255,255,255,.02); }
     <div class="summary-box">七等、八等、九等：<em>真料庫未收人</em>。空等唔填生人，亦唔填冷門名字。</div>
   </section>
 
+  <section class="section" id="heroes" aria-labelledby="heroes-title">
+    <div class="section-kicker">HEROES · PHASE5</div>
+    <h2 id="heroes-title">英雄傳 · <em>傳說 vs 可核</em></h2>
+    <p class="section-lead">9 張短卡（HL-01…HL-09），唔係 14 篇重複傳記。戰鬥力只跟 <a href="#ranks">#ranks</a>／<a href="#internet">#internet</a> 卡面；傳說、影視、口述唔自動加成。標尺：1＝普通成年男子，泰臣（Mike Tyson）＝3（《刃牙》錨，非科學測量）。<strong>無人 ≥ 泰臣＝3。</strong> 硬核祝福編輯意見｜非官方。</p>
+    <div class="hl-legend-key" aria-label="狀態色">
+      <span class="chip safe">可核</span>
+      <span class="chip warn">待核</span>
+      <span class="chip warn">待證</span>
+      <span class="chip">影視娛樂</span>
+      <span class="chip">表演</span>
+      <span class="chip red">打假教材</span>
+      <span class="chip red">N 英雄傳</span>
+    </div>
+    <nav class="jump-row" aria-label="英雄傳短卡跳轉">
+      <a href="#hl-01">HL-01</a>
+      <a href="#hl-02">HL-02</a>
+      <a href="#hl-03">HL-03</a>
+      <a href="#hl-04">HL-04</a>
+      <a href="#hl-05">HL-05</a>
+      <a href="#hl-06">HL-06</a>
+      <a href="#hl-07">HL-07</a>
+      <a href="#hl-08">HL-08</a>
+      <a href="#hl-09">HL-09</a>
+    </nav>
+
+    <h3 class="hl-subhead">主對照 · 傳承／方法論（優先）</h3>
+    <div class="hl-grid" aria-label="英雄傳主對照短卡">
+
+    <article class="hl-card hl-card--priority" id="hl-01">
+      <div class="meta-row">
+        <span class="chip gold">HL-01</span>
+        <span class="chip warn">待核</span>
+        <span class="chip safe">可核</span>
+        <span class="chip gold">英雄傳 Y（謹慎）</span>
+      </div>
+      <h3>大山倍達 — 山籠／打牛傳說 vs 極真全接觸賽事</h3>
+      <p class="hl-meta"><strong>卡面戰鬥力</strong> 2.2–2.8（歷史估計｜編輯意見｜非官方） · <a href="qigong-bios/qigong-bio-mas-oyama.html">傳記</a> · <a href="#ranks">#ranks</a></p>
+      <div class="hl-split">
+        <div class="hl-col hl-col--legend">
+          <span class="hl-col-k">傳說／坊間敘事</span>
+          坊間常把「山籠修煉」「空手打牛」等個人傳奇寫成已證絕招或無敵神話，並暗示可超泰臣級打擊錨。
+        </div>
+        <div class="hl-col hl-col--ok">
+          <span class="hl-col-k">可核</span>
+          極真空手創立者與 IKO 公開源流可核；無護手套全接觸錦標賽規則與歷史賽事片可見體系（例 <code>X4rOzP4dpS4</code>）；體系延續之公開對戰旁證（例 <code>a3AGBSz53_Y</code>）。
+        </div>
+      </div>
+      <p class="hl-stance"><strong>站立場</strong>　全接觸體系同大賽可核；山籠／打牛唔自動加成，唔抬超泰臣＝3。狀態：組織／賽事體系＝可核；山籠／打牛等非賽事個人傳奇＝待核。</p>
+      <p class="hl-sources">來源：<a href="https://www.kyokushinkaikan.org/en/philosophy/originator/" target="_blank" rel="noopener noreferrer">IKO 創立者頁</a> · <a href="https://www.youtube.com/watch?v=X4rOzP4dpS4" target="_blank" rel="noopener noreferrer">X4rOzP4dpS4</a> · <a href="https://www.youtube.com/watch?v=a3AGBSz53_Y" target="_blank" rel="noopener noreferrer">a3AGBSz53_Y</a> · <a href="https://commons.wikimedia.org/wiki/File:Masutatsu_Oyama_karate.jpg" target="_blank" rel="noopener noreferrer">Commons 照片</a></p>
+    </article>
+
+    <article class="hl-card hl-card--priority" id="hl-02">
+      <div class="meta-row">
+        <span class="chip gold">HL-02</span>
+        <span class="chip warn">待證</span>
+        <span class="chip">影視娛樂</span>
+        <span class="chip gold">英雄傳 Y（謹慎）</span>
+      </div>
+      <h3>李小龍 — 「唯一真打架」類剪輯 vs 方法論／訓練史</h3>
+      <p class="hl-meta"><strong>卡面戰鬥力</strong> 2.0–2.6 · <a href="qigong-bios/qigong-bio-bruce-lee.html">傳記</a> · <a href="#ranks">#ranks</a> · 片 <code>rPAoNPJ2Mas</code> 見 <a href="#v-pending">待證／不入主清單</a></p>
+      <div class="hl-split">
+        <div class="hl-col hl-col--legend">
+          <span class="hl-col-k">傳說／標題黨</span>
+          單條街頭／挑戰剪輯（如《Bruce Lee&#x27;s Only Real Fight…》）常被說成「唯一真打架」主證，並用影視武打抬近或超越泰臣＝3。
+        </div>
+        <div class="hl-col hl-col--ok">
+          <span class="hl-col-k">可核</span>
+          人物、截拳道方法論、公開訓練史與電影史料大量可核；踢擊／敏捷體能展示有訓練史料；一寸拳公開示範存在，實戰效力勿神話。電影武打＝影視娛樂，唔直接等於擂台戰績。
+        </div>
+      </div>
+      <p class="hl-stance"><strong>站立場</strong>　方法論影響可核；唔單片定論；影視唔抬戰力；區間遠低／貼近泰臣錨下沿，唔超 3。片 <code>rPAoNPJ2Mas</code>：待證，<strong>不入主證</strong>。</p>
+      <p class="hl-sources">來源：<a href="https://en.wikipedia.org/wiki/Bruce_Lee" target="_blank" rel="noopener noreferrer">Wikipedia</a> · <a href="https://commons.wikimedia.org/wiki/File:Bruce_Lee_1973.jpg" target="_blank" rel="noopener noreferrer">Commons</a> · <span class="chip warn" style="display:inline;padding:2px 6px;font-size:.72rem">待證・不入主證</span> <a href="https://www.youtube.com/watch?v=rPAoNPJ2Mas" target="_blank" rel="noopener noreferrer">rPAoNPJ2Mas</a> · <a href="https://www.youtube.com/watch?v=r4RkhTyfrZE" target="_blank" rel="noopener noreferrer">r4RkhTyfrZE</a></p>
+    </article>
+
+    <article class="hl-card hl-card--priority" id="hl-03">
+      <div class="meta-row">
+        <span class="chip gold">HL-03</span>
+        <span class="chip">影視娛樂</span>
+        <span class="chip safe">可核</span>
+        <span class="chip gold">英雄傳 Y（謹慎）</span>
+      </div>
+      <h3>葉問 — 影視英雄敘事 vs 傳承樞紐</h3>
+      <p class="hl-meta"><strong>卡面戰鬥力</strong> 1.6–2.2 · <a href="qigong-bios/qigong-bio-ip-man.html">傳記</a> · <a href="#ranks">#ranks</a></p>
+      <div class="hl-split">
+        <div class="hl-col hl-col--legend">
+          <span class="hl-col-k">傳說／影視</span>
+          《葉問》電影系列與流行文化把歷史人物寫成連勝街頭／擂台無敵；觀眾易把劇情當實戰證據。
+        </div>
+        <div class="hl-col hl-col--ok">
+          <span class="hl-col-k">可核</span>
+          現代詠春公開傳承樞紐：佛山→香港開班授徒；弟子網絡（含黃淳樑、李小龍等公開師承敘事）可核；木人樁、黏手、小念頭／尋橋等門派標準訓練與公開教學生態可核（弟子系教學可見接觸，≠本人賽績表）。
+        </div>
+      </div>
+      <p class="hl-stance"><strong>站立場</strong>　承認傳承樞紐地位；影視絕唔加分；唔抬無敵神話；戰力遠低於泰臣＝3。《葉問》系列＝影視娛樂；具體街頭／擂台場次數字多為口述＝待核。</p>
+      <p class="hl-sources">來源：<a href="https://en.wikipedia.org/wiki/Ip_Man" target="_blank" rel="noopener noreferrer">Wikipedia</a> · <a href="https://commons.wikimedia.org/wiki/File:Yip_Man.jpg" target="_blank" rel="noopener noreferrer">Commons</a> · <a href="https://www.youtube.com/watch?v=r4RkhTyfrZE" target="_blank" rel="noopener noreferrer">r4RkhTyfrZE</a> · <a href="https://www.youtube.com/watch?v=-75r4cx_XJY" target="_blank" rel="noopener noreferrer">-75r4cx_XJY</a></p>
+    </article>
+
+    </div>
+
+    <h3 class="hl-subhead">人物側寫 · 待核細項（maybe／N）</h3>
+    <div class="hl-grid" aria-label="英雄傳側寫短卡">
+
+    <article class="hl-card" id="hl-04">
+      <div class="meta-row">
+        <span class="chip gold">HL-04</span>
+        <span class="chip warn">待核</span>
+        <span class="chip">英雄傳 maybe</span>
+      </div>
+      <h3>黃淳樑 — 「講手」紀錄片可核 vs 場次數字口述</h3>
+      <p class="hl-meta"><strong>卡面戰鬥力</strong> 1.7–2.3 · <a href="qigong-bios/qigong-bio-wong-shun-leung.html">傳記</a> · <a href="#ranks">#ranks</a></p>
+      <div class="hl-split">
+        <div class="hl-col hl-col--legend">
+          <span class="hl-col-k">傳說／媒體</span>
+          媒體／同門常稱「講手王」；坊間把「比武次數」具體數字當官方戰績表，抬成連戰連勝神話。
+        </div>
+        <div class="hl-col hl-col--ok">
+          <span class="hl-col-k">可核</span>
+          紀錄片《The King of Talking Hands》含親屬／同門訪談（<code>r4RkhTyfrZE</code>）；研討會 rare footage 可見攤膀／圈手等接觸教學（<code>-75r4cx_XJY</code>）。可見接觸教學 ≠ 可逐場核對之官方賽事表。
+        </div>
+      </div>
+      <p class="hl-stance"><strong>站立場</strong>　教學導向可核；場次數字唔硬當官方紀錄、唔加分抬無敵。</p>
+      <p class="hl-sources">來源：<a href="https://www.youtube.com/watch?v=r4RkhTyfrZE" target="_blank" rel="noopener noreferrer">r4RkhTyfrZE</a> · <a href="https://www.youtube.com/watch?v=-75r4cx_XJY" target="_blank" rel="noopener noreferrer">-75r4cx_XJY</a> · <a href="https://en.wikipedia.org/wiki/Wong_Shun-leung" target="_blank" rel="noopener noreferrer">Wikipedia</a></p>
+    </article>
+
+    <article class="hl-card" id="hl-05">
+      <div class="meta-row">
+        <span class="chip gold">HL-05</span>
+        <span class="chip warn">待核</span>
+        <span class="chip red">英雄傳 N</span>
+      </div>
+      <h3>Yang Xiaojun — 散打教學接觸可核 vs 職銜／賽績待核</h3>
+      <p class="hl-meta"><strong>卡面戰鬥力</strong> 1.4–1.9 · <a href="qigong-bios/qigong-bio-yang-xiaojun-sanda.html">傳記</a> · <a href="#ranks">#ranks</a></p>
+      <div class="hl-split">
+        <div class="hl-col hl-col--legend">
+          <span class="hl-col-k">傳說／外推</span>
+          因出現在散打教學片，易被外推成「國家隊／世界盃金牌」式職銜敘事（本庫未核實前唔採）。
+        </div>
+        <div class="hl-col hl-col--ok">
+          <span class="hl-col-k">可核</span>
+          公開散打摔法／抱摔類教學片可見接觸訓練結構（<code>UCuwGnPR9Jk</code>）；IWUF 散打世界盃等官方賽事片存在（例 <code>Lyf4Yl7XpR8</code>）——係賽事級語境，≠此人個人金牌。
+        </div>
+      </div>
+      <p class="hl-stance"><strong>站立場</strong>　教學可見就寫教學可見；職銜未核唔抬英雄傳。</p>
+      <p class="hl-sources">來源：<a href="https://www.youtube.com/watch?v=UCuwGnPR9Jk" target="_blank" rel="noopener noreferrer">UCuwGnPR9Jk</a> · <a href="https://www.youtube.com/watch?v=Lyf4Yl7XpR8" target="_blank" rel="noopener noreferrer">Lyf4Yl7XpR8</a></p>
+    </article>
+
+    <article class="hl-card" id="hl-06">
+      <div class="meta-row">
+        <span class="chip gold">HL-06</span>
+        <span class="chip warn">待核</span>
+        <span class="chip red">英雄傳 N</span>
+      </div>
+      <h3>張洪梅 — 八卦掌演示可核 vs 師承簡歷待核</h3>
+      <p class="hl-meta"><strong>卡面戰鬥力</strong> 1.0–1.4 · <a href="qigong-bios/qigong-bio-zhang-hongmei.html">傳記</a> · <a href="#ranks">#ranks</a></p>
+      <div class="hl-split">
+        <div class="hl-col hl-col--legend">
+          <span class="hl-col-k">傳說／外推</span>
+          公開演示片易被寫成「某系嫡傳宗師」完整簡歷（本庫師承鏈未齊前唔採）。
+        </div>
+        <div class="hl-col hl-col--ok">
+          <span class="hl-col-k">可核</span>
+          公開八卦掌走轉／形展開演示片可核（<code>3NHEOU88TaY</code>）；無本庫收錄之個人全接觸賽績。
+        </div>
+      </div>
+      <p class="hl-stance"><strong>站立場</strong>　演示可核就停喺演示；簡歷未齊唔抬宗師／英雄傳。</p>
+      <p class="hl-sources">來源：<a href="https://www.youtube.com/watch?v=3NHEOU88TaY" target="_blank" rel="noopener noreferrer">3NHEOU88TaY</a></p>
+    </article>
+
+    <article class="hl-card" id="hl-09">
+      <div class="meta-row">
+        <span class="chip gold">HL-09</span>
+        <span class="chip warn">待核</span>
+        <span class="chip">英雄傳 maybe（附李小龍）</span>
+      </div>
+      <h3>李小龍 Oakland 挑戰敘事 — 多源流傳、細節待核</h3>
+      <p class="hl-meta"><strong>卡面戰鬥力</strong> 沿用 HL-02 之 2.0–2.6 · <a href="qigong-bios/qigong-bio-bruce-lee.html">傳記</a> · 對照 <a href="#hl-02">HL-02</a></p>
+      <div class="hl-split">
+        <div class="hl-col hl-col--legend">
+          <span class="hl-col-k">傳說／二手敘事</span>
+          多源口述／二手把 Oakland 挑戰寫成「三秒解決」或完整回合細節，常與電影形象混寫。
+        </div>
+        <div class="hl-col hl-col--ok">
+          <span class="hl-col-k">可核層級</span>
+          「曾有挑戰／對峙類事件」在公開傳記敘事中多源出現；具體秒數、招式順序、傷勢細節常有出入 → 本庫不採單一版本當主證。
+        </div>
+      </div>
+      <p class="hl-stance"><strong>站立場</strong>　可寫「有公開敘事、細節待核」；唔用 Oakland 細節抬戰力。與 <code>rPAoNPJ2Mas</code> 分開——該片另標待證不入主證（見 <a href="#hl-02">HL-02</a>／<a href="#v-pending">#v-pending</a>）。</p>
+      <p class="hl-sources">來源：<a href="https://en.wikipedia.org/wiki/Bruce_Lee" target="_blank" rel="noopener noreferrer">Wikipedia 傳記摘要</a>（細節以一級史料再核為準）</p>
+    </article>
+
+    </div>
+
+    <h3 class="hl-subhead"><em>奇人對照</em> · N 英雄傳／打假教材</h3>
+    <p class="section-lead" style="margin-top:0;margin-bottom:12px">以下唔寫神話英雄；只作 <a href="#internet">#internet</a> 奇人欄對照。戰力跟奇人卡面。</p>
+    <div class="hl-grid" aria-label="奇人打假短卡">
+
+    <article class="hl-card hl-card--debunk" id="hl-07">
+      <div class="meta-row">
+        <span class="chip gold">HL-07</span>
+        <span class="chip">表演</span>
+        <span class="chip safe">可核結果</span>
+        <span class="chip red">N 英雄傳</span>
+      </div>
+      <h3>馬保國 — 表演迷因 vs 公開擂台結果</h3>
+      <p class="hl-meta"><strong>卡面戰鬥力</strong> 0.15–0.35 · <a href="qigong-bios/qigong-bio-ma-baoguo.html">傳記</a> · 對照 <a href="qigong-bios/qigong-bio-wang-qingmin.html">王慶民</a> · <a href="#internet">#internet</a></p>
+      <div class="hl-split">
+        <div class="hl-col hl-col--legend">
+          <span class="hl-col-k">傳說／迷因</span>
+          「接化發」「閃電五連鞭」等網絡示範被部分觀眾當實戰能力證明。
+        </div>
+        <div class="hl-col hl-col--ok">
+          <span class="hl-col-k">可核</span>
+          「閃電五連鞭」系列多為無對抗對象表演短片（例 <code>3IqAPEsmY4M</code>）→ 唔當實戰。2020「江湖十六」對業餘搏擊者王慶民：約 30 秒內三次倒地（<code>94aQsvctFoI</code>）→ 可核結果（賽果，唔係絕招）。
+        </div>
+      </div>
+      <p class="hl-stance"><strong>站立場</strong>　表演迷因 ≠ 實戰；戰力只跟公開約戰結果走，嚴禁抬高；遠低於泰臣＝3。</p>
+      <p class="hl-sources">來源：<a href="https://www.youtube.com/watch?v=94aQsvctFoI" target="_blank" rel="noopener noreferrer">94aQsvctFoI</a> · <a href="https://www.youtube.com/watch?v=3IqAPEsmY4M" target="_blank" rel="noopener noreferrer">3IqAPEsmY4M</a></p>
+    </article>
+
+    <article class="hl-card hl-card--debunk" id="hl-08">
+      <div class="meta-row">
+        <span class="chip gold">HL-08</span>
+        <span class="chip red">打假教材</span>
+        <span class="chip red">N 英雄傳</span>
+      </div>
+      <h3>雷雷／修道船 — 戰前吹水 vs 公開翻車結果</h3>
+      <p class="hl-meta"><strong>卡面戰鬥力</strong> 雷雷 0.2–0.4；修道船 0.2–0.4 · <a href="qigong-bios/qigong-bio-lei-lei-taiji.html">雷雷</a> · <a href="qigong-bios/qigong-bio-sau-dou-syun.html">修道船</a> · 對照 <a href="qigong-bios/qigong-bio-xu-xiaodong.html">徐曉冬</a>、<a href="qigong-bios/qigong-bio-nobody-here.html">Nobody-here</a> · <a href="#internet">#internet</a></p>
+      <div class="hl-split">
+        <div class="hl-col hl-col--legend">
+          <span class="hl-col-k">傳說／吹水</span>
+          雷雷：戰前爭議表述／「單手化解」類暗示。修道船：戰前自稱「九秒一百拳」等（網典轉載級）。
+        </div>
+        <div class="hl-col hl-col--ok">
+          <span class="hl-col-k">可核</span>
+          雷雷×徐曉冬公開無護具約戰：開打後極短時間倒下／認輸（<code>oh_zX4M8Jho</code>）。修道船×Nobody-here：約廿秒內被站立頸鎖結束，其後再被踢倒（<code>Yv8FsLmfKsE</code>）。片本身係真接觸；若把戰前自稱當實戰能力＝假。
+        </div>
+      </div>
+      <p class="hl-stance"><strong>站立場</strong>　只跟約戰結果；自稱同片結果不符就標清楚；唔寫英雄傳、唔神化任何一方。</p>
+      <p class="hl-sources">來源：<a href="https://www.youtube.com/watch?v=oh_zX4M8Jho" target="_blank" rel="noopener noreferrer">oh_zX4M8Jho</a> · <a href="https://www.youtube.com/watch?v=Yv8FsLmfKsE" target="_blank" rel="noopener noreferrer">Yv8FsLmfKsE</a> · <a href="https://www.youtube.com/watch?v=EuusqWtgak0" target="_blank" rel="noopener noreferrer">EuusqWtgak0</a></p>
+    </article>
+
+    </div>
+    <div class="summary-box" style="margin-top:16px">Phase5 短卡 9 張完。<em>傳說、影視、口述唔抬戰力</em>；數字一律跟角色卡。奇人打假見 <a href="#internet">#internet</a>，唔當英雄傳主敘事。</div>
+  </section>
 
   <section class="section" id="internet" aria-labelledby="internet-title">
     <div class="section-kicker">INTERNET</div>
