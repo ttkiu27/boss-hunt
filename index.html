@@ -270,9 +270,7 @@ a { color: inherit; text-decoration: none; }
 </style>
 <link rel="stylesheet" href="assets/vote-widget.css" />
 <link rel="stylesheet" href="assets/share-bar.css" />
-<link rel="stylesheet" href="assets/feedback-form.css" />
-<link rel="stylesheet" href="assets/age-gate.css" />
-<link rel="stylesheet" href="assets/art-banners.css" />
+<link rel="stylesheet" href="assets/feedback-form.css" /><link rel="stylesheet" href="assets/art-banners.css" />
 <link rel="stylesheet" href="assets/intro-video.css" />
 <link rel="preload" as="image" href="assets/art/sample-hub-hero-watercolor.jpg" />
 </head>
@@ -329,18 +327,6 @@ a { color: inherit; text-decoration: none; }
   <video id="hub-intro-video" controls autoplay muted playsinline preload="metadata" poster="assets/art/sample-hub-hero-watercolor.jpg" src="assets/video/boss-hunt-intro-en.mp4" width="1280" height="720">
     <a href="assets/video/boss-hunt-intro-en.mp4">Watch the English intro (MP4)</a>
   </video>
-  <script>
-  (function () {
-    var video = document.getElementById("hub-intro-video");
-    if (!video) return;
-    var cleared = false;
-    try { cleared = localStorage.getItem("boss-hunt-age-ok") === "1"; } catch (e) {}
-    if (cleared) return;
-    video.autoplay = false;
-    video.removeAttribute("autoplay");
-    video.pause();
-  })();
-  </script>
   <p class="hub-intro-fallback"><a href="assets/video/boss-hunt-intro-en.mp4">English intro (MP4)</a></p>
 </section>
 
@@ -846,9 +832,7 @@ a { color: inherit; text-decoration: none; }
 <script src="assets/hub-router.js" defer></script>
 <script src="assets/vote-widget.js" defer></script>
 <script src="assets/share-bar.js" defer></script>
-<script src="assets/feedback-form.js" defer></script>
-<script src="assets/age-gate.js" defer></script>
-<script src="assets/analytics.js" defer></script>
+<script src="assets/feedback-form.js" defer></script><script src="assets/analytics.js" defer></script>
 <script src="assets/intro-video.js" defer></script>
 </body>
 </html>
