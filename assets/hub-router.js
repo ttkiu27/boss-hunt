@@ -22,6 +22,7 @@
     "dawnwalker",
     "cs2",
     "hellraiser",
+    "gzw",
     "qigong",
     "online-games"
   ];
