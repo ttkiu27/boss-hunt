@@ -24,6 +24,10 @@
 <style>
 
 :root {
+  /* sticky .site-header（nav chips；手機兩行 ≈221px — 錨點 scroll-margin 用；跟 #42／火牛／獅猿） */
+  --site-header-offset: 132px;
+  --anchor-scroll-margin: calc(var(--site-header-offset) + 12px);
+
   --bg: #0a0b0e;
   --bg2: #12141a;
   --bg3: #1a1d26;
@@ -43,6 +47,19 @@
   --font: "Noto Sans TC", "PingFang HK", "Microsoft JhengHei", sans-serif;
   --display: "Orbitron", "Noto Sans TC", sans-serif;
 }
+@media (max-width: 900px) {
+  :root { --site-header-offset: 152px; }
+}
+@media (max-width: 720px) {
+  :root { --site-header-offset: 188px; }
+}
+@media (max-width: 520px) {
+  :root { --site-header-offset: 221px; }
+}
+html {
+  scroll-padding-top: var(--anchor-scroll-margin);
+}
+
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
 body {
@@ -176,7 +193,7 @@ img, iframe, video { max-width: 100%; }
   border: 1px solid var(--border);
   border-radius: var(--radius);
   box-shadow: var(--shadow);
-  scroll-margin-top: 72px;
+  scroll-margin-top: var(--anchor-scroll-margin);
 }
 .section-kicker {
   font-size: .7rem; font-weight: 800;
@@ -243,7 +260,7 @@ img, iframe, video { max-width: 100%; }
   display: flex; flex-direction: column; gap: 8px;
   padding: 14px; background: var(--bg);
   border: 1px solid var(--border); border-radius: 12px;
-  scroll-margin-top: 88px;
+  scroll-margin-top: var(--anchor-scroll-margin);
 }
 .move-card:target {
   border-color: var(--accent);
@@ -474,7 +491,7 @@ details.sources[open] > summary::after { content: "－收起"; }
         </div>
         <p class="mc-tell"><strong>預兆：</strong>第一管血節奏</p>
         <p class="mc-counter">全場起手參考；逐招睇下面 EMPTY 卡</p>
-        <div class="move-clip" data-yt-id="z635zGnGh1U" data-yt-start="14" data-yt-end="38" data-clip-src="">
+        <div class="move-clip is-filled" data-yt-id="z635zGnGh1U" data-yt-start="14" data-yt-end="38" data-clip-src="">
           <span class="clip-placeholder" aria-hidden="true"></span>
         </div>
         <p class="mc-chapter">14–38s（0:14–0:38）· <a href="https://www.youtube.com/watch?v=z635zGnGh1U&amp;t=14s" target="_blank" rel="noopener noreferrer">z635zGnGh1U @ 0:14 →</a> · YT chapter「1st HP Node」· VERIFIED</p>
@@ -487,7 +504,7 @@ details.sources[open] > summary::after { content: "－收起"; }
         </div>
         <p class="mc-tell"><strong>預兆：</strong>第二管血、分身前後</p>
         <p class="mc-counter">留意幻影拉開；唔好亂追假身</p>
-        <div class="move-clip" data-yt-id="z635zGnGh1U" data-yt-start="38" data-yt-end="63" data-clip-src="">
+        <div class="move-clip is-filled" data-yt-id="z635zGnGh1U" data-yt-start="38" data-yt-end="63" data-clip-src="">
           <span class="clip-placeholder" aria-hidden="true"></span>
         </div>
         <p class="mc-chapter">38–63s（0:38–1:03）· <a href="https://www.youtube.com/watch?v=z635zGnGh1U&amp;t=38s" target="_blank" rel="noopener noreferrer">z635zGnGh1U @ 0:38 →</a> · YT chapter「2nd HP Node」· VERIFIED</p>
@@ -500,7 +517,7 @@ details.sources[open] > summary::after { content: "－收起"; }
         </div>
         <p class="mc-tell"><strong>預兆：</strong>片內標示注目招之一</p>
         <p class="mc-counter">按危紅分辨跳／見切</p>
-        <div class="move-clip" data-yt-id="z635zGnGh1U" data-yt-start="78" data-yt-end="94" data-clip-src="">
+        <div class="move-clip is-filled" data-yt-id="z635zGnGh1U" data-yt-start="78" data-yt-end="94" data-clip-src="">
           <span class="clip-placeholder" aria-hidden="true"></span>
         </div>
         <p class="mc-chapter">78–94s（1:18–1:34）· <a href="https://www.youtube.com/watch?v=z635zGnGh1U&amp;t=78s" target="_blank" rel="noopener noreferrer">z635zGnGh1U @ 1:18 →</a> · YT chapter「Notable Attack #1」· VERIFIED</p>
@@ -513,7 +530,7 @@ details.sources[open] > summary::after { content: "－收起"; }
         </div>
         <p class="mc-tell"><strong>預兆：</strong>注目招之二</p>
         <p class="mc-counter">同片內解說節奏</p>
-        <div class="move-clip" data-yt-id="z635zGnGh1U" data-yt-start="94" data-yt-end="107" data-clip-src="">
+        <div class="move-clip is-filled" data-yt-id="z635zGnGh1U" data-yt-start="94" data-yt-end="107" data-clip-src="">
           <span class="clip-placeholder" aria-hidden="true"></span>
         </div>
         <p class="mc-chapter">94–107s（1:34–1:47）· <a href="https://www.youtube.com/watch?v=z635zGnGh1U&amp;t=94s" target="_blank" rel="noopener noreferrer">z635zGnGh1U @ 1:34 →</a> · YT chapter「Notable Attack 2」· VERIFIED</p>
@@ -526,7 +543,7 @@ details.sources[open] > summary::after { content: "－收起"; }
         </div>
         <p class="mc-tell"><strong>預兆：</strong>片尾注目段</p>
         <p class="mc-counter">收尾前最後壓力參考</p>
-        <div class="move-clip" data-yt-id="z635zGnGh1U" data-yt-start="107" data-yt-end="124" data-clip-src="">
+        <div class="move-clip is-filled" data-yt-id="z635zGnGh1U" data-yt-start="107" data-yt-end="124" data-clip-src="">
           <span class="clip-placeholder" aria-hidden="true"></span>
         </div>
         <p class="mc-chapter">107–124s（1:47–2:04）· <a href="https://www.youtube.com/watch?v=z635zGnGh1U&amp;t=107s" target="_blank" rel="noopener noreferrer">z635zGnGh1U @ 1:47 →</a> · YT chapter「Notable Attack #3」· VERIFIED · CAP≤124</p>
@@ -600,7 +617,7 @@ details.sources[open] > summary::after { content: "－收起"; }
         </div>
         <p class="mc-tell"><strong>預兆：</strong>開場霧、幻影分身</p>
         <p class="mc-counter">先睇節奏；唔好一入場亂衝</p>
-        <div class="move-clip" data-yt-id="gt82yUQj0Qs" data-yt-start="0" data-yt-end="65" data-clip-src="">
+        <div class="move-clip is-filled" data-yt-id="gt82yUQj0Qs" data-yt-start="0" data-yt-end="65" data-clip-src="">
           <span class="clip-placeholder" aria-hidden="true"></span>
         </div>
         <p class="mc-chapter">0–65s（0:00–1:05）· <a href="https://www.youtube.com/watch?v=gt82yUQj0Qs&amp;t=0s" target="_blank" rel="noopener noreferrer">gt82yUQj0Qs @ 0:00 →</a> · YT chapter「霧と幻影」· VERIFIED</p>
@@ -613,7 +630,7 @@ details.sources[open] > summary::after { content: "－收起"; }
         </div>
         <p class="mc-tell"><strong>預兆：</strong>多招危技示範</p>
         <p class="mc-counter">跳／見切分清楚</p>
-        <div class="move-clip" data-yt-id="gt82yUQj0Qs" data-yt-start="65" data-yt-end="101" data-clip-src="">
+        <div class="move-clip is-filled" data-yt-id="gt82yUQj0Qs" data-yt-start="65" data-yt-end="101" data-clip-src="">
           <span class="clip-placeholder" aria-hidden="true"></span>
         </div>
         <p class="mc-chapter">65–101s（1:05–1:41）· <a href="https://www.youtube.com/watch?v=gt82yUQj0Qs&amp;t=65s" target="_blank" rel="noopener noreferrer">gt82yUQj0Qs @ 1:05 →</a> · YT chapter「危険攻撃」· VERIFIED</p>
@@ -626,7 +643,7 @@ details.sources[open] > summary::after { content: "－收起"; }
         </div>
         <p class="mc-tell"><strong>預兆：</strong>第二管忍殺後節奏變</p>
         <p class="mc-counter">二階壓力參考</p>
-        <div class="move-clip" data-yt-id="gt82yUQj0Qs" data-yt-start="101" data-yt-end="138" data-clip-src="">
+        <div class="move-clip is-filled" data-yt-id="gt82yUQj0Qs" data-yt-start="101" data-yt-end="138" data-clip-src="">
           <span class="clip-placeholder" aria-hidden="true"></span>
         </div>
         <p class="mc-chapter">101–138s（1:41–2:18）· <a href="https://www.youtube.com/watch?v=gt82yUQj0Qs&amp;t=101s" target="_blank" rel="noopener noreferrer">gt82yUQj0Qs @ 1:41 →</a> · YT chapter「忍殺2回目以降」· VERIFIED</p>
@@ -639,7 +656,7 @@ details.sources[open] > summary::after { content: "－收起"; }
         </div>
         <p class="mc-tell"><strong>預兆：</strong>長段實戰對打</p>
         <p class="mc-counter">全場走位同彈刀節奏參考</p>
-        <div class="move-clip" data-yt-id="gt82yUQj0Qs" data-yt-start="138" data-yt-end="335" data-clip-src="">
+        <div class="move-clip is-filled" data-yt-id="gt82yUQj0Qs" data-yt-start="138" data-yt-end="335" data-clip-src="">
           <span class="clip-placeholder" aria-hidden="true"></span>
         </div>
         <p class="mc-chapter">138–335s（2:18–5:35）· <a href="https://www.youtube.com/watch?v=gt82yUQj0Qs&amp;t=138s" target="_blank" rel="noopener noreferrer">gt82yUQj0Qs @ 2:18 →</a> · YT chapter「実践」· VERIFIED</p>
@@ -652,7 +669,7 @@ details.sources[open] > summary::after { content: "－收起"; }
         </div>
         <p class="mc-tell"><strong>預兆：</strong>高處落下忍殺、壓制套路</p>
         <p class="mc-counter">片內示範時機；唔好硬抄未熟招</p>
-        <div class="move-clip" data-yt-id="gt82yUQj0Qs" data-yt-start="335" data-yt-end="443" data-clip-src="">
+        <div class="move-clip is-filled" data-yt-id="gt82yUQj0Qs" data-yt-start="335" data-yt-end="443" data-clip-src="">
           <span class="clip-placeholder" aria-hidden="true"></span>
         </div>
         <p class="mc-chapter">335–443s（5:35–7:23）· <a href="https://www.youtube.com/watch?v=gt82yUQj0Qs&amp;t=335s" target="_blank" rel="noopener noreferrer">gt82yUQj0Qs @ 5:35 →</a> · YT chapter「落下忍殺の仕方とハメ方」· VERIFIED · CAP≤443</p>
@@ -783,39 +800,39 @@ details.sources[open] > summary::after { content: "－收起"; }
     </div>
   </details>
 
-  <section class="feedback" id="feedback" data-netlify-feedback aria-labelledby="feedback-title">
-    <div class="feedback-head">
+  <section class="bh-feedback feedback" id="feedback" data-netlify-feedback aria-labelledby="feedback-title">
+    <div class="bh-feedback-head feedback-head">
       <h2 id="feedback-title">留下<em>意見</em>俾網主</h2>
-      <span class="feedback-badge">真係會送到</span>
+      <span class="bh-feedback-chip feedback-badge">真係會送到</span>
     </div>
-    <p class="feedback-lead">招式唔清楚、想加邊個 Boss、有錯漏——丢句說話。留言經 Netlify Forms 直達網主信箱／後台，唔再只係本機保存。</p>
+    <p class="bh-feedback-lead feedback-lead">招式唔清楚、想加邊個 Boss、有錯漏——丢句說話。留言經 Netlify Forms 直達網主信箱／後台，唔再只係本機保存。</p>
     <div class="feedback-thanks" data-feedback-thanks role="status" aria-live="polite" hidden>
       <h3>收到，多謝硬核祝福！</h3>
       <p>你嘅意見已送出俾網主。想再講可以繼續填。</p>
       <button type="button" class="feedback-secondary" data-feedback-again>再留一句</button>
     </div>
-    <form class="feedback-form" name="boss-hunt-feedback" method="POST" action="/" data-netlify="true" netlify netlify-honeypot="bot-field" data-boss-feedback>
+    <form class="bh-feedback-form feedback-form" name="boss-hunt-feedback" method="POST" action="/" data-netlify="true" netlify netlify-honeypot="bot-field" data-boss-feedback>
       <input type="hidden" name="form-name" value="boss-hunt-feedback" />
       <input type="hidden" name="page" value="sekiro-corrupted-monk.html · 隻狼｜破戒僧・幻影＋真身" />
-      <p class="feedback-honeypot" aria-hidden="true">
+      <p class="bh-feedback-honeypot feedback-honeypot" aria-hidden="true">
         <label>唔好填呢格 <input type="text" name="bot-field" tabindex="-1" autocomplete="off" /></label>
       </p>
-      <div class="feedback-field">
+      <div class="bh-feedback-field feedback-field">
         <label for="fb-name-sekiro-corrupted-monk">暱稱 <span class="opt">（可選）</span></label>
         <input type="text" id="fb-name-sekiro-corrupted-monk" name="name" maxlength="80" placeholder="例如：狼忍新手" autocomplete="nickname" />
       </div>
-      <div class="feedback-field">
+      <div class="bh-feedback-field feedback-field">
         <label for="fb-contact-sekiro-corrupted-monk">聯絡 <span class="opt">（可選）</span></label>
         <input type="text" id="fb-contact-sekiro-corrupted-monk" name="contact" maxlength="120" placeholder="電郵／Discord（方便回覆）" autocomplete="email" />
       </div>
-      <div class="feedback-field">
+      <div class="bh-feedback-field feedback-field">
         <label for="fb-msg-sekiro-corrupted-monk">意見 <span class="opt">（必填）</span></label>
         <textarea id="fb-msg-sekiro-corrupted-monk" name="message" maxlength="4000" required rows="4" placeholder="想講咩就寫低…"></textarea>
       </div>
-      <div class="feedback-actions">
-        <button type="submit" class="feedback-submit">送出意見</button>
+      <div class="bh-feedback-actions feedback-actions">
+        <button type="submit" class="bh-feedback-submit feedback-submit">送出意見</button>
       </div>
-      <p class="feedback-note">送出後網主喺 Netlify → Forms 收到。唔填一樣睇晒全頁。</p>
+      <p class="bh-feedback-note feedback-note">送出後網主喺 Netlify → Forms 收到。唔填一樣睇晒全頁。</p>
       <div class="feedback-status" data-feedback-status role="status" aria-live="polite"></div>
     </form>
   </section>
