@@ -42,9 +42,24 @@
   --shadow: 0 8px 32px rgba(0,0,0,.45);
   --font: "Noto Sans TC", "PingFang HK", "Microsoft JhengHei", sans-serif;
   --display: "Orbitron", "Noto Sans TC", sans-serif;
+  /* sticky .site-header（nav chips；手機兩行 ≈221px — 錨點 scroll-margin 用；跟 #42／火牛） */
+  --site-header-offset: 132px;
+  --anchor-scroll-margin: calc(var(--site-header-offset) + 12px);
+}
+@media (max-width: 900px) {
+  :root { --site-header-offset: 152px; }
+}
+@media (max-width: 640px) {
+  :root { --site-header-offset: 188px; }
+}
+@media (max-width: 468px) {
+  :root { --site-header-offset: 221px; }
 }
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--anchor-scroll-margin);
+}
 body {
   font-family: var(--font);
   background: var(--bg);
@@ -317,6 +332,28 @@ body.focus-mode .focus-hint { display: block; }
 .clip-pane .poster-fallback {
   width: 100%; max-height: 320px; object-fit: cover;
 }
+
+/* —— YouTube bake 窗（跟 #42／火牛 move-clip） —— */
+.move-clip {
+  position: relative; width: 100%; aspect-ratio: 16 / 9;
+  border-radius: 10px; overflow: hidden;
+  border: 1px dashed #3a4050; background: #0d0f14;
+  display: flex; align-items: center; justify-content: center;
+}
+.move-clip.is-filled {
+  border-style: solid; border-color: var(--border); background: #000;
+}
+.move-clip .clip-placeholder {
+  font-size: .78rem; font-weight: 700; color: var(--muted);
+  letter-spacing: .04em; text-align: center; padding: 12px;
+}
+.move-clip iframe, .move-clip video {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  border: 0; object-fit: contain; background: #000;
+}
+.clip-pane .move-clip { max-height: 320px; }
+.live-card .move-clip { margin-bottom: 10px; }
+
 .clip-badge {
   position: absolute; top: 10px; left: 10px;
   font-size: .65rem; font-weight: 700;
@@ -819,7 +856,7 @@ details.live-excerpts[open] > summary::after { content: "－收起"; }
   border-radius: 12px;
   background: var(--bg);
   padding: 14px 16px;
-  scroll-margin-top: 88px;
+  scroll-margin-top: var(--anchor-scroll-margin);
   transition: border-color .15s, box-shadow .15s;
 }
 .route-detail-panel.lit {
@@ -1372,7 +1409,7 @@ details.live-excerpts[open] > summary::after { content: "－收起"; }
     <div class="tag-filters" id="tagFilters" aria-label="標籤篩選"></div>
   </div>
 
-  <p class="section-label">招式卡 · 危險度／循環短片／時機軸／Boss↔玩家對照</p>
+  <p class="section-label">招式卡 · 危險度／YouTube bake 窗／時機軸／Boss↔玩家對照</p>
   <div class="move-grid" id="moveGrid"></div>
   <div class="empty-state" id="emptyState" hidden>冇符合條件嘅招式，試下清篩選。</div>
 
@@ -1428,18 +1465,18 @@ details.live-excerpts[open] > summary::after { content: "－收起"; }
     <summary>實戰節錄（長片 · 選睇）</summary>
     <div class="live-body">
       <div class="live-card">
-        <div style="display:flex;align-items:center;justify-content:center;min-height:140px;color:var(--muted);font-size:.9rem;padding:20px;text-align:center;background:#111;border-radius:8px;">
-          本便攜包未附長片（為慳容量）<br/><small>招式卡 5 秒 loop 已夠查招；完整長片見完整素材包</small>
+        <div class="move-clip is-filled" data-yt-id="Wiu9NGhoy5c" data-yt-start="386" data-yt-end="490" data-clip-src="">
+          <iframe src="https://www.youtube-nocookie.com/embed/Wiu9NGhoy5c?start=386&amp;end=490&amp;rel=0" title="一階段實戰節錄" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
         </div>
         <h4>一階段實戰節錄</h4>
-        <p>約 104 秒 · 有頭階段節奏參考（文字說明）</p>
+        <p>386–490s · 有頭階段節奏參考（片 Wiu9NGhoy5c）</p>
       </div>
       <div class="live-card">
-        <div style="display:flex;align-items:center;justify-content:center;min-height:140px;color:var(--muted);font-size:.9rem;padding:20px;text-align:center;background:#111;border-radius:8px;">
-          本便攜包未附長片（為慳容量）<br/><small>招式卡 5 秒 loop 已夠查招；完整長片見完整素材包</small>
+        <div class="move-clip is-filled" data-yt-id="Wiu9NGhoy5c" data-yt-start="496" data-yt-end="620" data-clip-src="">
+          <iframe src="https://www.youtube-nocookie.com/embed/Wiu9NGhoy5c?start=496&amp;end=620&amp;rel=0" title="二階段實戰節錄" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
         </div>
         <h4>二階段實戰節錄</h4>
-        <p>約 124 秒 · 無頭持刀節奏參考（文字說明）</p>
+        <p>496–620s · 無頭持刀節奏參考（片 Wiu9NGhoy5c）</p>
       </div>
     </div>
   </details>
@@ -1756,12 +1793,23 @@ details.live-excerpts[open] > summary::after { content: "－收起"; }
     </div>
   </section>
 
-  <section class="feedback" id="feedback" data-netlify-feedback aria-labelledby="feedback-title">
-    <div class="feedback-head">
-      <h2 id="feedback-title">留下<em>意見</em>俾網主</h2>
-      <span class="feedback-badge">真係會送到</span>
+
+  <details class="sources live-excerpts" id="ape-clip-sources">
+    <summary>片源同鎖窗（公開片 · 獅猿）</summary>
+    <div class="live-body" style="display:block;padding:14px 18px 18px;">
+      <ol style="margin:0;padding-left:1.2em;font-size:.88rem;color:var(--muted);line-height:1.55;">
+        <li><a href="https://www.youtube.com/watch?v=Wiu9NGhoy5c" target="_blank" rel="noopener noreferrer">Wiu9NGhoy5c</a> · 唯一 bake 片源（duration CAP 662；所有 end ≤ 662）。禁假秒；禁其他片估秒。</li>
+      </ol>
+      <p style="margin-top:10px;font-size:.86rem;color:var(--muted);">本頁只 bake 十一窗：向左走位 46–64｜五連擊 78–100｜危捶地 124–155｜危抓技 155–174｜毒霧＋丟糞 190–210（掛 A5；A6 同段）｜耍賴拳 235–248｜baby 硬直 250–267｜怖氣前置 274–290｜彈刀＋長槍 294–320｜一階段節錄 386–490｜二階段節錄 496–620。其餘招式卡 EMPTY（未鎖獨立示範窗）。</p>
     </div>
-    <p class="feedback-lead">招式唔清楚、想加邊個 Boss、有錯漏——丢句說話。留言經 Netlify Forms 直達網主信箱／後台，唔再只係本機保存。</p>
+  </details>
+
+  <section class="bh-feedback feedback" id="feedback" data-netlify-feedback aria-labelledby="feedback-title">
+    <div class="bh-feedback-head feedback-head">
+      <h2 id="feedback-title">留下<em>意見</em>俾網主</h2>
+      <span class="bh-feedback-chip feedback-badge">真係會送到</span>
+    </div>
+    <p class="bh-feedback-lead feedback-lead">招式唔清楚、想加邊個 Boss、有錯漏——丢句說話。留言經 Netlify Forms 直達網主信箱／後台，唔再只係本機保存。</p>
 
     <div class="feedback-thanks" data-feedback-thanks role="status" aria-live="polite" hidden>
       <h3>收到，多謝硬核祝福！</h3>
@@ -1769,28 +1817,28 @@ details.live-excerpts[open] > summary::after { content: "－收起"; }
       <button type="button" class="feedback-secondary" data-feedback-again>再留一句</button>
     </div>
 
-    <form class="feedback-form" name="boss-hunt-feedback" method="POST" action="/" data-netlify="true" netlify netlify-honeypot="bot-field" data-boss-feedback>
+    <form class="bh-feedback-form feedback-form" name="boss-hunt-feedback" method="POST" action="/" data-netlify="true" netlify netlify-honeypot="bot-field" data-boss-feedback>
       <input type="hidden" name="form-name" value="boss-hunt-feedback" />
       <input type="hidden" name="page" value="sekiro-guardian-ape.html · 隻狼｜獅猿" />
-      <p class="feedback-honeypot" aria-hidden="true">
+      <p class="bh-feedback-honeypot feedback-honeypot" aria-hidden="true">
         <label>唔好填呢格 <input type="text" name="bot-field" tabindex="-1" autocomplete="off" /></label>
       </p>
-      <div class="feedback-field">
+      <div class="bh-feedback-field feedback-field">
         <label for="fb-name-sekiro-guardian-ape">暱稱 <span class="opt">（可選）</span></label>
         <input type="text" id="fb-name-sekiro-guardian-ape" name="name" maxlength="80" placeholder="例如：狼忍新手" autocomplete="nickname" />
       </div>
-      <div class="feedback-field">
+      <div class="bh-feedback-field feedback-field">
         <label for="fb-contact-sekiro-guardian-ape">聯絡 <span class="opt">（可選）</span></label>
         <input type="text" id="fb-contact-sekiro-guardian-ape" name="contact" maxlength="120" placeholder="電郵／Discord（方便回覆）" autocomplete="email" />
       </div>
-      <div class="feedback-field">
+      <div class="bh-feedback-field feedback-field">
         <label for="fb-msg-sekiro-guardian-ape">意見 <span class="opt">（必填）</span></label>
         <textarea id="fb-msg-sekiro-guardian-ape" name="message" maxlength="4000" required rows="4" placeholder="想講咩就寫低…"></textarea>
       </div>
-      <div class="feedback-actions">
-        <button type="submit" class="feedback-submit">送出意見</button>
+      <div class="bh-feedback-actions feedback-actions">
+        <button type="submit" class="bh-feedback-submit feedback-submit">送出意見</button>
       </div>
-      <p class="feedback-note">送出後網主喺 Netlify → Forms 收到。唔填一樣睇晒全頁。</p>
+      <p class="bh-feedback-note feedback-note">送出後網主喺 Netlify → Forms 收到。唔填一樣睇晒全頁。</p>
       <div class="feedback-status" data-feedback-status role="status" aria-live="polite"></div>
     </form>
   </section>
@@ -1841,7 +1889,8 @@ const MOVES = [
     player: "開戰同換招空檔優先向左橫移，保持斜角，方便睇清前搖。",
     defend: "保持左側斜角，唔好貼死正面。",
     respond: "用走位創造彈／打窗口。",
-    risk: "行錯邊會被甩臂同連斬追到。"
+    risk: "行錯邊會被甩臂同連斬追到。",
+    ytId: "Wiu9NGhoy5c", ytStart: 46, ytEnd: 64
   },
   {
     id: "A2", phase: "A", slug: "five-hit",
@@ -1851,7 +1900,8 @@ const MOVES = [
     player: "擋滿 5 下；之後最多補 2 刀就收，唔好貪第三下。",
     defend: "彈反／格擋連續五下。",
     respond: "第五下後補最多 2 刀。",
-    risk: "貪刀會食返下一招開端。"
+    risk: "貪刀會食返下一招開端。",
+    ytId: "Wiu9NGhoy5c", ytStart: 78, ytEnd: 100
   },
   {
     id: "A3", phase: "A", slug: "ground-slam",
@@ -1861,7 +1911,8 @@ const MOVES = [
     player: "見紅危即跳起越過衝擊；落地可短暫補刀。",
     defend: "跳躍（唔好只擋）。",
     respond: "落地後補 1–2 刀。",
-    risk: "跳遲／跳早都會硬食下段。"
+    risk: "跳遲／跳早都會硬食下段。",
+    ytId: "Wiu9NGhoy5c", ytStart: 124, ytEnd: 155
   },
   {
     id: "A4", phase: "A", slug: "grab",
@@ -1871,7 +1922,8 @@ const MOVES = [
     player: "即後跑或後跳拉開；成功迴避後可補約 3 刀。",
     defend: "後跑／後跳（唔好擋）。",
     respond: "拉開後貼返補約 3 刀。",
-    risk: "誤當普通攻擊去擋＝直接出局。"
+    risk: "誤當普通攻擊去擋＝直接出局。",
+    ytId: "Wiu9NGhoy5c", ytStart: 155, ytEnd: 174
   },
   {
     id: "A5", phase: "A", slug: "fart-poison",
@@ -1881,7 +1933,8 @@ const MOVES = [
     player: "側走離開毒區；預留解毒粉。同段常接丟糞。",
     defend: "側走離毒，唔好企毒上。",
     respond: "清毒後再近身。",
-    risk: "疊毒＋後續攻擊夾擊。"
+    risk: "疊毒＋後續攻擊夾擊。",
+    ytId: "Wiu9NGhoy5c", ytStart: 190, ytEnd: 210
   },
   {
     id: "A6", phase: "A", slug: "dung-throw",
@@ -1901,7 +1954,8 @@ const MOVES = [
     player: "退後等亂打結束，或小心貼邊打；唔好企正中心。",
     defend: "後退觀望／邊緣點打。",
     respond: "亂打停後再輸出。",
-    risk: "貼太近會被連續拳磨死。"
+    risk: "貼太近會被連續拳磨死。",
+    ytId: "Wiu9NGhoy5c", ytStart: 235, ytEnd: 248
   },
   {
     id: "A8", phase: "A", slug: "baby-pose",
@@ -1911,7 +1965,8 @@ const MOVES = [
     player: "全力輸出；一階段可配噴火筒＋油最大化傷害。",
     defend: "唔使防，純輸出。",
     respond: "打到硬直完或轉招。",
-    risk: "打太出位可能被跟住嘅轉招掃到。"
+    risk: "打太出位可能被跟住嘅轉招掃到。",
+    ytId: "Wiu9NGhoy5c", ytStart: 250, ytEnd: 267
   },
   {
     id: "A9", phase: "A", slug: "roar-retreat",
@@ -1951,7 +2006,8 @@ const MOVES = [
     player: "完美彈 → 砍 1 → 機關長槍兩下拉蜈蚣。爆竹無效。",
     defend: "完美彈下劈。",
     respond: "砍1＋長槍兩下。",
-    risk: "彈完連砍唔拉槍＝浪費破點。"
+    risk: "彈完連砍唔拉槍＝浪費破點。",
+    ytId: "Wiu9NGhoy5c", ytStart: 294, ytEnd: 320
   },
   {
     id: "B4", phase: "B", slug: "terror-roar",
@@ -1961,7 +2017,8 @@ const MOVES = [
     player: "見蛇扭或安頭即跑開，或開鐵傘；備驅怖粉／紫葫蘆。",
     defend: "即跑／鐵傘。",
     respond: "怖氣清走再接戰。",
-    risk: "怖氣滿直接死亡；無粉無傘要距離夠。"
+    risk: "怖氣滿直接死亡；無粉無傘要距離夠。",
+    ytId: "Wiu9NGhoy5c", ytStart: 274, ytEnd: 290
   }
 ];
 
@@ -2068,7 +2125,17 @@ function renderCard(m) {
     </div>
   ` : "";
 
-  const mediaHtml = hasPack ? `
+  const hasYt = !!(m.ytId && (m.ytStart !== undefined && m.ytStart !== null && String(m.ytStart) !== ""));
+  let mediaHtml;
+  if (hasYt) {
+    mediaHtml = `
+    <span class="clip-badge">YT · ${m.ytStart}–${m.ytEnd}s</span>
+    <div class="move-clip" data-yt-id="${m.ytId}" data-yt-start="${m.ytStart}" data-yt-end="${m.ytEnd}" data-clip-src="">
+      <span class="clip-placeholder">載入短片…</span>
+    </div>
+  `;
+  } else if (hasPack) {
+    mediaHtml = `
     <span class="clip-badge">LOOP · 5s</span>
     <video autoplay muted loop playsinline preload="metadata" poster="${m.poster}" data-dur="${dur}">
       ${m.loopWebm ? `<source src="${m.loopWebm}" type="video/webm" />` : ""}
@@ -2078,12 +2145,15 @@ function renderCard(m) {
       <button type="button" class="btn-play" title="播放／暫停">▶</button>
       <button type="button" class="btn-mute" title="靜音（示範預設靜音）">🔇</button>
     </div>
-  ` : `
-    <span class="clip-badge">暫無 loop</span>
-    <div style="display:flex;align-items:center;justify-content:center;min-height:200px;color:var(--muted);font-size:.85rem;padding:20px;text-align:center;">
-      暫無短片 · 文字對策仍可用<br/><small style="opacity:.7">${m.id} · ${m.slug}</small>
+  `;
+  } else {
+    mediaHtml = `
+    <span class="clip-badge">EMPTY</span>
+    <div class="move-clip" data-yt-id="" data-yt-start="" data-yt-end="" data-clip-src="">
+      <span class="clip-placeholder">未鎖獨立示範窗・外連主片</span>
     </div>
   `;
+  }
 
   card.innerHTML = `
     <div class="move-card-head">
@@ -2238,6 +2308,7 @@ async function init() {
 
   buildTagFilters();
   MOVES.forEach(m => grid.appendChild(renderCard(m)));
+  if (typeof window.__hydrateApeMoveClips === "function") window.__hydrateApeMoveClips();
 
   document.querySelectorAll(".phase-tab").forEach(btn => {
     btn.addEventListener("click", () => {
@@ -2524,6 +2595,53 @@ init();
   document.querySelectorAll('[data-route-panel="extra"]').forEach(function (p) {
     p.hidden = true;
   });
+})();
+</script>
+
+
+<script>
+(function () {
+  function hydrateMoveClips() {
+    document.querySelectorAll('.move-clip').forEach(function (slot) {
+      var clipSrc = (slot.getAttribute('data-clip-src') || '').trim();
+      var ytId = (slot.getAttribute('data-yt-id') || '').trim();
+      var ytStart = (slot.getAttribute('data-yt-start') || '').trim();
+      var ytEnd = (slot.getAttribute('data-yt-end') || '').trim();
+      if (!clipSrc && ytStart === '') return;
+      if (slot.querySelector('iframe, video')) {
+        slot.classList.add('is-filled');
+        return;
+      }
+      slot.classList.add('is-filled');
+      slot.innerHTML = '';
+      if (clipSrc) {
+        var v = document.createElement('video');
+        v.src = clipSrc;
+        v.controls = true;
+        v.playsInline = true;
+        v.preload = 'metadata';
+        slot.appendChild(v);
+        return;
+      }
+      if (!ytId) return;
+      var params = ['start=' + encodeURIComponent(ytStart)];
+      if (ytEnd) params.push('end=' + encodeURIComponent(ytEnd));
+      params.push('rel=0');
+      var ifr = document.createElement('iframe');
+      ifr.src = 'https://www.youtube-nocookie.com/embed/' + encodeURIComponent(ytId) + '?' + params.join('&');
+      ifr.title = '招式／步驟短片';
+      ifr.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+      ifr.allowFullscreen = true;
+      ifr.loading = 'lazy';
+      slot.appendChild(ifr);
+    });
+  }
+  window.__hydrateApeMoveClips = hydrateMoveClips;
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', hydrateMoveClips);
+  } else {
+    hydrateMoveClips();
+  }
 })();
 </script>
 
