@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>JAVA TYPING OF THE DEAD｜死亡之屋・Java 打字版</title>
+  <style>
+    :root {
+      --bg: #0d0a0a;
+      --panel: #1a1214;
+      --gun: #2a2426;
+      --blood: #8b1515;
+      --blood-bright: #c41e1e;
+      --amber: #e8a838;
+      --text: #e8dcd0;
+      --muted: #8a7a72;
+      --ok: #5cb85c;
+      --danger: #ff4444;
+      --font: "Segoe UI", "PingFang TC", "Microsoft JhengHei", "Noto Sans TC", sans-serif;
+      --mono: "Consolas", "Cascadia Mono", "SF Mono", "Courier New", monospace;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body {
+      height: 100%;
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font);
+      overflow: hidden;
+      user-select: none;
+    }
+    body::before {
+      content: "";
+      position: fixed; inset: 0;
+      background:
+        radial-gradient(ellipse at 50% 120%, rgba(139,21,21,.35), transparent 55%),
+        repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,.15) 2px, rgba(0,0,0,.15) 4px);
+      pointer-events: none; z-index: 0;
+    }
+    #app {
+      position: relative; z-index: 1;
+      max-width: 960px; margin: 0 auto;
+      height: 100%; display: flex; flex-direction: column;
+      padding: 12px 16px 16px;
+    }
+    header {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 12px; flex-wrap: wrap;
+      border-bottom: 2px solid var(--blood);
+      padding-bottom: 10px; margin-bottom: 10px;
+    }
+    .logo {
+      font-weight: 800; letter-spacing: .04em;
+      font-size: clamp(14px, 2.2vw, 20px);
+      color: var(--blood-bright);
+      text-shadow: 0 0 12px rgba(196,30,30,.5);
+    }
+    .logo small {
+      display: block; font-size: .65em; color: var(--muted);
+      font-weight: 600; letter-spacing: .08em; margin-top: 2px;
+    }
+    .hud {
+      display: flex; gap: 14px; align-items: center; flex-wrap: wrap;
+      font-family: var(--mono); font-size: 13px;
+    }
+    .hud .stat {
+      background: var(--gun); border: 1px solid #3a3234;
+      padding: 6px 10px; border-radius: 4px; min-width: 72px; text-align: center;
+    }
+    .hud .stat .lbl { color: var(--muted); font-size: 10px; display: block; }
+    .hud .stat .val { color: var(--amber); font-weight: 700; font-size: 16px; }
+    .hud .lives .val { color: var(--danger); letter-spacing: 2px; }
+    .hud .combo .val { color: #ff7a45; }
+
+    #stage-wrap {
+      flex: 1; position: relative; min-height: 0;
+      background: linear-gradient(180deg, #12101a 0%, #1c1416 40%, #2a1818 100%);
+      border: 2px solid #3a2828; border-radius: 6px;
+      overflow: hidden;
+      box-shadow: inset 0 0 60px rgba(0,0,0,.6);
+    }
+    #stage {
+      position: absolute; inset: 0;
+    }
+    /* vanishing point floor */
+    #stage::after {
+      content: "";
+      position: absolute; left: 0; right: 0; bottom: 0; height: 38%;
+      background: linear-gradient(180deg, transparent, rgba(40,20,20,.5));
+      pointer-events: none;
+      border-top: 1px solid rgba(139,21,21,.25);
+    }
+
+    .zombie {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex; flex-direction: column; align-items: center;
+      transition: none;
+      will-change: top, transform, opacity;
+      pointer-events: none;
+    }
+    .zombie .sprite {
+      font-size: 28px; line-height: 1;
+      filter: drop-shadow(0 4px 6px rgba(0,0,0,.7));
+      transition: transform .08s;
+    }
+    .zombie.hit .sprite { transform: scale(1.25) rotate(-8deg); filter: brightness(2); }
+    .zombie.die {
+      animation: die .35s forwards;
+    }
+    @keyframes die {
+      to { opacity: 0; transform: translateX(-50%) scale(1.4) translateY(-20px); }
+    }
+    .zombie .word {
+      margin-top: 4px;
+      font-family: var(--mono);
+      font-size: 13px;
+      background: rgba(0,0,0,.75);
+      border: 1px solid #5a4040;
+      padding: 3px 8px;
+      border-radius: 3px;
+      white-space: nowrap;
+      max-width: 280px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      letter-spacing: .02em;
+    }
+    .zombie .word .done { color: var(--ok); }
+    .zombie .word .next {
+      color: var(--amber);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    .zombie .word .rest { color: var(--text); }
+    .zombie.target .word {
+      border-color: var(--amber);
+      box-shadow: 0 0 10px rgba(232,168,56,.35);
+    }
+    .zombie.near .word { border-color: var(--danger); }
+
+    #input-bar {
+      margin-top: 10px;
+      display: flex; gap: 10px; align-items: center;
+    }
+    #typed {
+      flex: 1;
+      font-family: var(--mono);
+      font-size: 18px;
+      background: var(--panel);
+      border: 2px solid #4a3838;
+      color: var(--amber);
+      padding: 10px 14px;
+      border-radius: 4px;
+      min-height: 44px;
+      letter-spacing: .05em;
+    }
+    #typed.empty::before {
+      content: attr(data-placeholder);
+      color: var(--muted); font-size: 14px;
+    }
+    .btn {
+      font-family: var(--font);
+      font-weight: 700;
+      font-size: 13px;
+      padding: 10px 16px;
+      border: none; border-radius: 4px;
+      cursor: pointer;
+      background: var(--blood);
+      color: #fff;
+      transition: background .15s, transform .1s;
+    }
+    .btn:hover { background: var(--blood-bright); }
+    .btn:active { transform: scale(.97); }
+    .btn.secondary {
+      background: var(--gun);
+      border: 1px solid #4a4042;
+      color: var(--text);
+    }
+    .btn.secondary:hover { background: #3a3234; }
+
+    .overlay {
+      position: absolute; inset: 0;
+      background: rgba(8,4,4,.88);
+      display: flex; align-items: center; justify-content: center;
+      z-index: 10;
+      backdrop-filter: blur(2px);
+    }
+    .overlay.hidden { display: none; }
+    .panel {
+      background: var(--panel);
+      border: 2px solid var(--blood);
+      border-radius: 8px;
+      padding: 28px 32px;
+      max-width: 440px; width: 92%;
+      text-align: center;
+      box-shadow: 0 0 40px rgba(139,21,21,.35);
+    }
+    .panel h1 {
+      font-size: clamp(22px, 4vw, 32px);
+      color: var(--blood-bright);
+      letter-spacing: .06em;
+      margin-bottom: 6px;
+      text-shadow: 0 0 20px rgba(196,30,30,.4);
+    }
+    .panel .sub {
+      color: var(--muted); font-size: 13px; margin-bottom: 18px;
+    }
+    .panel p { font-size: 14px; line-height: 1.6; color: var(--text); margin-bottom: 12px; }
+    .opts {
+      display: flex; flex-direction: column; gap: 10px;
+      text-align: left; margin: 16px 0 20px;
+    }
+    .opts label {
+      display: flex; align-items: center; gap: 8px;
+      font-size: 14px; color: var(--text);
+    }
+    .opts select {
+      flex: 1;
+      background: var(--gun); color: var(--text);
+      border: 1px solid #4a4042; border-radius: 4px;
+      padding: 6px 8px; font-family: var(--font);
+    }
+    .keys-hint {
+      font-size: 12px; color: var(--muted); margin-top: 12px;
+      font-family: var(--mono); line-height: 1.5;
+    }
+    .flash {
+      position: absolute; inset: 0; pointer-events: none; z-index: 5;
+      background: rgba(255,80,80,.25); opacity: 0;
+      transition: opacity .05s;
+    }
+    .flash.on { opacity: 1; }
+    .muzzle {
+      position: absolute; bottom: 8%; left: 50%;
+      transform: translateX(-50%);
+      font-size: 11px; color: var(--muted);
+      font-family: var(--mono); opacity: .7;
+    }
+    #fx-score {
+      position: absolute; pointer-events: none; z-index: 6;
+      font-family: var(--mono); font-weight: 700;
+      color: var(--amber); font-size: 18px;
+      animation: floatUp .7s forwards;
+    }
+    @keyframes floatUp {
+      from { opacity: 1; transform: translateY(0); }
+      to { opacity: 0; transform: translateY(-40px); }
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <header>
+      <div class="logo">
+        JAVA TYPING OF THE DEAD
+        <small>死亡之屋・Java 打字版</small>
+      </div>
+      <div class="hud">
+        <div class="stat"><span class="lbl">分數</span><span class="val" id="score">0</span></div>
+        <div class="stat combo"><span class="lbl">連擊</span><span class="val" id="combo">0</span></div>
+        <div class="stat"><span class="lbl">波次</span><span class="val" id="wave">1</span></div>
+        <div class="stat"><span class="lbl">正確率</span><span class="val" id="acc">100%</span></div>
+        <div class="stat lives"><span class="lbl">性命</span><span class="val" id="lives">♥♥♥</span></div>
+      </div>
+    </header>
+
+    <div id="stage-wrap">
+      <div id="stage"></div>
+      <div class="flash" id="flash"></div>
+      <div class="muzzle">⌨ 打字射擊｜Esc 暫停</div>
+
+      <div class="overlay" id="start-screen">
+        <div class="panel">
+          <h1>JAVA TYPING<br>OF THE DEAD</h1>
+          <div class="sub">死亡之屋・Java 打字版</div>
+          <p>僵尸由遠逼近。打對頭上嘅 Java 字串就開槍消滅；漏打扣命。學 Java，順便練盲打。</p>
+          <div class="opts">
+            <label>詞庫
+              <select id="mode">
+                <option value="keywords">關鍵字（較短）</option>
+                <option value="phrases" selected>短句／API</option>
+                <option value="all">全部混合</option>
+              </select>
+            </label>
+            <label>難度
+              <select id="diff">
+                <option value="easy">輕鬆</option>
+                <option value="normal" selected>普通</option>
+                <option value="hard">地獄</option>
+              </select>
+            </label>
+          </div>
+          <button class="btn" id="btn-start" type="button">開始狩獵</button>
+          <div class="keys-hint">
+            字母／符號直接輸入　Backspace 刪錯字<br>
+            Esc 暫停／繼續　Enter 遊戲結束後再開
+          </div>
+        </div>
+      </div>
+
+      <div class="overlay hidden" id="pause-screen">
+        <div class="panel">
+          <h1>暫停</h1>
+          <p>Esc 繼續　或撳下面</p>
+          <button class="btn" id="btn-resume" type="button">繼續</button>
+          <button class="btn secondary" id="btn-quit" type="button" style="margin-left:8px">返主選單</button>
+        </div>
+      </div>
+
+      <div class="overlay hidden" id="gameover-screen">
+        <div class="panel">
+          <h1>GAME OVER</h1>
+          <p id="go-msg">僵尸吞咗你。</p>
+          <p style="font-family:var(--mono);color:var(--amber)" id="go-stats"></p>
+          <button class="btn" id="btn-retry" type="button">再開一局</button>
+          <button class="btn secondary" id="btn-menu" type="button" style="margin-left:8px">主選單</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="input-bar">
+      <div id="typed" class="empty" data-placeholder="喺度顯示你打緊嘅字…"></div>
+      <button class="btn secondary" id="btn-pause" type="button" disabled>暫停</button>
+    </div>
+  </div>
+
+  <script src="words.js"></script>
+  <script>
+(function () {
+  "use strict";
+
+  const WORDS = window.JAVA_WORDS || { keywords: ["public","class","void"], phrases: ["System.out.println"], all: ["public","class"] };
+  const SPRITES = ["🧟","🧟‍♂️","🧟‍♀️","☠️","💀"];
+
+  const DIFF = {
+    easy:   { lives: 5, spawnMs: 2200, speed: 0.018, maxOnScreen: 3, scoreMul: 1 },
+    normal: { lives: 3, spawnMs: 1600, speed: 0.028, maxOnScreen: 4, scoreMul: 1.2 },
+    hard:   { lives: 2, spawnMs: 1100, speed: 0.040, maxOnScreen: 5, scoreMul: 1.5 }
+  };
+
+  const el = {
+    stage: document.getElementById("stage"),
+    typed: document.getElementById("typed"),
+    score: document.getElementById("score"),
+    combo: document.getElementById("combo"),
+    wave: document.getElementById("wave"),
+    acc: document.getElementById("acc"),
+    lives: document.getElementById("lives"),
+    flash: document.getElementById("flash"),
+    start: document.getElementById("start-screen"),
+    pause: document.getElementById("pause-screen"),
+    over: document.getElementById("gameover-screen"),
+    goMsg: document.getElementById("go-msg"),
+    goStats: document.getElementById("go-stats"),
+    mode: document.getElementById("mode"),
+    diff: document.getElementById("diff"),
+    btnStart: document.getElementById("btn-start"),
+    btnResume: document.getElementById("btn-resume"),
+    btnQuit: document.getElementById("btn-quit"),
+    btnRetry: document.getElementById("btn-retry"),
+    btnMenu: document.getElementById("btn-menu"),
+    btnPause: document.getElementById("btn-pause")
+  };
+
+  let state = "menu"; // menu | play | pause | over
+  let pool = [];
+  let zombies = [];
+  let buffer = "";
+  let score = 0;
+  let combo = 0;
+  let maxCombo = 0;
+  let lives = 3;
+  let wave = 1;
+  let kills = 0;
+  let typedOk = 0;
+  let typedBad = 0;
+  let spawnTimer = 0;
+  let lastTs = 0;
+  let cfg = DIFF.normal;
+  let baseSpawn = 1600;
+  let baseSpeed = 0.028;
+  let raf = 0;
+  let usedRecent = [];
+
+  function hearts(n) {
+    return "♥".repeat(Math.max(0, n)) + "♡".repeat(Math.max(0, cfg.lives - n));
+  }
+
+  function updateHud() {
+    el.score.textContent = String(Math.floor(score));
+    el.combo.textContent = String(combo);
+    el.wave.textContent = String(wave);
+    const total = typedOk + typedBad;
+    const pct = total === 0 ? 100 : Math.round((typedOk / total) * 100);
+    el.acc.textContent = pct + "%";
+    el.lives.textContent = hearts(lives);
+  }
+
+  function setBuffer(s) {
+    buffer = s;
+    if (!s) {
+      el.typed.textContent = "";
+      el.typed.classList.add("empty");
+    } else {
+      el.typed.classList.remove("empty");
+      el.typed.textContent = s;
+    }
+    refreshWordHighlights();
+  }
+
+  function pickWord() {
+    if (!pool.length) return "public";
+    let tries = 0;
+    let w;
+    do {
+      w = pool[Math.floor(Math.random() * pool.length)];
+      tries++;
+    } while (usedRecent.includes(w) && tries < 20);
+    usedRecent.push(w);
+    if (usedRecent.length > 12) usedRecent.shift();
+    // Prefer shorter early, longer later
+    if (wave < 3 && w.length > 18 && Math.random() < 0.6) {
+      const short = pool.filter(x => x.length <= 14);
+      if (short.length) w = short[Math.floor(Math.random() * short.length)];
+    }
+    return w;
+  }
+
+  function spawnZombie() {
+    if (zombies.length >= cfg.maxOnScreen + Math.floor(wave / 3)) return;
+    const word = pickWord();
+    const lane = (Math.random() - 0.5) * 56; // % offset from center
+    const z = {
+      id: Math.random().toString(36).slice(2),
+      word,
+      progress: 0, // 0 far → 1 near
+      lane,
+      sprite: SPRITES[Math.floor(Math.random() * SPRITES.length)],
+      matched: 0,
+      el: null,
+      dying: false
+    };
+    const node = document.createElement("div");
+    node.className = "zombie";
+    node.innerHTML =
+      '<div class="sprite">' + z.sprite + "</div>" +
+      '<div class="word"></div>';
+    z.el = node;
+    el.stage.appendChild(node);
+    zombies.push(z);
+    placeZombie(z);
+    renderWord(z);
+  }
+
+  function placeZombie(z) {
+    // progress 0 → top 8%, small; progress 1 → bottom 72%, big
+    const top = 6 + z.progress * 62;
+    const scale = 0.55 + z.progress * 1.1;
+    const x = 50 + z.lane * (0.35 + z.progress * 0.65);
+    z.el.style.top = top + "%";
+    z.el.style.left = x + "%";
+    z.el.style.transform = "translateX(-50%) scale(" + scale + ")";
+    z.el.style.zIndex = String(Math.floor(z.progress * 100));
+    if (z.progress > 0.72) z.el.classList.add("near");
+    else z.el.classList.remove("near");
+  }
+
+  function renderWord(z) {
+    const w = z.word;
+    const m = z.matched;
+    const wordEl = z.el.querySelector(".word");
+    let html = "";
+    for (let i = 0; i < w.length; i++) {
+      const ch = w[i] === " " ? "␣" : w[i];
+      if (i < m) html += '<span class="done">' + escapeHtml(ch) + "</span>";
+      else if (i === m) html += '<span class="next">' + escapeHtml(ch) + "</span>";
+      else html += '<span class="rest">' + escapeHtml(ch) + "</span>";
+    }
+    wordEl.innerHTML = html;
+  }
+
+  function escapeHtml(s) {
+    return s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+  }
+
+  function refreshWordHighlights() {
+    // Find best target: longest prefix match with buffer, prefer nearer
+    let best = null;
+    let bestScore = -1;
+    for (const z of zombies) {
+      if (z.dying) continue;
+      if (buffer.length === 0) {
+        z.matched = 0;
+        z.el.classList.remove("target");
+        renderWord(z);
+        continue;
+      }
+      if (z.word.startsWith(buffer)) {
+        const s = buffer.length * 10 + z.progress;
+        if (s > bestScore) { bestScore = s; best = z; }
+      }
+      z.matched = 0;
+      z.el.classList.remove("target");
+    }
+    if (best) {
+      best.matched = buffer.length;
+      best.el.classList.add("target");
+      renderWord(best);
+      // clear others
+      for (const z of zombies) {
+        if (z !== best && !z.dying) renderWord(z);
+      }
+    } else {
+      for (const z of zombies) {
+        if (!z.dying) renderWord(z);
+      }
+    }
+    return best;
+  }
+
+  function killZombie(z) {
+    z.dying = true;
+    z.el.classList.add("hit", "die");
+    combo++;
+    if (combo > maxCombo) maxCombo = combo;
+    const pts = Math.floor((10 + z.word.length * 2) * (1 + combo * 0.08) * cfg.scoreMul);
+    score += pts;
+    kills++;
+    typedOk += z.word.length;
+    flashMuzzle();
+    spawnFloat(z, "+" + pts);
+    setTimeout(() => {
+      if (z.el && z.el.parentNode) z.el.parentNode.removeChild(z.el);
+      zombies = zombies.filter(x => x !== z);
+    }, 320);
+    setBuffer("");
+    updateHud();
+    // wave every 8 kills
+    wave = 1 + Math.floor(kills / 8);
+    el.wave.textContent = String(wave);
+  }
+
+  function spawnFloat(z, text) {
+    const f = document.createElement("div");
+    f.id = "fx-score";
+    f.textContent = text;
+    const r = z.el.getBoundingClientRect();
+    const sr = el.stage.getBoundingClientRect();
+    f.style.left = (r.left - sr.left + r.width / 2) + "px";
+    f.style.top = (r.top - sr.top) + "px";
+    el.stage.appendChild(f);
+    setTimeout(() => f.remove(), 700);
+  }
+
+  function flashMuzzle() {
+    el.flash.classList.add("on");
+    setTimeout(() => el.flash.classList.remove("on"), 60);
+  }
+
+  function leakLife(z) {
+    if (z.dying) return;
+    z.dying = true;
+    z.el.classList.add("die");
+    lives--;
+    combo = 0;
+    flashMuzzle();
+    updateHud();
+    setTimeout(() => {
+      if (z.el && z.el.parentNode) z.el.parentNode.removeChild(z.el);
+      zombies = zombies.filter(x => x !== z);
+    }, 280);
+    if (lives <= 0) gameOver();
+  }
+
+  function tick(ts) {
+    if (state !== "play") { lastTs = ts; raf = requestAnimationFrame(tick); return; }
+    if (!lastTs) lastTs = ts;
+    const dt = Math.min(50, ts - lastTs);
+    lastTs = ts;
+
+    const speedMul = 1 + (wave - 1) * 0.12;
+    const spawnMs = Math.max(450, baseSpawn / speedMul);
+
+    spawnTimer += dt;
+    if (spawnTimer >= spawnMs) {
+      spawnTimer = 0;
+      spawnZombie();
+    }
+
+    for (const z of zombies.slice()) {
+      if (z.dying) continue;
+      z.progress += baseSpeed * speedMul * (dt / 16.67) * 0.016;
+      placeZombie(z);
+      if (z.progress >= 1) leakLife(z);
+    }
+
+    raf = requestAnimationFrame(tick);
+  }
+
+  function startGame() {
+    const mode = el.mode.value;
+    pool = (WORDS[mode] && WORDS[mode].length) ? WORDS[mode].slice() : WORDS.all.slice();
+    cfg = DIFF[el.diff.value] || DIFF.normal;
+    baseSpawn = cfg.spawnMs;
+    baseSpeed = cfg.speed;
+    score = 0; combo = 0; maxCombo = 0;
+    lives = cfg.lives; wave = 1; kills = 0;
+    typedOk = 0; typedBad = 0;
+    spawnTimer = 800;
+    usedRecent = [];
+    zombies.forEach(z => z.el && z.el.remove());
+    zombies = [];
+    setBuffer("");
+    updateHud();
+    el.start.classList.add("hidden");
+    el.pause.classList.add("hidden");
+    el.over.classList.add("hidden");
+    el.btnPause.disabled = false;
+    state = "play";
+    lastTs = 0;
+    if (!raf) raf = requestAnimationFrame(tick);
+    // first zombie soon
+    spawnZombie();
+  }
+
+  function pauseGame() {
+    if (state !== "play") return;
+    state = "pause";
+    el.pause.classList.remove("hidden");
+  }
+
+  function resumeGame() {
+    if (state !== "pause") return;
+    state = "play";
+    el.pause.classList.add("hidden");
+    lastTs = 0;
+  }
+
+  function toMenu() {
+    state = "menu";
+    zombies.forEach(z => z.el && z.el.remove());
+    zombies = [];
+    setBuffer("");
+    el.start.classList.remove("hidden");
+    el.pause.classList.add("hidden");
+    el.over.classList.add("hidden");
+    el.btnPause.disabled = true;
+  }
+
+  function gameOver() {
+    state = "over";
+    el.over.classList.remove("hidden");
+    el.goMsg.textContent = kills > 15 ? "打得唔錯，僵尸都驚你打字。" : "僵尸衝埋身——再練多幾轉！";
+    const total = typedOk + typedBad;
+    const pct = total === 0 ? 100 : Math.round((typedOk / total) * 100);
+    el.goStats.textContent =
+      "分數 " + Math.floor(score) +
+      "　擊殺 " + kills +
+      "　最高連擊 " + maxCombo +
+      "　正確率 " + pct + "%";
+    el.btnPause.disabled = true;
+  }
+
+  function onKey(e) {
+    if (state === "menu") {
+      if (e.key === "Enter") { e.preventDefault(); startGame(); }
+      return;
+    }
+    if (state === "over") {
+      if (e.key === "Enter") { e.preventDefault(); startGame(); }
+      return;
+    }
+    if (e.key === "Escape") {
+      e.preventDefault();
+      if (state === "play") pauseGame();
+      else if (state === "pause") resumeGame();
+      return;
+    }
+    if (state !== "play") return;
+
+    if (e.key === "Backspace") {
+      e.preventDefault();
+      if (buffer.length) setBuffer(buffer.slice(0, -1));
+      return;
+    }
+
+    // printable single char
+    if (e.key.length === 1 && !e.ctrlKey && !e.metaKey && !e.altKey) {
+      e.preventDefault();
+      const next = buffer + e.key;
+      // Does any zombie have this as prefix?
+      const any = zombies.some(z => !z.dying && z.word.startsWith(next));
+      if (!any) {
+        typedBad++;
+        combo = 0;
+        updateHud();
+        // brief shake on typed bar
+        el.typed.style.borderColor = "#ff4444";
+        setTimeout(() => { el.typed.style.borderColor = ""; }, 120);
+        // don't add wrong char (strict mode) OR add then clear — strict feels better for learning
+        return;
+      }
+      setBuffer(next);
+      const target = zombies.find(z => !z.dying && z.word === next);
+      if (target) killZombie(target);
+      else refreshWordHighlights();
+    }
+  }
+
+  el.btnStart.addEventListener("click", startGame);
+  el.btnResume.addEventListener("click", resumeGame);
+  el.btnQuit.addEventListener("click", toMenu);
+  el.btnRetry.addEventListener("click", startGame);
+  el.btnMenu.addEventListener("click", toMenu);
+  el.btnPause.addEventListener("click", () => {
+    if (state === "play") pauseGame();
+    else if (state === "pause") resumeGame();
+  });
+  window.addEventListener("keydown", onKey);
+
+  // show word counts on menu
+  const nAll = (WORDS.all || []).length;
+  const nKw = (WORDS.keywords || []).length;
+  const nPh = (WORDS.phrases || []).length;
+  document.querySelector(".panel .sub").textContent =
+    "死亡之屋・Java 打字版　｜　詞庫 " + nAll + " 條（關鍵字 " + nKw + "／短句 " + nPh + "）";
+
+  updateHud();
+})();
+  </script>
+</body>
+</html>
